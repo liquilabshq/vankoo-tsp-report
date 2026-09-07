@@ -37,7 +37,7 @@
          <th>Apellidos y Nombres</th>
       </tr>
       <tr>
-         <td>U202216171</td>
+         <td>U20221G044</td>
          <td>Amaro Villar, Anjali</td>
       </tr>
       <tr>
@@ -200,19 +200,19 @@ _Pendiente de elaboración._
 <!-- Por integrante: foto, nombres y apellidos, código de estudiante, descripción de carrera y un párrafo de resumen con los principales conocimientos técnicos y habilidades que aporta al equipo. -->
 <!-- Assets: ./assets/profiles/ -->
 
-| <img src="./assets/profiles/perfil-amaro-anjali.jpeg" width="140"> | **Amaro Villar, Anjali**<br>Código: &lt;Código&gt;<br>Carrera: Ingeniería de Software<br><br>_Pendiente de elaboración._ |
+| <img src="./assets/profiles/perfil-amaro-anjali.png" width="140"> | **Amaro Villar, Anjali**<br>Código: U20221G044<br>Carrera: Ingeniería de Software<br><br>_Conocimiento en bases de datos y aseguramiento de calidad de software. Experiencia en diseño de pruebas, validación funcional y gestión de incidencias._ |
+|-------------------------------------------------------------------|---|
+
+| <img src="./assets/profiles/perfil-crispin-daniel.png" width="140"> | **Crispin Ramos, Daniel Franco**<br>Código: U20221G120<br>Carrera: Ingeniería de Software<br><br>_Tengo conocimientos en desarrollo web frontend y backend, programación orientada a objetos y uso de Git. Soy una persona responsable, comprometida y con facilidad para trabajar en equipo._ |
 |---|---|
 
-| <img src="./assets/profiles/perfil-crispin-daniel.jpeg" width="140"> | **Crispin Ramos, Daniel Franco**<br>Código: U20221G120<br>Carrera: Ingeniería de Software<br><br>_Pendiente de elaboración._ |
+| <img src="./assets/profiles/perfil-ramirez-salim.png" width="140"> | **Ramirez Mestanza, Salim Ignacio**<br>Código: U20201E843<br>Carrera: Ingeniería de Software<br><br>_Conocimiento en arquitectura de software y control de versiones con Git. Experiencia en documentación técnica y colaboración en equipos ágiles._ |
 |---|---|
 
-| <img src="./assets/profiles/perfil-ramirez-salim.jpeg" width="140"> | **Ramirez Mestanza, Salim Ignacio**<br>Código: U20201E843<br>Carrera: Ingeniería de Software<br><br>_Pendiente de elaboración._ |
+| <img src="./assets/profiles/perfil-sulca-paul.png" width="140"> | **Sulca Gonzales, Paúl Fernando**<br>Código: U20221C486<br>Carrera: Ingeniería de Software<br><br>_Conocimiento en diseño de software orientado a objetos y modelado UML. Experiencia en implementación de interfaces web adaptativas._ |
 |---|---|
 
-| <img src="./assets/profiles/perfil-sulca-paul.jpeg" width="140"> | **Sulca Gonzales, Paúl Fernando**<br>Código: U20221C486<br>Carrera: Ingeniería de Software<br><br>_Pendiente de elaboración._ |
-|---|---|
-
-| <img src="./assets/profiles/perfil-vilca-diego.jpeg" width="140"> | **Vilca Saboya, Diego Alejandro**<br>Código: &lt;Código&gt;<br>Carrera: Ingeniería de Software<br><br>_Pendiente de elaboración._ |
+| <img src="./assets/profiles/perfil-vilca-diego.png" width="140"> | **Vilca Saboya, Diego Alejandro**<br>Código: U20231A778<br>Carrera: Ingeniería de Software<br><br>_Conocimiento en desarrollo web utilizando las últimas tecnologías en tendencia. Experiencia en elaboración de diagramas de arquitectura y prototipado UX/UI._ |
 |---|---|
 
 <hr class="page-break">
