@@ -1771,21 +1771,30 @@ Enlace al video demostrativo de la aplicación web de la plataforma Vankoo: [htt
 
 ## 4.6. Domain-Driven Software Architecture
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+La arquitectura de software de Vankoo se documenta siguiendo el C4 Model, el cual permite representar el sistema en niveles progresivos de abstracción —contexto, contenedores y componentes— manteniendo la trazabilidad con los *bounded contexts* identificados en el diseño orientado al dominio: identidad, perfil, facturación, finanzas, riesgo crediticio, inversión y notificaciones. Los diagramas fueron elaborados en Structurizr a partir de un modelo DSL versionado, de modo que las vistas se mantengan sincronizadas conforme evoluciona el sistema.
 
 ### 4.6.1. Software Architecture Context Diagram
 
-<!-- Diagrama de contexto del C4 Model, elaborado en Structurizr. Fuente en src/, export en out/. -->
-<!-- Assets: ./assets/cap4-product-design/software-architecture/context-diagram/ -->
 
-_Pendiente de elaboración._
+
+El diagrama de contexto de Vankoo muestra a los dos actores que interactúan directamente con la plataforma: la **Mype**, empresa que publica y gestiona sus facturas, y el **Inversionista**, usuario que financia las facturas disponibles en el marketplace. Vankoo se representa como el sistema en foco y se apoya en cuatro sistemas externos: **Amazon S3**, utilizado para el almacenamiento de archivos y fotografías (documentos KYC y facturas); **Stripe API**, la pasarela de pagos externa que procesa cobros, recargas y retiros; **Firebase (FCM)**, encargado del envío de notificaciones push hacia la aplicación móvil; y **Cloud OCR API** (Azure Form Recognizer), que recibe las imágenes de las facturas y devuelve en formato JSON los datos extraídos para automatizar su registro.
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/software-architecture/context-diagram/out/vankoo-context-diagram.png" alt="Vankoo — Software Architecture Context Level Diagram" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.6.1. Diagrama de contexto (C4 Nivel 1) de Vankoo.*
 
 ### 4.6.2. Software Architecture Container Diagrams
 
-<!-- Diagramas de contenedores del C4 Model, elaborados en Structurizr. Fuente en src/, export en out/. -->
-<!-- Assets: ./assets/cap4-product-design/software-architecture/container-diagrams/ -->
 
-_Pendiente de elaboración._
+El diagrama de contenedores detalla la arquitectura interna de Vankoo, organizada en cuatro capas. La capa de **aplicaciones cliente** está compuesta por la Web SPA (React) que usa la Mype y la Mobile Application (Kotlin Multiplatform) que usa el Inversionista, ambas enrutadas por un Load Balancer (NGINX) como punto de entrada. La capa de **entrada y enrutamiento** la conforman el API Gateway (Java + Spring Boot), que valida los JWT y enruta las peticiones, y un Discovery Server (Netflix Eureka) para el registro de los microservicios. La capa de **microservicios de dominio** materializa cada bounded context como un servicio independiente con base de datos propia (persistencia poliglota): IAM Service (usuarios y RBAC, PostgreSQL), Profile Service (perfil y KYC, PostgreSQL), Invoicing Service (OCR y documentos de facturación, MongoDB), Finance Service (billetera, pagos y retiros bajo Event Sourcing/CQRS con Axon Framework, PostgreSQL), Risk Service (scoring crediticio con IA, MySQL) e Investment Service (marketplace de facturas y subastas, Oracle DB). Estos servicios se comunican de forma asíncrona mediante un **Message Broker** (Apache Kafka), que propaga eventos de dominio (p. ej. *"Factura Creada"*, *"Score Calculado"*, *"Inversión Realizada"*) y desacopla los bounded contexts, incluyendo al Notification Service, que consume dichos eventos para enviar correos y notificaciones push. Los sistemas externos son los mismos del diagrama de contexto: Amazon S3, Cloud OCR API, Stripe API y Firebase (FCM).
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/software-architecture/container-diagrams/out/vankoo-container-diagram.png" alt="Vankoo — Software Architecture Container Level Diagram" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.6.2. Diagrama de contenedores (C4 Nivel 2) de Vankoo.*
 
 ### 4.6.3. Software Architecture Components Diagrams
 
