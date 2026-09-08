@@ -700,10 +700,56 @@ Módulo de cierre que sintetiza la promesa de liquidez con accesos directos a re
 
 ### 4.3.2. Landing Page Mock-up
 
-<!-- Mock-ups del Landing Page en su versión Desktop Web Browser y Mobile Web Browser, aplicando el Design System establecido. -->
-<!-- Assets: ./assets/cap4-product-design/landing-page/mockups/ -->
+A continuación, se presentan los mockups de alta fidelidad de la Landing Page tanto para Desktop Web Browser como para Mobile Web Browser. En esta fase se incorporan la identidad visual de Vankoo, paleta cromática corporativa, tipografía definitiva, microinteracciones, iconografía detallada y componentes visuales finales, consolidando los principios de accesibilidad, legibilidad y jerarquía visual.
 
-_Pendiente de elaboración._
+**Hero**
+
+Presentación de alta fidelidad con contrastes optimizados, tipografía de alto impacto y estilo visual consolidado. En desktop, la tarjeta preview emula la interfaz real del sistema con indicadores de estado cromáticos e importes destacados; en la variante móvil, los elementos se apilan verticalmente priorizando la legibilidad y el acceso táctil a los llamados a la acción primarios.
+
+![Mockup Hero](./assets/cap4-product-design/landing-page/mockups/hero-mockup.png)
+![Mockup Hero Mobile](./assets/cap4-product-design/landing-page/mockups/hero-mockup-mobile.png)
+
+**Flujo del Proceso**
+
+Representación visual de los cinco hitos operativos mediante una línea de tiempo limpia con badges de autoría diferenciados por color (Usuario, Sistema e Inversionistas). Los módulos inferiores de incidencias y excepciones utilizan estados cromáticos suaves de alerta para brindar transparencia operativa sin sobrecargar visualmente la pantalla.
+
+![Mockup Flujo del Proceso](./assets/cap4-product-design/landing-page/mockups/flow-process-mockup.png)
+![Mockup Flujo del Proceso Mobile](./assets/cap4-product-design/landing-page/mockups/flow-process-mockup-mobile.png)
+
+**Simulador de costos**
+
+Diseño final e interactivo del panel de cotización con controles visuales pulidos (toggles segmentados, slider interactivo y chips de selección de plazo). El panel de resultados contrasta sobre fondo claro con números destacados, detallando visualmente el desglose financiero exacto de la operación tanto en escritorio como en navegación táctil móvil.
+
+![Mockup Simulador de costos](./assets/cap4-product-design/landing-page/mockups/cost-simulator-mockup.png)
+![Mockup Simulador de costos Mobile](./assets/cap4-product-design/landing-page/mockups/cost-simulator-mockup-mobile.png)
+
+**Propuesta de valor por segmento**
+
+Implementación del conmutador de audiencias (Para tu MYPE / Para invertir) con retroalimentación visual de estado activo. La cuadrícula de beneficios incorpora iconos finales representativos, espacios en blanco equilibrados y tarjetas con bordes suaves que jerarquizan las ventajas competitivas de la plataforma.
+
+![Mockup Propuesta de valor por segmento](./assets/cap4-product-design/landing-page/mockups/value-proposition-mockup.png)
+![Mockup Propuesta de valor por segmento Mobile](./assets/cap4-product-design/landing-page/mockups/value-proposition-mockup-mobile.png)
+
+**Clasificación de riesgo** 
+
+Tarjetas modulares de alta fidelidad para las categorías A, B y C con contenedores de badges diferenciados y jerarquía tipográfica definida. El diseño transmite confiabilidad y rigor financiero mediante microtextos concisos, facilitando la comprensión inmediata del riesgo y retorno esperado.
+
+![Mockup Clasificación de riesgo](./assets/cap4-product-design/landing-page/mockups/risk-classification-mockup.png)
+![Mockup Clasificación de riesgo Mobile](./assets/cap4-product-design/landing-page/mockups/risk-classification-mockup-mobile.png)
+
+**Preguntas frecuentes (FAQ)**
+
+Componente de acordeón con tratamiento visual acabado, separadores sutiles e indicadores de apertura/cierre claros. En la versión mobile, la separación entre filas y el área táctil de interacción están optimizadas para facilitar la navegación con el pulgar.
+
+![Mockup Preguntas frecuentes](./assets/cap4-product-design/landing-page/mockups/faq-mockup.png)
+![Mockup Preguntas frecuentes Mobile](./assets/cap4-product-design/landing-page/mockups/faq-mockup-mobile.png)
+
+**Llamado a la acción final y Footer**
+
+Bloque contenedor oscuro con contraste directo para guiar la conversión final del usuario hacia el registro o inicio de sesión. La sección culmina con un footer corporativo estructurado por columnas temáticas, tipografía de soporte en escala reducida y avisos legales dispuestos de forma equilibrada.
+
+![Mockup Llamado a la acción final y Footer](./assets/cap4-product-design/landing-page/mockups/cta-footer-mockup.png)
+![Mockup Llamado a la acción final y Footer Mobile](./assets/cap4-product-design/landing-page/mockups/cta-footer-mockup-mobile.png)
 
 <hr class="page-break">
 
