@@ -472,14 +472,23 @@ _Pendiente de elaboración._
 
 ## 2.3. Needfinding
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+El proceso de Needfinding se desarrolló a partir de la información recopilada en las entrevistas y del análisis de la competencia, con el objetivo de identificar los problemas, necesidades y oportunidades reales de los segmentos objetivo. A partir de estos hallazgos, se construyeron los siguientes artefactos que permiten comprender en profundidad a los usuarios de Vankoo, sus tareas, sus experiencias y sus emociones.
 
 ### 2.3.1. User Personas
 
 <!-- Una ficha de User Persona por cada segmento objetivo, elaborada en UXPressia. Iniciar con una introducción que explique la relación entre los artefactos y las características tomadas del análisis de entrevistas y de la competencia. -->
 <!-- Assets: ./assets/cap2-requirements-elicitation/user-personas/ -->
 
-_Pendiente de elaboración._
+A partir del análisis de entrevistas, del estudio de la competencia y de los segmentos objetivo identificados, se definieron dos User Personas que representan a los principales usuarios de Vankoo. Cada ficha sintetiza los objetivos, frustraciones y comportamientos más recurrentes de su segmento, y sirve de referencia para la priorización de funcionalidades y el diseño de las historias de usuario.
+
+**User Persona MYPE**
+
+![User Persona MYPE](./assets/cap2-requirements-elicitation/user-personas/user-mype.png)
+
+
+**User Persona Inversionista**
+
+![User Persona Inversionista](./assets/cap2-requirements-elicitation/user-personas/user-inversionista.png)
 
 ### 2.3.2. User Task Matrix
 
