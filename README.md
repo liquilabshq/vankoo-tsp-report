@@ -675,22 +675,101 @@ _Pendiente de elaboración: párrafo introductorio del capítulo._
 
 ## 4.1. Style Guidelines
 
-<!-- Repositorio central y organizado de uso común para todo el equipo: assets, fonts, etc. -->
-<!-- Assets: ./assets/cap4-product-design/style-guidelines/ -->
+El equipo ha establecido un repositorio centralizado de diseño (*Design System*) en Figma para garantizar una presentación consistente, intuitiva y profesional en toda la experiencia digital de **LiquiLabs**. Este sistema de diseño consolida todos los activos visuales, componentes de interfaz y tokens de diseño reutilizables tanto para la experiencia del sitio web estático (Landing Page) como para la aplicación web transaccional (*Web App*).
 
-_Pendiente de elaboración._
+![Visión General del Sistema de Diseño - Design System](./assets/cap4-product-design/style-guidelines/Group%201.png)  
 
 ### 4.1.1. General Style Guidelines
 
-<!-- Decisiones y referencias visuales sobre Branding, Typography, Colors y Spacing, junto con las dimensiones del tono de comunicación y lenguaje (Divertido/Serio, Formal/Casual, Respetuoso/Irreverente, Entusiasta/Sereno). Incluir el sustento de principios y elementos de diseño considerados. -->
+En las guías de estilo generales se sientan los principios visuales fundamentales, las referencias de marca y las decisiones conceptuales que rigen la identidad visual de LiquiLabs.
 
-_Pendiente de elaboración._
+#### Branding e Identidad de Marca
+La marca LiquiLabs combina la confianza y solidez del sector financiero con la agilidad y transparencia de las tecnologías emergentes. Su imagotipo representa el flujo dinámico de capitales y la conversión directa de facturas en liquidez.
+
+![Identidad de Marca y Logotipo](./assets/cap4-product-design/style-guidelines/logo.png)  
+
+#### Expresión y Tono de Comunicación
+El lenguaje de LiquiLabs se articula mediante cuatro dimensiones clave para transmitir confianza técnica, claridad financiera y cercanía con los emprendedores e inversionistas:
+* **Formal vs. Casual**: Balanceado hacia un tono profesional pero cercano, eliminando la opacidad y complejidad del lenguaje bancario tradicional.
+* **Respetuoso vs. Irreverente**: Altamente respetuoso con el capital de los usuarios y riguroso en la comunicación de riesgos.
+* **Entusiasta vs. Sereno**: Sereno y transparente, enfocado en mostrar datos objetivos e indicadores claros de rentabilidad y salud financiera.
+* **Divertido vs. Serio**: Serio en la seguridad de las transacciones y la trazabilidad de fondos, con una interfaz moderna e interactiva.
+
+![Expresión y Tono de Comunicación](./assets/cap4-product-design/style-guidelines/expresion.png)  
+
+#### Paleta de Colores (Color Palette)
+El sistema cromático de LiquiLabs está diseñado con una base oscura moderna para reducir la fatiga visual (*Dark Mode Support*), combinada con tonos verdes de alto contraste que simbolizan el crecimiento económico y la propuesta distintiva de **Factoring Verde**. Incluye estados semánticos claros para informaciones financieras (éxito, advertencia, peligro y neutros).
+
+![Paleta de Colores](./assets/cap4-product-design/style-guidelines/color.png)  
+
+#### Tipografía (Typography System)
+Se utiliza una familia tipográfica sans-serif limpia y geométrica optimizada para interfaces digitales y legibilidad de datos numéricos. La escala incluye jerarquías definidas para títulos de dashboards, encabezados de tarjetas, cuerpo de texto y etiquetas de datos.
+
+![Escala Tipográfica](./assets/cap4-product-design/style-guidelines/typography.png)  
+
+#### Sistema de Espaciado y Bordes (Spacing & Radius)
+Para mantener alineación y ritmo visual consistente en todas las pantallas, se utiliza una grilla basada en múltiplos de 8px (8px Grid System) para márgenes y rellenos internos. Los radios de borde (*border-radius*) otorgan un acabado redondeado y suave a tarjetas y botones.
+
+![Espaciado y Radios](./assets/cap4-product-design/style-guidelines/spacing-radius.png)  
+
+#### Elevación y Sombras (Elevation & Depth)
+Se definen niveles de profundidad mediante capas de sombra suaves (*box-shadows*) para crear jerarquía Z-index entre el fondo, los contenedores principales, las tarjetas interactivas y las ventanas modales o menús desplegables.
+
+![Sistema de Elevación](./assets/cap4-product-design/style-guidelines/elevation.png)  
+
+#### Iconografía (Icons System)
+El conjunto de iconos vectoriales mantiene un estilo de línea limpia (*line art*) con grosor constante. Facilita la comprensión intuitiva de acciones clave como carga de documentos PDF/XML, calificaciones de riesgo, estados de cobranza y opciones de inversión.
+
+![Sistema de Iconos](./assets/cap4-product-design/style-guidelines/icons.png)  
 
 ### 4.1.2. Web Style Guidelines
 
-<!-- Estándares visuales y de interacción para responsive web interfaces. -->
+Las guías de estilo web definen la biblioteca de componentes interactivos y los patrones visuales para las interfaces responsivas de la plataforma. Cada componente contempla sus respectivos estados (Normal, Hover, Active, Focus, Disabled).
 
-_Pendiente de elaboración._
+#### Botones (Button Component)
+Definición de elementos de llamada a la acción (*CTA*). Incluye botones primarios para acciones clave ("Descontar Factura", "Confirmar Inversión"), secundarios para acciones secundarias, botones de contorno (*Ghost*) e indicadores de estado deshabilitado.
+
+![Componente de Botones](./assets/cap4-product-design/style-guidelines/button.png)  
+
+#### Etiquetas de Estado (Badges & Chips)
+Componentes visuales de tamaño compacto para clasificar el estado de las operaciones ("Aprobada", "En Subasta", "Cobrada"), niveles de scoring de riesgo y la etiqueta distintiva de "Factoring Verde".
+
+![Badges y Etiquetas](./assets/cap4-product-design/style-guidelines/badges.png)  
+
+#### Campos de Entrada (Input & Form Components)
+Elementos para la captura de datos del usuario: campos de texto simples y con iconos, selectores desplegables, validación en tiempo real y el componente drag-and-drop para la lectura de facturas electrónicas.
+
+![Campos de Entrada e Inputs](./assets/cap4-product-design/style-guidelines/input.png)  
+
+#### Tarjetas e Indicadores (Cards & KPI)
+Contenedores estructurados para mostrar información financiera sintetizada: fichas de facturas en subasta, resúmenes de portafolio de inversión y tarjetas KPI de salud financiera de la MYPE.
+
+![Tarjetas y KPIs](./assets/cap4-product-design/style-guidelines/cards.png)  
+
+#### Navegación Web (Navigation Components)
+Componentes que guían al usuario por la estructura de la aplicación y la landing page: barra de navegación superior (*Header/Navbar*), menú lateral (*Sidebar*) y barras de pestañas (*Tabs*).
+
+![Componentes de Navegación](./assets/cap4-product-design/style-guidelines/navigation.png)  
+
+#### Controles de Selección (Controls)
+Interruptores de activación (*switches*), casillas de verificación (*checkboxes*) y botones de opción (*radio buttons*) utilizados en paneles de filtro de mercado, preferencias de reinversión y términos legales.
+
+![Controles de Selección](./assets/cap4-product-design/style-guidelines/controls.png)  
+
+#### Tablas de Datos (DataTable Component)
+Componente de grilla de datos optimizado para la visualización de grandes listas de facturas, historial de transacciones y estados de cobranza, con soporte para columnas ordenables y paginación.
+
+![Tablas de Datos DataTable](./assets/cap4-product-design/style-guidelines/data-table.png)  
+
+#### Estructuras de Layout (Shells Component)
+Plantillas de distribución de pantalla que organizan las vistas de la web app en zonas funcionales fijas (cabecera, navegación lateral y área principal de contenido).
+
+![Shells y Layouts](./assets/cap4-product-design/style-guidelines/shells.png)  
+
+#### Retroalimentación y Notificaciones (Feedback Components)
+Elementos para notificar al usuario sobre el resultado de sus acciones o guiar procesos: ventanas modales de confirmación, mensajes emergentes (*Toast*), barras de progreso y spinners de carga.
+
+![Feedback y Alertas](./assets/cap4-product-design/style-guidelines/feedback.png)  
 
 <hr class="page-break">
 
