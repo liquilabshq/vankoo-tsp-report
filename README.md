@@ -1051,8 +1051,20 @@ _Pendiente de elaboración._
 
 ## Anexo B: Enlaces a los repositorios del proyecto
 
-_Pendiente de elaboración._
-
 | Producto | Repositorio |
 |---|---|
-|  |  |
+| Vankoo API Gateway | [liquilabshq/vankoo-api-gateway](https://github.com/liquilabshq/vankoo-api-gateway) |
+| Vankoo Discovery Server | [liquilabshq/vankoo-discovery-server](https://github.com/liquilabshq/vankoo-discovery-server) |
+| Vankoo Docs | [liquilabshq/vankoo-docs](https://github.com/liquilabshq/vankoo-docs) |
+| Vankoo Finance Service | [liquilabshq/vankoo-finance-service](https://github.com/liquilabshq/vankoo-finance-service) |
+| Vankoo IAM Service | [liquilabshq/vankoo-iam-service](https://github.com/liquilabshq/vankoo-iam-service) |
+| Vankoo Infrastructure | [liquilabshq/vankoo-infra](https://github.com/liquilabshq/vankoo-infra) |
+| Vankoo Investment Service | [liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service) |
+| Vankoo Invoicing Service | [liquilabshq/vankoo-invoicing-service](https://github.com/liquilabshq/vankoo-invoicing-service) |
+| Vankoo Investor Mobile | [liquilabshq/vankoo-investor-mobile](https://github.com/liquilabshq/vankoo-investor-mobile) |
+| Vankoo Landing Page | [liquilabshq/vankoo-landing-page](https://github.com/liquilabshq/vankoo-landing-page) |
+| Vankoo MYPE Web | [liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web) |
+| Vankoo Notification Service | [liquilabshq/vankoo-notification-service](https://github.com/liquilabshq/vankoo-notification-service) |
+| Vankoo Profile Service | [liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service) |
+| Vankoo Risk Service | [liquilabshq/vankoo-risk-service](https://github.com/liquilabshq/vankoo-risk-service) |
+| Vankoo TSP Report | [liquilabshq/vankoo-tsp-report](https://github.com/liquilabshq/vankoo-tsp-report) |
