@@ -480,32 +480,60 @@ _Pendiente de elaboración._
 
 ## 2.3. Needfinding
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+El proceso de Needfinding se desarrolló a partir de la información recopilada en las entrevistas y del análisis de la competencia, con el objetivo de identificar los problemas, necesidades y oportunidades reales de los segmentos objetivo. A partir de estos hallazgos, se construyeron los siguientes artefactos que permiten comprender en profundidad a los usuarios de Vankoo, sus tareas, sus experiencias y sus emociones.
 
 ### 2.3.1. User Personas
 
-<!-- Una ficha de User Persona por cada segmento objetivo, elaborada en UXPressia. Iniciar con una introducción que explique la relación entre los artefactos y las características tomadas del análisis de entrevistas y de la competencia. -->
-<!-- Assets: ./assets/cap2-requirements-elicitation/user-personas/ -->
+A partir del análisis de entrevistas, del estudio de la competencia y de los segmentos objetivo identificados, se definieron dos User Personas que representan a los principales usuarios de Vankoo. Cada ficha sintetiza los objetivos, frustraciones y comportamientos más recurrentes de su segmento, y sirve de referencia para la priorización de funcionalidades y el diseño de las historias de usuario.
 
-_Pendiente de elaboración._
+**User Persona MYPE**
+
+User persona del segmento objetivo MYPES: representada por **Carlos, el empresario MYPE**, dueño de una micro o pequeña empresa que busca obtener liquidez inmediata de forma rápida y simple para la operatividad de su negocio, sin necesidad de conocimientos financieros avanzados.
+
+![User Persona MYPE](./assets/cap2-requirements-elicitation/user-personas/user-mype.png)
+
+**User Persona Inversionista**
+
+User persona del segmento de Inversionistas: representada por **Sofía, la inversionista**, profesional interesada en invertir su capital en MYPEs con la expectativa de obtener rentabilidad, y que valora la transparencia, la seguridad y la información confiable de cada oportunidad.
+
+![User Persona Inversionista](./assets/cap2-requirements-elicitation/user-personas/user-inversionista.png)
 
 ### 2.3.2. User Task Matrix
 
-<!-- Tareas que los User Persona realizan para cumplir sus objetivos, con Frecuencia e Importancia por cada User Persona. Luego del cuadro, explicar las tareas con mayor frecuencia e importancia, diferencias y coincidencias. -->
-<!-- Assets: ./assets/cap2-requirements-elicitation/user-task-matrix/ -->
+A continuación, se presenta el User task matrix donde se compara las tareas de cada segmento.
 
-_Pendiente de elaboración._
-
-| Task | &lt;User Persona 1&gt; Frecuencia | &lt;User Persona 1&gt; Importancia | &lt;User Persona 2&gt; Frecuencia | &lt;User Persona 2&gt; Importancia |
+| Tareas | Empresario MYPE (Carlos) Frecuencia | Empresario MYPE (Carlos) Importancia | Inversionista (Sofía) Frecuencia | Inversionista (Sofía) Importancia |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| Monitorear el flujo de caja disponible | Alta | Alta | Media | Media |
+| Gestionar la cobranza de facturas | Alta | Alta | Baja | Baja |
+| Buscar fuentes de financiamiento | Media | Alta | Baja | Baja |
+| Evaluar oportunidades de inversión | Baja | Baja | Alta | Alta |
+| Analizar el riesgo de contraparte | Media | Alta | Alta | Alta |
+| Ejecutar pagos o transferencias | Alta | Alta | Media | Alta |
+| Gestionar documentos tributarios | Alta | Media | Baja | Baja |
+| Monitorear el retorno de capital | Baja | Baja | Alta | Alta |
+| Buscar educación financiera | Baja | Media | Media | Media |
+
+A partir de la matriz presentada, se identifican los siguientes puntos claves que fundamentan el diseño de Vankoo:  
+Mientras Carlos (MYPE) concentra sus tareas de mayor frecuencia e importancia en la gestión reactiva de cobranza y flujo de caja para garantizar la operatividad de su negocio, Sofía (Inversionista) realiza tareas proactivas de evaluación y monitoreo de rentabilidad. A pesar de estas diferencias en sus objetivos, ambos perfiles coinciden en asignar una importancia crítica al análisis de riesgo y la ejecución segura de transacciones, lo que confirma que la propuesta de valor de Vankoo reside en conectar eficazmente la necesidad urgente de liquidez del primero con la demanda de inversión de la segunda, utilizando la tecnología para garantizar la confianza que ambos requieren.
 
 ### 2.3.3. User Journey Mapping
 
-<!-- Un User Journey Map As-Is por cada User Persona, elaborado en UXPressia. Iniciar con una introducción que resuma el end-to-end journey. -->
-<!-- Assets: ./assets/cap2-requirements-elicitation/user-journey-mapping/ -->
+En esta sección se presentan los User Journey Maps en su versión As-Is para los dos segmentos de usuario identificados: Carlos (Empresario MYPE) y Sofía (Inversionista Minorista). Estos diagramas ilustran el viaje de extremo a extremo (end-to-end journey) que experimentan actualmente en el ecosistema financiero peruano. Se detallan los puntos de contacto, los procesos manuales, las barreras de entrada y las frustraciones derivadas de la exclusión bancaria y la falta de alternativas digitales ágiles, evidenciando la oportunidad de diseño antes de la existencia de Vankoo.
 
-_Pendiente de elaboración._
+**User Journey Map - Empresario MYPE (Carlos)**
+
+El journey de Carlos inicia con el registro de una venta y la emisión de su factura, continúa con la espera del pago que se extiende más allá de los plazos legales y termina con su frustración al enfrentar la falta de liquidez para cubrir sus gastos operativos. Durante el recorrido se evidencian puntos de dolor como el acceso limitado al crédito bancario, los requisitos de garantía rígidos y la dependencia de procesos manuales para gestionar sus cuentas por cobrar.
+
+![User Journey Map MYPE](./assets/cap2-requirements-elicitation/user-journey-mapping/user-journey-map-mype.png)
+
+**User Journey Map - Inversionista (Sofía)**
+
+El journey de Sofía inicia con la búsqueda de opciones de inversión rentables, pasa por la comparación de alternativas tradicionales y finaliza con la limitación de destinar su capital a productos con baja rentabilidad o altas barreras de entrada. Durante el recorrido se evidencian puntos de dolor como la poca transparencia de información, los montos mínimos elevados y la falta de herramientas digitales que le permitan monitorear sus inversiones en tiempo real.
+
+![User Journey Map Inversionista](./assets/cap2-requirements-elicitation/user-journey-mapping/user-journey-map-inversionista.png)
+
+
 
 ### 2.3.4. Empathy Mapping
 
