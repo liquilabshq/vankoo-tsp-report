@@ -1021,12 +1021,13 @@ _Pendiente de elaboración._
 
 # Bibliografía
 
-<!-- Todas las referencias bibliográficas en formato APA, utilizadas como base para el desarrollo del trabajo o referenciadas en secciones del informe. Usar la clase .ref para la sangría francesa. -->
-
-_Pendiente de elaboración._
-
-<div class="ref">
-
+<div>
+<p class="ref">CAVALI. (2024). <em>Reporte de desempeño de facturas negociables</em>. <a href="https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf">https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf</a></p>
+<p class="ref">ComexPerú. (2025). <em>Inclusión financiera de las MYPE: avances y retos</em>. <a href="https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos">https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos</a></p>
+<p class="ref">Contadores y Empresas. (2025). <em>Operaciones de factoring crecieron 14% en 2024</em>. <a href="https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/">https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/</a></p>
+<p class="ref">Innova Funding. (2022). <em>Ley de pago de facturas para MYPE a 30 días en Perú</em>. <a href="https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/">https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/</a></p>
+<p class="ref">LP. (2021). <em>Ley 31362, MYPE podrán cobrar facturas en un plazo máximo de 30 días</em>. <a href="https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/">https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/</a></p>
+<p class="ref">PRODUCE. (2025). <em>Estado de la inclusión financiera - MYPE</em>. <a href="https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf">https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf</a></p>
 </div>
 
 <hr class="page-break">
