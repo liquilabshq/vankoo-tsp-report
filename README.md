@@ -1935,14 +1935,457 @@ Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a60040
 
 #### 5.2.1.3. Development Evidence for Sprint Review
 
-<!-- Avances en implementación según el alcance del Sprint: Landing Page, Web Applications y Web Services. Tabla con los commits de cada repositorio relacionados con la implementación. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/development-evidence/ -->
+Durante el Sprint 1, el equipo de desarrollo se enfocó en construir la base de la plataforma **Vankoo** de **LiquiLabs**, abarcando tanto las aplicaciones de cara al usuario (**Landing Page** y **Web Application**) como la arquitectura de microservicios backend (**IAM Service**, **Profile Service**, **Invoicing Service**, **Investment Service** y **Finance Service**). A continuación, se presentan las evidencias de desarrollo organizadas por repositorio, detallando la URL oficial de GitHub y el registro de commits realizados durante este Sprint.
 
-_Pendiente de elaboración: introducción que resuma los principales avances._
+---
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
-|---|---|---|---|---|---|
-|  |  |  |  |  |  |
+**Repositorio: Landing Page**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-landing-page](https://github.com/liquilabshq/vankoo-landing-page)
+
+La Landing Page pública constituye el canal principal de captación y presentación de LiquiLabs para las MYPES e inversionistas. En este Sprint 1 se implementó la estructura base del proyecto, configuración del sistema de diseño visual, soporte PWA, localización i18n, presentación, calculadora/simulador de liquidez y sección de pie de página (footer).
+
+| Repository | Branch  | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|---------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-landing-page | develop | 26227bc | Merge pull request #7 from liquilabshq/chore/drop-the-eyebrows | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 78b92d6 | refactor: drop every eyebrow, and paint the figure with the panel's own green | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | ac9f728 | Merge pull request #6 from liquilabshq/feature/section-rhythm | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 3942aac | refactor: colour the milestones by actor and dissolve the trust section | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 97fd296 | Merge pull request #5 from liquilabshq/chore/refresh-figma-tokens | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 95dfa03 | chore: refresh the Figma dump and let the generator assert instead of patch | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 2250f30 | Merge pull request #4 from liquilabshq/feature/discount-calculator | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 946b724 | feat: show the discount arithmetic in a section of its own | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 3de22ca | Merge pull request #3 from liquilabshq/fix/header-pin-threshold | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 9f169b0 | fix: pin the header on the hero's position, not on the sentinel's visibility | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 3b56519 | Merge pull request #2 from liquilabshq/fix/header-pinning-and-rail-tokens | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | d5585da | fix: run the header script after the document and bind the rail to the right tokens | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 4e634c9 | Merge pull request #1 from liquilabshq/feature/landing-page | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | 5e221de | feat: build the landing page in Spanish and English | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | c219338 | feat: generate the design tokens from Figma and set up the toolchain | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | develop | a8b8d75 | chore: pin toolchain and vendor design skills | - | 07/09/2026 |
+| liquilabshq/vankoo-landing-page | main    | d6aee77 | Initial commit from Astro | - | 07/09/2026 |
+
+---
+
+**Repositorio: Web Application (MYPE & Investor Web App)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web]()
+
+La aplicación web transaccional permite la interacción directa de los empresarios MYPE para descontar facturas y de los inversionistas para explorar la subasta de oportunidades. En el Sprint 1 se construyó el cascarón de la aplicación (*AdminShell*), sistema de autenticación, integración con PrimeNG, componentes de layout (Sidebar, Navbar, Cards) y ruteo base por roles.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-mype-web | develop | 06bb503 | Merge pull request #12 from liquilabshq/feature/preferences-outline | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | aedc85b | fix(a11y): give the preferences switcher an outline that can be seen | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 529aeb2 | Merge pull request #11 from liquilabshq/feature/preferences-switcher | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 0b61573 | feat(ui): let the web pick its language and theme | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | c5ab8e2 | fix(ui): size the small button from the design system, not from shadcn | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 3aadf8a | Merge pull request #10 from liquilabshq/feature/password-recovery | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | e8a408e | feat(iam): wire password recovery to the real endpoints | - | 06/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | eaafd40 | Merge pull request #8 from liquilabshq/feature/i18n | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 4525192 | Merge pull request #7 from liquilabshq/feature/iam-problem-details | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | fb563d4 | Merge pull request #9 from liquilabshq/feature/iam-context | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 72dc477 | Merge pull request #5 from liquilabshq/feature/decor-tokens | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 0ad1122 | feat(i18n): translate the app with i18next and locale files | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | e896bbb | feat(iam): map problem+json codes to user-facing copy | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 18dea25 | fix(ui): fill the inputs with surface/raised and top-align the mobile form | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 67c3d0d | fix(ui): bind the shadcn primitives to the design system's own measurements | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | ffbb1db | fix(iam): match the dot field's real size and calm the lights on mobile | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | f1455ce | fix(iam): make the brand panel hold its proportions, and use the real wordmark | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | f5347c6 | feat(iam): build the identity context and the app's first real routes | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 9831edd | feat(tokens): add the decor tokens for fixed-brand surfaces | - | 05/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 0fd9f74 | Merge pull request #4 from liquilabshq/fix/type-tracking | - | 03/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | b4fbf5a | fix(tokens): carry letter spacing from the Figma text styles | - | 03/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | a8e613c | Merge pull request #3 from liquilabshq/fix/elevation-tokens | - | 03/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | eb844c9 | fix(tokens): add elevation, and stop border/focus colliding with itself | - | 03/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 65cec9d | Merge pull request #2 from liquilabshq/fix/weight-tokens | - | 03/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | ac6c1ee | fix(tokens): add the font-weight tokens that were dropped in the export | - | 03/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | efc5399 | Merge pull request #1 from liquilabshq/feature/project-setup | - | 01/09/2026 |
+| liquilabshq/vankoo-mype-web | develop | 08eeaf4 | feat(ui): wire the figma design tokens into tailwind and shadcn | - | 31/08/2026 |
+| liquilabshq/vankoo-mype-web | develop | b87944d | chore(setup): add tailwind 4 and configure the @ path alias | - | 31/08/2026 |
+| liquilabshq/vankoo-mype-web | develop | 4396104 | feat(skills): add shadcn skill to the project | - | 31/08/2026 |
+| liquilabshq/vankoo-mype-web | develop | 2442166 | feat(skills): add ddd-react skill to the project | - | 31/08/2026 |
+| liquilabshq/vankoo-mype-web | main | 64a686e | chore: initial commit | - | 31/08/2026 |
+
+
+---
+
+**Repositorio: IAM Service (Identity & Access Management)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-iam-service](https://github.com/liquilabshq/vankoo-iam-service)
+
+Microservicio encargado del registro, autenticación, emisión de tokens JWT, hashing seguro de contraseñas y control de acceso basado en roles (RBAC) para empresarios, inversionistas y administradores.
+
+| Repository                     | Branch                     | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|--------------------------------|----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-iam-service | develop                    | ff142f6 | Merge pull request #11 from liquilabshq/feature/password-recovery | - | 06/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 72294de | feat(iam): expose forgot-password and reset-password | - | 06/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | f7ba2b6 | feat(iam): send the reset link by mail through a port | - | 06/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 9bbd983 | feat(iam): model the password reset token | - | 06/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 3177da1 | Merge pull request #10 from liquilabshq/refactor/domain-exceptions-package | - | 05/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 6bfc0a4 | refactor(iam): move the domain exceptions up beside model | - | 05/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 684b5d5 | Merge pull request #9 from liquilabshq/feature/rfc9457-error-handling | - | 05/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 0970483 | fix(iam): stop logging the JWT | - | 05/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 2808415 | fix(iam): restrict self-assignable roles on sign-up | - | 05/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 36b53cd | feat(iam): return errors as application/problem+json (RFC 9457) | - | 05/09/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 88c12cf | docs: actualizar README y setup con información adicional sobre la documentación del proyecto y dependencias clave | - | 15/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 560acba | Merge pull request #8 from proyecto-verano-2026/feature/optimizaciones | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 93dc87b | feat: mejorar la carga de roles de usuario y optimizar consultas para evitar problemas de N+1 | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 71c4089 | fix: corregir formato de generación de UserId en el constructor | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | aac859e | feat: actualizar configuración de JPA y logging en archivos de aplicación para entornos de desarrollo, Docker y producción | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | b1c0a45 | fix: actualizar URLs de documentación en configuración de Docker | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | e22bb10 | feat: agregar configuración de documentación para entornos de desarrollo y Docker en YAML y OpenAPI | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 07e3232 | chore: agregar comentario sobre la configuración de CORS en WebSecurityConfiguration | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 0ef2806 | fix: cambiar UserDetailsServiceImpl para usar UserId en vez de Email | - | 09/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | c50bd9d | Merge pull request #7 from proyecto-verano-2026/feature/mejoras-eventos | - | 08/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 1037ae9 | feat: actualizar configuración de Kafka y renombrar bindings de eventos | - | 08/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | e70ddc4 | feat: mejorar servicio de eventos y manejar eventos de usuario creado | - | 08/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | d657403 | Merge pull request #6 from proyecto-verano-2026/feature/contenerizacion | - | 04/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 4e5f806 | docs: agregar documentación inicial sobre la configuración del proyecto en setup.md | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 684a6ad | docs: agregar documentación inicial para el servicio IAM en README.md | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | b7f5116 | fix: actualizar variables de configuración de Kafka en archivos YAML | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 7e54558 | feat: agregar rutas de acceso para Actuator en la configuración de seguridad | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 5c8075e | build: agregar Dockerfile para la construcción y ejecución del servicio IAM | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 89765df | fix: corregir nombres de variables de configuración de base de datos en archivos YAML | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 8972bbc | Merge pull request #5 from proyecto-verano-2026/feature/implementacion-eureka | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | a0a08ad | build(application): agregar configuración de Eureka y soporte para Docker en el servicio IAM | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | ba8c7d6 | feat: agregar soporte para Eureka en el servicio de autenticación y actualizar dependencias | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | dcd39f4 | Merge pull request #4 from proyecto-verano-2026/feature/implementacion-ddd | - | 03/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 714a277 | feat: actualizar TokenService para incluir ID de usuario, correo electrónico y roles en la generación de tokens | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 7564b16 | feat: mejorar la documentación OpenAPI para los endpoints de registro e inicio de sesión | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | d68e965 | feat: agregar documentación OpenAPI para los endpoints de autenticación y consulta de usuario | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 379a865 | feat: implementar consulta de usuario por correo electrónico en el servicio de usuarios | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | f4e20fe | feat: agregar opción de tema 'kepler' en la configuración de scalar | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | b03f9c2 | feat: agregar configuración de documentación OpenAPI y esquema de seguridad JWT | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 5898f5f | feat: implementar funcionalidad de inicio de sesión con validación de usuario y generación de token | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | b1e09de | feat: implementar autenticación con JWT y autorización con bcrypt | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | eb53f57 | refactor: mover archivo iam-context.puml a docs/diagrams/ | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/password-recovery  | 2730ff7 | build(pom): actualizar versiones de dependencias y mitigar vulnerabilidad CVE-2025-66566 | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 19cdc9d | feat: implementar versionamiento de API con Spring Boot 4 y configuración de OpenAPI | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | ebd6245 | feat: implementación automática de población de data en la tabla roles | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | ee81dc9 | Merge remote-tracking branch 'origin/feature/implementacion-ddd' into feature/implementacion-ddd | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 159dcc2 | refactor: cambiar la implementación de la creación del usuario para ser mas fiel a ddd | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | a3816b5 | refactor: cambiar la implementación de la creación del usuario para ser mas fiel a ddd | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | aa96b9d | feat: implementar entidad Role y sus value objects RoleId y RoleName | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | ebe73f2 | docs: agregar diagrama de modelo de dominio para el contexto IAM | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 4a06ec5 | feat: implementar Email como value object en la entidad User y actualizar servicios relacionados | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 748aadd | feat: agregar estrategia de nombrado físico para tablas en snake_case y pluralizar nombres de tablas | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | ed1b40d | feat: implementar UserId como value object y agregar soporte de auditoría en la entidad User | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 76b5bff | Merge pull request #3 from proyecto-verano-2026/feature/real-integracion-kafka | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | ce7683d | feat: implementar creación de usuario y publicación de eventos en Kafka | - | 28/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 6f65169 | Merge pull request #2 from proyecto-verano-2026/feature/test-integracion-kafka | - | 25/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 63e86e0 | feat: actualizar la dependencia equivocada por la dependencia real de kafka test para pruebas | - | 24/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | e1fdfb7 | feat: agregar integración inicial de kafka | - | 23/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | fa3df18 | Merge pull request #1 from proyecto-verano-2026/feature/estructura-inicial | - | 23/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/versionamiento-api | 3710416 | feat: estructura inicial con Scalar y API de HelloWorld | - | 22/02/2026 |
+| liquilabshq/vankoo-iam-service | main                       | 9bcfd88 | chore: commit inicial | - | 15/02/2026 |
+
+---
+
+**Repositorio: Profile Service (Gestión de Perfiles y KYC)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service)
+
+Microservicio responsable de gestionar los perfiles de usuario, datos empresariales de MYPES (RUC, razón social), información de inversionistas y el proceso de verificación biométrica y legal (KYC).
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-profile-service | feature/profile-tests | 38f8b18 | test: add unit and integration tests for company/investor aggregates | - | 22/08/2026 |
+| liquilabshq/vankoo-profile-service | main | 6978f15 | Merge pull request #8 from liquilabshq/develop | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | develop | 2bf9a0b | Merge pull request #7 from liquilabshq/feature/amazon-s3-integration | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | 9cda68d | fix(storage): sign MinIO presigned URLs against the public host | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | develop | 65d5d75 | Merge pull request #5 from liquilabshq/feature/amazon-s3-integration | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | f6fa721 | feat: add minio for local development | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | main | 7183db0 | Merge pull request #4 from liquilabshq/develop | - | 20/08/2026 |
+| liquilabshq/vankoo-profile-service | main | 87d75fb | Merge pull request #3 from liquilabshq/feature/amazon-s3-integration | - | 20/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | 35246c1 | feat: add amazon s3 integration | - | 20/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | 6469ef3 | Merge pull request #2 from liquilabshq/feature/eureka-integration | - | 19/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/eureka-integration | 7019b4e | feat(kyc): add kyc endpoints | - | 13/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/eureka-integration | 0ff5a84 | fix(docker): update dockerfile to install pnpm 10.30.2 version | - | 13/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/eureka-integration | 59603a9 | feat(discovery): add discovery server eureka integration | - | 13/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/eureka-integration | 0070627 | Merge pull request #1 from liquilabshq/feature/estructura-inicial | - | 28/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | f6c64cf | docs: add user-stories.md | - | 28/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | b8cdf02 | docs: update README.md with description of presigned URL pattern | - | 28/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | bca02a1 | feat: publish ProfileCompleted event to Kafka | - | 27/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | e2a5a45 | fix: allow multiple profiles without DNI/RUC via nullable columns | - | 27/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | ef1ae55 | fix: allow multiple profiles without DNI/RUC via nullable columns | - | 27/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | ce643a3 | feat(docker): add Dockerfile | - | 23/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | d18d956 | style: remove redundant comments | - | 23/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 4a35564 | feat: profile orejon ahora escucha eventos | - | 12/03/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 8115ffa | feat: super refactorizaci├│n | - | 08/03/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 1c17d29 | feat: agregar estructura inicial | - | 27/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 9834860 | feat: agregar logger para inicio de la aplicaci├│n en main.ts | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 926bd5d | feat: agregar ProfilesModule y actualizar nombre del paquete a @vankoo/profile-service | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 800a77c | docs: agregar documentaci├│n sobre NestJS y su arquitectura en README.md y crear nest.md | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 1a3fb22 | docs: agregar secci├│n de pruebas y configuraci├│n en WebStorm al README.md | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | a710f36 | docs: actualizar README.md con informaci├│n sobre el microservicio Vankoo y configuraci├│n de pnpm | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 7ba43de | build: actualizar .gitignore, y .nvmrc, y configurar el pnpm workspace | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | d6bb546 | chore: primer commit | - | 25/02/2026 |
+
+
+---
+
+**Repositorio: Invoicing Service (Gestión de Facturas Negociables)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-invoicing-service](https://github.com/liquilabshq/vankoo-invoicing-service)
+
+Microservicio encargado de la recepción de archivos PDF/XML de facturas electrónicas, extracción automática de metadatos con IA (OCR+NLP), validación de constancias ante SUNAT/CAVALI y gestión del estado de comprobantes.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-invoicing-service | develop | dfa5199 | Merge pull request #14 from liquilabshq/refactor/ocr-implementation-improvements | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 2b0dcfe | Merge remote-tracking branch 'origin/develop' into refactor/ocr-implementation-improvements | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | c78fe0d | feat: add tests for Azure OCR mapping and invoice consistency validation | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | ab48d82 | feat: enhance invoice processing with improved data structures and error handling | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | c4a5bcf | Merge pull request #13 from liquilabshq/feature/add-aws-s3-storage-provider | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-aws-s3-storage-provider | 54e12cb | feat(storage): add AWS S3 provider | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-aws-s3-storage-provider | 3ecc325 | Merge pull request #12 from liquilabshq/feature/setup-harness-engineering | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/setup-harness-engineering | b6bb988 | chore: add engineering setup harness | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/setup-harness-engineering | bacbb3b | Merge pull request #11 from proyecto-verano-2026/feature/invoicing-documentation | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 865f52c | feat: add README.md for invoicing service documentation | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 3ef6f53 | feat: add CLAUDE.md for AI agent guidelines and project architecture | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 9c4deaf | Merge pull request #10 from proyecto-verano-2026/feature/invoicing-docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 47dcd3e | feat: remove compose.yaml from solution items | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: a├▒adir verificaci├│n de salud para MinIO mediante un health check | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexi├│n y a├▒adir soporte para OCR y Kafka en archivos de configuraci├│n | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: a├▒adir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: a├▒adir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con m├║ltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | a80e424 | Merge pull request #9 from proyecto-verano-2026/feature/internal-ocr-task-worker | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: a├▒adir clase OcrWorkerSettings para configurar par├ímetros del trabajador de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: a├▒adir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: a├▒adir enumeraci├│n OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: a├▒adir implementaci├│n de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: a├▒adir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: a├▒adir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: a├▒adir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e0eee2c | feat: eliminar propiedad MypeId de UploadInvoiceResource | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 1d99809 | feat: configurar OcrWorkerSettings y registrar OcrTaskWorker en el contenedor de servicios | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicaci├│n de eventos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: a├▒adir comentario sobre la creaci├│n din├ímica de t├│picos en KafkaEventBus | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e5d4768 | feat: actualizar InvoicesController para generar un nuevo MypeId al subir una factura | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar m├®todo EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma s├¡ncrona | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: a├▒adir el m├®todo EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 58488bf | Merge pull request #8 from proyecto-verano-2026/feature/add-event-for-upload-invoice | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el m├®todo UploadInvoice para usar el request UploadInvoiceResource y a├▒adir la respuesta InvoiceResource | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 1a0b494 | feat: agregar funcionalidad para subir y descargar facturas mediante comandos y consultas | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | b1783e0 | feat: implementar descarga de archivos desde MinIO en MinioStorageService y ajustar procesamiento de OCR | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | c1c41fb | Merge pull request #7 from proyecto-verano-2026/refactor/ocr-implementation-improvements | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 3d09d86 | refactor: remove unused CreateInvoice method from InvoicesController | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | b4bdc83 | refactor: update OCR exception handling to use Azure-specific namespaces | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | bcff487 | refactor: reorganize OCR exception handling by moving exceptions | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | aa3d8b9 | refactor: update MinioStorageService to inject S3 client for improved dependency management | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 2289082 | refactor: enhance OCR processing with improved error handling and field extraction | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 0a8e4ce | refactor: implement domain and infrastructure exception handling for improved error management | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | f472f23 | refactor: implement global exception handler for improved error responses | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 51f1141 | refactor: enhance OCR exception handling with specific error codes | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 20c6d79 | refactor: mejorar manejo de excepciones en el servicio de OCR de Azure | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 834c472 | Merge pull request #6 from proyecto-verano-2026/feature/error-handling-strategy | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 4a82e7d | feat: agrega clase MongoDbOperationException para manejo de errores en operaciones de MongoDB | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 729ac4d | feat: agrega clase OcrProcessingException para manejo de errores en el procesamiento de OCR | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 338e4ed | feat: agrega clase StorageException para manejo de errores de almacenamiento | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | a6b5b13 | feat: implementa UploadInvoiceCommand y su manejador para subir facturas | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 975c258 | feat: implementa el GlobalExceptionHandler para manejo centralizado de excepciones | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones espec├¡ficas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 0afc917 | feat: agrega excepciones base para operaciones de base de datos y respuesta de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | e3f9115 | feat: agrega excepciones base para manejo de errores de dominio | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 8527b86 | feat: agrega el global exception handler y el soporte de detalle de problemas en Program.cs | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | d42cdfd | feat: implementa el MinioStorageService para upload, download, and deletion con manejo de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | f95443f | feat: refactoriza el LowOcrConfidenceException para extender de BusinessRuleViolationException y mejora el mensaje de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 3ff5e5c | feat: actuliza el InvoiceNotFoundException para extender de EntityNotFoundException y mejora el mensaje de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 36d5884 | feat: mejora el manejo de errores en InvoiceDocument remplazando por InvoiceDomainException por InvalidValueException | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | cb42611 | feat: enhance error handling in Invoice class by refining exception messages and types | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 51d0f86 | feat: refactor InvalidRucException to extend InvalidValueException and enhance error messaging | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 03b7120 | feat: refactor InvalidInvoiceStateException to extend BusinessRuleViolationException and improve error handling | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar m├®todos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gesti├│n de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 7e962ee | Merge pull request #5 from proyecto-verano-2026/feature/azure-ocr-integration | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 58a5639 | feat: agregar configuracion de servicio y mediatr al Program.cs | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6d3fa23 | feat: agregar metodos para procesamiento de ocr al aggregate Invoice | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | e3461f8 | feat: agregar endpoint en controller para el proceso de extraer data de factura | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | aece6cb | feat: actualizar dependencias del proyecto | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2132593 | feat: actualizar interfaz e implementacion del servico de OCR Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 011494f | chore: remover archivos no usados | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 536c85a | feat: agregar mediator en el handler para publicar el evento de dominio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4221c51 | chore: remover evento de factura creada | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | adebfee | feat: agregar mapper para convertir respuesta de azure al dominio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 08c7f55 | feat: agregar configuracion de kafka | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | dcbc63e | feat: agregar event handler de una factura procesada | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | baa9281 | feat: agregar interfaz e implementacionde event bus | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ce3157f | feat: agregar integration event para una factura procesada por ocr | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7d6e524 | feat: agregar domain event para una factura procesada por ocr | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | b234016 | feat: agregar implementacion del repositorio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 0315991 | feat: agregar base de sorage service | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuraci├│n para Azure OCR en appsettings.json | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integraci├│n con Azure Form Recognizer | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuraci├│n de OCR de Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ca29c71 | feat: agregar clases FileKey e InvoiceDocument para manejo de documentos de factura | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepci├│n personalizada para el procesamiento de OCR | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR s├¡ncrono de facturas | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 92a3569 | feat: agregar comando y manejador para consultar resultados de OCR | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 9cff590 | feat: implementar comando y manejador para iniciar procesamiento OCR de facturas | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validaci├│n para solicitudes en el pipeline | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6069cf3 | feat: agregar mapeo de respuesta de Azure Form Recognizer y DTOs asociados | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2da3bef | feat: agregar m├®todos as├¡ncronos para manejo de facturas en IInvoiceRepository | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7e9efb1 | feat: implementar servicio de procesamiento OCR con m├®todos s├¡ncronos y as├¡ncronos | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | fdbfe3e | feat: agregar OcrOperationId como vo para operacion de Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 49207ce | Merge pull request #3 from proyecto-verano-2026/feature/minio-storage | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminaci├│n de archivos en S3 | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de soluci├│n para soporte de MinIO y Docker | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | e973c56 | feat: refactorizacion de Invoice para usar el InvoiceDocument y actualizaciond el metodo factory | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuraci├│n de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuraci├│n de MinioSettings en appsettings.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar l├¡mites de tama├▒o de archivo | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuraci├│n del almacenamiento en MinIO | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | c878db1 | feat: agregar IStorageService para manejo de operaciones de almacenamiento | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8b940a9 | feat: actualizar InvoiceCreatedEvent para usar FileKey en lugar de FileUrl | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | e232cf7 | feat: agregar InvoiceDocument value object para el manejo de la subida de archivos | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 324cf95 | feat: agregar FileKey value object para la identificacion unica de los archivos | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 7921f86 | feat: agregar Docker Compose configuracion para el servicio de Invoicing | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f1c7b6b | feat: add Dockerfile and .dockerignore for containerization | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 7cde706 | Merge pull request #2 from proyecto-verano-2026/feature/modelo-dominio | - | 18/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/modelo-dominio | f8cd93b | feat: agregar aggregate y vo's | - | 18/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/modelo-dominio | ef2db6d | Merge pull request #1 from proyecto-verano-2026/feature/estructura-inicial | - | 15/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 002bae3 | chore: agregar configuraci├│n inicial de base de datos y ajustes de token | - | 15/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 4191da1 | chore: actualizar ajustes para los ambientes de desarrollo y productos con la base de datos y el token | - | 15/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 5b453bb | chore: agregar paquetes para MongoDB, MediatR, FluentValidation, Humanizer, JWT authentication, y OpenAPI documentation | - | 15/02/2026 |
+| liquilabshq/vankoo-invoicing-service | main | b33e8b8 | chore: primer commit | - | 14/02/2026 |
+
+
+---
+
+**Repositorio: Investment Service (Mercado de Subastas y Fondeo)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service)
+
+Microservicio que orquesta el Marketplace de subastas participativas, permitiendo el fraccionamiento (tokenización) de deuda, la compra de partes de facturas desde S/ 50 y la lógica de asignación automática de fondos.
+
+| Repository | Branch | Commit Id | Commit Message                                                                                       | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-investment-service | develop | 5838e67 | Merge pull request #5 from liquilabshq/feature/auction-financial-lifecycle                           | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 01484de | test: cover auction financial lifecycle                                                              | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | e2d0ddb | feat: implement auction financial lifecycle                                                          | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 08aaa0e | feat: agregar documentaci├│n sobre la arquitectura y el flujo de trabajo del harness                 | - | 26/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 76f818e | Merge pull request #4 from liquilabshq/feature/investment-partitions                                 | - | 19/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-partitions | a2f17ff | chore: update .gitignore                                                                             | - | 19/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-partitions | fac2ba6 | feat: implement investment flow for auction partitions                                               | - | 19/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 4eaf07a | Merge pull request #2 from liquilabshq/feature/interfaces-events                                     | - | 19/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/interfaces-events | cb12a2d | feat: implement event consumer for invoices eligible for financing and update auction logic          | - | 19/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | e512952 | Merge pull request #1 from proyecto-verano-2026/feature/interfaces-events                            | - | 15/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/interfaces-events | cf160d0 | feat: agregar consumidor de eventos OCR y ensamblador de comandos para la creaci├│n de subastas      | - | 15/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/interfaces-rest | b78bbf2 | feat: agregar controlador y recursos para la gestion de subastas                                     | - | 13/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/servicios-de-aplicacion | b2c531b | feat: implementar servicios de comandos y consultas para la gesti├│n de subastas                     | - | 13/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | 34b5094 | feat: actualizar destino de eventos de inversi├│n en la configuraci├│n de aplicaci├│n                | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | fec95d6 | feat: actualizar configuraci├│n de base de datos y agregar repositorios para la gesti├│n de subastas | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 6d287bf | feat: agregar clase principal para el servicio de inversi├│n Vankoo                                  | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 4910c83 | feat: agregar servicios de comandos y consultas para la gesti├│n de subastas                         | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | fbaa1e5 | feat: agregar eventos para la gesti├│n de subastas                                                   | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 5f5547d | feat: agregar comandos y consultas para la gesti├│n de subastas (Auctions)                           | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 9159d2a | feat: agregar Auction y Partition con value objects                                                  | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 9d81f03 | feat: agregar value objects para el aggregate root Auction                                           | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 22f9d31 | chore: initial commit                                                                                | - | 09/03/2026 |
+
+---
+
+**Repositorio: Finance Service (Core Financiero, Billetera y Ledger)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-finance-service](https://github.com/liquilabshq/vankoo-finance-service)
+
+Microservicio encargado del libro contable inmutable (*Event Sourcing / Ledger*), la gestión de transacciones monetarias, la custodia de la Billetera Digital del inversionista y los retornos de capital.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-finance-service | develop | 2c54644 | Merge pull request #21 from liquilabshq/fix/finance-kafka-send-failures | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | dd430ad | docs(finance): record how Kafka send failures are detected | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | ac055a8 | test(finance): cover Kafka send failures and a broker outage | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | 011f013 | fix(finance): detect Kafka send failures in the integration publisher | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 871e22b | Merge pull request #20 from liquilabshq/feature/finance-deposit-charge-creation | - | 04/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 33d1f0f | docs(finance): keep local secrets out of the packaged jar | - | 04/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 0ee5e27 | docs(finance): drop .env.example, Spring Boot never reads it | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | d268fc0 | feat(finance): create the Stripe charge when a deposit is initiated | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 79fd5f3 | docs(finance): document the environment variables Stripe needs | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 7b7d213 | Merge pull request #19 from liquilabshq/chore/finance-service-eureka-name | - | 31/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 7a178e9 | chore(finance): drop the vankoo prefix from spring.application.name | - | 31/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 33348c2 | Merge pull request #18 from liquilabshq/feature/wallet-rest-endpoints | - | 30/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 597b7fe | feat(finance): add read-only REST endpoints for Wallet | - | 30/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | f853591 | Merge pull request #17 from liquilabshq/feature/deposit-rest-endpoints | - | 27/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 1c8c855 | feat(finance): add REST endpoints for Deposit | - | 27/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 562c429 | Merge pull request #16 from liquilabshq/fix/wallet-creditor-eventhandlers-layering | - | 25/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 2ebab9f | refactor(finance): move WalletCreditor to application/internal/eventhandlers | - | 25/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 614fb9c | Merge pull request #15 from liquilabshq/feature/finance-integrations-events | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 4ef4ffc | docs(finance): mark the integration event tests as pending, not present | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | a3e7f2c | docs(finance): document the integration event topic and headers | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | c1a3af1 | feat(finance): publish deposit outcomes to vankoo.finance.events.v1 | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 6346644 | feat(finance): add the integration event port and its Kafka producer | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 0263568 | build(finance): add the Kafka binder for integration events | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | fa3820a | Merge pull request #14 from liquilabshq/feature/finance-webhook-inbox | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 7d836a8 | docs(finance): record where the inbox pieces live after the move | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | a3e87d3 | refactor(finance): apply the layering rules to the webhook inbox | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | ef727a2 | Merge pull request #13 from liquilabshq/feature/wallet-aggregate | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-aggregate | ebf989c | feat(finance): add Wallet aggregate (event-sourced) | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-aggregate | e793ec8 | Merge pull request #12 from liquilabshq/docs/wallet-uml-diagram | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-uml-diagram | 3a85e1d | docs(finance): add Wallet's members to the domain model diagram | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-uml-diagram | cde24d4 | Merge pull request #11 from liquilabshq/docs/wallet-contract | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-contract | 9c623b6 | docs(finance): draft the Wallet aggregate contract | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-contract | 4866da4 | Merge pull request #10 from liquilabshq/docs/deposit-read-model-followups | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/deposit-read-model-followups | b7c5800 | docs(finance): record replay/rebuild procedure and the no-Redis decision | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/deposit-read-model-followups | facb506 | Merge pull request #9 from liquilabshq/feature/deposit-read-models | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 19f8b2d | feat(finance): add deposit read model (deposit_views projection + query handlers) | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 36f4c02 | Merge pull request #8 from liquilabshq/feature/finance-webhook-inbox | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 5e6d42b | docs(finance): record the webhook inbox decisions in the contract | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 84b32de | feat(finance): add Stripe webhook endpoint | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 7605eaf | feat(finance): add webhook inbox with deduplication, parking and retries | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 425a03d | fix(finance): move @EnableJpaAuditing off the application class | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 441f01a | feat(finance): add finance_ops inbox and provider reference tables | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 06e687d | refactor(finance): rebuild PaymentProvider port on domain types | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 26f0b28 | Merge pull request #7 from liquilabshq/feature/deposit-optimistic-concurrency-test | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | 9d10d8a | test(finance): prove Axon Server's optimistic concurrency by sequence number | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | 7f4d33a | Merge pull request #6 from liquilabshq/feature/deposit-aggregate | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 58c50da | refactor(finance): move business exceptions to domain/exceptions, leave the PaymentProvider port untouched | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 2cce23b | test(finance): add Given-When-Then coverage for the Deposit aggregate | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | d7bb43b | feat(finance): rebuild PaymentProvider port on the real domain types | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | e9afb15 | feat(finance): add Deposit domain model | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 9d61c14 | build(finance): add axon-test dependency for aggregate testing | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | 738d326 | Merge pull request #5 from liquilabshq/feature/finance-stripe-provider | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | cf8d3e4 | feat(finance): add stripe configuration properties to application.yaml | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 6d46be0 | feat(finance): add stripewebhookcontroller for handling webhook events | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 0df5648 | feat(finance): implement stripe payment provider with configuration properties and webhook handling | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 6441016 | feat(finance): add stripe java sdk dependency and clean up paymentprovider interface | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 0cb64b2 | refactor(finance): clean up PaymentProvider interface by commenting out unused methods | - | 31/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 43af398 | chore(finance): remove provisional files for payment provider port | - | 31/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | 289c9fb | Merge pull request #4 from liquilabshq/feature/project-bootstrap | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | f9de072 | chore: make mvnw executable | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | fed1b3f | feat(finance): add OpenAPI documentation config with Scalar UI | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 042ccb0 | docs(finance): fix Axon Server context name in ADR-0001 (finance ÔåÆ default) | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | d1fe97b | feat(finance): connect to Axon Server and add an event store smoke test | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 5ef4488 | feat(finance): bootstrap persistence with Postgres, Flyway and a custom naming strategy | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | a95ec9e | build(finance): add Axon Framework, Flyway, UUIDv7 and OpenAPI dependencies | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | dc74259 | docs: add AGENTS.md for AI coding agents | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | a972e90 | docs(finance): reconcile the contract after merging the payment port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 2b55bbe | Merge remote-tracking branch 'origin/develop' into feature/project-bootstrap | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | d2e87cd | Merge pull request #3 from liquilabshq/feature/payment-provider-port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | cbe1ebe | docs(finance): switch to Axon 4 and record Axon Server licensing | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | ecc509d | test: prove paymentprovider port with an in-memory fake | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | fa60fa7 | feat: define PaymentProvider outbound port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | 1bf5943 | feat: add sealed payment provider error hierarchy | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | 1be67c1 | feat: add paymentprovider port models and opaque identifiers | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | c850e9f | docs: settle paymentprovider port contract and open decisions | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | d466512 | Merge pull request #2 from liquilabshq/feature/initial-documentation | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 025e2ab | docs(finance): settle currency catalog and event visibility | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 7cf22e9 | docs(finance): add the remaining card 1 diagrams | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 3cfdcdf | Merge pull request #1 from liquilabshq/feature/initial-documentation | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 3a52691 | docs(finance): show Wallet in the domain model diagram | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | d0455a4 | docs(finance): add Deposit domain model diagram | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | e6aa5b0 | refactor(finance): classify adapter packages by transport and by role | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 98e14bf | docs(finance): rework contracts around Deposit aggregate and Axon 5 | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | c3a996b | docs(finance): rename C4 diagrams for consistency | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 6080212 | docs(finance): correct C4 platform topology diagrams | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 6c1730a | docs(finance): add C4 architecture diagrams in PlantUML | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 5a4c149 | docs(finance): define initial domain and integration contracts | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 64ca120 | docs(finance): add ADR for Axon Server and PostgreSQL read model | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | main | f31f2d5 | initial commit | - | 22/07/2026 |
+
 
 #### 5.2.1.4. Testing Suite Evidence for Sprint Review
 
