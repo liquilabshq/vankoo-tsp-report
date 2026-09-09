@@ -946,10 +946,189 @@ El retiro es el último tramo del recorrido de la MYPE y el único que saca dine
 
 ### 4.4.3. Web Applications Mock-ups
 
-<!-- Mock-ups de las aplicaciones web, aplicando el Design System establecido. Elaborados en Figma / Adobe XD. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/mockups/ -->
+**IAM**
 
-_Pendiente de elaboración._
+**Iniciar Sesión**
+
+Pantalla de inicio de sesión con campos para correo electrónico y contraseña, botones de acción y enlaces a recuperación de contraseña y registro.
+
+![Mockup Iniciar Sesión](./assets/cap4-product-design/web-app/mockups/iam-login-mockup.png)
+
+**Iniciar Sesión - Error**
+
+Pantalla de inicio de sesión con mensaje de error indicando que las credenciales son incorrectas.
+
+![Mockup Iniciar Sesión - Error](./assets/cap4-product-design/web-app/mockups/iam-login-error-mockup.png)
+
+**Iniciar Sesión - Cargando**
+
+Pantalla de inicio de sesión con indicador de carga mientras se procesa la autenticación.
+
+![Mockup Iniciar Sesión - Cargando](./assets/cap4-product-design/web-app/mockups/iam-login-loading-mockup.png)
+
+**Crear Cuenta**
+
+Pantalla de registro de cuenta con campos para correo electrónico, contraseña y confirmación de contraseña, junto con botones de acción.
+
+![Mockup Crear Cuenta](./assets/cap4-product-design/web-app/mockups/iam-signup-mockup.png)
+
+**Crear Cuenta - Error**
+
+Pantalla de registro de cuenta con mensaje de error indicando que el correo electrónico ya está en uso.
+
+![Mockup Crear Cuenta - Error](./assets/cap4-product-design/web-app/mockups/iam-signup-error-mockup.png)
+
+**Crear Cuenta - Cargando** 
+
+Pantalla de registro de cuenta con indicador de carga mientras se procesa la creación de la cuenta.
+
+![Mockup Crear Cuenta - Cargando](./assets/cap4-product-design/web-app/mockups/iam-signup-loading-mockup.png)
+
+**Recuperar Contraseña**
+
+Pantalla de recuperación de contraseña con campos para correo electrónico y botones de acción.
+
+![Mockup Recuperar Contraseña](./assets/cap4-product-design/web-app/mockups/iam-password-recovery-mockup.png)
+
+**Nueva Contraseña**
+
+Pantalla para establecer una nueva contraseña con campos para la nueva contraseña y confirmación, junto con botones de acción.
+
+![Mockup Nueva Contraseña](./assets/cap4-product-design/web-app/mockups/iam-new-password-mockup.png)
+
+**Nueva Contraseña - Enlace Incompleto**
+
+Pantalla para establecer una nueva contraseña con mensaje de error indicando que el enlace de recuperación es inválido o ha expirado.
+![Mockup Nueva Contraseña - Enlace Incompleto](./assets/cap4-product-design/web-app/mockups/iam-new-password-link-error-mockup.png)
+
+**Perfil**
+
+**Completar Perfil**
+
+Pantalla para completar el perfil de la empresa con campos para RUC, nombre de la empresa, dirección y otros datos relevantes, junto con botones de acción.
+
+![Mockup Completar Perfil](./assets/cap4-product-design/web-app/mockups/profile-complete-mockup.png)
+
+**Completar Perfil - Error**
+
+Pantalla para completar el perfil de la empresa con mensaje de error indicando que algún campo es inválido o está incompleto.
+
+![Mockup Completar Perfil - Error](./assets/cap4-product-design/web-app/mockups/profile-complete-error-mockup.png)
+
+**Perfil en Revisión**
+
+Pantalla que indica al usuario que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Mockup Perfil en Revisión](./assets/cap4-product-design/web-app/mockups/profile-review-mockup.png)
+
+**Rechazo de Perfil**
+
+Pantalla que indica al usuario que su perfil ha sido rechazado y que no puede acceder a ciertas funcionalidades.
+
+![Mockup Rechazo de Perfil](./assets/cap4-product-design/web-app/mockups/profile-rejected-mockup.png)
+
+**Dashboard**
+
+**Inicio con Datos**
+
+Pantalla principal del dashboard que muestra un resumen del estado de las facturas y otras métricas relevantes para el usuario.
+
+![Mockup Inicio con Datos](./assets/cap4-product-design/web-app/mockups/dashboard-main-mockup.png)
+
+**Inicio sin Datos**
+
+Pantalla principal del dashboard que indica al usuario que no tiene facturas registradas y le invita a subir su primera factura. 
+
+![Mockup Inicio sin Datos](./assets/cap4-product-design/web-app/mockups/dashboard-main-empty-mockup.png)
+
+
+**KCY en Revisión**
+
+Pantalla del dashboard que indica al usuario que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Mockup KCY en Revisión](./assets/cap4-product-design/web-app/mockups/dashboard-profile-review-mockup.png)
+
+**Facturas**
+
+**Subir Factura**
+
+Pantalla para subir una factura con campos para seleccionar el archivo y botones de acción.
+
+![Mockup Subir Factura](./assets/cap4-product-design/web-app/mockups/invoice-upload-mockup.png)
+
+**Facturas en Proceso**
+
+Pantalla que muestra un listado de las facturas que están siendo procesadas, con información relevante como el estado de la factura.
+
+![Mockup Facturas en Proceso](./assets/cap4-product-design/web-app/mockups/invoice-processing-mockup.png)
+
+**Mi Lista de Facturas**
+
+Pantalla que muestra un listado de todas las facturas del usuario, con información relevante como el estado de la factura.
+
+![Mockup Mi Lista de Facturas](./assets/cap4-product-design/web-app/mockups/invoice-list-mockup.png)
+
+**Detalle de Factura**
+
+Pantalla que muestra los detalles de una factura específica, incluyendo información como el estado de la factura, el monto y la fecha de vencimiento.
+
+![Mockup Detalle de Factura](./assets/cap4-product-design/web-app/mockups/invoice-detail-mockup.png)
+
+**Requiere Revisión**
+
+Pantalla que indica al usuario que su factura requiere revisión y que no puede ser procesada hasta que se resuelvan los problemas.
+
+![Mockup Requiere Revisión](./assets/cap4-product-design/web-app/mockups/invoice-requires-review-mockup.png)
+
+**Factura Rechazada**
+
+Pantalla que indica al usuario que su factura ha sido rechazada y que no puede ser procesada.
+
+![Mockup Factura Rechazada](./assets/cap4-product-design/web-app/mockups/invoice-rejected-mockup.png)
+
+**Billetera y Perfil**
+
+**Billetera**
+
+Pantalla que muestra un resumen del estado de la billetera del usuario, incluyendo el saldo disponible y las transacciones recientes.
+
+![Mockup Billetera](./assets/cap4-product-design/web-app/mockups/wallet-mockup.png)
+
+**Billetera Vacía**
+
+Pantalla que indica al usuario que su billetera está vacía y que no tiene saldo disponible.
+
+![Mockup Billetera Vacía](./assets/cap4-product-design/web-app/mockups/wallet-empty-mockup.png)
+
+**Retiro de Fondos**
+
+Pantalla que permite al usuario retirar fondos de su billetera a su cuenta bancaria, incluyendo campos para ingresar el monto y seleccionar la cuenta bancaria.
+
+![Mockup Retiro de Fondos](./assets/cap4-product-design/web-app/mockups/wallet-withdraw-mockup.png)
+
+**Confirmar Retiro de Fondos**
+
+Pantalla que confirma la solicitud de retiro de fondos del usuario, mostrando un resumen de la transacción.
+
+![Mockup Confirmar Retiro de Fondos](./assets/cap4-product-design/web-app/mockups/wallet-withdraw-confirm-mockup.png)
+
+**Mi Perfil**
+
+Pantalla que permite al usuario ver su perfil, incluyendo campos para nombre, correo electrónico y contraseña.
+
+![Mockup Mi Perfil](./assets/cap4-product-design/web-app/mockups/my-profile-mockup.png)
+
+**Mi Perfil en Revisión**
+
+Pantalla que indica al usuario que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Mockup Mi Perfil en Revisión](./assets/cap4-product-design/web-app/mockups/my-profile-review-mockup.png)
+
+**Pagina no encontrada (404)**
+
+Pantalla que indica al usuario que la página solicitada no se encuentra disponible.
+
+![Mockup Página no encontrada (404)](./assets/cap4-product-design/web-app/mockups/404-mockup.png)
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
