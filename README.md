@@ -1132,12 +1132,46 @@ Pantalla que indica al usuario que la página solicitada no se encuentra disponi
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
-<!-- Un User Flow por cada User goal, consistente con los Wireflows de los que se deriva, incluyendo los Mock-ups de las vistas, el happy path y los unhappy paths. Elaborados en LucidChart / Overflow. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/user-flow-diagrams/ -->
+**Acceso y recuperación**
 
-_Pendiente de elaboración._
+User goal 01: Como responsable de una MYPE quiero crear mi cuenta o recuperar mi acceso para entrar a Vankoo con mi rol reconocido.
 
-<hr class="page-break">
+El happy path recorre 01 → 02: la MYPE crea la cuenta, IAM emite el token y la web decodifica el claim «roles» para saber que entra como MYPE — no hace falta preguntárselo. Las dos rutas alternativas de la fila central son recuperables y devuelven al mismo paso del que salieron, sin sacar al usuario de la pantalla. La fila inferior es el sub-flujo de recuperación: se entra desde «¿Olvidaste tu contraseña?» y se vuelve a 02 con la contraseña nueva.
+
+![User Flow Acceso y recuperación](./assets/cap4-product-design/web-app/user-flow-diagrams/access-recovery-user-flow.png)
+
+**Perfil y validación**
+
+User goal 02: Como responsable de una MYPE quiero completar el perfil de mi empresa y conocer el estado de su validación para poder operar.
+
+El onboarding va antes del dashboard: con el KYC en PENDING la MYPE no puede operar, así que ésta es la antesala de la casa. El happy path recorre 01 → 03: se completan los datos, el perfil pasa a revisión y el inicio queda navegable pero sin operar, con los botones visibles y deshabilitados. La ruta A es un error de campo recuperable en el momento; la ruta B es el rechazo, que se reintenta con espera creciente.
+
+![User Flow Perfil y validación](./assets/cap4-product-design/web-app/user-flow-diagrams/profile-validation-user-flow.png)
+
+**Factura y elegibilidad**
+
+User goal 03: Como responsable de una MYPE quiero subir una factura y saber si es elegible para publicarla en subasta.
+
+La factura recorre el pipeline del servicio Invoicing: se sube, el sistema la lee y decide si es elegible. El happy path recorre 01 → 03 y termina con la factura publicada para el fondeo. El paso 02 no pide nada al usuario: el estado avanza solo. Las dos rutas alternativas comparten tono a propósito — ámbar cuando el pipeline necesita a una persona y todavía se puede corregir, rojo cuando la factura ya no tiene salida.
+
+![User Flow Factura y elegibilidad](./assets/cap4-product-design/web-app/user-flow-diagrams/invoice-eligibility-user-flow.png)
+
+**Seguimiento del fondeo**
+
+User goal 04: Como responsable de una MYPE quiero seguir cómo avanza el fondeo de mi factura y saber cuándo el dinero está disponible.
+
+Este flujo no crea nada: consulta. El happy path recorre 01 → 03, de la lista al detalle y del detalle al inicio, que repite el avance del fondeo de cada factura. La primera bifurcación es el estado vacío —la lista sin facturas manda al flujo de carga— y la segunda es la factura no encontrada, que aparece con un enlace roto o cuando la factura no pertenece a la empresa de la sesión.
+
+![User Flow Seguimiento del fondeo](./assets/cap4-product-design/web-app/user-flow-diagrams/funding-tracking-user-flow.png)
+
+**Billetera y retiro**
+
+User goal 05: Como responsable de una MYPE quiero retirar a mi cuenta bancaria el dinero disponible en mi billetera y conocer el estado de la operación.
+
+El retiro es la última milla del producto para la MYPE: el dinero ya cobrado sale de la billetera hacia su cuenta. El happy path recorre 01 → 03 y termina con el saldo actualizado. Las dos rutas alternativas no son errores del usuario sino condiciones del estado de la cuenta: la billetera vacía manda al flujo de carga de facturas, y el KYC sin verificar manda al de perfil, porque no se paga a quien todavía no está verificado.
+
+![User Flow Billetera y retiro](./assets/cap4-product-design/web-app/user-flow-diagrams/wallet-withdraw-user-flow.png)
+
 
 ## 4.5. Web Applications Prototyping
 
