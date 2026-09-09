@@ -1424,9 +1424,9 @@ En esta sección se presentan los prototipos de alta fidelidad de las aplicacion
 
 ![Prototipo de alta fidelidad de la aplicación web](./assets/cap4-product-design/web-app/prototyping/img.png)
 
-Enlace a los prototipos de alta fidelidad de las aplicaciones web de la plataforma Vankoo: [https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1](https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1)
+Enlace a los prototipos de alta fidelidad de las aplicaciones web de la plataforma Vankoo: [https://goo.su/OiJclnu](https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1)
 
-Enlace al video demostrativo de la aplicación web de la plataforma Vankoo: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD)
+Enlace al video demostrativo de la aplicación web de la plataforma Vankoo: [https://goo.su/3CwwVi](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD)
 
 <hr class="page-break">
 
