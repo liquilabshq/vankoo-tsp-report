@@ -686,7 +686,19 @@ El journey de Sofía inicia con la búsqueda de opciones de inversión rentables
 <!-- Un Empathy Map por cada User Persona, elaborado en UXPressia. Responder: ¿con quién empatizamos?, ¿qué necesita hacer?, ¿qué está diciendo, viendo, haciendo y escuchando?, ¿cómo se siente y qué piensa? Identificar Pains y Gains. -->
 <!-- Assets: ./assets/cap2-requirements-elicitation/empathy-mapping/ -->
 
-_Pendiente de elaboración._
+Para profundizar en las emociones, pensamientos y contexto de cada User Persona más allá de sus tareas, se elaboraron dos Empathy Maps en UXPressia. Cada mapa documenta qué piensa, siente, ve, oye, dice y hace el usuario, además de sus pains y gains, orientando el diseño de la solución.
+
+**Empathy Map - Empresario MYPE (Carlos)**
+
+El mapa evidencia a un empresario racional y pragmático, motivado por dar estabilidad a su familia y a su equipo, frustrado por la burocracia bancaria y la incertidumbre del cobro a sus clientes, y que valora la liquidez inmediata sin comprometerse con deuda a largo plazo.
+
+![Empathy Map MYPE](./assets/cap2-requirements-elicitation/empathy-mapping/empathy-map-mype.png)
+
+**Empathy Map - Inversionista (Sofía)**
+
+El mapa evidencia a una profesional analítica y ordenada, motivada por alcanzar la libertad financiera, frustrada por la pérdida de valor real de sus ahorros y la falta de transparencia de la banca tradicional, y que valora invertir de forma 100% digital y con impacto positivo.
+
+![Empathy Map Inversionista](./assets/cap2-requirements-elicitation/empathy-mapping/empathy-map-inversionista.png)
 
 ### 2.3.5. As-is Scenario Mapping
 
@@ -768,7 +780,9 @@ Se incluyen diferentes tipos de historias, tales como:
 <!-- Impact Mapping del modelo de negocio digital, elaborado en UXPressia. Business Goals con criterios SMART, Actors/Personas (los User Personas identificados), Impacts (cómo deben cambiar o comportarse), Deliverables (qué hacer como negocio digital para provocar esos impactos) y User Stories en formato "Como... deseo... para...". -->
 <!-- Assets: ./assets/cap3-requirements-specification/impact-mapping/ -->
 
-_Pendiente de elaboración._
+El Impact Mapping, elaborado en UXPressia, parte del objetivo de negocio de lograr que el 90% de las facturas se fondeen en menos de 24 horas y reducir el error manual al 15%, desglosándolo en los impactos esperados sobre Carlos y Sofía, sus entregables y las historias de usuario asociadas.
+
+![Impact Mapping Vankoo](./assets/cap3-requirements-specification/impact-mapping/impact-map-vankoo.png)
 
 <hr class="page-break">
 
