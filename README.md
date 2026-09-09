@@ -669,27 +669,20 @@ _Pendiente de elaboración._
 
 # Capítulo IV: Product Design
 
-<!-- Planteamiento de la propuesta de Software Architecture & Design, incluyendo Domain-Driven Software Architecture, Object-Oriented Software Design y UX/UI Design para la experiencia web, tomando como base los User Stories y el Impact Map. -->
-
-_Pendiente de elaboración: párrafo introductorio del capítulo._
 
 ## 4.1. Style Guidelines
-
-El equipo ha establecido un repositorio centralizado de diseño (*Design System*) en Figma para garantizar una presentación consistente, intuitiva y profesional en toda la experiencia digital de **LiquiLabs**. Este sistema de diseño consolida todos los activos visuales, componentes de interfaz y tokens de diseño reutilizables tanto para la experiencia del sitio web estático (Landing Page) como para la aplicación web transaccional (*Web App*).
-
-![Visión General del Sistema de Diseño - Design System](./assets/cap4-product-design/style-guidelines/Group%201.png)  
 
 ### 4.1.1. General Style Guidelines
 
 En las guías de estilo generales se sientan los principios visuales fundamentales, las referencias de marca y las decisiones conceptuales que rigen la identidad visual de LiquiLabs.
 
 #### Branding e Identidad de Marca
-La marca LiquiLabs combina la confianza y solidez del sector financiero con la agilidad y transparencia de las tecnologías emergentes. Su imagotipo representa el flujo dinámico de capitales y la conversión directa de facturas en liquidez.
+Vankoo combina la confianza y solidez del sector financiero con la agilidad y transparencia de las tecnologías emergentes. Su imagotipo representa el flujo dinámico de capitales y la conversión directa de facturas en liquidez.
 
 ![Identidad de Marca y Logotipo](./assets/cap4-product-design/style-guidelines/logo.png)  
 
 #### Expresión y Tono de Comunicación
-El lenguaje de LiquiLabs se articula mediante cuatro dimensiones clave para transmitir confianza técnica, claridad financiera y cercanía con los emprendedores e inversionistas:
+El lenguaje de Vankoo se articula mediante cuatro dimensiones clave para transmitir confianza técnica, claridad financiera y cercanía con los emprendedores e inversionistas:
 * **Formal vs. Casual**: Balanceado hacia un tono profesional pero cercano, eliminando la opacidad y complejidad del lenguaje bancario tradicional.
 * **Respetuoso vs. Irreverente**: Altamente respetuoso con el capital de los usuarios y riguroso en la comunicación de riesgos.
 * **Entusiasta vs. Sereno**: Sereno y transparente, enfocado en mostrar datos objetivos e indicadores claros de rentabilidad y salud financiera.
@@ -698,12 +691,12 @@ El lenguaje de LiquiLabs se articula mediante cuatro dimensiones clave para tran
 ![Expresión y Tono de Comunicación](./assets/cap4-product-design/style-guidelines/expresion.png)  
 
 #### Paleta de Colores (Color Palette)
-El sistema cromático de LiquiLabs está diseñado con una base oscura moderna para reducir la fatiga visual (*Dark Mode Support*), combinada con tonos verdes de alto contraste que simbolizan el crecimiento económico y la propuesta distintiva de **Factoring Verde**. Incluye estados semánticos claros para informaciones financieras (éxito, advertencia, peligro y neutros).
+El sistema cromático de Vankoo está diseñado para reducir la fatiga visual, combinada con tonos verdes de alto contraste que simbolizan el crecimiento económico y la propuesta distintiva de **Factoring Verde**. Incluye estados semánticos claros para informaciones financieras (éxito, advertencia, peligro y neutros).
 
 ![Paleta de Colores](./assets/cap4-product-design/style-guidelines/color.png)  
 
 #### Tipografía (Typography System)
-Se utiliza una familia tipográfica sans-serif limpia y geométrica optimizada para interfaces digitales y legibilidad de datos numéricos. La escala incluye jerarquías definidas para títulos de dashboards, encabezados de tarjetas, cuerpo de texto y etiquetas de datos.
+Esta tipográfica limpia y geométrica optimizada para interfaces digitales y legibilidad de datos numéricos. La escala incluye jerarquías definidas para títulos de dashboards, encabezados de tarjetas, cuerpo de texto y etiquetas de datos.
 
 ![Escala Tipográfica](./assets/cap4-product-design/style-guidelines/typography.png)  
 
@@ -724,10 +717,9 @@ El conjunto de iconos vectoriales mantiene un estilo de línea limpia (*line art
 
 ### 4.1.2. Web Style Guidelines
 
-Las guías de estilo web definen la biblioteca de componentes interactivos y los patrones visuales para las interfaces responsivas de la plataforma. Cada componente contempla sus respectivos estados (Normal, Hover, Active, Focus, Disabled).
 
 #### Botones (Button Component)
-Definición de elementos de llamada a la acción (*CTA*). Incluye botones primarios para acciones clave ("Descontar Factura", "Confirmar Inversión"), secundarios para acciones secundarias, botones de contorno (*Ghost*) e indicadores de estado deshabilitado.
+Incluye botones primarios para acciones clave ("Descontar Factura", "Confirmar Inversión"), secundarios para acciones secundarias, botones de contorno (*Ghost*) e indicadores de estado deshabilitado.
 
 ![Componente de Botones](./assets/cap4-product-design/style-guidelines/button.png)  
 
@@ -737,6 +729,8 @@ Componentes visuales de tamaño compacto para clasificar el estado de las operac
 ![Badges y Etiquetas](./assets/cap4-product-design/style-guidelines/badges.png)  
 
 #### Campos de Entrada (Input & Form Components)
+
+
 Elementos para la captura de datos del usuario: campos de texto simples y con iconos, selectores desplegables, validación en tiempo real y el componente drag-and-drop para la lectura de facturas electrónicas.
 
 ![Campos de Entrada e Inputs](./assets/cap4-product-design/style-guidelines/input.png)  
@@ -775,44 +769,120 @@ Elementos para notificar al usuario sobre el resultado de sus acciones o guiar p
 
 ## 4.2. Information Architecture
 
-<!-- Decisiones y sustento sobre cómo se organizará el contenido en el Landing Page y las aplicaciones web. -->
-<!-- Assets: ./assets/cap4-product-design/information-architecture/ -->
-
-_Pendiente de elaboración._
+En esta sección se describe la arquitectura de la información de la plataforma **Vankoo** desarrollada por **LiquiLabs**, la cual ha sido diseñada para estructurar, organizar y etiquetar el contenido de manera que tanto los empresarios MYPE que necesitan liquidez como los inversionistas que buscan rentabilizar su capital encuentren la información financiera, técnica y operativa sin esfuerzo. El objetivo primordial es reducir la carga cognitiva mediante una jerarquía clara que facilite la toma de decisiones de inversión y la conversión rápida de cuentas por cobrar en efectivo.
 
 ### 4.2.1. Organization Systems
 
-<!-- En qué grupos de información se aplicará cuál sistema de organización: jerárquico (visual hierarchy), secuencial (step-by-step) o matricial; y qué esquemas de categorización: alfabético, cronológico, por tópicos o según audiencia. -->
+Para garantizar que el contenido de LiquiLabs sea accesible y lógico, se han aplicado diversos sistemas de organización adaptados a la naturaleza de los datos financieros y al perfil de cada segmento de usuario:
 
-_Pendiente de elaboración._
+**Visual Organization Systems (Sistemas de Organización Visual):**
+
+* **Organización Jerárquica (Visual Hierarchy):** Se aplica de forma predominante en los dashboards de la plataforma web. La información más crítica, como la disponibilidad de efectivo desembolsable, el Score de Riesgo del Pagador generado por IA, el porcentaje de fondeo acumulado de la factura y el distintivo de **Factoring Verde**, ocupa el nivel superior de la jerarquía visual mediante tarjetas (*cards*) destacadas y componentes KPI. Esto permite que el empresario e inversionista evalúen oportunidades de un vistazo.
+* **Organización Secuencial (Step-by-step):** Este sistema es el eje central del flujo de descuento de facturas para la MYPE. El proceso se organiza como un flujo lineal guiado: Carga de factura PDF/XML → Lectura e extracción automática con IA (OCR+NLP) → Validación de constancia en SUNAT/CAVALI → Asignación de Score de Riesgo del Pagador → Publicación en el Marketplace.
+* **Organización Matricial:** Se utiliza en las secciones de analítica avanzada y gestión de portafolios. Permite cruzar variables complejas como la tasa de rendimiento esperado (TCEA) frente a los plazos de vencimiento (30, 60, 90 o 120 días) y la concentración por sector industrial, facilitando la comparación de múltiples facturas en una sola vista.
+
+**Content Categorization Schemes (Esquemas de Categorización de Contenido):**
+
+* **Según Audiencia (Grupos de Usuarios):** Es el esquema principal de la plataforma. El contenido se segmenta estrictamente por rol: los Empresarios MYPE acceden a la gestión de cuentas por cobrar, carga de documentos y dashboards de salud financiera; los Inversionistas Minoristas a la subasta de facturas, billetera digital, reinversión automática y filtros ESG/Verdes; y los Administradores a herramientas de validación de riesgo y custodia de eventos.
+* **Cronológico:** Aplicado al seguimiento de cobranza y trazabilidad inmutable mediante *Event Sourcing*. Las facturas y transacciones se organizan por fecha de emisión, fecha límite de pago y la secuencia temporal inmutable de eventos (*Registrada*, *Auditada por IA*, *Publicada*, *Fondeada*, *Desembolsada*, *Cobrada*).
+* **Por Tópicos:** Se utiliza en el Marketplace de Inversión, categorizando las facturas por Nivel de Riesgo del Pagador (A+, A, B, C), Plazo de Retorno (30, 60, 90 días), Sector Comercial/Servicios y la etiqueta de impacto ambiental/social (**Factoring Verde**).
+* **Alfabético:** Este esquema se aplica de forma auxiliar en los listados de pagadores corporativos registrados, directorio de empresas adquirientes y catálogos de documentos tributarios.
 
 ### 4.2.2. Labeling Systems
 
-<!-- Etiquetas (con el mínimo número de palabras) para representar los conjuntos de información y las asociaciones entre ellas. -->
+En esta sección se definen las etiquetas utilizadas en la plataforma para representar conjuntos de información financiera mediante términos breves, claros y significativos. El objetivo es asegurar que la asociación mental entre la etiqueta y la función sea inmediata, evitando ambigüedades técnicas en la gestión de capitales.
 
-_Pendiente de elaboración._
+* **Descontar Factura:** Etiqueta principal de acción para el empresario MYPE. Agrupa el flujo de carga inteligente (PDF/XML), procesamiento con IA y solicitud de liquidez inmediata en menos de 48 horas.
+* **Marketplace (u Oportunidades):** Concentra el catálogo de facturas negociables publicadas para financiamiento participativo por parte de los inversionistas.
+* **Score de Riesgo (Salud del Pagador):** Representa el índice de riesgo crediticio del adquirente corporativo generado mediante algoritmos predictivos de IA, indicando la probabilidad real de cobro de la factura.
+* **Factoring Verde:** Etiqueta distintiva para operaciones de empresas con impacto positivo o prácticas sostenibles, asociando comisiones preferenciales (descuento del 0.25%) y mayor velocidad de fondeo.
+* **Billetera (Wallet):** Concentra la gestión de fondos del inversionista, mostrando saldo disponible, rendimientos ganados, retiros hacia cuenta bancaria y la configuración de "Billetera de Reinversión Automática".
+* **Trazabilidad (Ledger):** Asocia la visualización en tiempo real del registro inmutable basado en *Event Sourcing*, permitiendo auditar cada cambio de estado de la factura.
+* **Salud Financiera:** Dashboard analítico para el empresario MYPE que muestra proyecciones de flujo de caja, ciclo de efectivo y estado de facturas negociables ante CAVALI.
+* **Soporte (Ayuda):** Concentra la documentación del modelo de crowdfactoring, simulador de tasas, guías de facturación electrónica y canales de atención.
 
 ### 4.2.3. SEO Tags and Meta Tags
 
-<!-- Title y los Meta Tags Description, Keywords y Author como mínimo, tanto para el Landing Page como para la Web Application. -->
+Para optimizar la visibilidad del ecosistema LiquiLabs / Vankoo en motores de búsqueda y garantizar la seguridad en la plataforma web transaccional, se han definido las configuraciones de SEO Tags y Meta Tags para la Landing Page y la Web Application.
 
-_Pendiente de elaboración._
+**Landing Page SEO Tags and Meta Tags**
 
-| Página | Title | Description | Keywords | Author |
-|---|---|---|---|---|
-|  |  |  |  |  |
+La página de aterrizaje tiene como objetivo la captación de MYPES que requieren liquidez e inversionistas interesados en rentabilizar su capital.
+
+| **Etiqueta** | **Contenido**                                                                                                                                     |
+|---|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Title | Vankoo - Crowdfactoring Inteligente y Liquidez Inmediata para MYPES                                                                               |
+| Meta Description | Convierte tus facturas por cobrar en efectivo en menos de 48 horas sin deuda bancaria. Crowdfactoring impulsado por IA y Factoring Verde en Perú. |
+| Meta Keywords | crowdfactoring Perú, liquidez MYPES, descuento de facturas, factoring verde, inversión en facturas, capital de trabajo, LiquiLabs, Vankoo         |
+| Meta Author | LiquiLabs Team                                                                                                                                    |
+| Meta Viewport | width=device-width, initial-scale=1.0                                                                                                             |
+| Meta Charset | UTF-8                                                                                                                                             |
+| Open Graph Title | Liquilabs: Liquidez inmediata para MYPES y retorno atractivo para inversionistas                                                                     |
+| Open Graph Description | Transforma tus facturas en liquidez de forma rápida, transparente y segura con nuestra plataforma inteligente.                                    |
+| Open Graph Image | https://www.liquilabs.pe/assets/images/liquilabs-og-preview.png                                                                                   |
+| Open Graph URL | https://www.liquilabs.pe                                                                                                                          |
+
+```html
+<title>LiquiLabs - Crowdfactoring Inteligente y Liquidez Inmediata para MYPES</title>
+<meta name="description" content="Convierte tus facturas por cobrar en efectivo en menos de 48 horas sin deuda bancaria. Crowdfactoring impulsado por IA y Factoring Verde en Perú.">
+<meta name="keywords" content="crowdfactoring Perú, liquidez MYPES, descuento de facturas, factoring verde, inversión en facturas, capital de trabajo, LiquiLabs, Vankoo">
+<meta name="author" content="LiquiLabs Team">
+<meta property="og:title" content="Liquilabs: Liquidez inmediata para MYPES y retorno atractivo para inversionistas">
+<meta property="og:description" content="Transforma tus facturas en liquidez de forma rápida, transparente y segura con nuestra plataforma inteligente.">
+<meta property="og:image" content="https://www.liquilabs.pe/assets/images/liquilabs-og-preview.png">
+<meta property="og:url" content="https://www.liquilabs.pe">
+```
+
+**Web Application SEO Tags and Meta Tags**
+
+La aplicación web es un entorno transaccional (SPA) seguro accesible por usuarios autenticados. Se configura para restringir la indexación privada de datos financieros.
+
+| **Etiqueta** | **Contenido** |
+|---|---|
+| Title | Plataforma Vankoo - Gestión de Crowdfactoring y Portafolio |
+| Meta Description | Sistema de gestión de facturas, scoring predictivo de pagadores y mercado de inversión descentralizado para MYPES e inversionistas. |
+| Meta Keywords | dashboard factoring, scoring riesgo IA, mercado de facturas, billetera digital, trazabilidad event sourcing |
+| Meta Robots | noindex, nofollow (para proteger el acceso a datos financieros internos) |
+
+```html
+<title>Plataforma Vankoo - Gestión de Crowdfactoring y Portafolio</title>
+<meta name="description" content="Sistema de gestión de facturas, scoring predictivo de pagadores y mercado de inversión descentralizado para MYPES e inversionistas.">
+<meta name="robots" content="noindex, nofollow">
+```
 
 ### 4.2.4. Searching Systems
 
-<!-- Medios de ayuda para la búsqueda de datos dentro del producto digital: opciones de búsqueda, filtros por caso y cómo lucirán los datos después de la búsqueda. -->
+Los sistemas de búsqueda en LiquiLabs / Vankoo han sido estructurados para evitar la sobrecarga de información, permitiendo que los usuarios encuentren rápidamente facturas específicas, evaluen la solvencia de adquirentes corporativos y filtren oportunidades de inversión según sus criterios de riesgo y sostenibilidad.
 
-_Pendiente de elaboración._
+1. **Búsqueda en la Aplicación Web (Empresarios, Inversionistas y Administradores)**
+
+* **Búsqueda Global y Predictiva:** Barra de búsqueda integrada en la cabecera superior de la Web App con autocompletado en tiempo real. Al ingresar el RUC o razón social del pagador, número de comprobante de la factura (ej. F001-00234) o RUC del emisor MYPE, el sistema ofrece sugerencias instantáneas.
+* **Filtros Avanzados (Filtering System):** El inversionista y el empresario cuentan con paneles de filtrado para parametrizar las listas de datos:
+  * **Por Score de Riesgo:** Filtrar facturas según la calificación de la IA (Nivel A+, A, B, C).
+  * **Por Impacto (Factoring Verde):** Filtrar exclusivamente facturas con certificación o sello de impacto positivo ambiental/social.
+  * **Por Plazo de Retorno:** Agrupar operaciones por vencimiento (1-30 días, 31-60 días, 61-90 días, >90 días).
+  * **Por Rango de Monto de Entrada:** Buscar fracciones de facturas disponibles desde S/ 50 hasta montos institucionales.
+  * **Por Tasa de Rendimiento (TCEA):** Ordenar oportunidades según la tasa de descuento ofrecida.
+* **Visualización de Resultados:** Los datos se presentan en dos vistas intercambiables: vista de grilla de tarjetas (*Cards Grid*) para análisis rápido de inversión y vista de tabla de datos (*DataTable*) para gestión masiva, con ordenamiento por columnas y resaltado de coincidencias.
 
 ### 4.2.5. Navigation Systems
 
-<!-- Acciones y técnicas que guiarán a los usuarios a través del Landing Page y las aplicaciones, y de qué maneras irán recorriendo el contenido. -->
+El sistema de navegación de LiquiLabs guía a los usuarios a través de sus objetivos fundamentales: la presentación del servicio (Landing Page), la gestión de liquidez MYPE y el fondeo de operaciones por parte de los inversionistas (Web App). Se emplean técnicas de navegación que minimizan los clics requeridos para realizar transacciones.
 
-_Pendiente de elaboración._
+1. **Navegación en el Landing Page (Marketing y Captación)**
+
+* **Navegación de Desplazamiento (Scrolling Navigation):** Estructura fluida de una sola página (*One-Page*) que lleva al visitante linealmente por la propuesta de valor, la problemática del crédito MYPE, el funcionamiento del crowdfactoring con IA, el simulador interactivo de tasas y los testimonios de éxito.
+* **Menú Persistente (Sticky Navigation):** Cabecera superior fija que acompaña el desplazamiento, permitiendo saltar directamente a las secciones "Empresas", "Inversionistas", "Factoring Verde", "Simulador" y con un botón destacado de llamado a la acción (*CTA*) "Descontar Mi Factura / Registrarse".
+
+2. **Navegación en la Aplicación Web (Dashboard Transaccional)**
+
+* **Barra Lateral Estática (Side Navigation):** Menú vertical fijo a la izquierda adaptado según el rol del usuario autenticado (Empresario MYPE o Inversionista), permitiendo alternar entre el Dashboard principal, Marketplace, Carga de Facturas, Billetera y Reportes sin perder el contexto.
+* **Navegación por Migas de Pan (Breadcrumbs):** Facilita el rastreo de ubicación en niveles profundos de la aplicación (ej. *Marketplace > Facturas de Servicios > Factura F001-9842 > Reporte de Riesgo IA*).
+* **Navegación Contextual y Pestañas (Tabs):** Dentro del detalle de una factura, se utilizan pestañas para navegar entre "Datos del Documento", "Salud del Pagador (IA)", "Trazabilidad de Eventos (Ledger)" y "Participantes del Fondeo".
+
+3. **Navegación entre Ecosistemas (Inter-product Navigation)**
+
+* **Notificaciones en Tiempo Real y Deep Linking:** Notificaciones push en la web app y correo electrónico que incluyen enlaces directos (*deep links*) hacia facturas recién aprobadas que coinciden con los criterios de la "Billetera de Reinversión Automática" del inversionista o avisos inmediatos cuando una factura de una MYPE ha alcanzado el 100% de fondeo para su desembolso.
 
 <hr class="page-break">
 
