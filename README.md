@@ -347,135 +347,281 @@ _Pendiente de elaboración._
 
 ## 2.2. Entrevistas
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+Para validar las suposiciones e hipótesis planteadas en el Lean UX Process, el equipo llevó a cabo entrevistas semiestructuradas con representantes de los dos segmentos objetivo de Vankoo: los empresarios de micro y pequeñas empresas que requieren liquidez y los inversionistas minoristas que aportan el capital. Se realizaron 3 entrevistas por segmento, todas registradas en video previo consentimiento del participante.
 
 ### 2.2.1. Diseño de entrevistas
 
-<!-- Relación de preguntas principales y complementarias por cada segmento objetivo. Considerar la información necesaria para construir los arquetipos: género, edad, distrito, estado civil, familia, ocupación, personalidad, habilidades, marcas e influencias, dispositivos de preferencia, canales digitales de interacción, objetivos, frustraciones y background. -->
+A continuación se presenta el guión de preguntas elaborado para cada segmento objetivo. Cada uno consta de 12 preguntas principales, organizadas en cuatro bloques: contexto y perfil, problemática, perfil digital y objetivos, y validación de solución. Las preguntas complementarias que acompañan a cada una se utilizan como repregunta según lo amerite la respuesta del entrevistado.
 
-_Pendiente de elaboración._
+**Segmento 1: Empresarios de Micro y Pequeñas Empresas (MYPES)**
 
-**Segmento 1: &lt;nombre del segmento&gt;**
+**Preguntas de contexto y perfil (1-3)**
 
-_Pendiente de elaboración._
+1. ¿Cuál es su nombre, edad y en qué distrito vive actualmente?
+   - ¿Con quién vive? ¿Tiene pareja o hijos que dependan del negocio?
+   - ¿Cuál es su formación académica y cuántos años lleva al frente de su empresa?
 
-**Segmento 2: &lt;nombre del segmento&gt;**
+2. ¿A qué se dedica su empresa y cómo está organizada? ¿Cuántos trabajadores tiene, hace cuánto opera formalmente y cuál es su facturación mensual aproximada?
+   - ¿Quiénes son sus principales clientes: empresas grandes, entidades del Estado, consumidor final?
+   - ¿Qué porcentaje de sus ventas cobra al contado y qué porcentaje al crédito?
 
-_Pendiente de elaboración._
+3. ¿Cómo lleva hoy el control de sus cuentas por cobrar y de su facturación electrónica?
+   - ¿Usa algún sistema, un Excel, o lo maneja un contador externo?
+   - ¿Quién decide en su empresa cuándo y cómo conseguir dinero: usted solo, un socio, su contador?
+
+**Preguntas sobre la problemática (4-8)**
+
+4. Cuénteme la última vez que se quedó sin efectivo para cubrir un pago importante —planilla, proveedores, SUNAT—. ¿Qué ocurrió exactamente y cómo lo resolvió?
+   - ¿Cuánto tiempo le tomó conseguir ese dinero?
+   - ¿Qué dejó de hacer en el negocio mientras tanto?
+
+5. ¿Cuál es el plazo de pago real que le imponen sus principales clientes y qué tan seguido se atrasan respecto a lo pactado?
+   - ¿Ha podido negociar ese plazo alguna vez? ¿Qué pasó cuando lo intentó?
+   - ¿Qué hace cuando un cliente importante se atrasa: le insiste, lo deja pasar, deja de venderle?
+
+6. ¿Ha intentado obtener financiamiento formal en los últimos dos años? ¿Con quién, qué le pidieron, cuánto demoró y cómo terminó?
+   - Si se lo negaron, ¿le explicaron por qué?
+   - ¿Ha recurrido a préstamos de familiares, tarjetas de crédito o prestamistas informales? ¿En qué circunstancias?
+
+7. ¿Ha usado alguna vez factoring o descuento de facturas?
+   - Si lo usó: ¿qué parte del proceso le resultó más engorrosa —la conformidad del cliente, el registro en CAVALI, la firma de documentos, la espera del desembolso—?
+   - Si nunca lo usó: ¿qué lo ha detenido? ¿Le preocupa que su cliente se entere de que cedió la factura?
+
+8. La última vez que consiguió dinero rápido, ¿cuánto le costó en total —tasa, comisiones, tiempo invertido— y cómo se enteró de esas condiciones?
+   - ¿Sintió que entendía completamente lo que iba a pagar antes de firmar?
+   - ¿Con qué comparó ese costo para decidir si le convenía?
+
+**Preguntas de perfil digital y objetivos (9-10)**
+
+9. ¿Qué dispositivos usa para gestionar su negocio y por qué canal prefiere que le respondan un tema financiero: WhatsApp, llamada, correo, una aplicación?
+   - ¿Qué aplicaciones bancarias o de gestión usa a diario y cuál le parece la mejor hecha?
+   - Cuando evalúa un servicio financiero nuevo, ¿en quién confía para que se lo recomiende: su contador, su gremio o cámara de comercio, otros empresarios, redes sociales?
+
+10. ¿Cuáles son sus objetivos para la empresa en los próximos 12 meses y qué es lo que más lo frustra hoy de manejar el dinero del negocio?
+    - ¿Qué oportunidad concreta ha tenido que rechazar por falta de capital de trabajo?
+
+**Preguntas de validación de solución (11-12)**
+
+11. Si pudiera convertir una factura ya emitida en efectivo en menos de 48 horas, sin tomar deuda y siendo evaluado por la solvencia de su cliente en lugar de la suya, ¿en qué situación concreta de los últimos meses la habría usado?
+    - ¿Qué porcentaje del monto de la factura consideraría razonable ceder por ese servicio y a partir de qué porcentaje ya no le convendría?
+    - ¿Preferiría registrar la factura usted mismo o que el sistema la lea automáticamente del PDF de SUNAT? ¿Cuánto tiempo le dedica hoy a ese tipo de trámite?
+
+12. ¿Qué le generaría desconfianza al operar con una plataforma nueva que no es un banco y qué necesitaría ver antes de hacer su primera operación?
+    - ¿Le serviría poder ver en pantalla en qué etapa exacta está su factura —validación, conformidad, fondeo, pago— o le basta con que le avisen al final?
+    - Si le ofrecieran una comisión menor por acreditar prácticas sostenibles en su empresa, ¿lo consideraría un beneficio real o un requisito adicional? ¿Qué tendría que hacer para que le valga la pena?
+
+**Segmento 2: Inversionistas Minoristas (Personas Naturales)**
+
+**Preguntas de contexto y perfil (1-3)**
+
+1. ¿Cuál es su nombre, edad y en qué distrito vive actualmente?
+   - ¿Con quién vive? ¿Tiene pareja o hijos?
+   - ¿Cuál es su formación académica y a qué se dedica actualmente?
+
+2. ¿Cómo distribuye hoy sus ahorros? ¿Qué instrumentos usa —cuenta de ahorros, depósito a plazo, fondos mutuos, bolsa, criptomonedas, préstamos a conocidos, negocio propio—?
+   - ¿Desde hace cuánto invierte y qué monto suele destinar a una sola operación?
+   - ¿Qué porcentaje de sus ingresos logra ahorrar al mes?
+
+3. Cuénteme cómo tomó su última decisión de inversión: ¿qué revisó, cuánto tiempo le dedicó y a quién consultó antes de decidir?
+   - ¿Qué información terminó siendo determinante?
+   - ¿Sigue a alguna marca, creador de contenido o comunidad de finanzas personales? ¿Cuál y por qué le da credibilidad?
+
+**Preguntas sobre la problemática (4-8)**
+
+4. ¿Qué es lo que más le molesta de las opciones de inversión que usa hoy?
+   - ¿Le incomoda más el rendimiento bajo, el monto mínimo de entrada, el plazo en que su dinero queda inmovilizado o no entender en qué está invertido?
+   - ¿Qué rendimiento anual considera que "vale la pena" para mover su dinero de donde está hoy?
+
+5. Cuénteme una vez en que una inversión no salió como esperaba o perdió dinero. ¿Cómo se enteró, qué le explicaron y qué hizo después?
+   - ¿Qué habría necesitado saber antes para evitarlo?
+
+6. ¿Ha invertido alguna vez en factoring, crowdfunding o alguna plataforma fintech?
+   - Si sí: ¿en cuál, cuánto puso la primera vez y qué lo hizo confiar lo suficiente para poner ese primer monto?
+   - Si no: ¿qué lo ha detenido? ¿Conoce a alguien que lo haya hecho?
+
+7. Antes de poner su dinero en algo, ¿cómo evalúa el riesgo? ¿Qué datos concretos busca y cuáles nunca logra encontrar?
+   - Si una plataforma le mostrara una calificación de riesgo, ¿le creería? ¿Qué necesitaría que le explicaran sobre cómo se calcula?
+
+8. ¿Con qué frecuencia revisa el estado de sus inversiones y qué es lo primero que mira?
+   - ¿Qué haría si pasaran dos semanas sin poder ver en qué estado está su dinero?
+   - ¿Cómo esperaría que le comuniquen una mala noticia, por ejemplo un retraso en un pago?
+
+**Preguntas de perfil digital y objetivos (9-10)**
+
+9. ¿Desde qué dispositivo maneja su dinero y qué aplicaciones financieras usa con más frecuencia?
+   - ¿Prefiere gestionar una inversión desde el celular o desde una computadora? ¿Por qué?
+   - ¿En qué canales se informa sobre finanzas: YouTube, LinkedIn, TikTok, podcasts, grupos de WhatsApp, su banco?
+
+10. ¿Cuál es su objetivo financiero para los próximos uno a tres años y cuánto dinero estaría dispuesto a mantener inmovilizado para lograrlo?
+    - ¿Por cuánto tiempo como máximo aceptaría no disponer de ese dinero?
+    - ¿Qué lo haría sentir que está invirtiendo bien y no solamente "guardando" su dinero?
+
+**Preguntas de validación de solución (11-12)**
+
+11. Si pudiera invertir desde S/ 100 comprando fracciones de facturas de distintas empresas, con retorno del capital entre 30 y 90 días, ¿cuánto destinaría en su primera operación y qué tendría que pasar para que repita?
+    - ¿Preferiría elegir usted mismo cada factura o que el sistema distribuya automáticamente su dinero entre varias para diversificar el riesgo?
+    - ¿Qué información necesitaría ver de cada factura antes de invertir: el nombre de la empresa que paga, su historial, el sector, el plazo, la calificación de riesgo?
+
+12. ¿Qué esperaría que ocurra si la empresa que debe pagar la factura no paga a tiempo y qué tan claro debería estar eso antes de invertir?
+    - ¿Le daría más confianza poder rastrear cada movimiento de su dinero paso a paso en la plataforma o le resulta indiferente mientras le paguen?
+    - Si una factura correspondiera a una empresa con prácticas sostenibles certificadas, ¿aceptaría un rendimiento algo menor por financiarla o esperaría exactamente el mismo retorno?
 
 ### 2.2.2. Registro de entrevistas
 
 <!-- 3 entrevistas por segmento. Por cada una: nombres, apellidos, edad, distrito, screenshot de un cuadro del video, URL del video en Microsoft Stream, timing donde inicia y duración, más un resumen descriptivo de las respuestas. -->
 <!-- Assets: ./assets/cap2-requirements-elicitation/entrevistas/ -->
 
-#### Segmento 1: &lt;nombre del segmento&gt;
+#### Segmento 1: Empresarios de Micro y Pequeñas Empresas (MYPES)
 
 **Entrevista 1**
 
-| Atributo | Detalle |
-| :---: | :--- |
-| Nombre |  |
-| Edad |  |
-| Distrito |  |
-| Ocupación |  |
-| Fecha de entrevista |  |
-| Timing de inicio |  |
-| Duración |  |
-| Enlace a la grabación | [*Ver en Microsoft Stream*]() |
+| Atributo | Detalle                                                                                  |
+| :---: |:-----------------------------------------------------------------------------------------|
+| Nombre | Irving Vergara                                                                           |
+| Edad | 22                                                                                       |
+| Distrito | San Juan de Lurigancho                                                                   |
+| Ocupación | Dueño de Metalmecanica                                                                   |
+| Fecha de entrevista | 08/09/2026                                                                               |
+| Timing de inicio | 00:00 - 8:58                                                                             |
+| Duración | 8:58 minutos                                                                             |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=WJmOfj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MC42OX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 1](./assets/cap2-requirements-elicitation/entrevistas/s1-entrevista-01.png) |
-| Resumen |  |
+| Resumen |  Empresario del sector metalmecánico a cargo de la gestión comercial y operativa de su taller, donde equilibra proyectos al contado con contratos pagados a crédito. Identifica como principal limitación la brecha de liquidez que generan los plazos de cobranza de 30 a 60 días o más, impidiéndole comprar materia prima de forma inmediata para cerrar nuevos contratos y afectando el cumplimiento con trabajadores y proveedores. Valora de forma muy positiva un mecanismo ágil de anticipo de cobro con procesamiento automatizado de facturas electrónicas, condicionado a contar con claridad absoluta sobre el costo total de la operación, respaldo de seguridad institucional y trazabilidad transparente sobre el estado de aprobación y desembolso de los fondos.                                                                                        |
 
 **Entrevista 2**
 
-| Atributo | Detalle |
-| :---: | :--- |
-| Nombre |  |
-| Edad |  |
-| Distrito |  |
-| Ocupación |  |
-| Fecha de entrevista |  |
-| Timing de inicio |  |
-| Duración |  |
-| Enlace a la grabación | [*Ver en Microsoft Stream*]() |
+| Atributo | Detalle                                                                                  |
+| :---: |:-----------------------------------------------------------------------------------------|
+| Nombre | Diego Melendez                                                                           |
+| Edad | 26                                                                                       |
+| Distrito | San Miguel                                                                               |
+| Ocupación | Dueño de TechnoRed                                                                       |
+| Fecha de entrevista | 08/09/2026                                                                               |
+| Timing de inicio | 8:58 - 17:30                                                                             |
+| Duración | 8:32                                                                                     |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=Guig5U&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6NTM5LjF9fQ%3D%3D)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 2](./assets/cap2-requirements-elicitation/entrevistas/s1-entrevista-02.png) |
-| Resumen |  |
+| Resumen | Empresario y técnico en redes con cuatro años administrando su propia empresa de servicios tecnológicos, cuyo volumen de ventas se divide entre pagos al contado y facturas a crédito. Su principal obstáculo radica en el desfase del flujo de caja originado por clientes que extienden sus pagos entre 45 y 60 días, lo que le impide asumir nuevos proyectos o cubrir planillas y proveedores a tiempo, forzándolo a recurrir a financiamientos inmediatos pero costosos como las tarjetas de crédito. Valora de forma muy positiva una alternativa de liquidez en menos de 48 horas basada en la lectura automática de facturas electrónicas, siempre que la plataforma ofrezca total transparencia en comisiones netas, tiempos de desembolso y un seguimiento visual en tiempo real de cada etapa del proceso.                                                                                         |
 
 **Entrevista 3**
 
-| Atributo | Detalle |
-| :---: | :--- |
-| Nombre |  |
-| Edad |  |
-| Distrito |  |
-| Ocupación |  |
-| Fecha de entrevista |  |
-| Timing de inicio |  |
-| Duración |  |
-| Enlace a la grabación | [*Ver en Microsoft Stream*]() |
+| Atributo | Detalle                                                                                  |
+| :---: |:-----------------------------------------------------------------------------------------|
+| Nombre | Thomas Bernardo                                                                          |
+| Edad | 20                                                                                       |
+| Distrito | Chorrillos                                                                               |
+| Ocupación | Socio de empresa de servicio tecnico                                                     |
+| Fecha de entrevista | 08/09/2026                                                                               |
+| Timing de inicio | 17:30 - 27:30                                                                            |
+| Duración | 9:58                                                                                     |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=RYPQOg&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTA1MS40M319)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 3](./assets/cap2-requirements-elicitation/entrevistas/s1-entrevista-03.png) |
-| Resumen |  |
+| Resumen |  Socio y administrador de una microempresa de soporte técnico para laptops, computadoras y celulares, a cargo de dos colaboradores y con un margen de ingresos mensual modesto de entre 2,000 y 4,000 soles. Gestiona el registro contable y las cuentas pendientes mediante hojas de cálculo manuales en Excel, enfrentando como principal obstáculo los desfases de liquidez derivados de clientes que demoran entre 15 y 30 días en liquidar sus servicios. Esta falta de caja inmediata lo ha obligado a recurrir a soluciones de emergencia poco convenientes, como microcréditos digitales con intereses cercanos al 20%, un costo financiero desproporcionado que además descarta la opción de adquirir deudas bancarias tradicionales de mayor escala. Valora de forma muy positiva la posibilidad de incorporar el factoring para anticipar el cobro de sus facturas a cambio de una comisión transparente y acotada, señalando que adoptaría esta solución si la plataforma demuestra procesos nítidos, directos y sin costos ocultos frente a las alternativas de endeudamiento rápido.                                                                                        |
 
 <hr class="page-break">
 
-#### Segmento 2: &lt;nombre del segmento&gt;
+#### Segmento 2: Inversionistas Minoristas (Personas Naturales)
 
 **Entrevista 4**
 
-| Atributo | Detalle |
-| :---: | :--- |
-| Nombre |  |
-| Edad |  |
-| Distrito |  |
-| Ocupación |  |
-| Fecha de entrevista |  |
-| Timing de inicio |  |
-| Duración |  |
-| Enlace a la grabación | [*Ver en Microsoft Stream*]() |
+| Atributo | Detalle                                                                                  |
+| :---: |:-----------------------------------------------------------------------------------------|
+| Nombre | Alessandro Hesse                                                                         |
+| Edad | 22                                                                                       |
+| Distrito | Surquillo                                                                                |
+| Ocupación | Estudiante                                                                               |
+| Fecha de entrevista | 08/09/2026                                                                               |
+| Timing de inicio | 27:30 - 40:15                                                                            |
+| Duración | 12:45                                                                                    |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=0XdsHP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTY1MC40OX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 4](./assets/cap2-requirements-elicitation/entrevistas/s2-entrevista-04.png) |
-| Resumen |  |
+| Resumen | Estudiante universitario de Ciencias de la Computación y aficionado a los mercados financieros, habituado a colocar tickets de entre 1,000 y 1,500 soles en vehículos tradicionales como depósitos a plazo fijo. Identifica como principal limitación el bajo rendimiento de la banca convencional frente a la rigidez de mantener su dinero inmovilizado por largos periodos, sumado a la desconfianza generada por experiencias negativas previas en fondos mutuos debido a la volatilidad imprevista. Considera que un rendimiento en torno al 8% anual justificaría la búsqueda de nuevos instrumentos. Valora de forma muy positiva incursionar en el factoring mediante la compra fraccionada de facturas por cobrar, siempre y cuando la plataforma tecnológica ofrezca respaldo institucional verificable, reglas claras sobre la gestión del riesgo de cobro y una estricta transparencia operativa que garantice el retorno puntual de los rendimientos pactados.                                                                                         |
 
 **Entrevista 5**
 
-| Atributo | Detalle |
-| :---: | :--- |
-| Nombre |  |
-| Edad |  |
-| Distrito |  |
-| Ocupación |  |
-| Fecha de entrevista |  |
-| Timing de inicio |  |
-| Duración |  |
-| Enlace a la grabación | [*Ver en Microsoft Stream*]() |
+| Atributo | Detalle                                                                                  |
+| :---: |:-----------------------------------------------------------------------------------------|
+| Nombre | Leicy Cahuana                                                                            |
+| Edad | 22                                                                                       |
+| Distrito | San Juan de Lurigancho                                                                   |
+| Ocupación | Estudiante                                                                               |
+| Fecha de entrevista | 07/09/2026                                                                               |
+| Timing de inicio | 40:15 - 55:19                                                                            |
+| Duración | 15:04                                                                                    |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=FHk57K&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjQxNS45OX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 5](./assets/cap2-requirements-elicitation/entrevistas/s2-entrevista-05.png) |
-| Resumen |  |
+| Resumen |  Estudiante y administradora de un negocio del rubro de snacks, con un perfil de inversión orientado a la colocación directa de préstamos personales de envergadura relevante (de 30,000 a 150,000 soles) entre su red de contactos. Descarta las alternativas bancarias tradicionales por considerarlas poco rentables y tras haber enfrentado la incomodidad de mantener su capital retenido en depósitos a plazo sin suficiente flexibilidad; no obstante, reconoce que prestar a conocidos demanda un proceso de evaluación manual, largo y desgastante para mitigar el riesgo de impago. Constantemente informada a través de medios digitales especializados como podcasts y YouTube, valora de forma muy positiva la transición hacia una plataforma de factoring que fundamente la seguridad crediticia con evidencia técnica, ofrezca asignación automatizada de fondos para diversificar el riesgo de su cartera y demuestre transparencia rigurosa ante retrasos en la cobranza, respaldada por protocolos de solución claros y estructurados.                                                                                        |
 
 **Entrevista 6**
 
-| Atributo | Detalle |
-| :---: | :--- |
-| Nombre |  |
-| Edad |  |
-| Distrito |  |
-| Ocupación |  |
-| Fecha de entrevista |  |
-| Timing de inicio |  |
-| Duración |  |
-| Enlace a la grabación | [*Ver en Microsoft Stream*]() |
+| Atributo | Detalle                                                                                  |
+| :---: |:-----------------------------------------------------------------------------------------|
+| Nombre | Kalet Esteban                                                                            |
+| Edad | 20                                                                                       |
+| Distrito | Ate                                                                                      |
+| Ocupación | Estudiante                                                                               |
+| Fecha de entrevista | 07/09/2026                                                                               |
+| Timing de inicio | 55:19 - 1:06:47                                                                          |
+| Duración | 11:28                                                                                    |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=i6G1cy&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzMyMC43NX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 6](./assets/cap2-requirements-elicitation/entrevistas/s2-entrevista-06.png) |
-| Resumen |  |
+| Resumen |  Estudiante de Ingeniería de Software y practicante que se encuentra dando sus primeros pasos en el ámbito de las inversiones con montos de entrada pequeños mediante fondos mutuos de banca tradicional. Señala como principal barrera la complejidad del lenguaje financiero técnico y la falta de claridad respecto al destino exacto y nivel de riesgo de su capital, lo que le genera desconfianza ante plataformas o instrumentos no regulados como el factoring. Valora de forma muy positiva la posibilidad de invertir desde montos mínimos accesibles con diversificación asistida, exigiendo trazabilidad continua del estado de las facturas, protocolos nítidos ante retrasos o impagos y una rentabilidad superior a la de una cuenta de ahorros que justifique el riesgo asumido.                                                                                        |
 
 ### 2.2.3. Análisis de entrevistas
 
-<!-- Análisis por cada segmento objetivo, identificando con sustento estadístico (porcentajes) las características objetivas y subjetivas más comunes, necesarias para la construcción de los arquetipos. -->
+Las entrevistas en profundidad se llevaron a cabo entre el 7 y el 8 de septiembre de 2026 en Lima Metropolitana, contando con la participación de seis perfiles clave divididos equitativamente en dos grupos de interés: tres dueños/administradores de micro y pequeñas empresas (MYPES) y tres inversionistas minoristas (personas naturales). El propósito principal fue contrastar las dinámicas actuales de cobranza, liquidez e inversión, identificar las fricciones operativas más severas y validar la propuesta de valor de *Vankoo* como solución fintech orientada al adelanto y financiamiento participativo de facturas negociables.
 
-**Segmento 1: &lt;nombre del segmento&gt;**
+---
 
-_Pendiente de elaboración._
+**Segmento 1: Empresarios de Micro y Pequeñas Empresas (MYPES)**
 
-**Segmento 2: &lt;nombre del segmento&gt;**
+**Características objetivas:**
+* Emisión regular de facturación a crédito con plazos de cobro que oscilan entre 15 y 60 días: **3/3 (100%)**
+* Empleo de herramientas manuales y desconectadas (hojas de cálculo en Excel y seguimiento por mensajería) para el control de cuentas por cobrar: **3/3 (100%)**
+* Uso predominante del smartphone para la gestión comercial y coordinación del día a día: **3/3 (100%)**
+* Recurrencia a mecanismos financieros costosos o de emergencia (tarjetas de crédito, préstamos personales o microcréditos digitales) ante la falta de caja: **3/3 (100%)**
 
-_Pendiente de elaboración._
+**Características subjetivas:**
+* Perciben el descalce de flujo de caja como una amenaza directa para asumir nuevos contratos y pagar nóminas/proveedores: **3/3 (100%)**
+* Frustración ante la lentitud, requisitos excesivos o tasas abusivas de la banca tradicional y los créditos inmediatos: **3/3 (100%)**
+* Alta disposición a adoptar el descuento de facturas si el desembolso es ágil (menor a 48 horas) y con comisiones claras: **3/3 (100%)**
+* Exigen transparencia radical en el costo neto y seguimiento en tiempo real del ciclo de validación de cada comprobante: **3/3 (100%)**
+* Desconocimiento previo sobre el funcionamiento técnico-legal del factoring, lo que genera cautela inicial frente a nuevos actores no bancarios: **2/3 (66.7%)**
 
+---
+
+**Segmento 2: Inversionistas Minoristas (Personas Naturales)**
+
+**Características objetivas:**
+* Uso habitual de canales y aplicaciones móviles (banca digital, billeteras electrónicas) para la administración de su dinero: **3/3 (100%)**
+* Consumo recurrente de canales digitales (YouTube, redes sociales, podcasts) para informarse sobre finanzas y mercados: **3/3 (100%)**
+* Experiencia previa con alternativas de inversión (depósitos a plazo, fondos mutuos o préstamos entre particulares): **3/3 (100%)**
+* Respaldo por activos o empresas con historial crediticio formal como criterio clave de evaluación de riesgo: **3/3 (100%)**
+
+**Características subjetivas:**
+* Inconformidad con los bajos rendimientos de la banca tradicional frente a la falta de liquidez por inmovilización prolongada del capital: **3/3 (100%)**
+* Reclaman claridad total sobre los escenarios de riesgo, solvencia del pagador y protocolos de cobranza ante demoras o impagos: **3/3 (100%)**
+* Interés en participar del factoring mediante tickets accesibles o esquemas fraccionados con retorno a corto/mediano plazo (30 a 90 días): **3/3 (100%)**
+* Inclinación por la diversificación automatizada de sus fondos para mitigar el riesgo sin complejizar la toma de decisiones: **3/3 (100%)**
+* Escepticismo inicial hacia entidades no reguladas o plataformas fintech desconocidas, condicionando su ingreso a la fiabilidad de la plataforma: **3/3 (100%)**
+
+---
+
+A partir del cruce de hallazgos de ambos segmentos, se consolidan tres ejes estratégicos que fundamentan y orientan la construcción de *Vankoo*:
+
+1. **La brecha de liquidez como freno sistémico:** Existe una clara complementariedad entre los dos frentes. Por un lado, las MYPES sufren asfixia financiera porque su capital queda atrapado en facturas por cobrar a 30, 45 o 60 días, perdiendo oportunidades de compra de insumos y crecimiento. Por el otro, los pequeños inversionistas cuentan con excedentes de liquidez pero se sienten estancados ante productos bancarios de escaso rendimiento y plazos rígidos. *Vankoo* actúa como puente directo entre ambas necesidades, inyectando liquidez ágil a la microempresa mediante el capital atomizado de la comunidad inversora.
+
+2. **Validación de la propuesta de valor según segmento:**
+    * **Para la MYPE:** *Vankoo* no representa un endeudamiento bancario asfixiante ni una tasa usurera de emergencia; es una herramienta ágil para convertir sus cuentas por cobrar en efectivo operativo en menos de 48 horas sin comprometer el balance del negocio.
+    * **Para el Inversionista:** *Vankoo* no es un instrumento complejo de alto riesgo especulativo; es una alternativa tangible para rentabilizar ahorros a corto plazo, respaldada por comprobantes comerciales reales y con rendimientos superiores a los de las cuentas de ahorro tradicionales.
+
+3. **Criterios técnicos y de diseño innegociables:**
+    * **Cero fricción y automatización de datos:** La plataforma debe contar con lectura automática de facturas electrónicas (vía XML/SUNAT) para eliminar el tipeo manual en los empresarios y facilitar interfaces limpias y comprensibles para los inversionistas.
+    * **Trazabilidad y estados en tiempo real:** Es imprescindible habilitar un panel visual donde la MYPE supervise cada hito del comprobante (validación, oferta, fondeo y desembolso) y el inversionista visualice el estado de su capital, rendimientos ganados y calendario estimado de retorno.
+    * **Transparencia absoluta en costos y riesgos:** Desglose visible del costo total de la operación (comisiones netas y descuentos) sin letras pequeñas para el cedente, junto con métricas de riesgo explicadas en lenguaje sencillo y protocolos claros de cobranza para el inversionista.
+
+**Conclusión:**
+Los resultados validan sólidamente la viabilidad y necesidad de una plataforma como *Vankoo*. El núcleo del problema no reside en la falta de solvencia comercial ni en la ausencia de ahorristas dispuestos a invertir, sino en la **ineficiencia del sistema financiero tradicional para conectar ambas partes con agilidad, costos justos y tecnología accesible**. La solución debe priorizar la simplificación operativa, la transparencia informativa y una rigurosa gestión del riesgo crediticio para consolidar la confianza de ambos extremos del ecosistema.
 <hr class="page-break">
 
 ## 2.3. Needfinding
@@ -1924,3 +2070,8 @@ _Pendiente de elaboración._
 | Vankoo Profile Service      | [liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service)           |
 | Vankoo Risk Service         | [liquilabshq/vankoo-risk-service](https://github.com/liquilabshq/vankoo-risk-service)                 |
 | Vankoo Report               | [liquilabshq/vankoo-tsp-report](https://github.com/liquilabshq/vankoo-tsp-report)                     |
+
+
+## Anexo C: Enlaces a los videos de entrevistas de los segmentos objetivo
+
+Enlace: [https://goo.su/j42cb8](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=vVeYrJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
