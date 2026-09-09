@@ -1112,11 +1112,7 @@ El Sprint Planning 1 establece el alcance de la primera iteración de Vankoo. Pa
 
 #### 5.2.1.2. Sprint Backlog 1
 
-El Sprint Backlog 1 descompone las historias `LPS01`, `LPS02`, `LPS03`, `US18`, `TS01` y `TS02`. El objetivo es publicar una experiencia inicial comprensible para los dos segmentos y construir la base de registro, perfiles e integración REST que permitirá continuar con la gestión de facturas en el siguiente sprint. La captura del board será incorporada por el equipo después de la llamada de planificación.
-
-![Sprint Backlog 1](assets/cap5-product-implementation/sprint-1/sprint-backlog/sprint-backlog.png)
-
-Captura del board:
+El Sprint Backlog 1 descompone las historias `LPS01`, `LPS02`, `LPS03`, `US18`, `TS01` y `TS02`. El objetivo es publicar una experiencia inicial comprensible para los dos segmentos y construir la base de registro, perfiles e integración REST que permitirá continuar con la gestión de facturas en el siguiente sprint. La captura del board se presenta a continuación.
 
 ![Sprint Backlog 1](assets/cap5-product-implementation/sprint-1/sprint-backlog/sprint-backlog.png)
 
