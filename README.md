@@ -755,14 +755,152 @@ Bloque contenedor oscuro con contraste directo para guiar la conversión final d
 
 ## 4.4. Web Applications UX/UI Design
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+En esta sección se presentan los wireframes y mock-ups de las aplicaciones de la plataforma Vankoo. Se describen las principales pantallas, funcionalidades y elementos visuales que componen estas aplicaciones.
+
 
 ### 4.4.1. Web Applications Wireframes
 
-<!-- Wireframes de las aplicaciones web, elaborados en Figma / Adobe XD. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/wireframes/ -->
+**IAM**
 
-_Pendiente de elaboración._
+**Inicio de Sesión**
+
+Está pantalla permite a los usuarios autenticarse en la plataforma mediante correo electrónico y contraseña. Se incluyen opciones de recuperación de contraseña y enlaces a registro para nuevos usuarios.
+
+![Wireframe Inicio de Sesión](./assets/cap4-product-design/web-app/wireframes/iam-login-wireframe.png)
+
+**Creación de Cuenta**
+
+Permite a los nuevos usuarios registrarse en la plataforma proporcionando información básica como nombre, correo electrónico y contraseña. Se incluyen validaciones de campos y mensajes de error.
+
+![Wireframe Creación de Cuenta](./assets/cap4-product-design/web-app/wireframes/iam-signup-wireframe.png)
+
+**Recuperación de Contraseña**
+
+Facilita a los usuarios recuperar el acceso a su cuenta mediante un proceso de verificación por correo electrónico. Se incluyen instrucciones claras y mensajes de confirmación.
+
+![Wireframe Recuperación de Contraseña](./assets/cap4-product-design/web-app/wireframes/iam-password-recovery-wireframe.png)
+
+**Nueva Contraseña**
+
+Permite a los usuarios establecer una nueva contraseña después de haber verificado su identidad. Se incluyen campos para la nueva contraseña y confirmación, junto con validaciones de seguridad.
+
+![Wireframe Nueva Contraseña](./assets/cap4-product-design/web-app/wireframes/iam-new-password-wireframe.png)
+
+**Perfil**
+
+**Completar Perfil**
+
+Permite al usuario completar la información de su perfil, incluyendo ruc, nombre de la empresa, dirección y otros datos relevantes. Se incluyen validaciones de campos y mensajes de error.
+
+![Wireframe Completar Perfil](./assets/cap4-product-design/web-app/wireframes/profile-complete-wireframe.png)
+
+**Perfil enviado**
+
+Muestra un mensaje de confirmación al usuario indicando que su perfil ha sido enviado para revisión.
+
+![Wireframe Perfil enviado](./assets/cap4-product-design/web-app/wireframes/profile-submitted-wireframe.png)
+
+**Perfil Rechazado**
+
+Muestra un mensaje de rechazo al usuario indicando que su perfil no cumple con los requisitos.
+
+![Wireframe Perfil Rechazado](./assets/cap4-product-design/web-app/wireframes/profile-rejected-wireframe.png)
+
+**Dashboard**
+
+**Dashboard Principal**
+
+Muestra un resumen, con el estado de las facturas. 
+
+![Wireframe Dashboard Principal](./assets/cap4-product-design/web-app/wireframes/dashboard-main-wireframe.png)
+
+**Perfil en Revisión**
+
+Muestra un mensaje al usuario indicando que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Wireframe Perfil en Revisión](./assets/cap4-product-design/web-app/wireframes/dashboard-profile-review-wireframe.png)
+
+**Facturas**
+
+**Subir Factura**
+
+Permite al usuario subir una factura para su procesamiento y un botón para cargar el archivo de la factura.
+
+![Wireframe Subir Factura](./assets/cap4-product-design/web-app/wireframes/invoice-upload-wireframe.png)
+
+**Facturas en Proceso**
+
+Muestra un listado de las facturas que están siendo procesadas, con información relevante como el estado de la factura.
+
+![Wireframe Facturas en Proceso](./assets/cap4-product-design/web-app/wireframes/invoice-processing-wireframe.png)
+
+**Lista de Facturas**
+
+Muestra un listado de todas las facturas del usuario, con información relevante como el estado de la factura.
+
+![Wireframe Lista de Facturas](./assets/cap4-product-design/web-app/wireframes/invoice-list-wireframe.png)
+
+**Detalle de Factura**
+
+Muestra los detalles de una factura específica, incluyendo información como el estado de la factura, el monto y la fecha de vencimiento.
+
+![Wireframe Detalle de Factura](./assets/cap4-product-design/web-app/wireframes/invoice-detail-wireframe.png)
+
+**Requiere Revisión**
+
+Muestra un mensaje al usuario indicando que su factura requiere revisión y que no puede ser procesada hasta que se resuelvan los problemas.
+
+![Wireframe Requiere Revisión](./assets/cap4-product-design/web-app/wireframes/invoice-requires-review-wireframe.png)
+
+**Factura Rechazada**
+
+Muestra un mensaje al usuario indicando que su factura ha sido rechazada y que no puede ser procesada.
+
+![Wireframe Factura Rechazada](./assets/cap4-product-design/web-app/wireframes/invoice-rejected-wireframe.png)
+
+**Billetera y Perfil**
+
+**Billetera**
+
+Muestra un resumen del estado de la billetera del usuario, incluyendo el saldo disponible y las transacciones recientes.
+
+![Wireframe Billetera](./assets/cap4-product-design/web-app/wireframes/wallet-wireframe.png)
+
+**Billetera Vacía**
+
+Muestra un mensaje al usuario indicando que su billetera está vacía y que no tiene saldo disponible.
+
+![Wireframe Billetera Vacía](./assets/cap4-product-design/web-app/wireframes/wallet-empty-wireframe.png)
+
+**Retiro de Fondos**
+
+Permite al usuario retirar fondos de su billetera a su cuenta bancaria, incluyendo campos para ingresar el monto y seleccionar la cuenta bancaria.
+
+![Wireframe Retiro de Fondos](./assets/cap4-product-design/web-app/wireframes/wallet-withdraw-wireframe.png)
+
+**Confirmar Retiro de Fondos**
+
+Confirma la solicitud de retiro de fondos del usuario, mostrando un resumen de la transacción.
+
+![Wireframe Confirmar Retiro de Fondos](./assets/cap4-product-design/web-app/wireframes/wallet-withdraw-confirm-wireframe.png)
+
+**Mi Perfil**
+
+Permite al usuario ver de su perfil, su nombre, correo electrónico y contraseña.
+
+![Wireframe Mi Perfil](./assets/cap4-product-design/web-app/wireframes/my-profile-wireframe.png)
+
+**Perfil en Revisión**
+
+Muestra un mensaje al usuario indicando que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Wireframe Perfil en Revisión](./assets/cap4-product-design/web-app/wireframes/my-profile-review-wireframe.png)
+
+**Página no encontrada (404)**
+
+Muestra un mensaje al usuario indicando que la página solicitada no se encuentra disponible.
+
+![Wireframe Página no encontrada (404)](./assets/cap4-product-design/web-app/wireframes/404-wireframe.png)
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 
