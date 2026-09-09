@@ -705,7 +705,19 @@ El mapa evidencia a una profesional analítica y ordenada, motivada por alcanzar
 <!-- Un As-Is Scenario Map por cada User Persona, elaborado en LucidChart / Miro, con las filas Phases, Doing, Thinking y Feeling. Resumir el proceso: preparación, lluvia de ideas individual, revisión, identificación y nombrado de fases, etiquetado de áreas positivas, negativas y blank areas. -->
 <!-- Assets: ./assets/cap2-requirements-elicitation/as-is-scenario-mapping/ -->
 
-_Pendiente de elaboración._
+El As-Is Scenario Map, elaborado en Miro para cada User Persona, ordena su recorrido actual en fases con las filas Doing, Thinking y Feeling, etiquetando además áreas positivas, negativas y blank areas que orientan qué aspectos del proceso el equipo necesita seguir investigando.
+
+**As-Is Scenario Map - Empresario MYPE (Carlos)**
+
+El mapa evidencia un recorrido mayormente negativo: solo la emisión de la factura resulta neutral, mientras que la espera del pago, la búsqueda de liquidez de emergencia y su alto costo generan ansiedad, frustración e insatisfacción.
+
+![As-Is Scenario Map MYPE](./assets/cap2-requirements-elicitation/as-is-scenario-mapping/as-is-scenario-map-mype.jpg)
+
+**As-Is Scenario Map - Inversionista (Sofía)**
+
+El mapa evidencia un recorrido que inicia positivo por la motivación de hacer crecer sus ahorros, pero se vuelve negativo al comparar alternativas rígidas y opacas, y cierra en una inversión conservadora con seguimiento limitado.
+
+![As-Is Scenario Map Inversionista](./assets/cap2-requirements-elicitation/as-is-scenario-mapping/as-is-scenario-map-inversionista.jpg)
 
 <hr class="page-break">
 
