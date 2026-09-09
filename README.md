@@ -295,10 +295,23 @@ A continuación, se presenta el Lean UX Canvas elaborado en la herramienta Miro:
 
 ## 1.3. Segmentos objetivo
 
-<!-- Descripción de los segmentos asociados al dominio del problema, incluyendo características demográficas e información estadística de sustento. -->
-<!-- Assets: ./assets/cap1-introduccion/segmentos-objetivo/ -->
+En el análisis del segmento objetivo para LiquiLabs, hemos identificado que los usuarios principales se dividen en dos perfiles críticos que dinamizan el ecosistema de crowdfactoring: los empresarios MYPE que buscan liquidez y los inversionistas individuales que buscan rentabilizar sus ahorros
 
-_Pendiente de elaboración._
+**Empresarios de Micro y Pequeñas Empresas (MYPES)**  
+Este segmento representa el núcleo de la demanda de liquidez en el Perú. Según el informe de ComexPerú (2025), las MYPES formales generan el 99% del empleo empresarial en el país, pero enfrentan una brecha de crédito de aproximadamente S/ 56,000 millones. Estas empresas han sido rechazadas por la banca tradicional debido a modelos de riesgo que no consideran la solvencia del cliente final (el pagador de la factura), lo que las obliga a paralizar operaciones o recurrir a prestamistas informales con tasas usureras
+- **Edad**: Emprendedores y dueños de negocio entre los 25 y 55 años.
+- **Necesidad clave**: Obtener capital de trabajo de forma inmediata (en menos de 48 horas) sin aumentar su nivel de deuda bancaria y con tasas competitivas basadas en la calidad de sus facturas.
+- **Nivel educativo**: Formación técnica o universitaria, con experiencia en gestión comercial pero con limitado conocimiento en ingeniería financiera avanzada.
+- **Uso de tecnología**: Utilizan facturación electrónica de SUNAT y aplicaciones bancarias básicas, pero requieren una plataforma intuitiva que automatice la gestión de sus cuentas por cobrar.
+
+
+**Inversionistas Minoristas (Personas Naturales)**  
+Este segmento representa la oferta de capital. El mercado de factoring en Perú alcanzó un monto negociado de S/ 43,000 millones en 2024, lo que representa un crecimiento del 14% respecto al año anterior (Contadores y Empresas, 2025). Esta expansión del mercado permite que personas naturales participen financiando facturas. Según CAVALI (2024), el ticket promedio de las facturas negociadas es de aproximadamente S/ 24,405, un monto que, mediante un modelo de crowdfactoring, puede ser fraccionado para que inversionistas con menor capital participen en la compra de deuda con retornos atractivos.
+- **Edad**: Profesionales de entre 22 y 45 años.
+- **Necesidad clave**: Acceder a opciones de inversión con tasas de rendimiento competitivas frente a la banca tradicional y con periodos de retorno de capital a corto plazo (entre 30 y 90 días).
+- **Nivel educativo**: Educación superior completa, con interés en optimizar la gestión de sus ahorros personales a través de medios digitales.
+- **Uso de tecnología**: Usuarios habituales de servicios financieros digitales y aplicaciones móviles; valoran la trazabilidad de su dinero y la facilidad de monitoreo de sus ganancias en tiempo real.
+
 
 <hr class="page-break">
 
