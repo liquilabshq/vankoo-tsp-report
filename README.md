@@ -1175,14 +1175,13 @@ El retiro es la última milla del producto para la MYPE: el dinero ya cobrado sa
 
 ## 4.5. Web Applications Prototyping
 
-<!-- Prototipos de UI para Desktop y Mobile Web Browser con simulación de interacción y navegación, acordes con los User Flow Diagrams. Incluir 1 screenshot del video y el enlace al video subido a Microsoft Stream por cada aplicación. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/prototyping/ -->
+En esta sección se presentan los prototipos de alta fidelidad de las aplicaciones web de la plataforma Vankoo, junto con enlaces a los videos demostrativos y capturas de pantalla representativas. 
 
-_Pendiente de elaboración: introducción con los principales criterios para las decisiones de interacción._
+![Prototipo de alta fidelidad de la aplicación web](./assets/cap4-product-design/web-app/prototyping/img.png)
 
-| Aplicación | Enlace al prototipo | Enlace al video | Captura |
-|---|---|---|---|
-|  |  |  |  |
+Enlace a los prototipos de alta fidelidad de las aplicaciones web de la plataforma Vankoo: [https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1](https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1)
+
+Enlace al video demostrativo de la aplicación web de la plataforma Vankoo: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD)
 
 <hr class="page-break">
 
