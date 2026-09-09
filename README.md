@@ -699,14 +699,38 @@ El journey de Sofía inicia con la búsqueda de opciones de inversión rentables
 <!-- Un Empathy Map por cada User Persona, elaborado en UXPressia. Responder: ¿con quién empatizamos?, ¿qué necesita hacer?, ¿qué está diciendo, viendo, haciendo y escuchando?, ¿cómo se siente y qué piensa? Identificar Pains y Gains. -->
 <!-- Assets: ./assets/cap2-requirements-elicitation/empathy-mapping/ -->
 
-_Pendiente de elaboración._
+Para profundizar en las emociones, pensamientos y contexto de cada User Persona más allá de sus tareas, se elaboraron dos Empathy Maps en UXPressia. Cada mapa documenta qué piensa, siente, ve, oye, dice y hace el usuario, además de sus pains y gains, orientando el diseño de la solución.
+
+**Empathy Map - Empresario MYPE (Carlos)**
+
+El mapa evidencia a un empresario racional y pragmático, motivado por dar estabilidad a su familia y a su equipo, frustrado por la burocracia bancaria y la incertidumbre del cobro a sus clientes, y que valora la liquidez inmediata sin comprometerse con deuda a largo plazo.
+
+![Empathy Map MYPE](./assets/cap2-requirements-elicitation/empathy-mapping/empathy-map-mype.png)
+
+**Empathy Map - Inversionista (Sofía)**
+
+El mapa evidencia a una profesional analítica y ordenada, motivada por alcanzar la libertad financiera, frustrada por la pérdida de valor real de sus ahorros y la falta de transparencia de la banca tradicional, y que valora invertir de forma 100% digital y con impacto positivo.
+
+![Empathy Map Inversionista](./assets/cap2-requirements-elicitation/empathy-mapping/empathy-map-inversionista.png)
 
 ### 2.3.5. As-is Scenario Mapping
 
 <!-- Un As-Is Scenario Map por cada User Persona, elaborado en LucidChart / Miro, con las filas Phases, Doing, Thinking y Feeling. Resumir el proceso: preparación, lluvia de ideas individual, revisión, identificación y nombrado de fases, etiquetado de áreas positivas, negativas y blank areas. -->
 <!-- Assets: ./assets/cap2-requirements-elicitation/as-is-scenario-mapping/ -->
 
-_Pendiente de elaboración._
+El As-Is Scenario Map, elaborado en Miro para cada User Persona, ordena su recorrido actual en fases con las filas Doing, Thinking y Feeling, etiquetando además áreas positivas, negativas y blank areas que orientan qué aspectos del proceso el equipo necesita seguir investigando.
+
+**As-Is Scenario Map - Empresario MYPE (Carlos)**
+
+El mapa evidencia un recorrido mayormente negativo: solo la emisión de la factura resulta neutral, mientras que la espera del pago, la búsqueda de liquidez de emergencia y su alto costo generan ansiedad, frustración e insatisfacción.
+
+![As-Is Scenario Map MYPE](./assets/cap2-requirements-elicitation/as-is-scenario-mapping/as-is-scenario-map-mype.jpg)
+
+**As-Is Scenario Map - Inversionista (Sofía)**
+
+El mapa evidencia un recorrido que inicia positivo por la motivación de hacer crecer sus ahorros, pero se vuelve negativo al comparar alternativas rígidas y opacas, y cierra en una inversión conservadora con seguimiento limitado.
+
+![As-Is Scenario Map Inversionista](./assets/cap2-requirements-elicitation/as-is-scenario-mapping/as-is-scenario-map-inversionista.jpg)
 
 <hr class="page-break">
 
@@ -714,14 +738,26 @@ _Pendiente de elaboración._
 
 <!-- Especificación de los requisitos de los productos digitales, en base al análisis de la información obtenida en las investigaciones. -->
 
-_Pendiente de elaboración: párrafo introductorio del capítulo._
+A partir del análisis de las entrevistas, el Needfinding y los User Personas desarrollados en el capítulo anterior, este capítulo traduce esos hallazgos en la especificación de los requisitos de los productos digitales de Vankoo. Se inicia proyectando el escenario futuro de cada usuario mediante el To-Be Scenario Mapping, que evidencia los cambios que la plataforma introduce frente al As-Is; a partir de ahí se detallan las User Stories que describen las funcionalidades del sistema, el Impact Mapping que conecta los objetivos de negocio con los impactos esperados en cada persona, y el Product Backlog que prioriza y organiza todo lo anterior de cara al desarrollo.
 
 ## 3.1. To-Be Scenario Mapping
 
 <!-- Un To-Be Scenario Map por cada User Persona, elaborado en LucidChart / Miro, con las filas Phases, Doing, Thinking y Feeling. Comparar con el As-Is Scenario Mapping e identificar los cambios que ofrece el To-Be. -->
 <!-- Assets: ./assets/cap3-requirements-specification/to-be-scenario-mapping/ -->
 
-_Pendiente de elaboración._
+El To-Be Scenario Map, elaborado en Miro, reutiliza las mismas fases del As-Is para cada User Persona, mostrando cómo Vankoo transforma su Doing, Thinking y Feeling en cada una, y resume al costado los cambios concretos que la plataforma ofrece frente al escenario actual.
+
+**To-Be Scenario Map - Empresario MYPE (Carlos)**
+
+El mapa muestra un recorrido íntegramente positivo: con Vankoo, Carlos pasa de esperar pagos y endeudarse caro a recibir liquidez en menos de 48 horas con costos transparentes desde el inicio.
+
+![To-Be Scenario Map MYPE](./assets/cap3-requirements-specification/to-be-scenario-mapping/to-be-scenario-map-mype.jpg)
+
+**To-Be Scenario Map - Inversionista (Sofía)**
+
+El mapa muestra un recorrido íntegramente positivo: con Vankoo, Sofía pasa de invertir a ciegas en instrumentos rígidos a diversificar desde S/100 con riesgo explicado y seguimiento en tiempo real.
+
+![To-Be Scenario Map Inversionista](./assets/cap3-requirements-specification/to-be-scenario-mapping/to-be-scenario-map-inversionista.jpg)
 
 <hr class="page-break">
 
@@ -781,7 +817,9 @@ Se incluyen diferentes tipos de historias, tales como:
 <!-- Impact Mapping del modelo de negocio digital, elaborado en UXPressia. Business Goals con criterios SMART, Actors/Personas (los User Personas identificados), Impacts (cómo deben cambiar o comportarse), Deliverables (qué hacer como negocio digital para provocar esos impactos) y User Stories en formato "Como... deseo... para...". -->
 <!-- Assets: ./assets/cap3-requirements-specification/impact-mapping/ -->
 
-_Pendiente de elaboración._
+El Impact Mapping, elaborado en UXPressia, parte del objetivo de negocio de lograr que el 90% de las facturas se fondeen en menos de 24 horas y reducir el error manual al 15%, desglosándolo en los impactos esperados sobre Carlos y Sofía, sus entregables y las historias de usuario asociadas.
+
+![Impact Mapping Vankoo](./assets/cap3-requirements-specification/impact-mapping/impact-map-vankoo.png)
 
 <hr class="page-break">
 
