@@ -888,68 +888,545 @@ El sistema de navegación de LiquiLabs guía a los usuarios a través de sus obj
 
 ## 4.3. Landing Page UI Design
 
-_Pendiente de elaboración: introducción explicando cómo se traducen las decisiones de diseño y arquitectura de información._
+En esta sección se presentan los wireframes y mock-ups del Landing Page de la plataforma Vankoo, aplicando los principios de diseño, elementos de diseño, diseño inclusivo y arquitectura de información previamente establecidos.
 
 ### 4.3.1. Landing Page Wireframe
 
-<!-- Wireframes del Landing Page para Desktop Web Browser y Mobile Web Browser, elaborados en Figma / Adobe XD. Evidenciar la aplicación de principios, elementos de diseño, diseño inclusivo y arquitectura de información. -->
-<!-- Assets: ./assets/cap4-product-design/landing-page/wireframes/ -->
+A continuación, se muestran los wireframes del Landing Page para Desktop Web Browser y Mobile Web Browser, elaborados en Figma. El diseño de media fidelidad evidencia la aplicación de principios de diseño, elementos de diseño, diseño inclusivo y arquitectura de información, asegurando una experiencia de usuario coherente y accesible.
 
-_Pendiente de elaboración._
+**Hero**
+
+Encabezado principal con un mensaje claro y conciso que comunica la propuesta de valor de la plataforma Vankoo. Se incluyen elementos visuales atractivos y un llamado a la acción destacado.
+
+![Wireframe Hero](./assets/cap4-product-design/landing-page/wireframes/hero-wireframe.png)
+![Wireframe Hero Mobile](./assets/cap4-product-design/landing-page/wireframes/hero-wireframe-mobile.png)
+
+**Flujo del Proceso**
+
+Se detallan los cinco hitos por los que pasa cada factura, especificando mediante etiquetas qué acciones realiza el usuario y cuáles ejecuta el sistema de forma automatizada (lectura OCR, validación con SUNAT y scoring). En la parte inferior se transparentan los estados de excepción y rechazo para brindar claridad operativa.
+
+![Wireframe Flujo del Proceso](./assets/cap4-product-design/landing-page/wireframes/flow-process.png)
+![Wireframe Flujo del Proceso](./assets/cap4-product-design/landing-page/wireframes/flow-process-mobile.png)
+
+**Simulador de costos**
+
+Herramienta interactiva de cotización que permite al usuario seleccionar moneda, ajustar el monto mediante un control deslizante, elegir el plazo y asignar el nivel de riesgo. Al lado, una tarjeta desglosa el cálculo en tiempo real mostrando el monto a recibir, el costo financiero, la tasa mensual y la TCEA.
+
+![Wireframe Simulador de costos](./assets/cap4-product-design/landing-page/wireframes/cost-simulator.png)
+![Wireframe Simulador de costos](./assets/cap4-product-design/landing-page/wireframes/cost-simulator-mobile.png)
+
+**Propuesta de valor por segmento**
+
+Presenta los beneficios clave mediante un selector de rol (Para tu MYPE / Para invertir). Para las empresas, enfatiza la eliminación de brechas de crédito comercial a través de una cuadrícula de características con soporte visual que refuerza la trazabilidad y la agilidad de cobro.
+
+![Wireframe Propuesta de valor por segmento](./assets/cap4-product-design/landing-page/wireframes/value-proposition.png)
+![Wireframe Propuesta de valor por segmento](./assets/cap4-product-design/landing-page/wireframes/value-proposition-mobile.png)
+
+**Clasificación de riesgo**
+
+Explica el sistema de scoring estandarizado mediante tres tarjetas comparativas (A, B y C). Cada bloque describe el perfil del deudor, el comportamiento de pago y el nivel de rentabilidad asociado, permitiendo que tanto emisores como inversionistas comprendan los criterios de evaluación.
+
+![Wireframe Clasificación de riesgo](./assets/cap4-product-design/landing-page/wireframes/risk-classification.png)
+![Wireframe Clasificación de riesgo](./assets/cap4-product-design/landing-page/wireframes/risk-classification-mobile.png)
+
+**Preguntas frecuentes (FAQ)**
+
+Estructura en acordeón desplegable que agrupa las dudas operativas y financieras más críticas (concepto de crowdfactoring, gestión de impagos, monedas admitidas y tiempos de respuesta) para resolver objeciones antes del registro.
+
+![Wireframe Preguntas frecuentes](./assets/cap4-product-design/landing-page/wireframes/faq.png)
+![Wireframe Preguntas frecuentes](./assets/cap4-product-design/landing-page/wireframes/faq-mobile.png)
+
+**Llamado a la acción final y Footer**
+
+Módulo de cierre que sintetiza la promesa de liquidez con accesos directos a registro e inicio de sesión. Finaliza con un pie de página corporativo que organiza la navegación secundaria, enlaces a políticas legales y el aviso regulatorio correspondiente.
+
+![Wireframe Llamado a la acción final y Footer](./assets/cap4-product-design/landing-page/wireframes/cta-footer.png)
+![Wireframe Llamado a la acción final y Footer](./assets/cap4-product-design/landing-page/wireframes/cta-footer-mobile.png)
 
 ### 4.3.2. Landing Page Mock-up
 
-<!-- Mock-ups del Landing Page en su versión Desktop Web Browser y Mobile Web Browser, aplicando el Design System establecido. -->
-<!-- Assets: ./assets/cap4-product-design/landing-page/mockups/ -->
+A continuación, se presentan los mockups de alta fidelidad de la Landing Page tanto para Desktop Web Browser como para Mobile Web Browser. En esta fase se incorporan la identidad visual de Vankoo, paleta cromática corporativa, tipografía definitiva, microinteracciones, iconografía detallada y componentes visuales finales, consolidando los principios de accesibilidad, legibilidad y jerarquía visual.
 
-_Pendiente de elaboración._
+**Hero**
+
+Presentación de alta fidelidad con contrastes optimizados, tipografía de alto impacto y estilo visual consolidado. En desktop, la tarjeta preview emula la interfaz real del sistema con indicadores de estado cromáticos e importes destacados; en la variante móvil, los elementos se apilan verticalmente priorizando la legibilidad y el acceso táctil a los llamados a la acción primarios.
+
+![Mockup Hero](./assets/cap4-product-design/landing-page/mockups/hero-mockup.png)
+![Mockup Hero Mobile](./assets/cap4-product-design/landing-page/mockups/hero-mockup-mobile.png)
+
+**Flujo del Proceso**
+
+Representación visual de los cinco hitos operativos mediante una línea de tiempo limpia con badges de autoría diferenciados por color (Usuario, Sistema e Inversionistas). Los módulos inferiores de incidencias y excepciones utilizan estados cromáticos suaves de alerta para brindar transparencia operativa sin sobrecargar visualmente la pantalla.
+
+![Mockup Flujo del Proceso](./assets/cap4-product-design/landing-page/mockups/flow-process-mockup.png)
+![Mockup Flujo del Proceso Mobile](./assets/cap4-product-design/landing-page/mockups/flow-process-mockup-mobile.png)
+
+**Simulador de costos**
+
+Diseño final e interactivo del panel de cotización con controles visuales pulidos (toggles segmentados, slider interactivo y chips de selección de plazo). El panel de resultados contrasta sobre fondo claro con números destacados, detallando visualmente el desglose financiero exacto de la operación tanto en escritorio como en navegación táctil móvil.
+
+![Mockup Simulador de costos](./assets/cap4-product-design/landing-page/mockups/cost-simulator-mockup.png)
+![Mockup Simulador de costos Mobile](./assets/cap4-product-design/landing-page/mockups/cost-simulator-mockup-mobile.png)
+
+**Propuesta de valor por segmento**
+
+Implementación del conmutador de audiencias (Para tu MYPE / Para invertir) con retroalimentación visual de estado activo. La cuadrícula de beneficios incorpora iconos finales representativos, espacios en blanco equilibrados y tarjetas con bordes suaves que jerarquizan las ventajas competitivas de la plataforma.
+
+![Mockup Propuesta de valor por segmento](./assets/cap4-product-design/landing-page/mockups/value-proposition-mockup.png)
+![Mockup Propuesta de valor por segmento Mobile](./assets/cap4-product-design/landing-page/mockups/value-proposition-mockup-mobile.png)
+
+**Clasificación de riesgo** 
+
+Tarjetas modulares de alta fidelidad para las categorías A, B y C con contenedores de badges diferenciados y jerarquía tipográfica definida. El diseño transmite confiabilidad y rigor financiero mediante microtextos concisos, facilitando la comprensión inmediata del riesgo y retorno esperado.
+
+![Mockup Clasificación de riesgo](./assets/cap4-product-design/landing-page/mockups/risk-classification-mockup.png)
+![Mockup Clasificación de riesgo Mobile](./assets/cap4-product-design/landing-page/mockups/risk-classification-mockup-mobile.png)
+
+**Preguntas frecuentes (FAQ)**
+
+Componente de acordeón con tratamiento visual acabado, separadores sutiles e indicadores de apertura/cierre claros. En la versión mobile, la separación entre filas y el área táctil de interacción están optimizadas para facilitar la navegación con el pulgar.
+
+![Mockup Preguntas frecuentes](./assets/cap4-product-design/landing-page/mockups/faq-mockup.png)
+![Mockup Preguntas frecuentes Mobile](./assets/cap4-product-design/landing-page/mockups/faq-mockup-mobile.png)
+
+**Llamado a la acción final y Footer**
+
+Bloque contenedor oscuro con contraste directo para guiar la conversión final del usuario hacia el registro o inicio de sesión. La sección culmina con un footer corporativo estructurado por columnas temáticas, tipografía de soporte en escala reducida y avisos legales dispuestos de forma equilibrada.
+
+![Mockup Llamado a la acción final y Footer](./assets/cap4-product-design/landing-page/mockups/cta-footer-mockup.png)
+![Mockup Llamado a la acción final y Footer Mobile](./assets/cap4-product-design/landing-page/mockups/cta-footer-mockup-mobile.png)
 
 <hr class="page-break">
 
 ## 4.4. Web Applications UX/UI Design
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+En esta sección se presentan los wireframes y mock-ups de las aplicaciones de la plataforma Vankoo. Se describen las principales pantallas, funcionalidades y elementos visuales que componen estas aplicaciones.
+
 
 ### 4.4.1. Web Applications Wireframes
 
-<!-- Wireframes de las aplicaciones web, elaborados en Figma / Adobe XD. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/wireframes/ -->
+**IAM**
 
-_Pendiente de elaboración._
+**Inicio de Sesión**
+
+Está pantalla permite a los usuarios autenticarse en la plataforma mediante correo electrónico y contraseña. Se incluyen opciones de recuperación de contraseña y enlaces a registro para nuevos usuarios.
+
+![Wireframe Inicio de Sesión](./assets/cap4-product-design/web-app/wireframes/iam-login-wireframe.png)
+
+**Creación de Cuenta**
+
+Permite a los nuevos usuarios registrarse en la plataforma proporcionando información básica como nombre, correo electrónico y contraseña. Se incluyen validaciones de campos y mensajes de error.
+
+![Wireframe Creación de Cuenta](./assets/cap4-product-design/web-app/wireframes/iam-signup-wireframe.png)
+
+**Recuperación de Contraseña**
+
+Facilita a los usuarios recuperar el acceso a su cuenta mediante un proceso de verificación por correo electrónico. Se incluyen instrucciones claras y mensajes de confirmación.
+
+![Wireframe Recuperación de Contraseña](./assets/cap4-product-design/web-app/wireframes/iam-password-recovery-wireframe.png)
+
+**Nueva Contraseña**
+
+Permite a los usuarios establecer una nueva contraseña después de haber verificado su identidad. Se incluyen campos para la nueva contraseña y confirmación, junto con validaciones de seguridad.
+
+![Wireframe Nueva Contraseña](./assets/cap4-product-design/web-app/wireframes/iam-new-password-wireframe.png)
+
+**Perfil**
+
+**Completar Perfil**
+
+Permite al usuario completar la información de su perfil, incluyendo ruc, nombre de la empresa, dirección y otros datos relevantes. Se incluyen validaciones de campos y mensajes de error.
+
+![Wireframe Completar Perfil](./assets/cap4-product-design/web-app/wireframes/profile-complete-wireframe.png)
+
+**Perfil enviado**
+
+Muestra un mensaje de confirmación al usuario indicando que su perfil ha sido enviado para revisión.
+
+![Wireframe Perfil enviado](./assets/cap4-product-design/web-app/wireframes/profile-submitted-wireframe.png)
+
+**Perfil Rechazado**
+
+Muestra un mensaje de rechazo al usuario indicando que su perfil no cumple con los requisitos.
+
+![Wireframe Perfil Rechazado](./assets/cap4-product-design/web-app/wireframes/profile-rejected-wireframe.png)
+
+**Dashboard**
+
+**Dashboard Principal**
+
+Muestra un resumen, con el estado de las facturas. 
+
+![Wireframe Dashboard Principal](./assets/cap4-product-design/web-app/wireframes/dashboard-main-wireframe.png)
+
+**Perfil en Revisión**
+
+Muestra un mensaje al usuario indicando que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Wireframe Perfil en Revisión](./assets/cap4-product-design/web-app/wireframes/dashboard-profile-review-wireframe.png)
+
+**Facturas**
+
+**Subir Factura**
+
+Permite al usuario subir una factura para su procesamiento y un botón para cargar el archivo de la factura.
+
+![Wireframe Subir Factura](./assets/cap4-product-design/web-app/wireframes/invoice-upload-wireframe.png)
+
+**Facturas en Proceso**
+
+Muestra un listado de las facturas que están siendo procesadas, con información relevante como el estado de la factura.
+
+![Wireframe Facturas en Proceso](./assets/cap4-product-design/web-app/wireframes/invoice-processing-wireframe.png)
+
+**Lista de Facturas**
+
+Muestra un listado de todas las facturas del usuario, con información relevante como el estado de la factura.
+
+![Wireframe Lista de Facturas](./assets/cap4-product-design/web-app/wireframes/invoice-list-wireframe.png)
+
+**Detalle de Factura**
+
+Muestra los detalles de una factura específica, incluyendo información como el estado de la factura, el monto y la fecha de vencimiento.
+
+![Wireframe Detalle de Factura](./assets/cap4-product-design/web-app/wireframes/invoice-detail-wireframe.png)
+
+**Requiere Revisión**
+
+Muestra un mensaje al usuario indicando que su factura requiere revisión y que no puede ser procesada hasta que se resuelvan los problemas.
+
+![Wireframe Requiere Revisión](./assets/cap4-product-design/web-app/wireframes/invoice-requires-review-wireframe.png)
+
+**Factura Rechazada**
+
+Muestra un mensaje al usuario indicando que su factura ha sido rechazada y que no puede ser procesada.
+
+![Wireframe Factura Rechazada](./assets/cap4-product-design/web-app/wireframes/invoice-rejected-wireframe.png)
+
+**Billetera y Perfil**
+
+**Billetera**
+
+Muestra un resumen del estado de la billetera del usuario, incluyendo el saldo disponible y las transacciones recientes.
+
+![Wireframe Billetera](./assets/cap4-product-design/web-app/wireframes/wallet-wireframe.png)
+
+**Billetera Vacía**
+
+Muestra un mensaje al usuario indicando que su billetera está vacía y que no tiene saldo disponible.
+
+![Wireframe Billetera Vacía](./assets/cap4-product-design/web-app/wireframes/wallet-empty-wireframe.png)
+
+**Retiro de Fondos**
+
+Permite al usuario retirar fondos de su billetera a su cuenta bancaria, incluyendo campos para ingresar el monto y seleccionar la cuenta bancaria.
+
+![Wireframe Retiro de Fondos](./assets/cap4-product-design/web-app/wireframes/wallet-withdraw-wireframe.png)
+
+**Confirmar Retiro de Fondos**
+
+Confirma la solicitud de retiro de fondos del usuario, mostrando un resumen de la transacción.
+
+![Wireframe Confirmar Retiro de Fondos](./assets/cap4-product-design/web-app/wireframes/wallet-withdraw-confirm-wireframe.png)
+
+**Mi Perfil**
+
+Permite al usuario ver de su perfil, su nombre, correo electrónico y contraseña.
+
+![Wireframe Mi Perfil](./assets/cap4-product-design/web-app/wireframes/my-profile-wireframe.png)
+
+**Perfil en Revisión**
+
+Muestra un mensaje al usuario indicando que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Wireframe Perfil en Revisión](./assets/cap4-product-design/web-app/wireframes/my-profile-review-wireframe.png)
+
+**Página no encontrada (404)**
+
+Muestra un mensaje al usuario indicando que la página solicitada no se encuentra disponible.
+
+![Wireframe Página no encontrada (404)](./assets/cap4-product-design/web-app/wireframes/404-wireframe.png)
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 
-<!-- Un Wireflow por cada User goal, considerando los User Persona de cada aplicación. Elaborados en LucidChart / Overflow. Cada Wireflow requiere que se redacte el User goal y una explicación del flujo. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/wireflow-diagrams/ -->
+**Acceso y recuperación**
 
-_Pendiente de elaboración._
+User goal 01: Como responsable de una MYPE quiero crear mi cuenta o recuperar mi acceso para entrar a Vankoo con mi rol reconocido.
+
+El recorrido principal ocupa solo dos pantallas: 01, donde se crea la cuenta, y 02, donde se inicia sesión. Como IAM emite el token y la web decodifica directamente el claim «roles», el sistema ya sabe que quien entra es una MYPE, y por eso no existe una pantalla de «elige tu perfil». Los dos rombos representan decisiones del sistema, no de la persona, y sus ramas «no» no tienen wireframe propio: el error se muestra sobre el mismo formulario, así que ambas ramas se cierran con una cápsula que regresa al paso de origen. La fila inferior corresponde al sub-flujo de recuperación, que se activa desde «¿Olvidaste tu contraseña?» y termina devolviendo a la persona a 02 con la contraseña ya renovada.
+
+![Wireflow Acceso y recuperación](./assets/cap4-product-design/web-app/wireflow-diagrams/access-recovery-wireflow.png)
+
+**Perfil y validación**
+
+User goal 02: Como responsable de una MYPE quiero registrar los datos de mi empresa y que se validen para poder operar en Vankoo.
+
+Como el rol ya viaja en el token, este flujo no necesita preguntar quién es la MYPE, sino pedirle los datos de su empresa. 01 es un formulario que el agregado solo acepta completo —no admite actualizaciones parciales (PATCH)—, por lo que su rama «no» no avanza: devuelve a la persona al mismo paso con el campo inválido marcado. El segundo rombo resuelve el estado del KYC y tiene tres salidas posibles: si es aprobado, se abre el dashboard; si queda en revisión, se permite el ingreso pero con las acciones bloqueadas; y si es rechazado, esa es la única ruta del flujo que no tiene salida.
+
+![Wireflow Perfil y validación](./assets/cap4-product-design/web-app/wireflow-diagrams/profile-validation-wireflow.png)
+
+**Factura y elegibilidad**
+
+User goal 03: Como responsable de una MYPE quiero subir una factura y saber si es elegible para publicarla en subasta.
+
+El flujo tiene cuatro pasos y un único rombo. 01 es el estado vacío desde el que parte la MYPE; 02 corresponde a la subida del documento, y 03 es ese mismo paso en su estado siguiente, mientras el pipeline —OCR, extracción de datos, verificación de consistencia y validación con SUNAT— se ejecuta de forma automática: en ese punto no hay interacción, solo espera. El rombo resuelve el enum InvoiceStatus: si la factura es aprobada, continúa a 04 y entra en subasta; si requiere revisión, el trabajo regresa a la MYPE; y si es no elegible o rechazada, el flujo se cierra sin salida.
+
+![Wireflow Factura y elegibilidad](./assets/cap4-product-design/web-app/wireflow-diagrams/invoice-eligibility-wireflow.png)
+
+**Seguimiento del fondeo**
+
+User goal 04: Como responsable de una MYPE quiero seguir cómo avanza el fondeo de mi factura y saber cuándo el dinero está disponible.
+
+Este flujo no crea nada, solo permite observar. 01 y 02 son dos formas de llegar a la misma factura —el resumen inicial y la tabla completa—, mientras que 03 es donde realmente se sigue el fondeo, porque el riel de hitos indica en cada momento quién está trabajando. El rombo es la única bifurcación: mientras la subasta no alcance el 100 %, el flujo permanece a la espera en 03, y en cuanto lo alcanza, el dinero queda disponible en 04. Las dos ramas alternativas no son errores, sino estados vacíos: el punto en el que la MYPE todavía no tiene nada publicado.
+
+![Wireflow Seguimiento del fondeo](./assets/cap4-product-design/web-app/wireflow-diagrams/funding-tracking-wireflow.png)
+
+**Billetera y retiro**
+
+User goal 05: Como responsable de una MYPE quiero retirar a mi cuenta bancaria el dinero disponible en mi billetera.
+
+El retiro es el último tramo del recorrido de la MYPE y el único que saca dinero de Vankoo, por lo que el rombo se ubica antes del formulario y no después: verifica las dos condiciones —saldo disponible y KYC aprobado— en el momento en que la persona pulsa «retirar», no cuando envía el importe. 02 y 03 son el mismo paso en dos estados distintos, que es la forma en que el wireflow representa el efecto de confirmar la operación. Las tres ramas inferiores no son errores, sino las tres razones por las que el botón no puede continuar, y cada una remite al lugar donde esa condición se resuelve.
+
+![Wireflow Billetera y retiro](./assets/cap4-product-design/web-app/wireflow-diagrams/wallet-withdraw-wireflow.png)
 
 ### 4.4.3. Web Applications Mock-ups
 
-<!-- Mock-ups de las aplicaciones web, aplicando el Design System establecido. Elaborados en Figma / Adobe XD. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/mockups/ -->
+**IAM**
 
-_Pendiente de elaboración._
+**Iniciar Sesión**
+
+Pantalla de inicio de sesión con campos para correo electrónico y contraseña, botones de acción y enlaces a recuperación de contraseña y registro.
+
+![Mockup Iniciar Sesión](./assets/cap4-product-design/web-app/mockups/iam-login-mockup.png)
+
+**Iniciar Sesión - Error**
+
+Pantalla de inicio de sesión con mensaje de error indicando que las credenciales son incorrectas.
+
+![Mockup Iniciar Sesión - Error](./assets/cap4-product-design/web-app/mockups/iam-login-error-mockup.png)
+
+**Iniciar Sesión - Cargando**
+
+Pantalla de inicio de sesión con indicador de carga mientras se procesa la autenticación.
+
+![Mockup Iniciar Sesión - Cargando](./assets/cap4-product-design/web-app/mockups/iam-login-loading-mockup.png)
+
+**Crear Cuenta**
+
+Pantalla de registro de cuenta con campos para correo electrónico, contraseña y confirmación de contraseña, junto con botones de acción.
+
+![Mockup Crear Cuenta](./assets/cap4-product-design/web-app/mockups/iam-signup-mockup.png)
+
+**Crear Cuenta - Error**
+
+Pantalla de registro de cuenta con mensaje de error indicando que el correo electrónico ya está en uso.
+
+![Mockup Crear Cuenta - Error](./assets/cap4-product-design/web-app/mockups/iam-signup-error-mockup.png)
+
+**Crear Cuenta - Cargando** 
+
+Pantalla de registro de cuenta con indicador de carga mientras se procesa la creación de la cuenta.
+
+![Mockup Crear Cuenta - Cargando](./assets/cap4-product-design/web-app/mockups/iam-signup-loading-mockup.png)
+
+**Recuperar Contraseña**
+
+Pantalla de recuperación de contraseña con campos para correo electrónico y botones de acción.
+
+![Mockup Recuperar Contraseña](./assets/cap4-product-design/web-app/mockups/iam-password-recovery-mockup.png)
+
+**Nueva Contraseña**
+
+Pantalla para establecer una nueva contraseña con campos para la nueva contraseña y confirmación, junto con botones de acción.
+
+![Mockup Nueva Contraseña](./assets/cap4-product-design/web-app/mockups/iam-new-password-mockup.png)
+
+**Nueva Contraseña - Enlace Incompleto**
+
+Pantalla para establecer una nueva contraseña con mensaje de error indicando que el enlace de recuperación es inválido o ha expirado.
+![Mockup Nueva Contraseña - Enlace Incompleto](./assets/cap4-product-design/web-app/mockups/iam-new-password-link-error-mockup.png)
+
+**Perfil**
+
+**Completar Perfil**
+
+Pantalla para completar el perfil de la empresa con campos para RUC, nombre de la empresa, dirección y otros datos relevantes, junto con botones de acción.
+
+![Mockup Completar Perfil](./assets/cap4-product-design/web-app/mockups/profile-complete-mockup.png)
+
+**Completar Perfil - Error**
+
+Pantalla para completar el perfil de la empresa con mensaje de error indicando que algún campo es inválido o está incompleto.
+
+![Mockup Completar Perfil - Error](./assets/cap4-product-design/web-app/mockups/profile-complete-error-mockup.png)
+
+**Perfil en Revisión**
+
+Pantalla que indica al usuario que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Mockup Perfil en Revisión](./assets/cap4-product-design/web-app/mockups/profile-review-mockup.png)
+
+**Rechazo de Perfil**
+
+Pantalla que indica al usuario que su perfil ha sido rechazado y que no puede acceder a ciertas funcionalidades.
+
+![Mockup Rechazo de Perfil](./assets/cap4-product-design/web-app/mockups/profile-rejected-mockup.png)
+
+**Dashboard**
+
+**Inicio con Datos**
+
+Pantalla principal del dashboard que muestra un resumen del estado de las facturas y otras métricas relevantes para el usuario.
+
+![Mockup Inicio con Datos](./assets/cap4-product-design/web-app/mockups/dashboard-main-mockup.png)
+
+**Inicio sin Datos**
+
+Pantalla principal del dashboard que indica al usuario que no tiene facturas registradas y le invita a subir su primera factura. 
+
+![Mockup Inicio sin Datos](./assets/cap4-product-design/web-app/mockups/dashboard-main-empty-mockup.png)
+
+
+**KCY en Revisión**
+
+Pantalla del dashboard que indica al usuario que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Mockup KCY en Revisión](./assets/cap4-product-design/web-app/mockups/dashboard-profile-review-mockup.png)
+
+**Facturas**
+
+**Subir Factura**
+
+Pantalla para subir una factura con campos para seleccionar el archivo y botones de acción.
+
+![Mockup Subir Factura](./assets/cap4-product-design/web-app/mockups/invoice-upload-mockup.png)
+
+**Facturas en Proceso**
+
+Pantalla que muestra un listado de las facturas que están siendo procesadas, con información relevante como el estado de la factura.
+
+![Mockup Facturas en Proceso](./assets/cap4-product-design/web-app/mockups/invoice-processing-mockup.png)
+
+**Mi Lista de Facturas**
+
+Pantalla que muestra un listado de todas las facturas del usuario, con información relevante como el estado de la factura.
+
+![Mockup Mi Lista de Facturas](./assets/cap4-product-design/web-app/mockups/invoice-list-mockup.png)
+
+**Detalle de Factura**
+
+Pantalla que muestra los detalles de una factura específica, incluyendo información como el estado de la factura, el monto y la fecha de vencimiento.
+
+![Mockup Detalle de Factura](./assets/cap4-product-design/web-app/mockups/invoice-detail-mockup.png)
+
+**Requiere Revisión**
+
+Pantalla que indica al usuario que su factura requiere revisión y que no puede ser procesada hasta que se resuelvan los problemas.
+
+![Mockup Requiere Revisión](./assets/cap4-product-design/web-app/mockups/invoice-requires-review-mockup.png)
+
+**Factura Rechazada**
+
+Pantalla que indica al usuario que su factura ha sido rechazada y que no puede ser procesada.
+
+![Mockup Factura Rechazada](./assets/cap4-product-design/web-app/mockups/invoice-rejected-mockup.png)
+
+**Billetera y Perfil**
+
+**Billetera**
+
+Pantalla que muestra un resumen del estado de la billetera del usuario, incluyendo el saldo disponible y las transacciones recientes.
+
+![Mockup Billetera](./assets/cap4-product-design/web-app/mockups/wallet-mockup.png)
+
+**Billetera Vacía**
+
+Pantalla que indica al usuario que su billetera está vacía y que no tiene saldo disponible.
+
+![Mockup Billetera Vacía](./assets/cap4-product-design/web-app/mockups/wallet-empty-mockup.png)
+
+**Retiro de Fondos**
+
+Pantalla que permite al usuario retirar fondos de su billetera a su cuenta bancaria, incluyendo campos para ingresar el monto y seleccionar la cuenta bancaria.
+
+![Mockup Retiro de Fondos](./assets/cap4-product-design/web-app/mockups/wallet-withdraw-mockup.png)
+
+**Confirmar Retiro de Fondos**
+
+Pantalla que confirma la solicitud de retiro de fondos del usuario, mostrando un resumen de la transacción.
+
+![Mockup Confirmar Retiro de Fondos](./assets/cap4-product-design/web-app/mockups/wallet-withdraw-confirm-mockup.png)
+
+**Mi Perfil**
+
+Pantalla que permite al usuario ver su perfil, incluyendo campos para nombre, correo electrónico y contraseña.
+
+![Mockup Mi Perfil](./assets/cap4-product-design/web-app/mockups/my-profile-mockup.png)
+
+**Mi Perfil en Revisión**
+
+Pantalla que indica al usuario que su perfil está en proceso de revisión y que no puede acceder a ciertas funcionalidades hasta que sea aprobado.
+
+![Mockup Mi Perfil en Revisión](./assets/cap4-product-design/web-app/mockups/my-profile-review-mockup.png)
+
+**Pagina no encontrada (404)**
+
+Pantalla que indica al usuario que la página solicitada no se encuentra disponible.
+
+![Mockup Página no encontrada (404)](./assets/cap4-product-design/web-app/mockups/404-mockup.png)
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
-<!-- Un User Flow por cada User goal, consistente con los Wireflows de los que se deriva, incluyendo los Mock-ups de las vistas, el happy path y los unhappy paths. Elaborados en LucidChart / Overflow. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/user-flow-diagrams/ -->
+**Acceso y recuperación**
 
-_Pendiente de elaboración._
+User goal 01: Como responsable de una MYPE quiero crear mi cuenta o recuperar mi acceso para entrar a Vankoo con mi rol reconocido.
 
-<hr class="page-break">
+El happy path recorre 01 → 02: la MYPE crea la cuenta, IAM emite el token y la web decodifica el claim «roles» para saber que entra como MYPE — no hace falta preguntárselo. Las dos rutas alternativas de la fila central son recuperables y devuelven al mismo paso del que salieron, sin sacar al usuario de la pantalla. La fila inferior es el sub-flujo de recuperación: se entra desde «¿Olvidaste tu contraseña?» y se vuelve a 02 con la contraseña nueva.
+
+![User Flow Acceso y recuperación](./assets/cap4-product-design/web-app/user-flow-diagrams/access-recovery-user-flow.png)
+
+**Perfil y validación**
+
+User goal 02: Como responsable de una MYPE quiero completar el perfil de mi empresa y conocer el estado de su validación para poder operar.
+
+El onboarding va antes del dashboard: con el KYC en PENDING la MYPE no puede operar, así que ésta es la antesala de la casa. El happy path recorre 01 → 03: se completan los datos, el perfil pasa a revisión y el inicio queda navegable pero sin operar, con los botones visibles y deshabilitados. La ruta A es un error de campo recuperable en el momento; la ruta B es el rechazo, que se reintenta con espera creciente.
+
+![User Flow Perfil y validación](./assets/cap4-product-design/web-app/user-flow-diagrams/profile-validation-user-flow.png)
+
+**Factura y elegibilidad**
+
+User goal 03: Como responsable de una MYPE quiero subir una factura y saber si es elegible para publicarla en subasta.
+
+La factura recorre el pipeline del servicio Invoicing: se sube, el sistema la lee y decide si es elegible. El happy path recorre 01 → 03 y termina con la factura publicada para el fondeo. El paso 02 no pide nada al usuario: el estado avanza solo. Las dos rutas alternativas comparten tono a propósito — ámbar cuando el pipeline necesita a una persona y todavía se puede corregir, rojo cuando la factura ya no tiene salida.
+
+![User Flow Factura y elegibilidad](./assets/cap4-product-design/web-app/user-flow-diagrams/invoice-eligibility-user-flow.png)
+
+**Seguimiento del fondeo**
+
+User goal 04: Como responsable de una MYPE quiero seguir cómo avanza el fondeo de mi factura y saber cuándo el dinero está disponible.
+
+Este flujo no crea nada: consulta. El happy path recorre 01 → 03, de la lista al detalle y del detalle al inicio, que repite el avance del fondeo de cada factura. La primera bifurcación es el estado vacío —la lista sin facturas manda al flujo de carga— y la segunda es la factura no encontrada, que aparece con un enlace roto o cuando la factura no pertenece a la empresa de la sesión.
+
+![User Flow Seguimiento del fondeo](./assets/cap4-product-design/web-app/user-flow-diagrams/funding-tracking-user-flow.png)
+
+**Billetera y retiro**
+
+User goal 05: Como responsable de una MYPE quiero retirar a mi cuenta bancaria el dinero disponible en mi billetera y conocer el estado de la operación.
+
+El retiro es la última milla del producto para la MYPE: el dinero ya cobrado sale de la billetera hacia su cuenta. El happy path recorre 01 → 03 y termina con el saldo actualizado. Las dos rutas alternativas no son errores del usuario sino condiciones del estado de la cuenta: la billetera vacía manda al flujo de carga de facturas, y el KYC sin verificar manda al de perfil, porque no se paga a quien todavía no está verificado.
+
+![User Flow Billetera y retiro](./assets/cap4-product-design/web-app/user-flow-diagrams/wallet-withdraw-user-flow.png)
+
 
 ## 4.5. Web Applications Prototyping
 
-<!-- Prototipos de UI para Desktop y Mobile Web Browser con simulación de interacción y navegación, acordes con los User Flow Diagrams. Incluir 1 screenshot del video y el enlace al video subido a Microsoft Stream por cada aplicación. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/prototyping/ -->
+En esta sección se presentan los prototipos de alta fidelidad de las aplicaciones web de la plataforma Vankoo, junto con enlaces a los videos demostrativos y capturas de pantalla representativas. 
 
-_Pendiente de elaboración: introducción con los principales criterios para las decisiones de interacción._
+![Prototipo de alta fidelidad de la aplicación web](./assets/cap4-product-design/web-app/prototyping/img.png)
 
-| Aplicación | Enlace al prototipo | Enlace al video | Captura |
-|---|---|---|---|
-|  |  |  |  |
+Enlace a los prototipos de alta fidelidad de las aplicaciones web de la plataforma Vankoo: [https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1](https://www.figma.com/proto/L4FrfBQBpsggk4qD67tpEa/Vankoo-Product?node-id=466-4300&p=f&viewport=214%2C181%2C0.05&t=moWZ438Gq7KhhDWt-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=466%3A4300&page-id=177%3A9&show-proto-sidebar=1)
+
+Enlace al video demostrativo de la aplicación web de la plataforma Vankoo: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQB4QYHJMxA9SJ-DTv1I1UxmAUWxp0zdf6QblzAVYYo7EMQ?e=tSbVOD)
 
 <hr class="page-break">
 
