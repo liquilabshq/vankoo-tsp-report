@@ -904,10 +904,45 @@ Muestra un mensaje al usuario indicando que la página solicitada no se encuentr
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 
-<!-- Un Wireflow por cada User goal, considerando los User Persona de cada aplicación. Elaborados en LucidChart / Overflow. Cada Wireflow requiere que se redacte el User goal y una explicación del flujo. -->
-<!-- Assets: ./assets/cap4-product-design/web-app/wireflow-diagrams/ -->
+**Acceso y recuperación**
 
-_Pendiente de elaboración._
+User goal 01: Como responsable de una MYPE quiero crear mi cuenta o recuperar mi acceso para entrar a Vankoo con mi rol reconocido.
+
+El recorrido principal ocupa solo dos pantallas: 01, donde se crea la cuenta, y 02, donde se inicia sesión. Como IAM emite el token y la web decodifica directamente el claim «roles», el sistema ya sabe que quien entra es una MYPE, y por eso no existe una pantalla de «elige tu perfil». Los dos rombos representan decisiones del sistema, no de la persona, y sus ramas «no» no tienen wireframe propio: el error se muestra sobre el mismo formulario, así que ambas ramas se cierran con una cápsula que regresa al paso de origen. La fila inferior corresponde al sub-flujo de recuperación, que se activa desde «¿Olvidaste tu contraseña?» y termina devolviendo a la persona a 02 con la contraseña ya renovada.
+
+![Wireflow Acceso y recuperación](./assets/cap4-product-design/web-app/wireflow-diagrams/access-recovery-wireflow.png)
+
+**Perfil y validación**
+
+User goal 02: Como responsable de una MYPE quiero registrar los datos de mi empresa y que se validen para poder operar en Vankoo.
+
+Como el rol ya viaja en el token, este flujo no necesita preguntar quién es la MYPE, sino pedirle los datos de su empresa. 01 es un formulario que el agregado solo acepta completo —no admite actualizaciones parciales (PATCH)—, por lo que su rama «no» no avanza: devuelve a la persona al mismo paso con el campo inválido marcado. El segundo rombo resuelve el estado del KYC y tiene tres salidas posibles: si es aprobado, se abre el dashboard; si queda en revisión, se permite el ingreso pero con las acciones bloqueadas; y si es rechazado, esa es la única ruta del flujo que no tiene salida.
+
+![Wireflow Perfil y validación](./assets/cap4-product-design/web-app/wireflow-diagrams/profile-validation-wireflow.png)
+
+**Factura y elegibilidad**
+
+User goal 03: Como responsable de una MYPE quiero subir una factura y saber si es elegible para publicarla en subasta.
+
+El flujo tiene cuatro pasos y un único rombo. 01 es el estado vacío desde el que parte la MYPE; 02 corresponde a la subida del documento, y 03 es ese mismo paso en su estado siguiente, mientras el pipeline —OCR, extracción de datos, verificación de consistencia y validación con SUNAT— se ejecuta de forma automática: en ese punto no hay interacción, solo espera. El rombo resuelve el enum InvoiceStatus: si la factura es aprobada, continúa a 04 y entra en subasta; si requiere revisión, el trabajo regresa a la MYPE; y si es no elegible o rechazada, el flujo se cierra sin salida.
+
+![Wireflow Factura y elegibilidad](./assets/cap4-product-design/web-app/wireflow-diagrams/invoice-eligibility-wireflow.png)
+
+**Seguimiento del fondeo**
+
+User goal 04: Como responsable de una MYPE quiero seguir cómo avanza el fondeo de mi factura y saber cuándo el dinero está disponible.
+
+Este flujo no crea nada, solo permite observar. 01 y 02 son dos formas de llegar a la misma factura —el resumen inicial y la tabla completa—, mientras que 03 es donde realmente se sigue el fondeo, porque el riel de hitos indica en cada momento quién está trabajando. El rombo es la única bifurcación: mientras la subasta no alcance el 100 %, el flujo permanece a la espera en 03, y en cuanto lo alcanza, el dinero queda disponible en 04. Las dos ramas alternativas no son errores, sino estados vacíos: el punto en el que la MYPE todavía no tiene nada publicado.
+
+![Wireflow Seguimiento del fondeo](./assets/cap4-product-design/web-app/wireflow-diagrams/funding-tracking-wireflow.png)
+
+**Billetera y retiro**
+
+User goal 05: Como responsable de una MYPE quiero retirar a mi cuenta bancaria el dinero disponible en mi billetera.
+
+El retiro es el último tramo del recorrido de la MYPE y el único que saca dinero de Vankoo, por lo que el rombo se ubica antes del formulario y no después: verifica las dos condiciones —saldo disponible y KYC aprobado— en el momento en que la persona pulsa «retirar», no cuando envía el importe. 02 y 03 son el mismo paso en dos estados distintos, que es la forma en que el wireflow representa el efecto de confirmar la operación. Las tres ramas inferiores no son errores, sino las tres razones por las que el botón no puede continuar, y cada una remite al lugar donde esa condición se resuelve.
+
+![Wireflow Billetera y retiro](./assets/cap4-product-design/web-app/wireflow-diagrams/wallet-withdraw-wireflow.png)
 
 ### 4.4.3. Web Applications Mock-ups
 
