@@ -732,7 +732,19 @@ _Pendiente de elaboración: párrafo introductorio del capítulo._
 <!-- Un To-Be Scenario Map por cada User Persona, elaborado en LucidChart / Miro, con las filas Phases, Doing, Thinking y Feeling. Comparar con el As-Is Scenario Mapping e identificar los cambios que ofrece el To-Be. -->
 <!-- Assets: ./assets/cap3-requirements-specification/to-be-scenario-mapping/ -->
 
-_Pendiente de elaboración._
+El To-Be Scenario Map, elaborado en Miro, reutiliza las mismas fases del As-Is para cada User Persona, mostrando cómo Vankoo transforma su Doing, Thinking y Feeling en cada una, y resume al costado los cambios concretos que la plataforma ofrece frente al escenario actual.
+
+**To-Be Scenario Map - Empresario MYPE (Carlos)**
+
+El mapa muestra un recorrido íntegramente positivo: con Vankoo, Carlos pasa de esperar pagos y endeudarse caro a recibir liquidez en menos de 48 horas con costos transparentes desde el inicio.
+
+![To-Be Scenario Map MYPE](./assets/cap3-requirements-specification/to-be-scenario-mapping/to-be-scenario-map-mype.jpg)
+
+**To-Be Scenario Map - Inversionista (Sofía)**
+
+El mapa muestra un recorrido íntegramente positivo: con Vankoo, Sofía pasa de invertir a ciegas en instrumentos rígidos a diversificar desde S/100 con riesgo explicado y seguimiento en tiempo real.
+
+![To-Be Scenario Map Inversionista](./assets/cap3-requirements-specification/to-be-scenario-mapping/to-be-scenario-map-inversionista.jpg)
 
 <hr class="page-break">
 
