@@ -1086,37 +1086,41 @@ _Pendiente de elaboración._
 
 ### 5.2.1. Sprint 1
 
-_Pendiente de elaboración: párrafo introductorio del Sprint._
+El Sprint 1 inicia la implementación de Vankoo con una primera entrega enfocada en comunicar la propuesta de valor y establecer las bases de registro, perfiles e integración técnica para MYPES e inversionistas.
 
 #### 5.2.1.1. Sprint Planning 1
 
 <!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
 
-_Pendiente de elaboración: introducción de la sección._
+El Sprint Planning 1 establece el alcance de la primera iteración de Vankoo. Para seleccionar las historias se consideró una proyección de seis sprints: primero se habilitan la propuesta de valor, el onboarding y los contratos base; después se implementan la gestión de facturas, la evaluación de riesgo, el fondeo, las inversiones, la billetera y las notificaciones. Este sprint prioriza una primera experiencia pública de Vankoo y las capacidades técnicas necesarias para iniciar el registro de MYPES e inversionistas.
 
 | Sprint # | Sprint 1 |
 |---|---|
 | **Sprint Planning Background** | |
-| Date |  |
-| Time |  |
-| Location |  |
-| Prepared By |  |
-| Attendees (to planning meeting) |  |
+| Date | 24 de agosto de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
 | Sprint n – 1 Review Summary | No aplica, es el primer Sprint. |
 | Sprint n – 1 Retrospective Summary | No aplica, es el primer Sprint. |
 | **Sprint Goal & User Stories** | |
-| Sprint 1 Goal |  |
-| Sprint 1 Velocity |  |
-| Sum of Story Points |  |
+| Sprint 1 Goal | Construir la primera entrega usable de Vankoo: comunicar la propuesta de valor a los visitantes y dejar habilitados el registro inicial de la MYPE, los perfiles y los contratos REST de identidad y KYC para continuar el desarrollo del ecosistema. |
+| User Stories | LPS01, LPS02, LPS03, US18, TS01 y TS02 |
+| Sprint 1 Velocity | 26 story points planificados para el primer sprint; todavía no existe una velocidad histórica. |
+| Sum of Story Points | 26 |
 
 #### 5.2.1.2. Sprint Backlog 1
 
-<!-- Introducción con el objetivo principal del Sprint, screenshot del board en la herramienta de control (Trello) y su URL público, y la tabla de User Stories con sus Work-items / Tasks. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/sprint-backlog/ -->
+El Sprint Backlog 1 descompone las historias `LPS01`, `LPS02`, `LPS03`, `US18`, `TS01` y `TS02`. El objetivo es publicar una experiencia inicial comprensible para los dos segmentos y construir la base de registro, perfiles e integración REST que permitirá continuar con la gestión de facturas en el siguiente sprint. La captura del board será incorporada por el equipo después de la llamada de planificación.
 
-_Pendiente de elaboración._
+![Sprint Backlog 1](assets/cap5-product-implementation/sprint-1/sprint-backlog/sprint-backlog.png)
 
-Enlace del board: _Pendiente de elaboración._
+Captura del board:
+
+![Sprint Backlog 1](assets/cap5-product-implementation/sprint-1/sprint-backlog/sprint-backlog.png)
+
+Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
 
 <div style="font-size:80%; overflow-x:auto;">
   <table border="1" cellspacing="0" cellpadding="5">
@@ -1142,14 +1146,156 @@ Enlace del board: _Pendiente de elaboración._
     </thead>
     <tbody>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>GEN-01</td>
+        <td>Preparar entorno del Sprint 1</td>
+        <td>Configurar variables de entorno, ramas de trabajo, convenciones de integración y criterios comunes para Landing Page, MYPE Web y servicios.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS01-T01</td>
+        <td>Comprensión de la propuesta de valor</td>
+        <td>Definir la estructura de contenido para visitantes MYPE e inversionistas, incluyendo el problema, la solución y el alcance académico de Vankoo.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS01-T02</td>
+        <td>Comprensión de la propuesta de valor</td>
+        <td>Implementar las secciones de la Landing Page que explican el valor para la MYPE y para el inversionista.</td>
+        <td>8</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS01-T03</td>
+        <td>Comprensión de la propuesta de valor</td>
+        <td>Validar el contenido responsive, la navegación entre audiencias y la consistencia de los textos en español e inglés.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS02-T01</td>
+        <td>Simulador de adelanto</td>
+        <td>Implementar las entradas de moneda, monto, plazo y clasificación de riesgo con los rangos definidos para el ejemplo ilustrativo.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS02-T02</td>
+        <td>Simulador de adelanto</td>
+        <td>Implementar el cálculo del costo, monto adelantado, rendimiento estimado y TCEA informativa.</td>
+        <td>8</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS02-T03</td>
+        <td>Simulador de adelanto</td>
+        <td>Agregar validaciones para rangos inválidos y el aviso de que las tasas y resultados son referenciales.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS03-T01</td>
+        <td>Orientación de conversión y confianza</td>
+        <td>Implementar el proceso de cinco hitos, la explicación de las clasificaciones A, B y C y las preguntas frecuentes.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS03-T02</td>
+        <td>Orientación de conversión y confianza</td>
+        <td>Configurar los CTA y enlaces diferenciados para iniciar el flujo de la MYPE o del inversionista.</td>
+        <td>4</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>LPS03-T03</td>
+        <td>Orientación de conversión y confianza</td>
+        <td>Revisar el disclaimer académico, los textos legales y la traducción de la información de confianza.</td>
+        <td>3</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US18-T01</td>
+        <td>Registro MYPE con RUC</td>
+        <td>Definir el contrato de registro, los estados tributarios aceptados y los mensajes de rechazo del RUC.</td>
+        <td>4</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US18-T02</td>
+        <td>Registro MYPE con RUC</td>
+        <td>Implementar en la MYPE Web el flujo de registro y captura del RUC del empresario.</td>
+        <td>8</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US18-T03</td>
+        <td>Registro MYPE con RUC</td>
+        <td>Integrar la consulta y validación del RUC, incluyendo los casos de RUC activo, inexistente, inactivo o dado de baja.</td>
+        <td>8</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS01-T01</td>
+        <td>Contrato REST de IAM</td>
+        <td>Documentar las solicitudes y respuestas de registro, inicio de sesión y recuperación de contraseña.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS01-T02</td>
+        <td>Contrato REST de IAM</td>
+        <td>Integrar el consumo de los endpoints de registro e inicio de sesión desde las aplicaciones correspondientes.</td>
+        <td>8</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS01-T03</td>
+        <td>Contrato REST de IAM</td>
+        <td>Preparar pruebas para credenciales inválidas, correo duplicado, solicitudes de recuperación y tokens no válidos.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS02-T01</td>
+        <td>Contrato REST de perfiles y KYC</td>
+        <td>Definir los recursos REST para perfiles de MYPE e inversionista, documentos y estados de verificación.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS02-T02</td>
+        <td>Contrato REST de perfiles y KYC</td>
+        <td>Integrar el flujo de actualización de perfil y generación de URLs prefirmadas para documentos de identidad y empresa.</td>
+        <td>8</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS02-T03</td>
+        <td>Contrato REST de perfiles y KYC</td>
+        <td>Preparar pruebas de respuestas exitosas, identificadores inexistentes y documentos inválidos.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
       </tr>
     </tbody>
   </table>
