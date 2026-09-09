@@ -725,7 +725,7 @@ El mapa evidencia un recorrido que inicia positivo por la motivación de hacer c
 
 <!-- Especificación de los requisitos de los productos digitales, en base al análisis de la información obtenida en las investigaciones. -->
 
-_Pendiente de elaboración: párrafo introductorio del capítulo._
+A partir del análisis de las entrevistas, el Needfinding y los User Personas desarrollados en el capítulo anterior, este capítulo traduce esos hallazgos en la especificación de los requisitos de los productos digitales de Vankoo. Se inicia proyectando el escenario futuro de cada usuario mediante el To-Be Scenario Mapping, que evidencia los cambios que la plataforma introduce frente al As-Is; a partir de ahí se detallan las User Stories que describen las funcionalidades del sistema, el Impact Mapping que conecta los objetivos de negocio con los impactos esperados en cada persona, y el Product Backlog que prioriza y organiza todo lo anterior de cara al desarrollo.
 
 ## 3.1. To-Be Scenario Mapping
 
