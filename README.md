@@ -289,7 +289,7 @@ A continuación, se presenta el Lean UX Canvas elaborado en la herramienta Miro:
 
 ![Lean UX Canvas](assets/cap1-introduccion/lean-ux-canvas/lean-ux-canvas.png)
 
-**Enlace al Lean UX Canvas:** [*Ver en Miro*](https://miro.com/app/board/uXjVGGrzXsM=/?share_link_id=452277568220)
+**Enlace al Lean UX Canvas:** [https://goo.su/XhiN](https://miro.com/app/board/uXjVGGrzXsM=/?share_link_id=452277568220)
 
 <hr class="page-break">
 
@@ -630,7 +630,7 @@ _Pendiente de elaboración._
 
 ![Product Backlog](assets/cap3-requirements-specification/product-backlog/product-backlog.png)
 
-**Enlace público del Product Backlog:** [*Ver en Trello*](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
+**Enlace público del Product Backlog:** [https://goo.su/eakALq](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
 
 | # Orden | User Story Id | Título                                            | Descripción                                                                                                                                                             | Story Points (1 / 2 / 3 / 5 / 8) |
 |---------|---------------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
