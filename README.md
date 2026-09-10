@@ -317,38 +317,148 @@ Este segmento representa la oferta de capital. El mercado de factoring en Perú 
 
 # Capítulo II: Requirements Elicitation & Analysis
 
-<!-- Proceso de Needfinding junto con el análisis de la competencia. Las entrevistas se registran en video y se editan para construir el video de evidencia de entrevistas. -->
-
-_Pendiente de elaboración: párrafo introductorio del capítulo._
+Este capítulo documenta el proceso de *Requirements Elicitation & Analysis* llevado a cabo por el equipo de LiquiLabs para fundamentar el diseño de Vankoo. En primer lugar, se desarrolla un análisis competitivo que compara la propuesta de valor de Vankoo frente a los actores ya establecidos en el mercado peruano de factoring y crowdfactoring, con el fin de identificar ventajas diferenciales y definir estrategias frente a sus fortalezas y debilidades. En segundo lugar, se ejecuta un proceso de *needfinding* compuesto por entrevistas semiestructuradas a los dos segmentos objetivo —empresarios MYPE e inversionistas minoristas—, cuyos hallazgos alimentan las herramientas de user personas, user task matrix, user journey mapping, empathy mapping y as-is scenario mapping. Los resultados obtenidos en este capítulo constituyen la base empírica sobre la cual se sustenta la especificación de requisitos desarrollada en el Capítulo III.
 
 ## 2.1. Competidores
 
-<!-- Identificar y describir mínimo 3 competidores directos con modelos de negocio basados en productos digitales similares, o en su defecto competidores indirectos con ofertas parcialmente similares. -->
-<!-- Assets: ./assets/cap2-requirements-elicitation/competidores/ -->
 
-_Pendiente de elaboración._
+Para el análisis de la competencia se identificaron tres competidores directos que operan bajo modelos de negocio de factoring y/o crowdfactoring en el mercado peruano: Prestamype, Finsmart e Innova Funding. A continuación se describe brevemente el perfil de cada uno.
+
+**Prestamype**  
+Es la Fintech líder en préstamos y factoring en el Perú, reconocida por una marca sólida y un ecosistema amplio de productos financieros (factoring, préstamos con garantía hipotecaria, cambio de divisas y préstamos para capital de trabajo). Actúa como una suerte de "banco" dentro del ecosistema Fintech local, apalancándose en su gran liquidez, su reputación consolidada y una base de clientes inmensa para financiar operaciones incluso cuando no hay suficientes inversionistas retail. Su mercado objetivo se concentra en PYMES más consolidadas que buscan tickets altos, así como en inversionistas conservadores e institucionales, a quienes llega mediante publicidad masiva (TV, radio, paneles), Google Ads agresivo e influencers de alto perfil.
+
+**Finsmart**  
+Es el competidor directo más cercano al modelo de crowdfactoring de Vankoo. Se distingue por una plataforma muy digital y ágil, con un fuerte enfoque en la experiencia de usuario (UX) tanto para el inversionista como para la empresa que solicita el adelanto de sus facturas, permitiendo conectar facturas muy rápido. Su mercado objetivo son las MYPES digitales y los profesionales independientes, así como inversionistas jóvenes (millennials y generación Z), a quienes atrae mediante fuerte presencia en redes sociales (LinkedIn, Instagram), un programa de referidos y email marketing automatizado.
+
+**Innova Funding**  
+Es uno de los pioneros del sector de factoring participativo en el Perú, con un perfil más institucional orientado al segmento B2B. Se enfoca fuertemente en la educación financiera y su ventaja competitiva radica en el profundo conocimiento de la normativa de facturas negociables y en alianzas estratégicas para la integración de la facturación electrónica con CAVALI, posicionándose como "la bolsa de facturas". Su mercado objetivo son proveedores de grandes corporaciones y entidades del Estado, a quienes llega mediante alianzas con cámaras de comercio, eventos corporativos y relaciones públicas en medios de negocios.
 
 ### 2.1.1. Análisis competitivo
 
-<!-- Competitive Analysis Landscape según el formato del enunciado. En la cabecera colocar por cada competidor su nombre y logo. -->
-
-_Pendiente de elaboración._
-
-| **Competitive Analysis Landscape** | | | | | |
-|---|---|---|---|---|---|
-| **¿Por qué llevar a cabo este análisis?** | | | | | |
-| | | **LiquiLabs (Vankoo)** | **Competidor 1** | **Competidor 2** | **Competidor 3** |
-| **Perfil** | Overview | | | | |
-| | Ventaja competitiva<br>¿Qué valor ofrece a los clientes? | | | | |
-| **Perfil de Marketing** | Mercado objetivo | | | | |
-| | Estrategias de marketing | | | | |
-| **Perfil de Producto** | Productos & Servicios | | | | |
-| | Precios & Costos | | | | |
-| | Canales de distribución (Web y/o Móvil) | | | | |
-| **Análisis SWOT** | Fortalezas | | | | |
-| | Debilidades | | | | |
-| | Oportunidades | | | | |
-| | Amenazas | | | | |
+<table style="width:100%; table-layout:fixed; font-size:8pt; line-height:1.3; border-collapse:collapse;">
+<colgroup>
+<col style="width:8%">
+<col style="width:15%">
+<col style="width:19.25%">
+<col style="width:19.25%">
+<col style="width:19.25%">
+<col style="width:19.25%">
+</colgroup>
+<thead>
+<tr>
+<th colspan="6" style="text-align:left; background:#f2f2f2; border:1px solid #999; padding:4pt;">Competitive Analysis Landscape</th>
+</tr>
+<tr>
+<th colspan="6" style="text-align:left; border:1px solid #999; padding:4pt;">¿Por qué llevar a cabo este análisis?</th>
+</tr>
+<tr>
+<td colspan="6" style="border:1px solid #999; padding:4pt; text-align:left;">Este análisis permite comprender el posicionamiento de Vankoo frente a los actores relevantes del mercado peruano de factoring y crowdfactoring, identificando las ventajas competitivas y los vacíos de valor que la propuesta puede capitalizar, así como las fortalezas de la competencia que representan una amenaza directa para su adopción. Sus resultados retroalimentan las estrategias de diferenciación y las decisiones de producto y marketing que se abordan en la sección 2.1.2.</td>
+</tr>
+<tr>
+<th style="border:1px solid #999; padding:4pt;"></th>
+<th style="border:1px solid #999; padding:4pt;"></th>
+<th style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:bottom;">
+  <img src="./assets/cap2-requirements-elicitation/competidores/logo-vankoo.png" alt="Vankoo" style="max-height:35px; max-width:100%; display:block; margin-bottom:4pt; object-fit:contain;"><br>
+  LiquiLabs (Vankoo)
+</th>
+<th style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:bottom;">
+  <img src="./assets/cap2-requirements-elicitation/competidores/logo-prestamype.jpg" alt="Prestamype" style="max-height:35px; max-width:100%; display:block; margin-bottom:4pt; object-fit:contain;"><br>
+  Prestamype
+</th>
+<th style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:bottom;">
+  <img src="./assets/cap2-requirements-elicitation/competidores/logo-finsmart.png" alt="Finsmart" style="max-height:35px; max-width:100%; display:block; margin-bottom:4pt; object-fit:contain;"><br>
+  Finsmart
+</th>
+<th style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:bottom;">
+  <img src="./assets/cap2-requirements-elicitation/competidores/logo-innova-funding.png" alt="Innova Funding" style="max-height:35px; max-width:100%; display:block; margin-bottom:4pt; object-fit:contain;"><br>
+  Innova Funding
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="2" style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:top;">Perfil</th>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Overview</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">La nueva propuesta disruptiva que busca democratizar la liquidez mediante tecnología avanzada (Event-Driven Architecture), reducción de riesgo con IA y un enfoque único de sostenibilidad (Factoring Verde).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Es la Fintech líder en préstamos y factoring en Perú. Tienen una marca muy fuerte y ofrecen un ecosistema de productos (préstamos con garantía hipotecaria, cambio de divisas, factoring). Son el "banco" de las Fintech.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Competidor directo en el modelo de crowdfactoring. Se destacan por una plataforma muy digital, ágil y enfocada en la experiencia de usuario (UX) tanto para el inversionista como para la empresa.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Pioneros en el sector. Se enfocan mucho en la educación financiera y tienen alianzas fuertes para la integración de facturas electrónicas. Su perfil es más institucional/B2B.</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Ventaja competitiva<br>¿Qué valor ofrece a los clientes?</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Uso de IA real para scoring predictivo del pagador (no solo historial crediticio), arquitectura de eventos (trazabilidad total) y el distintivo de Factoring Verde (menores tasas por sostenibilidad).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Reputación y solidez. Al ser los líderes, generan confianza inmediata. Tienen un fondo grande para financiar operaciones si no hay inversionistas retail.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">User Experience (UX). Su plataforma es extremadamente sencilla de usar. Conectan facturas muy rápido.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Integración B2B. Tienen una conexión muy fuerte con el ecosistema de facturación electrónica y CAVALI. Se posicionan como "La bolsa de facturas".</td>
+</tr>
+<tr>
+<th rowspan="2" style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:top;">Perfil de Marketing</th>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Mercado objetivo</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">MYPES del sector servicios/comercio excluidas por la banca tradicional y el inversionista "consciente" (retail y ESG).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">PYMES más consolidadas (que buscan tickets altos) e inversionistas conservadores/institucionales.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">MYPES digitales y profesionales independientes. Inversionistas jóvenes (millennials/Gen Z).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Proveedores de grandes corporaciones y entidades del Estado.</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Estrategias de marketing</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Marketing de contenidos (Inbound) sobre educación financiera, SEO técnico y alianzas con certificadoras verdes.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Publicidad masiva (TV, radio, paneles), Google Ads agresivo, influencers de alto perfil.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Fuerte presencia en redes sociales (LinkedIn, Instagram), programa de referidos, email marketing automatizado.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Alianzas estratégicas con cámaras de comercio, eventos corporativos, PR en medios de negocios.</td>
+</tr>
+<tr>
+<th rowspan="3" style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:top;">Perfil de Producto</th>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Productos &amp; Servicios</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Crowdfactoring inteligente, dashboard de salud financiera, tokenización de facturas (fraccionamiento).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Factoring, préstamos con garantía hipotecaria, gestor de divisas, préstamos para capital de trabajo.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Crowdfactoring puro, adelanto de facturas.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Subasta de facturas, factoring electrónico.</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Precios &amp; Costos</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Modelo de comisión por éxito (aprox. 1% - 1.5% al empresario) + spread de rendimiento al inversionista. Costos operativos bajos por automatización (IA).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Tasas competitivas pero con costos de estructuración a veces elevados para la MYPE.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Comisiones transparentes, ticket de entrada bajo para inversionistas.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Modelo de subasta (la tasa la define el mercado/inversionista), lo que puede ser muy barato o muy caro según la demanda.</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Canales de distribución (Web y/o Móvil)</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Web App (PWA) responsiva.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Plataforma Web robusta y fuerza de ventas telefónica.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Plataforma Web y App Móvil.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Plataforma Web.</td>
+</tr>
+<tr>
+<th rowspan="4" style="border:1px solid #999; padding:4pt; text-align:left; vertical-align:top;">Análisis SWOT</th>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Fortalezas</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Stack tecnológico moderno (escalable), propuesta de valor ética (Green), automatización de procesos.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Gran liquidez, marca reconocida, base de datos de clientes inmensa.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Agilidad tecnológica, comunidad de inversionistas muy activa, marca "cool" y cercana.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Conocimiento profundo de la normativa de facturas negociables, red de partners.</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Debilidades</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Marca nueva sin reputación (trust issue), base de inversionistas inicial nula (problema del huevo y la gallina).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Procesos pueden volverse lentos por el volumen; menos enfoque en micro-inversionistas (tickets de entrada más altos).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Dependencia alta del crowdfactoring (si los inversionistas se asustan, se seca la liquidez), riesgo de impago en facturas de menor calidad.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Interfaz de usuario (UI) menos moderna que Finsmart/LiquiLabs, curva de aprendizaje para el usuario nuevo.</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Oportunidades</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Creciente interés en inversiones de impacto (ESG), saturación de la banca tradicional.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Expansión internacional, compra de competidores pequeños.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Alianzas con software de contabilidad o facturación electrónica.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Convertirse en el motor de factoring de otros bancos (SaaS).</td>
+</tr>
+<tr>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Amenazas</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Regulaciones estrictas de la SBS/SMV sobre "tokenización", reacción agresiva de bancos bajando tasas.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Fintechs de nicho que ofrezcan mejor UX o procesos más rápidos (como LiquiLabs).</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Entrada de bancos digitales al sector de factoring con tasas subsidiadas.</td>
+<td style="border:1px solid #999; padding:4pt; vertical-align:top;">Que la competencia simplifique tanto el proceso que su modelo de "subasta" parezca complejo.</td>
+</tr>
+</tbody>
+</table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
