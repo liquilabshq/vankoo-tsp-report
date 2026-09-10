@@ -1892,9 +1892,97 @@ _Pendiente de elaboración._
 
 ### 5.1.4. Software Deployment Configuration
 
-<!-- Configuración del despliegue de la solución: pasos necesarios para que, a partir de los repositorios de código fuente, se logre el despliegue o publicación de cada producto digital (Landing Page, Web Services y Frontend Web Applications). -->
+Se utilizarán las siguientes plataformas para el despliegue de los diferentes productos del proyecto:
 
-_Pendiente de elaboración._
+| **Producto** | **Plataforma de Despliegue** | **Propósito** | **Enlace / Ruta de Acceso** |
+|---|---|---|---|
+| **Landing Page** | **Netlify** | Plataforma utilizada para el despliegue automático y continuo de la landing page estática. | [https://www.netlify.com](https://www.netlify.com) |
+| **Frontend Web Application** | **Netlify** | Alojamiento y despliegue continuo de la aplicación web cliente, con soporte para rutas y variables de entorno. | [https://www.netlify.com](https://www.netlify.com) |
+| **Microservices** | **Microsoft Azure (Azure Container Instances / ACR)** | Ejecución de microservicios contenedorizados sin servidor (serverless containers), alimentados desde imágenes privadas en Azure Container Registry. | [https://portal.azure.com](https://portal.azure.com) |
+| **Discovery Server** | **Microsoft Azure (Dapr / Azure Container Apps)** | Descubrimiento de servicios y resolución dinámica de nombres entre componentes mediante la integración de Dapr en Azure. | [https://dapr.io](https://dapr.io) |
+| **Message Broker** | **Microsoft Azure (Azure Event Hubs)** | Plataforma de transmisión masiva de datos y desacoplamiento de eventos asíncronos en tiempo real entre microservicios. | [https://azure.microsoft.com/services/event-hubs](https://azure.microsoft.com/services/event-hubs) |
+| **Kotlin Multiplatform Mobile App (Android)** | **Google Play Console** | Publicación, gestión de versiones y distribución del artefacto Android generado desde la base de código compartida. | [https://play.google.com/console](https://play.google.com/console) |
+| **Kotlin Multiplatform Mobile App (iOS)** | **Apple App Store Connect** | Publicación, pruebas beta (TestFlight) y distribución de la aplicación compilada para dispositivos iOS. | [https://appstoreconnect.apple.com](https://appstoreconnect.apple.com) |
+
+
+
+**Netlify (Landing Page & Frontend Web Application)**
+
+Netlify es una plataforma de nube especializada en la automatización del ciclo de vida de aplicaciones frontend y sitios web modernos. Ofrece integración nativa con repositorios Git, facilitando la integración continua (CI/CD) mediante webhooks que ejecutan pipelines de build y publicación instantánea con invalidación automática de caché en su CDN global.
+
+Para configurar el despliegue tanto de la Landing Page como del Frontend Web Application en Netlify, se siguen los siguientes pasos:
+1. Iniciar sesión en [Netlify](https://www.netlify.com) y conectar la cuenta de GitHub de la organización o proyecto.
+2. Seleccionar la opción **"Add new site" > "Import an existing project"** y vincular el repositorio correspondiente.
+3. Especificar la rama de producción (`main`) o de pruebas (`develop`) según el entorno a configurar.
+4. Definir los parámetros de compilación:
+   - **Build command:** Por ejemplo, `npm run build` o `pnpm build`.
+   - **Publish directory:** El directorio generado por el empaquetador (por ejemplo, `dist/` o `build/`).
+5. Configurar las variables de entorno necesarias (API Gateway URLs, tokens públicos de autenticación) en la sección **Site configuration > Environment variables**.
+6. Añadir las reglas de redirección en un archivo `_redirects` o `netlify.toml` para asegurar el correcto enrutamiento SPA (*Single Page Application*).
+7. Desplegar el sitio y verificar la generación del subdominio provisto por Netlify o la configuración de un dominio personalizado con certificado SSL automático.
+
+
+
+**Microsoft Azure (Ecosistema Backend y Mensajería)**
+
+Microsoft Azure centraliza la infraestructura de backend del proyecto, garantizando alta disponibilidad, seguridad por aislamiento y escalabilidad mediante soluciones gestionadas y serverless.
+
+Los microservicios son empaquetados como imágenes Docker y gestionados mediante dos servicios complementarios:
+* **Azure Container Registry (ACR):** Repositorio privado y seguro administrado en la nube donde se compilan y almacenan las imágenes de cada microservicio a través de pipelines de CI/CD.
+* **Azure Container Instances (ACI):** Entorno de ejecución serverless que permite inicializar contenedores de forma aislada, rápida y sin necesidad de gestionar la infraestructura de un clúster de máquinas virtuales subyacente.
+
+**Flujo de despliegue:**
+1. Crear un recurso de Azure Container Registry en el grupo de recursos del proyecto.
+2. Construir la imagen Docker de cada microservicio y publicarla (`docker push`) en ACR utilizando credenciales administradas o un Service Principal.
+3. Crear y configurar instancias en Azure Container Instances vinculando la imagen correspondiente desde ACR.
+4. Definir las variables de entorno (cadenas de conexión a bases de datos, perfiles de entorno) y especificaciones de cómputo (CPU y memoria).
+5. Asignar redes virtuales (VNet) o puertos públicos para permitir la comunicación entre servicios.
+
+**Discovery Server (Azure con Dapr)**
+Para la orquestación, resolución de endpoints y comunicación directa service-to-service, se utiliza **Dapr (Distributed Application Runtime)** integrado en el entorno de Azure (Azure Container Apps / ACI con sidecars).
+* Dapr actúa como capa de abstracción desacoplada, permitiendo que cada microservicio descubra y consuma a otros componentes mediante llamadas seguras gRPC/HTTP utilizando identificadores lógicos (`app-id`), eliminando el acoplamiento a direcciones IP o puertos dinámicos.
+* Proporciona resiliencia automática mediante políticas de reintento, balanceo de carga en el lado del cliente y cifrado mutuo TLS (mTLS).
+
+**Message Broker (Azure Event Hubs)**
+Azure Event Hubs es el motor de ingesta y mensajería distribuida de baja latencia utilizado para habilitar una arquitectura orientada a eventos (Event-Driven Architecture):
+* Permite el desacoplamiento asíncrono entre productores y consumidores de eventos del dominio.
+* Cuenta con particionamiento de datos para procesamiento paralelo concurrente y compatibilidad nativa con el protocolo AMQP y la API de Apache Kafka.
+* Se aprovisiona un espacio de nombres (*Event Hubs Namespace*) donde se crean los temas/hubs requeridos por los distintos flujos de negocio del proyecto.
+
+
+
+**Google Play Console (Kotlin Multiplatform - Android)**
+
+Google Play Console es la consola oficial para publicar y gestionar el artefacto Android generado a partir de la lógica compartida y la interfaz de Kotlin Multiplatform.
+
+Para publicar la versión de Android en Google Play Console, se siguen los siguientes pasos:
+1. Acceder a la cuenta de desarrollador en [Google Play Console](https://play.google.com/console).
+2. Crear una nueva aplicación ingresando el nombre oficial, idioma predeterminado y tipo de distribución (gratuita o de pago).
+3. Generar el paquete firmado en formato Android App Bundle (`.aab`) mediante Gradle en el proyecto (`./gradlew :composeApp:bundleRelease`).
+4. Crear un lanzamiento en el canal de pruebas internas o producción y cargar el archivo `.aab`.
+5. Completar la ficha de Play Store (descripción breve y completa, capturas de pantalla de la app en móvil y tablet, e icono en alta resolución).
+6. Configurar la clasificación de contenido, la política de privacidad y la declaración de permisos de la app.
+7. Enviar la versión a revisión para su posterior publicación en Google Play Store.
+
+
+
+**Apple App Store Connect (Kotlin Multiplatform - iOS)**
+
+Apple App Store Connect administra el ciclo de vida, distribución de compilaciones y publicación de la versión para iOS generada a partir del proyecto Kotlin Multiplatform.
+
+Para publicar la versión de iOS en Apple App Store Connect, se siguen los siguientes pasos:
+1. Iniciar sesión con la cuenta de desarrollador en [Apple App Store Connect](https://appstoreconnect.apple.com).
+2. Crear un nuevo registro de aplicación asociándolo al Bundle ID registrado previamente en el Apple Developer Portal.
+3. Compilar el target de iOS desde el entorno de desarrollo y generar el archivo binario empaquetado (`.ipa`) con los perfiles de aprovisionamiento correspondientes.
+4. Subir la compilación a App Store Connect utilizando Xcode Cloud, la herramienta Transporter o pipelines de CI/CD automatizados (Fastlane/GitHub Actions).
+5. (Opcional) Distribuir la versión a través de TestFlight para validaciones de pruebas internas y beta testers externos.
+6. Completar la ficha de la App Store: metadatos, palabras clave de búsqueda, URLs de soporte y capturas de pantalla para los tamaños de pantalla requeridos.
+7. Enviar la compilación final al equipo de revisión de Apple (App Review).
+
+> **Nota:**  La publicación en Apple App Store está considerada fuera del alcance de este proyecto debido a limitaciones de recursos.
+
+
+
 
 <hr class="page-break">
 
