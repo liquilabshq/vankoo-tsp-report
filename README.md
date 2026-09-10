@@ -2692,10 +2692,135 @@ _Pendiente de elaboración._
 
 #### 5.2.1.7. Software Deployment Evidence for Sprint Review
 
-<!-- Procesos realizados en relación con Deployment durante el Sprint: creación de cuentas, configuración de recursos en cloud providers, configuración de proyectos para integración o automatización del despliegue. Incluye Landing Page, Web Applications y Web Services, con capturas y explicaciones de los pasos realizados. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/deployment-evidence/ -->
+Para este primer Sprint se desplegó el microservicio de Invoicing, al ser un componente Core de la solución, y se le configuró adicionalmente un API Gateway aprovechando el servicio administrado de Azure.
 
-_Pendiente de elaboración._
+**1) Azure Container Registry (ACR)**
+
+Primero, creamos una instancia de Azure Container Registry para almacenar las imágenes de nuestros contenedores.
+
+![Paso 1 de creación de Container Registry](./assets/cap5-product-implementation/sprint-1/deployment-evidence/container-registry-step-1.png)
+
+Tras validar la configuración y presionar en **Review + Create**, el registro queda aprovisionado.
+
+![Confirmación de Container Registry creado](./assets/cap5-product-implementation/sprint-1/deployment-evidence/container-registry-step-2.png)
+
+Luego nos dirigimos a la sección **Claves de acceso (Access keys)** del recurso, habilitamos la opción **Usuario administrador (Admin User)** y copiamos las credenciales generadas.
+
+![Claves de acceso de Container Registry](./assets/cap5-product-implementation/sprint-1/deployment-evidence/container-registry-step-3.png)
+
+**2) Build y Push de la Imagen Docker**
+
+Construimos la imagen localmente y la subimos a nuestro registro privado en Azure.
+
+![Build de la imagen Docker](./assets/cap5-product-implementation/sprint-1/deployment-evidence/build-image-step-1.png)
+![Push de la imagen hacia Azure Container Registry](./assets/cap5-product-implementation/sprint-1/deployment-evidence/build-image-step-2.png)
+
+ **3) Azure Document Intelligence**
+
+Aprovisionamos el recurso de Document Intelligence para el procesamiento inteligente de comprobantes.
+
+![Creación del servicio Document Intelligence](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-1.png)
+
+Comprobamos que el recurso se desplegó correctamente.
+
+![Confirmación de creación de Document Intelligence](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-2.png)
+
+**4) Amazon Web Services (AWS S3)**
+
+Se creó un bucket dedicado con acceso público bloqueado por defecto (*Block Public Access* habilitado), garantizando que los comprobantes financieros no queden expuestos directamente a Internet.
+
+![Creación y configuración del Bucket en AWS S3](./assets/cap5-product-implementation/sprint-1/deployment-evidence/s3-step-1.png)
+
+Se creó un usuario de IAM bajo el principio de privilegio mínimo (*Least Privilege*), restringiendo sus permisos exclusivamente a operaciones de lectura y escritura sobre el bucket.
+
+![Configuración del usuario de IAM y políticas](./assets/cap5-product-implementation/sprint-1/deployment-evidence/s3-step-2.png)
+
+Se generó un par de claves de acceso programático (`Access Key ID` y `Secret Access Key`) para integrar el SDK de AWS (`AWSSDK.S3`) en el microservicio backend, las cuales se configuran de forma segura mediante variables de entorno en el contenedor.
+
+![Generación de claves de acceso de IAM](./assets/cap5-product-implementation/sprint-1/deployment-evidence/s3-step-3.png)
+
+Evidencia de las credenciales de acceso generadas para la integración técnica:
+
+![Claves de acceso generadas](./assets/cap5-product-implementation/sprint-1/deployment-evidence/s3-step-4.png)
+
+**5) Despliegue de Azure Cosmos DB for MongoDB (DocumentDB vCore)**
+
+Completamos la configuración básica seleccionando la región East US 2, el nivel gratuito (Free Tier), asignamos el nombre del clúster e ingresamos las credenciales de autenticación.
+
+![Datos básicos de Cosmos DB MongoDB](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-1.png)
+
+En la pestaña de redes, habilitamos el acceso público y permitimos el tráfico desde servicios y recursos dentro de Azure.
+
+![Configuración de redes del clúster](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-2.png)
+
+Procedemos a crear el clúster.
+
+![Revisión y creación del clúster](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-3.png)
+
+Comprobamos que el recurso esté desplegado y en estado activo.
+
+![Clúster creado exitosamente](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-4.png)
+
+Ingresamos al recurso para obtener la cadena de conexión correspondiente.
+
+![Sección de Connection Strings](./assets/cap5-product-implementation/sprint-1/deployment-evidence/document-db-step-5.png)
+
+Copiamos la cadena de conexión principal del clúster y reemplazamos el marcador de posición con la contraseña definida.
+
+**6) Creación de Azure Container Instances (ACI)**
+
+Iniciamos el despliegue del contenedor seleccionando la imagen previamente cargada en el ACR.
+
+![Configuración básica de Azure Container Instances](./assets/cap5-product-implementation/sprint-1/deployment-evidence/aci-step-1.png)
+
+En la configuración de redes, exponemos el puerto 8080 bajo el protocolo TCP y asignamos una etiqueta de nombre DNS pública (FQDN).
+
+![Configuración de redes y DNS de ACI](./assets/cap5-product-implementation/sprint-1/deployment-evidence/aci-step-2.png)
+
+Deshabilitamos la opción de supervisión para este entorno inicial y cargamos las variables de entorno requeridas por la aplicación (cadenas de conexión, credenciales y secretos).
+
+![Configuración de variables de entorno en ACI](./assets/cap5-product-implementation/sprint-1/deployment-evidence/aci-step-3.png)
+
+Confirmamos la creación y verificamos que el contenedor quede en ejecución activa (*Running*).
+
+![Instancia de ACI desplegada y en línea](./assets/cap5-product-implementation/sprint-1/deployment-evidence/aci-step-4.png)
+
+**7) Configuración de Azure API Management (APIM)**
+
+Iniciamos la creación del recurso Azure API Management para gestionar la puerta de enlace de los servicios.
+
+![Creación del servicio API Management](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-1.png)
+
+Completamos los campos obligatorios bajo el nivel de consumo (Consumption) y validamos que el recurso se cree correctamente.
+
+![Confirmación de despliegue de APIM](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-2.png)
+
+Accedemos al recurso, ingresamos a la sección **APIs** y seleccionamos la opción **+ HTTP** para registrar manualmente una nueva API.
+
+![Creación manual de API HTTP en APIM](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-3.png)
+
+Completamos el nombre, el sufijo de URL `/invoicing` y la dirección del backend apuntando al FQDN de nuestro ACI en el puerto 8080.
+
+![Definición de rutas y backend de la API](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-4.png)
+
+Añadimos una operación con el verbo `GET` y la ruta comodín `/{*path}`. De esta forma, el gateway actúa como un proxy transparente (*Pass-Through*), permitiendo agregar, renombrar o consultar endpoints en el código .NET sin requerir reconfiguraciones continuas en Azure Portal.
+
+![Configuración de operación GET comodín](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-5.png)
+
+Añadimos una segunda operación con el verbo `POST` y la misma ruta `/{*path}`. Esto permite procesar solicitudes como `POST /api/v1/invoices` enviando los PDFs en formato `multipart/form-data` directamente hacia el contenedor.
+
+![Configuración de operación POST comodín](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-6.png)
+
+En la pestaña *Settings*, desmarcamos la casilla **Subscription required** para eliminar el requisito de la API Key propietaria de Azure (`Ocp-Apim-Subscription-Key`), habilitando el consumo directo de las rutas.
+
+![Desactivación de la clave de suscripción](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-7.png)
+
+Se validó la conectividad del API Gateway consultando el endpoint de salud (`/health/live`), confirmando la correcta comunicación con el microservicio en ACI bajo HTTPS con estado `200 OK`.
+
+![Prueba exitosa del health check a través del Gateway](./assets/cap5-product-implementation/sprint-1/deployment-evidence/apim-step-8.png)
+
+Para este primer sprint, la comunicación entre Azure API Management y el contenedor ACI se realiza a través de su FQDN público con HTTPS, postergando el aislamiento en una Red Virtual (VNet) privada para fases posteriores.
+
 
 #### 5.2.1.8. Team Collaboration Insights during Sprint
 
