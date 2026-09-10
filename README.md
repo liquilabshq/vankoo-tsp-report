@@ -462,10 +462,44 @@ Es uno de los pioneros del sector de factoring participativo en el Perú, con un
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-<!-- Estrategias y tácticas preliminares para afrontar las fortalezas y aprovechar las debilidades, así como el contexto de oportunidades y amenazas en relación a la competencia. -->
+**Diferenciación por Scoring Predictivo e IA**
 
-_Pendiente de elaboración._
+* **Estrategia:** Posicionar a LiquiLabs no solo como un intermediario de dinero, sino como una plataforma de tecnología de riesgo superior que ofrece mayor seguridad que el crowdfactoring tradicional.
+* **Tácticas:**
+  * Publicar un "Reporte de Salud del Pagador" generado por IA para cada factura, dándole al inversionista una métrica de riesgo que los competidores no ofrecen.
+  * Implementar un sistema de notificaciones que avise a los inversionistas sobre oportunidades de financiamiento en milisegundos.
 
+**Nicho de Impacto: El "Factoring Verde**
+
+* **Estrategia:** Dominar el segmento de Inversión Responsable (ESG), capturando al inversionista consciente y a las MYPES con buenas prácticas, donde los competidores no tienen un enfoque claro.
+* **Tácticas:**
+  * **Certificación digital:** Otorgar un sello de "Empresa de Impacto" a las MYPES que financien facturas de sectores sostenibles.
+  * **Tasa Preferencial Verde:** Reducir la comisión de éxito en un 0.25% para proyectos que cumplan criterios ambientales, compensándolo con una mayor rapidez de fondeo por parte de inversionistas interesados en ESG.
+
+
+**Democratización mediante la Tokenización (Fraccionamiento)**
+
+* **Estrategia:** Resolver el "problema del huevo y la gallina" bajando la barrera de entrada para inversionistas retail a niveles que Prestamype o Innova Funding no atienden por sus costos operativos.
+* **Tácticas:**
+  * Permitir inversiones desde montos mínimos (ej. S/ 50 o S/ 100) gracias al fraccionamiento de facturas.
+  * Crear una "Billetera de Reinversión Automática" que use la IA para diversificar el capital del inversionista en múltiples micro-fracciones de facturas automáticamente.
+
+
+**Transparencia y Trazabilidad Total**
+
+* **Estrategia:** Mitigar la debilidad de ser una "marca nueva sin reputación" mediante una transparencia técnica radical que los competidores antiguos (con sistemas legados) no pueden replicar.
+* **Tácticas:**
+  * **Dashboard de Trazabilidad:** Permitir que el empresario y el inversionista vean en qué etapa exacta está la factura (validación SUNAT, confirmación CAVALI, fondeo, pago) en tiempo real.
+  * **Auditoría de Algoritmos:** Publicar resúmenes ejecutivos sobre cómo funciona la IA de scoring para generar confianza técnica frente a la opacidad de los modelos bancarios tradicionales.
+
+
+
+**Crecimiento por Alianzas de Ecosistema (Inbound Tech)**
+
+* **Estrategia:** En lugar de competir en gasto publicitario masivo con Prestamype, integrarse directamente donde la factura nace.
+* **Tácticas:**
+  * **API para ERPs:** Ofrecer integración gratuita a softwares de contabilidad para que las MYPES puedan descontar facturas con un solo clic desde su propio sistema.
+  * **Webinars de "Finanzas Sostenibles para MYPES":** Atraer tráfico mediante educación sobre cómo la sostenibilidad puede reducir sus costos de financiamiento.
 <hr class="page-break">
 
 ## 2.2. Entrevistas
