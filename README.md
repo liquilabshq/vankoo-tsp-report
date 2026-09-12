@@ -2052,14 +2052,61 @@ El diagrama de clases del *Domain Layer* del Bounded Context Invoicing modela do
 
 ## 4.8. Database Design
 
-_Pendiente de elaboración: párrafo introductorio de la sección._
+Esta sección documenta el modelo físico de datos de cada microservicio: modelos entidad-relación (ERD) para los cuatro contextos relacionales (**IAM** y **Profile** sobre PostgreSQL, **Finance** sobre PostgreSQL como read model de un Event Store en Axon Server, **Investment** sobre Oracle) y un modelo de documentos en **MongoDB** para el contexto NoSQL (**Invoicing**). Los diagramas se construyeron a partir de las entidades JPA/TypeORM/EF-Mongo y las migraciones o configuraciones de persistencia realmente presentes en cada repositorio, no de un diseño ideal; en particular, Finance despliega un modelo poco convencional (Axon Event Sourcing) en el que los agregados de dominio no poseen tabla propia y el esquema PostgreSQL solo contiene el read model de consulta y las tablas operativas de soporte (idempotencia, inbox de webhooks, token/saga store de Axon).
 
 ### 4.8.1. Database Diagram
 
-<!-- Diagrama de base de datos, elaborado en LucidChart / Vertabelo. Fuente (.sql) en src/, export en out/. -->
-<!-- Assets: ./assets/cap4-product-design/database-design/ -->
+<!-- Diagramas de base de datos, elaborados en PlantUML. Fuente: ./assets/cap4-product-design/database-design/src/*.puml — export: ./assets/cap4-product-design/database-design/out/ -->
 
-_Pendiente de elaboración._
+**IAM**
+
+El esquema físico del Bounded Context IAM (PostgreSQL) consta de la tabla `users` (credenciales y auditoría), la tabla de catálogo `roles` y la tabla de unión `user_roles` que materializa la relación N:M entre ambas. El único índice adicional es la restricción de unicidad sobre `email`; el esquema se genera automáticamente vía Hibernate, sin migraciones versionadas. IAM es el Bounded Context raíz de identidad: no declara referencias hacia otros contextos, sino que su clave `users.id` es la que Profile e Investment referencian lógicamente a través del evento `UserCreatedEvent`.
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/database-design/out/iam-database-diagram.png" alt="Vankoo — IAM Bounded Context Database Diagram" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.8.1.1. Diagrama entidad-relación del Bounded Context IAM.*
+
+**Profile**
+
+El esquema físico del Bounded Context Profile (PostgreSQL) consta de las tablas `companies` e `investors` —con sus Value Objects de dirección y sostenibilidad aplanados como columnas con prefijo— y de `bank_accounts`, en relación 1 a 1 con `investors` mediante una foreign key con `ON DELETE CASCADE`. Ambas tablas principales declaran unicidad sobre su identificador fiscal (`ruc_number`, `dni_number`) y una referencia lógica, sin FK física, hacia `users.id` de IAM. El esquema se sincroniza automáticamente desde las entidades TypeORM, sin carpeta de migraciones.
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/database-design/out/profile-database-diagram.png" alt="Vankoo — Profile Bounded Context Database Diagram" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.8.1.2. Diagrama entidad-relación del Bounded Context Profile.*
+
+**Finance**
+
+El esquema físico del Bounded Context Finance (PostgreSQL) no almacena los agregados `Deposit` y `Wallet` como tablas: al ser *event-sourced* con Axon Framework, el Event Store real reside en Axon Server, un producto externo. PostgreSQL solo contiene el *read model* de consulta (`finance_read_model`), las tablas operativas de idempotencia y borde (`finance_ops`) y las tablas de soporte propias de Axon (token store, saga store y *dead-letter queue*). Todas las referencias a cuentas son lógicas hacia el `UserId` de IAM propagado a través de Profile, ya que Finance no mantiene una tabla local de cuentas.
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/database-design/out/finance-database-diagram.png" alt="Vankoo — Finance Bounded Context Database Diagram" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.8.1.3. Diagrama entidad-relación del Bounded Context Finance.*
+
+**Investment**
+
+El esquema físico del Bounded Context Investment reside en Oracle (no PostgreSQL) y consta de las tablas `auctions` y `partitions` —en relación 1 a N mediante una foreign key gestionada desde el lado padre— más la vista de lectura `auction_marketplace_view_entities`, poblada de forma asíncrona por el evento `AuctionCreatedEvent` para servir el marketplace bajo CQRS sin tocar el agregado transaccional. El esquema se genera vía Hibernate, sin migraciones ni índices adicionales; `mype_id`, `investor_id` e `invoice_id` son referencias lógicas hacia Profile e Invoicing.
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/database-design/out/investment-database-diagram.png" alt="Vankoo — Investment Bounded Context Database Diagram" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.8.1.4. Diagrama entidad-relación del Bounded Context Investment.*
+
+**Invoicing**
+
+El modelo de datos del Bounded Context Invoicing es documental (MongoDB) y consta de dos colecciones: `Invoices`, donde el propio agregado de dominio se persiste como documento —sin un modelo de persistencia separado— con sus Value Objects embebidos; y `OcrTasks`, la cola de reintentos de OCR, que la referencia por un identificador simple (`InvoiceId`), sin unión física entre colecciones. Ninguna de las dos define *Shard Key* ni índices TTL; `Invoices` no tiene ningún índice secundario declarado, mientras que `OcrTasks` sí declara tres, incluido el que soporta su patrón de cola con *lease*.
+
+<div style="text-align: center;">
+  <img src="./assets/cap4-product-design/database-design/out/invoicing-database-diagram.png" alt="Vankoo — Invoicing Bounded Context Document Data Model" style="max-width: 100%; height: auto;">
+</div>
+
+*Figura 4.8.1.5. Diagrama del modelo de datos documental del Bounded Context Invoicing.*
 
 <hr class="page-break">
 
