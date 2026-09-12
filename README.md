@@ -2939,14 +2939,129 @@ Microservicio encargado del libro contable inmutable (*Event Sourcing / Ledger*)
 
 #### 5.2.1.4. Testing Suite Evidence for Sprint Review
 
-<!-- Unit Tests, Integration Tests y Acceptance Tests automatizados para los Web Services relacionados con los User Stories del Sprint. En los Unit Tests indicar con qué clases y comportamientos se relacionan; en los tests BDD incluir el código de los .feature (Gherkin) y con qué User Stories se relacionan. Tabla con los commits relacionados con testing. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/testing-evidence/ -->
+**Testing Suite Evidence for Sprint Review**
 
-_Pendiente de elaboración._
+En esta sección se presenta la evidencia de la suite de pruebas automatizadas disponible para los microservicios **Finance**, **Investment** e **Invoicing** de Vankoo. Las pruebas verifican reglas de negocio, servicios de aplicación, persistencia, controladores REST, proyecciones CQRS, event sourcing, mensajería y procesamiento OCR.
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+La suite comprende **114 casos de prueba** distribuidos de la siguiente manera: 82 en Finance, 20 en Investment y 12 en Invoicing.
+
+```text
+Finance:     82 casos identificados
+Investment: 20 casos identificados
+Invoicing:  12 casos identificados
+Total:      114 casos identificados
+```
+
+**Repositorios de Testing**
+
+| Repository | Branch revisada | Testing Scope |
+|---|---|---|
+| `liquilabshq/vankoo-finance-service` | `develop` | Unit Tests, pruebas de componentes REST e Integration Tests para depósitos, wallets, CQRS, Axon y Kafka. |
+| `liquilabshq/vankoo-investment-service` | `feature/investment-outbox-events` | Unit Tests e Integration Tests para subastas, cálculos financieros, persistencia, flujo REST y Outbox. |
+| `liquilabshq/vankoo-invoicing-service` | `develop` | Unit Tests para OCR, consistencia de facturas, líneas de factura y validación del RUC. |
+
+**URL y ubicación de las pruebas**
+
+| Microservicio | URL del repositorio | Ruta de pruebas |
+|---|---|---|
+| Finance | https://github.com/liquilabshq/vankoo-finance-service | `src/test/java/com/liquilabs/vankoo/finance` |
+| Investment | https://github.com/liquilabshq/vankoo-investment-service | `src/test/java/com/liquilabs/vankoo/investment` |
+| Invoicing | https://github.com/liquilabshq/vankoo-invoicing-service | `LiquiLabs.Vankoo.Invoicing.Tests` |
+
+**Unit Tests diseñados**
+
+**Finance Service**
+
+Finance utiliza **JUnit 5**, **Mockito**, **AssertJ** y **Axon Test**. Los mocks permiten probar los servicios, proyecciones y publicadores sin depender de una base de datos o broker externo.
+
+| Test Class | Related Class / Component | Validated Behavior |
+|---|---|---|
+| `DepositTest` | Agregado `Deposit` | Valida creación, montos permitidos, registro de referencia del proveedor, transiciones de estado, estados terminales, idempotencia y reconstrucción desde eventos. |
+| `WalletTest` | Agregado `Wallet` | Valida apertura, acreditación, débito, saldo insuficiente y rechazo de montos no positivos. |
+| `WalletIdTest` | Value object `WalletId` | Valida generación determinista, igualdad y diferenciación por cuenta o moneda. |
+| `DepositCommandServiceImplTest` | `DepositCommandServiceImpl` | Valida despacho de depósitos nuevos, repetición segura, conflictos de idempotencia y propagación de errores. |
+| `WalletCreditorTest` | `WalletCreditor` | Valida apertura y crédito inicial, créditos posteriores y prevención de acreditaciones duplicadas. |
+| `DepositProjectionTest` | `DepositProjection` | Valida actualización del read model frente a los eventos del depósito, consultas y paginación. |
+| `WalletProjectionTest` | `WalletProjection` | Valida balances, movimientos, créditos, débitos y deduplicación de eventos. |
+| `DepositEventPublisherTest` | Publicador de eventos de depósitos | Valida publicación de los distintos resultados del depósito y manejo de errores de publicación. |
+| `EventServiceImplTest` | `EventServiceImpl` / `StreamBridge` | Valida construcción del mensaje, headers, envío al binding y traducción de errores. |
+
+**Investment Service**
+
+Investment utiliza **JUnit 5**, **Mockito** y **AssertJ**. La lógica financiera se prueba de forma aislada y se emplean datos parametrizados para cubrir distintos scores y plazos.
+
+| Test Class | Related Class / Component | Validated Behavior |
+|---|---|---|
+| `AuctionLifecycleTest` | Agregado `Auction` | Valida creación, evaluación, aceptación de la cotización, incorporación de participaciones, financiamiento total y operaciones inválidas. |
+| `AuctionPricingCalculatorTest` | `AuctionPricingCalculator` | Valida adelanto, comisión, impuestos, TCEA, TEA según score y plazo, facturas vencidas y precisión monetaria. |
+| `InvoicingOcrEventToCommandAssemblerTest` | `InvoicingOcrEventToCommandAssembler` | Valida la conversión del evento de factura elegible enviado por Invoicing al comando de creación de subasta. |
+| `InvestmentOutboxEventListenerTest` | Listener y mapper del Outbox | Valida que `AuctionPublished` se almacene como un evento versionado con binding, identificador y datos financieros correctos. |
+| `OutboxPublisherTest` | `OutboxPublisher` | Valida que un evento se marque como publicado solo después de un envío aceptado y que los fallos se conserven para reintento. |
+
+**Invoicing Service**
+
+Invoicing utiliza **xUnit** para validar el procesamiento OCR y las reglas de consistencia de las facturas.
+
+| Test Class | Related Class / Component | Validated Behavior |
+|---|---|---|
+| `InvoiceLineItemResolverTests` | `InvoiceLineItemResolver` | Valida la conservación de importes decimales y la resolución de montos ambiguos como precio unitario. |
+| `InvoiceConsistencyValidatorTests` | `InvoiceConsistencyValidator` | Valida facturas consistentes, facturas vencidas y decisiones de revisión según la confianza de campos críticos y no críticos. |
+| `RucNumberTests` | `RucNumber` | Valida cuatro RUC peruanos con dígito verificador correcto y rechaza un RUC inválido. |
+| `AzureOcrMapperTests` | `AzureOcrMapper` | Valida extracción del emisor y resolución de ítems desde una respuesta OCR simulada. |
+
+**Integration Tests diseñados**
+
+**Finance Service**
+
+| Test Class | Endpoint / Flow | Validated Behavior | Expected Result |
+|---|---|---|---|
+| `VankooFinanceServiceApplicationTests` | Inicio del servicio | Valida que el contexto completo de Spring pueda cargarse. | Contexto iniciado sin errores. |
+| `DepositControllerTest` | `POST /v1/deposits` y endpoints GET de depósitos | Valida creación, consulta, validaciones, idempotencia y manejo de errores. | `202 Accepted`, `200 OK`, `400 Bad Request`, `404 Not Found` y `409 Conflict`. |
+| `WalletControllerTest` | Endpoints GET de wallet y movimientos | Valida balance, historial, moneda inválida, cuenta inexistente y parámetros de paginación. | `200 OK`, `400 Bad Request` y `404 Not Found`. |
+| `AxonServerEventStoreSmokeTest` | Publicación y replay en Axon | Valida que un evento pueda persistirse y recuperarse desde el Event Store. | Evento publicado y reproducido correctamente. |
+| `AggregateOptimisticConcurrencyTest` | Escritura concurrente en Event Store | Valida el rechazo de una segunda escritura sobre un número de secuencia ya ocupado. | Conflicto de concurrencia detectado. |
+| `KafkaOutageIntegrationTest` | Publicación de eventos con Kafka | Valida el envío con el broker disponible y el error controlado cuando Kafka se detiene. | Publicación exitosa o excepción de integración controlada. |
+
+`DepositControllerTest` y `WalletControllerTest` son pruebas de componente web ejecutadas con `@WebMvcTest`: prueban contratos HTTP, pero sustituyen los servicios internos con mocks. Las pruebas de Axon y Kafka sí requieren infraestructura real o contenerizada.
+
+**Investment Service**
+
+| Test Class | Endpoint / Flow | Validated Behavior | Expected Result |
+|---|---|---|---|
+| `AuctionRepositoryTest` | Persistencia JPA de subastas | Valida que una subasta con cotización aceptada y participaciones pueda guardarse y reconstruirse. | Agregado recuperado con estado e importes correctos. |
+| `AuctionFinancialFlowIntegrationTest` | Flujo REST de subasta | Valida el recorrido financiero desde la API hasta los servicios, reglas de negocio y persistencia, incluidos escenarios concurrentes. | Respuestas HTTP y estado financiero coherentes. |
+
+La prueba del repositorio utiliza `@DataJpaTest`. El flujo financiero utiliza `@SpringBootTest` y `MockMvc`; la mensajería se reemplaza por el test binder de Spring, por lo que no levanta un Kafka real.
+
+**Commits relacionados con Testing**
+
+**Finance Service**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
-|  |  |  |  |  |  |
+| `liquilabshq/vankoo-finance-service` | `develop` | `ac055a8` | `test(finance): cover Kafka send failures and a broker outage` | - | 2026-09-05 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `597b7fe` | `feat(finance): add read-only REST endpoints for Wallet` | - | 2026-08-30 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `1c8c855` | `feat(finance): add REST endpoints for Deposit` | - | 2026-08-27 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `ebf989c` | `feat(finance): add Wallet aggregate (event-sourced)` | - | 2026-08-21 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `19f8b2d` | `feat(finance): add deposit read model (deposit_views projection + query handlers)` | - | 2026-08-20 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `9d10d8a` | `test(finance): prove Axon Server's optimistic concurrency by sequence number` | - | 2026-08-08 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `2cce23b` | `test(finance): add Given-When-Then coverage for the Deposit aggregate` | - | 2026-08-08 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `d1fe97b` | `feat(finance): connect to Axon Server and add an event store smoke test` | - | 2026-07-29 |
+| `liquilabshq/vankoo-finance-service` | `develop` | `ecc509d` | `test: prove paymentprovider port with an in-memory fake` | - | 2026-07-28 |
+
+**Investment Service**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| `liquilabshq/vankoo-investment-service` | `feature/investment-outbox-events` | `01484de` | `test: cover auction financial lifecycle` | - | 2026-09-07 |
+
+**Invoicing Service**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| `liquilabshq/vankoo-invoicing-service` | `develop` | `c78fe0d` | `feat: add tests for Azure OCR mapping and invoice consistency validation` | - | 2026-08-06 |
+
+
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
