@@ -61,8 +61,6 @@
 
 <br>
 
-<h5 style="text-align: center;"> Setiembre 2026 </h5>
-
 <h5 style="text-align: center;"> Período 202620 </h5>
 
 <hr class="page-break">
