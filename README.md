@@ -959,8 +959,6 @@ Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a60040
       <tr>
         <th>Id</th>
         <th>Title</th>
-        <th>Id</th>
-        <th>Title</th>
         <th>Description</th>
         <th>Estimation (Hours)</th>
         <th>Assigned To</th>
