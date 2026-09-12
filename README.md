@@ -2114,61 +2114,164 @@ El modelo de datos del Bounded Context Invoicing es documental (MongoDB) y const
 
 <!-- Proceso de implementar, comprobar, desplegar y validar la solución: Landing Page, RESTful Web Services y Frontend Web Applications, aplicando responsive web design. -->
 
-_Pendiente de elaboración: párrafo introductorio del capítulo._
+A partir del diseño desarrollado en el capítulo anterior, este capítulo documenta el proceso de implementación, validación y despliegue de los productos digitales de Vankoo: la Landing Page, los Web Services RESTful de cada bounded context y las Frontend Web Applications, aplicando responsive web design. Se inicia estableciendo las decisiones de Software Configuration Management que sostienen la consistencia del código a lo largo del ciclo de vida —entorno de desarrollo, gestión del código fuente sobre GitFlow y convenciones de estilo por lenguaje—, para luego presentar, sprint a sprint, la evidencia de planificación, desarrollo, pruebas, documentación y despliegue de cada producto.
 
 ## 5.1. Software Configuration Management
 
-<!-- Decisiones y convenciones que permitirán mantener la consistencia durante el ciclo de vida. -->
-<!-- Assets: ./assets/cap5-product-implementation/configuration-management/ -->
-
-_Pendiente de elaboración._
+En esta sección el equipo establece las decisiones y convenciones que permiten mantener la consistencia del código y la documentación durante el ciclo de vida de Vankoo: los productos de software utilizados en cada actividad del proyecto, el esquema de control de versiones sobre GitHub y las convenciones de estilo de código adoptadas para cada lenguaje de la solución.
 
 ### 5.1.1. Software Development Environment Configuration
 
-<!-- Por cada producto de software: nombre, propósito de uso en el proyecto y ruta de referencia (SaaS) o de descarga. Cubrir Project Management, Requirements Management, Product UX/UI Design, Software Development, Software Testing, Software Deployment y Software Documentation. -->
-
-_Pendiente de elaboración._
+A continuación se detallan los productos de software utilizados por el equipo en cada actividad del ciclo de vida de Vankoo, indicando su propósito y el enlace de acceso (para herramientas SaaS) o de descarga (para software instalado localmente).
 
 | Categoría | Producto | Propósito de uso | Ruta de referencia / descarga |
 |---|---|---|---|
-| Project Management |  |  |  |
-| Requirements Management |  |  |  |
-| Product UX/UI Design |  |  |  |
-| Software Development |  |  |  |
-| Software Testing |  |  |  |
+| Project Management | Trello | Gestión ágil del Product Backlog y seguimiento de tareas del equipo mediante tableros Kanban. | [https://trello.com](https://trello.com) |
+| Requirements Management | UXPressia | Elaboración de los Empathy Maps y el Impact Mapping. | [https://uxpressia.com](https://uxpressia.com) |
+| Requirements Management | Miro | Elaboración del Lean UX Canvas y los As-Is / To-Be Scenario Mapping. | [https://miro.com](https://miro.com) |
+| Product UX/UI Design | Figma | Diseño de wireframes, mockups y prototipos interactivos de alta fidelidad de la landing page y las aplicaciones web. | [https://figma.com](https://figma.com) |
+| Software Architecture Design | Structurizr | Elaboración de los diagramas C4 (contexto, contenedores y componentes) mediante un modelo DSL versionado. | [https://structurizr.com](https://structurizr.com) |
+| Software Architecture Design | PlantUML | Elaboración de los diagramas de clases de dominio y de base de datos mediante Diagrams-as-Code. | [https://plantuml.com](https://plantuml.com) |
+| Software Development | JetBrains IntelliJ IDEA | Desarrollo de los microservicios Java / Spring Boot: IAM, Finance, Investment, API Gateway y Discovery Server. | [https://www.jetbrains.com/idea](https://www.jetbrains.com/idea) |
+| Software Development | JetBrains WebStorm | Desarrollo de la Landing Page, del Web SPA de la Mype (React) y del servicio Profile (NestJS / TypeScript). | [https://www.jetbrains.com/webstorm](https://www.jetbrains.com/webstorm) |
+| Software Development | JetBrains Rider | Desarrollo del servicio Invoicing (.NET / C#). | [https://www.jetbrains.com/rider](https://www.jetbrains.com/rider) |
+| Software Development | Android Studio | Desarrollo de la aplicación móvil del Inversionista (Kotlin Multiplatform + Jetpack Compose). | [https://developer.android.com/studio](https://developer.android.com/studio) |
+| Software Development | Docker & Docker Compose | Contenerización y orquestación local de los microservicios, sus bases de datos, Kafka y MinIO para el entorno de desarrollo. | [https://www.docker.com](https://www.docker.com) |
+| Software Testing | JUnit 5, Mockito, AssertJ | Pruebas unitarias de los microservicios Java / Spring Boot. | [https://junit.org/junit5](https://junit.org/junit5) |
+| Software Testing | Testcontainers | Pruebas de integración contra Kafka y Axon Server reales, usadas en el servicio Finance. | [https://testcontainers.com](https://testcontainers.com) |
+| Software Testing | Jest & Supertest | Pruebas unitarias y end-to-end del servicio Profile (NestJS). | [https://jestjs.io](https://jestjs.io) |
+| Software Testing | xUnit.net | Pruebas unitarias del servicio Invoicing (.NET). | [https://xunit.net](https://xunit.net) |
 | Software Deployment |  |  |  |
-| Software Documentation |  |  |  |
+| Software Documentation | Markdown | Lenguaje de marcado ligero usado para todo el informe y la documentación técnica del proyecto. | [https://www.markdownguide.org](https://www.markdownguide.org) |
+| Software Documentation | Scalar (sobre OpenAPI) | Documentación interactiva autogenerada de los endpoints REST de cada microservicio. | [https://scalar.com](https://scalar.com) |
+| Software Documentation | Visual Studio Code | Edición y previsualización del informe en Markdown. | [https://code.visualstudio.com](https://code.visualstudio.com) |
+
+
 
 ### 5.1.2. Source Code Management
 
-<!-- URL del repositorio de GitHub por cada producto: Landing Page, Web Services y Frontend Web Applications. Explicar la implementación de GitFlow: qué branches se crean además de main, convenciones para feature, release y hotfix branches, Semantic Versioning 2.0.0 para los releases y Conventional Commits para los mensajes. -->
-
-_Pendiente de elaboración._
+El equipo utiliza **GitHub** como plataforma de alojamiento y **Git** como sistema de control de versiones para todos los repositorios del proyecto, aplicando **GitFlow** (Vincent Driessen, *"A successful Git branching model"*) como workflow de ramificación, **Semantic Versioning 2.0.0** para nombrar los releases y **Conventional Commits** para los mensajes de commit.
 
 | Producto | Repositorio |
 |---|---|
-| Landing Page |  |
-| Frontend Web Application |  |
-| Web Services |  |
+| Landing Page | [liquilabshq/vankoo-landing-page](https://github.com/liquilabshq/vankoo-landing-page) |
+| Frontend Web Application | [liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web) |
+| Frontend Mobile Application | [liquilabshq/vankoo-investor-mobile](https://github.com/liquilabshq/vankoo-investor-mobile) |
+| Web Services | [liquilabshq/vankoo-iam-service](https://github.com/liquilabshq/vankoo-iam-service)<br>[liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service)<br>[liquilabshq/vankoo-finance-service](https://github.com/liquilabshq/vankoo-finance-service)<br>[liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service)<br>[liquilabshq/vankoo-invoicing-service](https://github.com/liquilabshq/vankoo-invoicing-service)<br>[liquilabshq/vankoo-risk-service](https://github.com/liquilabshq/vankoo-risk-service)<br>[liquilabshq/vankoo-notification-service](https://github.com/liquilabshq/vankoo-notification-service)<br>[liquilabshq/vankoo-api-gateway](https://github.com/liquilabshq/vankoo-api-gateway)<br>[liquilabshq/vankoo-discovery-server](https://github.com/liquilabshq/vankoo-discovery-server) |
 | Informe del proyecto | [liquilabshq/vankoo-tsp-report](https://github.com/liquilabshq/vankoo-tsp-report) |
+
+Cada repositorio de **Web Services** incluye, junto al código de producción, sus propias pruebas unitarias y de integración/aceptación. Los repositorios de soporte del proyecto (infraestructura, documentación) se listan en el [Anexo B](#anexo-b-enlaces-a-los-repositorios-del-proyecto).
 
 **GitFlow Workflow**
 
-_Pendiente de elaboración._
+![gitflow](assets/cap5-product-implementation/configuration-management/gitflow-workflow-diagram.png)
 
-**Conventional Commits**
+Se sigue el modelo propuesto por Vincent Driessen, con dos ramas permanentes:
 
-_Pendiente de elaboración._
+- **main**: contiene únicamente las versiones estables ya liberadas.
+- **develop**: rama de integración donde convergen las nuevas funcionalidades antes de pasar a producción.
+
+Sobre estas ramas permanentes se crean ramas temporales según el tipo de trabajo:
+
+| Tipo de rama | Propósito | Convención de nombres | Ejemplo real del proyecto |
+|---|---|---|---|
+| **feature** | Desarrollo de una nueva funcionalidad; nace de `develop` y se integra de vuelta a `develop` mediante Pull Request. | `feature/<nombre-descriptivo>` | `feature/deposit-aggregate`, `feature/amazon-s3-integration` |
+| **release** | Estabilización de una nueva versión antes de publicarla; nace de `develop` y se integra a `main` y `develop`. | `release/vX.Y.Z` | `release/v1.0.0` |
+| **hotfix** | Corrección urgente sobre una versión ya en producción; nace de `main` y se integra a `main` y `develop`. | `hotfix/<problema>` | `hotfix/fix-webhook-signature-validation` |
+
 
 **Semantic Versioning 2.0.0**
 
-_Pendiente de elaboración._
+Los releases se nombran siguiendo el esquema `vMAJOR.MINOR.PATCH`:
+
+- **MAJOR**: cambios incompatibles con versiones anteriores de la API o el contrato del servicio.
+- **MINOR**: nuevas funcionalidades compatibles con versiones anteriores.
+- **PATCH**: correcciones de errores o mejoras menores retrocompatibles.
+
+**Conventional Commits**
+
+Todos los mensajes de commit siguen el formato `<tipo>(<scope-opcional>): <descripción breve>`, ya adoptado de forma consistente en los repositorios del proyecto (por ejemplo, `feat(kyc): ...`, `fix(storage): ...`, `docs(finance): ...`, `test(finance): ...`). Los tipos utilizados son:
+
+- `feat`: una nueva funcionalidad.
+- `fix`: corrección de un error.
+- `docs`: cambios exclusivamente de documentación.
+- `style`: cambios de formato que no afectan la lógica (espacios, punto y coma, etc.).
+- `refactor`: cambios de código que no corrigen errores ni agregan funcionalidades.
+- `test`: se agregan o corrigen pruebas.
+- `chore`: tareas de mantenimiento que no modifican código de producción ni pruebas.
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-<!-- Referencias que se adoptarán para nombrar elementos y programar en los lenguajes de la solución (HTML, CSS, JavaScript, TypeScript, Java y Gherkin para los archivos .feature). Nomenclatura en inglés para todos los lenguajes. -->
+Para asegurar un código legible, mantenible y coherente entre los distintos lenguajes y servicios de Vankoo, el equipo adopta las siguientes convenciones de estilo. En todos los lenguajes, la nomenclatura de variables, funciones, clases, archivos y comentarios se escribe en **inglés**.
 
-_Pendiente de elaboración._
+**HTML & CSS**
+
+Basado en el *Google HTML/CSS Style Guide* y la documentación de HTML/CSS de MDN, aplicado en la Landing Page:
+
+- Atributos en minúsculas y comillas dobles (`class="hero-section"`).
+- Nombres de clases CSS en **kebab-case** (`hero-section`, `pricing-card`).
+- Sangría de 2 espacios; una declaración por línea.
+- Estructura semántica (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) en lugar de `<div>` genéricos.
+- Estilos construidos con **Tailwind CSS**, agrupando utilidades por orden lógico (layout → espaciado → color → tipografía).
+
+**JavaScript & TypeScript (Landing Page y Web SPA de la Mype)**
+
+Basado en el *Google TypeScript Style Guide*, aplicado sobre React:
+
+- **camelCase** para variables, funciones y parámetros; **PascalCase** para clases, tipos, interfaces y componentes React.
+- Constantes globales en `UPPER_CASE_WITH_UNDERSCORES`.
+- Preferir `const` sobre `let`; nunca `var`.
+- Imports explícitos, agrupados primero externos y luego internos.
+- Un componente React por archivo, nombrado igual que el componente (`InvoiceCard.tsx`).
+- Tipado estricto: evitar `any`; preferir tipos e interfaces explícitos.
+
+**TypeScript & NestJS (Profile Service)**
+
+Basado en el *Angular coding style guide*, cuyas convenciones de organización adopta NestJS (módulos, controladores y proveedores inyectables mediante decoradores, al estilo Angular):
+
+- Sufijos por responsabilidad en el nombre de archivo: `*.controller.ts`, `*.service.ts`, `*.module.ts`, `*.entity.ts`, `*.aggregate.ts`.
+- **PascalCase** para clases decoradas (`@Controller`, `@Injectable`, `@Entity`); **camelCase** para sus miembros.
+- Inyección de dependencias por constructor, nunca por propiedad.
+- Un archivo por clase; carpetas organizadas por capa DDD (`domain`, `application`, `infrastructure`, `interfaces`), consistente con el diseño de dominio del servicio.
+
+**Java & Spring Boot (IAM, Finance, Investment, API Gateway, Discovery Server)**
+
+Basado en el *Google Java Style Guide* y en *Spring Boot Features* (documentación oficial de Spring):
+
+- **camelCase** para variables, métodos y parámetros; **PascalCase** para clases e interfaces.
+- Paquetes en minúsculas, separados por puntos, reflejando la capa DDD (`com.liquilabs.vankoo.<contexto>.domain.model.aggregates`).
+- Constantes en `UPPER_CASE_WITH_UNDERSCORES`.
+- Value Objects implementados como `record` de Java, con validación de invariantes en el constructor compacto.
+- Inyección de dependencias por constructor; anotaciones de Spring (`@Service`, `@RestController`, `@Repository`) para declarar responsabilidades.
+- Manejo centralizado de errores mediante `@ControllerAdvice` / `@ExceptionHandler`.
+- Documentación de la API REST autogenerada con springdoc-openapi y expuesta mediante Scalar.
+
+**C# & .NET (Invoicing Service)**
+
+Basado en las *C# Coding Conventions* de Microsoft:
+
+- **PascalCase** para clases, métodos y propiedades públicas; **camelCase** para variables locales y parámetros.
+- Value Objects implementados como `sealed record`, inmutables, con validación en factory methods estáticos (`Of(...)`, `Create(...)`).
+- Un archivo por clase, organizado por capa (`Domain`, `Application`, `Infrastructure`, `Interfaces`) según Clean Architecture.
+- Comandos y queries bajo el patrón CQRS con MediatR, un handler por caso de uso.
+- Documentación de la API con OpenAPI nativo de ASP.NET Core y UI Scalar.
+
+**Kotlin & Jetpack Compose (Investor Mobile App)**
+
+Basado en las *Kotlin Coding Conventions* oficiales y las *Jetpack Compose API Guidelines*:
+
+- **camelCase** para variables y funciones; **PascalCase** para clases, objetos y funciones `@Composable`.
+- Paquetes en minúsculas, separados por puntos.
+- Funciones `@Composable` en PascalCase, cortas y enfocadas en un solo elemento de UI.
+- Estado elevado a un `ViewModel`; los composables no contienen lógica de negocio.
+
+**Gherkin**
+
+Basado en las convenciones de Gherkin de Cucumber, adoptadas para cuando el equipo incorpore especificaciones ejecutables sobre los criterios de aceptación de las User Stories (al cierre de este informe, los repositorios de Vankoo aún no contienen archivos `.feature`):
+
+- Archivos `.feature` en inglés, uno por funcionalidad.
+- Estructura `Given-When-Then`, con un escenario por comportamiento observable.
+- Nombres de features y escenarios descriptivos, en modo indicativo (`Given the deposit is pending`).
 
 ### 5.1.4. Software Deployment Configuration
 
