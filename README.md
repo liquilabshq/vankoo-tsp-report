@@ -3543,11 +3543,9 @@ _Pendiente de elaboración._
 
 <!-- Enlace privado del video de exposición, especificando la entrega a la que corresponde. -->
 
-_Pendiente de elaboración._
-
 | Entrega | Enlace al video | Duración |
 |---|---|---|
-| TB1 |  |  |
+| TB1 | [https://goo.su/F5ct5](https://goo.su/F5ct5) | 24:48 |
 
 <hr class="page-break">
 
