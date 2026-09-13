@@ -3166,25 +3166,170 @@ La prueba del repositorio utiliza `@DataJpaTest`. El flujo financiero utiliza `@
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
-<!-- Resumen de lo alcanzado en el Sprint, screenshots de las principales vistas implementadas y enlace a un video que ilustre y explique la visualización y navegación logradas. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/execution-evidence/ -->
+En este Sprint 1 se logró levantar y ejecutar de punta a punta las dos aplicaciones de cara al usuario contempladas en el alcance: la **Landing Page** pública y el cascarón de la **Web Application** (MYPE & Investor Web App). La Landing Page quedó completamente funcional, con su sección principal (hero) explicando la propuesta de valor, un simulador interactivo del costo de adelantar una factura, el pie de página (footer) con los enlaces institucionales y soporte de internacionalización (i18n) en español e inglés. En la Web Application, lo único implementado hasta este Sprint es el flujo de **login/autenticación**, por lo que la evidencia de ejecución se concentra en esa vista; el resto de módulos (dashboard, subasta, wallet, etc.) queda para sprints posteriores.
 
-_Pendiente de elaboración._
+Ambas aplicaciones se ejecutaron localmente (`pnpm run dev`) contra el stack de microservicios levantado con `docker-compose` (`infrastructure/`), y las capturas fueron tomadas directamente sobre esa ejecución real, no sobre mockups.
+
+_Video de navegación: pendiente de grabación — se incorporará el enlace en una actualización posterior de esta sección._
+
+**Landing Page**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-landing-page](https://github.com/liquilabshq/vankoo-landing-page)
+
+La sección hero comunica la propuesta de valor central ("Tu factura ya vale. Cóbrala hoy.") junto con una línea de tiempo ilustrativa del recorrido de una factura, desde que se recibe hasta que sale a subasta.
+
+![Landing Page - Hero](./assets/cap5-product-implementation/sprint-1/execution-evidence/01-landing-hero.png)
+
+El simulador de liquidez permite mover el monto de la factura, el plazo y la clasificación de riesgo, y recalcula en tiempo real cuánto recibiría la MYPE hoy y cuánto ganaría el inversionista que la financia.
+
+![Landing Page - Calculadora/Simulador de liquidez](./assets/cap5-product-implementation/sprint-1/execution-evidence/02-landing-calculadora-simulador.png)
+
+El footer agrupa los enlaces de producto y legales, junto con el aviso de que Vankoo es un proyecto académico desarrollado por LiquiLabs.
+
+![Landing Page - Footer](./assets/cap5-product-implementation/sprint-1/execution-evidence/03-landing-footer.png)
+
+La Landing Page soporta cambio de idioma (i18n) mediante rutas propias de Astro (`/en/`); toda la copy, incluida la simulación, se traduce sin perder el estado visual.
+
+![Landing Page - i18n en inglés](./assets/cap5-product-implementation/sprint-1/execution-evidence/04-landing-i18n-en.png)
+
+**Web Application (MYPE & Investor Web App)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+Del cascarón de la aplicación web transaccional, lo único construido en este Sprint 1 es la pantalla de **login**, integrada contra el endpoint real de `sign-in` del IAM Service a través del API Gateway (`http://localhost:8080/iam/api/v1/authentication/sign-in`).
+
+![Web Application - Login](./assets/cap5-product-implementation/sprint-1/execution-evidence/05-mype-web-login.png)
+
+> Nota técnica: al validar este flujo se detectó que el navegador bloquea la respuesta del login por un conflicto de CORS (`Access-Control-Allow-Origin` duplicado entre el API Gateway y el IAM Service). El endpoint funciona correctamente probado por fuera del navegador (curl/Postman); el hallazgo fue reportado como una tarea aparte para corregirlo antes de continuar con el resto del flujo en el siguiente Sprint.
 
 #### 5.2.1.6. Services Documentation Evidence for Sprint Review
 
-<!-- Relación de Endpoints documentados con OpenAPI relacionados con el alcance del Sprint. Por cada endpoint: verbo HTTP, sintaxis de llamada, parámetros posibles, ejemplo y explicación del response, más el enlace a la documentación desplegada. Incluir capturas de la interacción con la documentación y los commits relacionados. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/services-documentation/ -->
+En este Sprint 1 se documentaron con **OpenAPI** los tres microservicios backend que sostienen el alcance de identidad, perfiles/KYC y facturación: **IAM Service**, **Profile Service** e **Invoicing Service**. IAM utiliza `springdoc-openapi` con UI de **Scalar** (tema *kepler*); Profile utiliza `@nestjs/swagger` con la UI de **Scalar** para NestJS; Invoicing utiliza el generador nativo de OpenAPI de ASP.NET Core también con UI de **Scalar**. Como se detalla en 5.2.1.7, en este Sprint solo Invoicing fue desplegado a Azure, y su documentación interactiva se registra únicamente en entornos no productivos (`Program.cs`), por lo que las capturas de interacción con la documentación de los tres servicios corresponden a sus URLs locales, tal como contempla el enunciado para Sprints previos al despliegue completo de Web Services.
 
-_Pendiente de elaboración._
+**1) IAM Service — Identidad y autenticación**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-iam-service](https://github.com/liquilabshq/vankoo-iam-service)
+Documentación local (Scalar): `http://localhost:8081/scalar`
 
 | Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo de response | Enlace a la documentación |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
+| `/api/v1/authentication/sign-up` | Registrar un nuevo usuario | POST | `POST http://localhost:8081/api/v1/authentication/sign-up` | Body JSON: `email` (string), `password` (string), `roles` (string[], opcional: `ROLE_MYPE`, `ROLE_INVESTOR`) | `201` → `{"id":"01a09834-d848-...","email":"maria.torres@vankoo.pe","roles":["ROLE_USER"]}` | `http://localhost:8081/scalar` |
+| `/api/v1/authentication/sign-in` | Autenticar y emitir un JWT | POST | `POST http://localhost:8081/api/v1/authentication/sign-in` | Body JSON: `email` (string), `password` (string) | `200` → `{"id":"01a09834-...","email":"maria.torres@vankoo.pe","token":"eyJhbGciOiJIUzM4NCJ9..."}` | `http://localhost:8081/scalar` |
+| `/api/v1/users/{email}` | Obtener un usuario por correo | GET | `GET http://localhost:8081/api/v1/users/maria.torres@vankoo.pe` | Path: `email` (string) · Header: `Authorization: Bearer <token>` | `200` → `{"id":"01a09834-...","email":"maria.torres@vankoo.pe","roles":["ROLE_USER"]}` · `401` sin token | `http://localhost:8081/scalar` |
+
+Vista general de la documentación de IAM, con los servidores configurados (local y Docker/Gateway) y el esquema de seguridad Bearer JWT:
+
+![IAM - Scalar overview](./assets/cap5-product-implementation/sprint-1/services-documentation/01-iam-scalar-overview.png)
+
+Detalle del endpoint `POST /api/v1/authentication/sign-up`, con el cuerpo esperado, el ejemplo de `curl` generado automáticamente y el esquema de la respuesta `201`:
+
+![IAM - Scalar sign-up](./assets/cap5-product-implementation/sprint-1/services-documentation/02-iam-scalar-sign-up.png)
+
+**Commits relacionados — IAM Service**
+
+Ventana de mayor actividad: **15 de febrero – 15 de marzo de 2026** (todo el desarrollo real de autenticación y documentación de IAM ocurre en este período; no hay commits posteriores).
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
-|  |  |  |  |  |  |
+| liquilabshq/vankoo-iam-service | feature/estructura-inicial | 3710416 | feat: estructura inicial con Scalar y API de HelloWorld | - | 22/02/2026 |
+| liquilabshq/vankoo-iam-service | feature/implementacion-ddd | 5898f5f | feat: implementar funcionalidad de inicio de sesión con validación de usuario y generación de token | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/implementacion-ddd | b1e09de | feat: implementar autenticación con JWT y autorización con bcrypt | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/implementacion-ddd | 379a865 | feat: implementar consulta de usuario por correo electrónico en el servicio de usuarios | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/implementacion-ddd | b03f9c2 | feat: agregar configuración de documentación OpenAPI y esquema de seguridad JWT | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/implementacion-ddd | d68e965 | feat: agregar documentación OpenAPI para los endpoints de autenticación y consulta de usuario | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/implementacion-ddd | f4e20fe | feat: agregar opción de tema 'kepler' en la configuración de scalar | - | 01/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/optimizaciones | e22bb10 | feat: agregar configuración de documentación para entornos de desarrollo y Docker en YAML y OpenAPI | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | feature/optimizaciones | b1c0a45 | fix: actualizar URLs de documentación en configuración de Docker | - | 14/03/2026 |
+| liquilabshq/vankoo-iam-service | develop | 88c12cf | docs: actualizar README y setup con información adicional sobre la documentación del proyecto y dependencias clave | - | 15/03/2026 |
+
+**2) Profile Service — Perfiles y KYC (Companies & Investors)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service)
+Documentación local (Scalar): `http://localhost:3000/reference`
+
+Los perfiles de Empresa (MYPE) e Inversionista se crean automáticamente como "cascarón" cuando el IAM Service publica el evento `vankoo.iam.events` tras un `sign-up` con rol `ROLE_MYPE` o `ROLE_INVESTOR`; a partir de ahí se completan y verifican mediante los siguientes endpoints.
+
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo de response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/companies/{id}` | Obtener una empresa por ID | GET | `GET http://localhost:3000/api/v1/companies/{id}` | Path: `id` (UUID) | `200` → `{"id":"7b53549c-...","businessName":"Textiles Loreto SAC","rucNumber":"20601234567","industrySector":"TEXTILE","kycStatus":"VERIFIED"}` · `404` si no existe | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/profile` | Completar el perfil de la empresa | PATCH | `PATCH http://localhost:3000/api/v1/companies/{id}/profile` | Body JSON: `rucNumber`, `businessName`, `industrySector`, `contactPhone`, `legalAddress` (`street`, `city`, `state`, `postalCode`, `country`) | `200` → `{"message":"Perfil de empresa completado exitosamente","company":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/ruc/upload-url` | Solicitar URL prefirmada para el RUC (MinIO) | POST | `POST http://localhost:3000/api/v1/companies/{id}/ruc/upload-url` | Body JSON: `contentType` (`image/jpeg`\|`image/png`\|`application/pdf`) | `200` → URL prefirmada · `404` si no existe la empresa | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/ruc` | Subir el documento RUC | PATCH | `PATCH http://localhost:3000/api/v1/companies/{id}/ruc` | Body: referencia del documento subido a MinIO | `200` → `{"message":"RUC subido exitosamente","company":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/logo/upload-url` | Solicitar URL prefirmada para el logo (MinIO) | POST | `POST http://localhost:3000/api/v1/companies/{id}/logo/upload-url` | Body JSON: `contentType` | `200` → URL prefirmada · `404` si no existe la empresa | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/logo` | Actualizar el logo de la empresa | PATCH | `PATCH http://localhost:3000/api/v1/companies/{id}/logo` | Body: referencia del logo subido a MinIO | `200` → `{"message":"Logo actualizado exitosamente","company":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/kyc/verify` | Verificar el KYC de la empresa | PATCH | `PATCH http://localhost:3000/api/v1/companies/{id}/kyc/verify` | Path: `id` (UUID) | `200` → `{"message":"KYC verificado exitosamente","company":{"...","kycStatus":"VERIFIED"}}` | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/kyc/reject` | Rechazar el KYC de la empresa | PATCH | `PATCH http://localhost:3000/api/v1/companies/{id}/kyc/reject` | Body JSON: motivo de rechazo | `200` → `{"message":"KYC rechazado","company":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}` | Obtener un inversionista por ID | GET | `GET http://localhost:3000/api/v1/investors/{id}` | Path: `id` (UUID) | `200` → `{"id":"c706c8ee-...","dni":"","fullName":"","kycStatus":"PENDING"}` · `404` si no existe | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/profile` | Completar el perfil del inversionista | PATCH | `PATCH http://localhost:3000/api/v1/investors/{id}/profile` | Body JSON: datos personales y de contacto del inversionista | `200` → `{"message":"Perfil completado exitosamente","investor":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/dni/upload-url` | Solicitar URL prefirmada para el DNI (MinIO) | POST | `POST http://localhost:3000/api/v1/investors/{id}/dni/upload-url` | Body JSON: `contentType` | `200` → URL prefirmada · `404` si no existe el inversionista | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/dni` | Subir el documento DNI | PATCH | `PATCH http://localhost:3000/api/v1/investors/{id}/dni` | Body: referencia del documento subido a MinIO | `200` → `{"message":"DNI subido exitosamente","investor":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/photo/upload-url` | Solicitar URL prefirmada para la foto (MinIO) | POST | `POST http://localhost:3000/api/v1/investors/{id}/photo/upload-url` | Body JSON: `contentType` | `200` → URL prefirmada · `404` si no existe el inversionista | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/photo` | Actualizar la foto del inversionista | PATCH | `PATCH http://localhost:3000/api/v1/investors/{id}/photo` | Body: referencia de la foto subida a MinIO | `200` → `{"message":"Foto actualizada exitosamente","investor":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/kyc/verify` | Verificar el KYC del inversionista | PATCH | `PATCH http://localhost:3000/api/v1/investors/{id}/kyc/verify` | Path: `id` (UUID) | `200` → `{"message":"KYC verificado exitosamente","investor":{...}}` | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/kyc/reject` | Rechazar el KYC del inversionista | PATCH | `PATCH http://localhost:3000/api/v1/investors/{id}/kyc/reject` | Body JSON: motivo de rechazo | `200` → `{"message":"KYC rechazado","investor":{...}}` | `http://localhost:3000/reference` |
+
+Vista general de la documentación de Profile Service (App, Companies, Investors) sobre OpenAPI 3.0.0:
+
+![Profile - Scalar overview](./assets/cap5-product-implementation/sprint-1/services-documentation/03-profile-scalar-overview.png)
+
+Detalle del grupo **Companies**, con el endpoint `PATCH /api/v1/companies/{id}/profile` probado con datos de muestra (Textiles Loreto SAC) y su respuesta `200`:
+
+![Profile - Scalar Companies](./assets/cap5-product-implementation/sprint-1/services-documentation/04-profile-scalar-companies.png)
+
+**Commits relacionados — Profile Service**
+
+Ventana de mayor actividad: **23 de julio – 22 de agosto de 2026** (los endpoints de perfil y KYC se implementan en este período; los 4 commits previos de febrero-marzo corresponden únicamente al scaffolding inicial del proyecto).
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | ce643a3 | feat(docker): add Dockerfile | - | 23/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | bca02a1 | feat: publish ProfileCompleted event to Kafka | - | 27/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | e2a5a45 | fix: allow multiple profiles without DNI/RUC via nullable columns | - | 27/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | b8cdf02 | docs: update README.md with description of presigned URL pattern | - | 28/07/2026 |
+| liquilabshq/vankoo-profile-service | feature/eureka-integration | 59603a9 | feat(discovery): add discovery server eureka integration | - | 13/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/eureka-integration | 7019b4e | feat(kyc): add kyc endpoints | - | 13/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | 35246c1 | feat: add amazon s3 integration | - | 20/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | f6fa721 | feat: add minio for local development | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | feature/amazon-s3-integration | 9cda68d | fix(storage): sign MinIO presigned URLs against the public host | - | 21/08/2026 |
+| liquilabshq/vankoo-profile-service | develop | 38f8b18 | test: add unit and integration tests for company/investor aggregates | - | 22/08/2026 |
+
+**3) Invoicing Service — Facturación y OCR**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-invoicing-service](https://github.com/liquilabshq/vankoo-invoicing-service)
+Documentación local (Scalar): `http://localhost:8082/scalar` · Backend desplegado (ver 5.2.1.7): `https://vankoo-api-gateway.azure-api.net/invoicing` (la documentación Scalar solo se registra en entornos no productivos, por lo que no está disponible en esa URL)
+
+| Endpoint | Acción | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo de response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/invoices` | Subir una factura (PDF/imagen) | POST | `POST http://localhost:8082/api/v1/invoices` (multipart/form-data) | Body: `File` (binary, PDF/imagen) | `201` → `{"invoiceId":"4e5b751a-8a07-4bf1-a0eb-4d0a5f150e14"}` · `400`/`422` si el archivo es inválido | `http://localhost:8082/scalar` |
+| `/api/v1/invoices/{id}` | Obtener una factura por ID | GET | `GET http://localhost:8082/api/v1/invoices/{id}` | Path: `id` (UUID) | `200` → `{"invoiceId":"4e5b751a-...","status":"OCR_PROCESSING","sunatVerificationStatus":"NOT_VERIFIED",...}` | `http://localhost:8082/scalar` |
+| `/api/v1/invoices/{id}/file` | Descargar el archivo original de la factura | GET | `GET http://localhost:8082/api/v1/invoices/{id}/file` | Path: `id` (UUID) | `200` → archivo binario · `404` si no existe | `http://localhost:8082/scalar` |
+| `/api/v1/invoices/{id}` | Eliminar una factura | DELETE | `DELETE http://localhost:8082/api/v1/invoices/{id}` | Path: `id` (UUID) | `204 No Content` | `http://localhost:8082/scalar` |
+| `/api/v1/invoices` | Eliminar todas las facturas (solo desarrollo) | DELETE | `DELETE http://localhost:8082/api/v1/invoices?confirm=true` | Query: `confirm` (boolean, requerido) | `200` → `{"deletedCount": N}` · `404` fuera de entorno de desarrollo | `http://localhost:8082/scalar` |
+| `/api/v1/invoices/{id}/ocr/sync` | Procesar el OCR de una factura de forma síncrona | POST | `POST http://localhost:8082/api/v1/invoices/{id}/ocr/sync` | Path: `id` (UUID) | `200` → resultado del procesamiento OCR · `404` si no existe | `http://localhost:8082/scalar` |
+
+Vista general de la documentación de Invoicing, con los seis endpoints del grupo **Invoices** sobre OpenAPI 3.1.1:
+
+![Invoicing - Scalar overview](./assets/cap5-product-implementation/sprint-1/services-documentation/05-invoicing-scalar-overview.png)
+
+Detalle del endpoint `POST /api/v1/invoices`, probado con un PDF de muestra: se observa el cuerpo `multipart/form-data`, el ejemplo de cliente HTTP generado y el esquema de la respuesta `201 Created`:
+
+![Invoicing - Scalar upload invoice](./assets/cap5-product-implementation/sprint-1/services-documentation/06-invoicing-scalar-upload-invoice.png)
+
+**Commits relacionados — Invoicing Service**
+
+Ventana de mayor actividad: **14 de febrero – 16 de marzo de 2026** (mismo período que IAM; la actividad posterior de julio-agosto de 2026 corresponde a mantenimiento puntual, no a nuevos endpoints).
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | b33e8b8 | chore: primer commit | - | 14/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | f1c7b6b | feat: add Dockerfile and .dockerignore for containerization | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | e3461f8 | feat: agregar endpoint en controller para el proceso de extraer data de factura | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | a6b5b13 | feat: implementa UploadInvoiceCommand y su manejador para subir facturas | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 763db1f | refactor: refactorizar el método UploadInvoice para usar el request UploadInvoiceResource y añadir la respuesta InvoiceResource | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 3d09d86 | refactor: remove unused CreateInvoice method from InvoicesController | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma síncrona | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: añadir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 865f52c | feat: add README.md for invoicing service documentation | - | 16/03/2026 |
 
 #### 5.2.1.7. Software Deployment Evidence for Sprint Review
 
