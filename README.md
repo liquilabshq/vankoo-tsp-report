@@ -2824,21 +2824,32 @@ Para este primer sprint, la comunicación entre Azure API Management y el conten
 
 #### 5.2.1.8. Team Collaboration Insights during Sprint
 
-<!-- Cómo se han desarrollado las actividades de implementación, con capturas de los analíticos de colaboración y commits en GitHub. Todos los miembros deben tener participación en la implementación de cada producto según corresponda en el Sprint. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/collaboration-insights/ -->
-
-_Pendiente de elaboración._
+A continuación, se presenta los insights durante este primer sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarollo de los microservicios y despliegue.
 
 | Integrante | Usuario GitHub | Actividad en el Sprint |
 |---|---|---|
-| Amaro Villar, Anjali |  |  |
-| Crispin Ramos, Daniel Franco |  |  |
-| Ramirez Mestanza, Salim Ignacio |  |  |
-| Sulca Gonzales, Paúl Fernando |  |  |
-| Vilca Saboya, Diego Alejandro |  |  |
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Finance Service, Vankoo Infra | 
+| Crispin Ramos, Daniel Franco | danielcr04  | Invoicing Service, Vankoo Infra |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | IAM Service, Vankoo Infra, API Gateway |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Invoicing Service, Vankoo Infra  |
+| Vilca Saboya, Diego Alejandro | diesoks  | Invoicing Deployment, Avances de Profile Service, Vankoo Infra |
+
+
+
+**IAM Service**  
+![Contributor IAM Service](./assets/cap5-product-implementation/sprint-1/collaboration-insights/iam-contributors-sprint-1.png)
+
+**API Gateway**
+![Contributor API Gateway](./assets/cap5-product-implementation/sprint-1/collaboration-insights/apigateway-contributors-sprint-1.png)
+
+**Invoicing Service**
+![Contributors Invoicing Service](./assets/cap5-product-implementation/sprint-1/collaboration-insights/invoicing-contributors-sprint-1.png)
+
+**Vankoo Infra**
+![Contributors Vankoo Infra](/assets/cap5-product-implementation/sprint-1/collaboration-insights/vankoo-infra-contributors-sprint-1.png)
 
 #### 5.2.1.9. Actas de reunión
-
+ 
 <!-- Registro de las reuniones del equipo durante el Sprint: fecha, hora, lugar, asistentes, temas tratados y acuerdos. Adjuntar la captura de evidencia de cada reunión. -->
 <!-- Assets: ./assets/cap5-product-implementation/sprint-1/actas-reunion/ -->
 
