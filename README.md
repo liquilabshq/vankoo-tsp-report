@@ -3490,22 +3490,19 @@ A continuación, se presenta los insights durante este primer sprint, donde se r
 ![Contributors Vankoo Infra](/assets/cap5-product-implementation/sprint-1/collaboration-insights/vankoo-infra-contributors-sprint-1.png)
 
 #### 5.2.1.9. Actas de reunión
- 
-<!-- Registro de las reuniones del equipo durante el Sprint: fecha, hora, lugar, asistentes, temas tratados y acuerdos. Adjuntar la captura de evidencia de cada reunión. -->
-<!-- Assets: ./assets/cap5-product-implementation/sprint-1/actas-reunion/ -->
 
-_Pendiente de elaboración._
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 1, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
 
 **Acta de reunión 1**
 
 | Campo | Detalle |
 | :---: | :--- |
-| Fecha |  |
-| Hora |  |
-| Lugar |  |
-| Asistentes |  |
-| Temas tratados |  |
-| Acuerdos |  |
+| Fecha | Viernes 04 de setiembre de 2026 |
+| Hora | 10:00 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Avance del desarrollo de los microservicios, repartición de tareas para la elaboración del informe y seguimiento de los pendientes del Sprint 1 |
+| Acuerdos | Continuar con el desarrollo de los microservicios asignados a cada integrante; distribuir las secciones del informe del Sprint 1 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-1/actas-reunion/acta-reunion-01.png) |
 
 <hr class="page-break">
