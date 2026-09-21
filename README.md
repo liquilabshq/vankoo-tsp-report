@@ -162,6 +162,16 @@
       - [5.2.1.7. Software Deployment Evidence for Sprint Review](#5217-software-deployment-evidence-for-sprint-review)
       - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
       - [5.2.1.9. Actas de reunión](#5219-actas-de-reunión)
+    - [5.2.2. Sprint 2](#522-sprint-2)
+      - [5.2.2.1. Sprint Planning 2](#5221-sprint-planning-2)
+      - [5.2.2.2. Sprint Backlog 2](#5222-sprint-backlog-2)
+      - [5.2.2.3. Development Evidence for Sprint Review](#5223-development-evidence-for-sprint-review)
+      - [5.2.2.4. Testing Suite Evidence for Sprint Review](#5224-testing-suite-evidence-for-sprint-review)
+      - [5.2.2.5. Execution Evidence for Sprint Review](#5225-execution-evidence-for-sprint-review)
+      - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
+      - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
+      - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+      - [5.2.2.9. Actas de reunión](#5229-actas-de-reunión)
 - [Avance de Conclusiones](#avance-de-conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -3509,6 +3519,46 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Temas tratados | Avance del desarrollo de los microservicios, repartición de tareas para la elaboración del informe y seguimiento de los pendientes del Sprint 1 |
 | Acuerdos | Continuar con el desarrollo de los microservicios asignados a cada integrante; distribuir las secciones del informe del Sprint 1 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-1/actas-reunion/acta-reunion-01.png) |
+
+### 5.2.2. Sprint 2
+
+<!-- Introducción breve del Sprint 2: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
+
+#### 5.2.2.1. Sprint Planning 2
+
+<!-- Introducción y cuadro resumen del Sprint Planning Meeting (Date, Time, Location, Prepared By, Attendees, Sprint 1 Review Summary, Sprint 1 Retrospective Summary, Sprint 2 Goal, Sprint 2 Velocity, Sum of Story Points), con la misma estructura de tabla usada en 5.2.1.1. -->
+
+#### 5.2.2.2. Sprint Backlog 2
+
+<!-- Introducción con el objetivo del Sprint, captura del board del Sprint con su URL pública, y tabla de User Stories con sus Work-items/Tasks (Id, Title, Description, Assigned To, Estimation (Hours), Status). -->
+
+#### 5.2.2.3. Development Evidence for Sprint Review
+
+<!-- Introducción con los principales avances de implementación (Landing Page, Web Applications, Web Services) y una tabla por repositorio con los commits del Sprint: Repository, Branch, Commit Id, Commit Message, Commit Message Body, Committed on (Date). -->
+
+#### 5.2.2.4. Testing Suite Evidence for Sprint Review
+
+<!-- Relación de Unit Tests, Integration Tests y Acceptance Tests del Sprint, indicando clases y comportamientos cubiertos (y archivos .feature en Gherkin si aplica), más la tabla de commits de testing por repositorio. -->
+
+#### 5.2.2.5. Execution Evidence for Sprint Review
+
+<!-- Resumen de lo alcanzado en el Sprint, capturas de las principales vistas implementadas y enlace al video que ilustra la navegación lograda. -->
+
+#### 5.2.2.6. Services Documentation Evidence for Sprint Review
+
+<!-- Introducción con los logros de documentación de Web Services y, por endpoint, tabla con verbo HTTP, sintaxis de llamada, parámetros, ejemplo de response y enlace a la documentación OpenAPI desplegada; capturas de la interacción con datos de muestra y commits relacionados. -->
+
+#### 5.2.2.7. Software Deployment Evidence for Sprint Review
+
+<!-- Introducción con lo realizado en despliegue durante el Sprint (cuentas, recursos en cloud, configuración de proyectos para integración o automatización), con capturas y explicación paso a paso. Abarca Landing Page, Web Applications y Web Services. -->
+
+#### 5.2.2.8. Team Collaboration Insights during Sprint
+
+<!-- Explicación de cómo se desarrollaron las actividades de implementación y capturas de los analíticos de colaboración y commits en GitHub por repositorio. -->
+
+#### 5.2.2.9. Actas de reunión
+
+<!-- Registro de las reuniones del Sprint 2 con fecha, hora, lugar, asistentes, temas tratados, acuerdos y evidencia, con la misma tabla usada en 5.2.1.9. -->
 
 <hr class="page-break">
 
