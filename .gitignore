@@ -44,3 +44,6 @@ replay_pid*
 
 # Ignore Windows system files
 desktop.ini
+
+# Local files
+/.local/
