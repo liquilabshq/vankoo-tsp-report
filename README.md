@@ -3534,11 +3534,330 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 #### 5.2.2.3. Development Evidence for Sprint Review
 
-<!-- Introducción con los principales avances de implementación (Landing Page, Web Applications, Web Services) y una tabla por repositorio con los commits del Sprint: Repository, Branch, Commit Id, Commit Message, Commit Message Body, Committed on (Date). -->
+En el Sprint 2 (**08/09/2026 al 21/09/2026**) se documenta el **Invoicing Service**. El trabajo se centró en preparar el despliegue del servicio y su integración con el **API Gateway**: el `MypeId` de la factura ahora se toma del header `X-User-Id` que el gateway inyecta tras validar el JWT. La tabla incluye los commits de la rama `develop` desde el 22/02/2026.
+
+---
+
+**Repositorio: Invoicing Service (Gestión de Facturas Negociables)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-invoicing-service](https://github.com/liquilabshq/vankoo-invoicing-service)
+
+Microservicio encargado de la recepción de archivos PDF/XML de facturas electrónicas, la extracción automática de metadatos con IA (OCR+NLP), la validación de consistencia de los comprobantes y la gestión de su estado. En el Sprint 2 se incorporó la identificación de la MYPE a partir del header `X-User-Id` propagado por el API Gateway y se ajustó la configuración para el despliegue contenerizado.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-invoicing-service | develop | 7420951 | Merge pull request #19 from liquilabshq/feature/deployment-configuration | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | d850cbb | Merge branch 'develop' into feature/deployment-configuration | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | c31eda9 | fix(invoicing): use the gateway-injected X-User-Id as the invoice's MypeId | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 1ea4da4 | Merge pull request #17 from liquilabshq/feature/deployment-configuration | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | 579797b | fix: enable CORS for the frontend in non-production environments | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 185ffef | Merge pull request #15 from liquilabshq/feature/deployment-configuration | - | 09/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | 43ea9be | chore(docker): ignore appsettings.Docker.json in .dockerignore | - | 09/09/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | dfa5199 | Merge pull request #14 from liquilabshq/refactor/ocr-implementation-improvements | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 2b0dcfe | Merge remote-tracking branch 'origin/develop' into refactor/ocr-implementation-improvements | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | c78fe0d | feat: add tests for Azure OCR mapping and invoice consistency validation | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | ab48d82 | feat: enhance invoice processing with improved data structures and error handling | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | c4a5bcf | Merge pull request #13 from liquilabshq/feature/add-aws-s3-storage-provider | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-aws-s3-storage-provider | 54e12cb | feat(storage): add AWS S3 provider | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 3ecc325 | Merge pull request #12 from liquilabshq/feature/setup-harness-engineering | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/setup-harness-engineering | b6bb988 | chore: add engineering setup harness | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | bacbb3b | Merge pull request #11 from proyecto-verano-2026/feature/invoicing-documentation | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 865f52c | feat: add README.md for invoicing service documentation | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 3ef6f53 | feat: add CLAUDE.md for AI agent guidelines and project architecture | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 9c4deaf | Merge pull request #10 from proyecto-verano-2026/feature/invoicing-docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 47dcd3e | feat: remove compose.yaml from solution items | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: añadir verificación de salud para MinIO mediante un health check | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexión y añadir soporte para OCR y Kafka en archivos de configuración | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: añadir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: añadir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con múltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | a80e424 | Merge pull request #9 from proyecto-verano-2026/feature/internal-ocr-task-worker | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: añadir clase OcrWorkerSettings para configurar parámetros del trabajador de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: añadir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: añadir enumeración OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: añadir implementación de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: añadir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: añadir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: añadir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e0eee2c | feat: eliminar propiedad MypeId de UploadInvoiceResource | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 1d99809 | feat: configurar OcrWorkerSettings y registrar OcrTaskWorker en el contenedor de servicios | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicación de eventos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: añadir comentario sobre la creación dinámica de tópicos en KafkaEventBus | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e5d4768 | feat: actualizar InvoicesController para generar un nuevo MypeId al subir una factura | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar método EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma síncrona | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: añadir el método EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 58488bf | Merge pull request #8 from proyecto-verano-2026/feature/add-event-for-upload-invoice | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el método UploadInvoice para usar el request UploadInvoiceResource y añadir la respuesta InvoiceResource | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 1a0b494 | feat: agregar funcionalidad para subir y descargar facturas mediante comandos y consultas | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | b1783e0 | feat: implementar descarga de archivos desde MinIO en MinioStorageService y ajustar procesamiento de OCR | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | c1c41fb | Merge pull request #7 from proyecto-verano-2026/refactor/ocr-implementation-improvements | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 3d09d86 | refactor: remove unused CreateInvoice method from InvoicesController | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | b4bdc83 | refactor: update OCR exception handling to use Azure-specific namespaces | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | bcff487 | refactor: reorganize OCR exception handling by moving exceptions | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | aa3d8b9 | refactor: update MinioStorageService to inject S3 client for improved dependency management | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 2289082 | refactor: enhance OCR processing with improved error handling and field extraction | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 0a8e4ce | refactor: implement domain and infrastructure exception handling for improved error management | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | f472f23 | refactor: implement global exception handler for improved error responses | - | 02/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 51f1141 | refactor: enhance OCR exception handling with specific error codes | - | 02/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 20c6d79 | refactor: mejorar manejo de excepciones en el servicio de OCR de Azure | - | 02/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 834c472 | Merge pull request #6 from proyecto-verano-2026/feature/error-handling-strategy | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 4a82e7d | feat: agrega clase MongoDbOperationException para manejo de errores en operaciones de MongoDB | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 729ac4d | feat: agrega clase OcrProcessingException para manejo de errores en el procesamiento de OCR | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 338e4ed | feat: agrega clase StorageException para manejo de errores de almacenamiento | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | a6b5b13 | feat: implementa UploadInvoiceCommand y su manejador para subir facturas | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 975c258 | feat: implementa el GlobalExceptionHandler para manejo centralizado de excepciones | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones específicas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 0afc917 | feat: agrega excepciones base para operaciones de base de datos y respuesta de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | e3f9115 | feat: agrega excepciones base para manejo de errores de dominio | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 8527b86 | feat: agrega el global exception handler y el soporte de detalle de problemas en Program.cs | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | d42cdfd | feat: implementa el MinioStorageService para upload, download, and deletion con manejo de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | f95443f | feat: refactoriza el LowOcrConfidenceException para extender de BusinessRuleViolationException y mejora el mensaje de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 3ff5e5c | feat: actuliza el InvoiceNotFoundException para extender de EntityNotFoundException y mejora el mensaje de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 36d5884 | feat: mejora el manejo de errores en InvoiceDocument remplazando por InvoiceDomainException por InvalidValueException | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | cb42611 | feat: enhance error handling in Invoice class by refining exception messages and types | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 51d0f86 | feat: refactor InvalidRucException to extend InvalidValueException and enhance error messaging | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 03b7120 | feat: refactor InvalidInvoiceStateException to extend BusinessRuleViolationException and improve error handling | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar métodos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gestión de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 7e962ee | Merge pull request #5 from proyecto-verano-2026/feature/azure-ocr-integration | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 58a5639 | feat: agregar configuracion de servicio y mediatr al Program.cs | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6d3fa23 | feat: agregar metodos para procesamiento de ocr al aggregate Invoice | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | e3461f8 | feat: agregar endpoint en controller para el proceso de extraer data de factura | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | aece6cb | feat: actualizar dependencias del proyecto | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2132593 | feat: actualizar interfaz e implementacion del servico de OCR Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 011494f | chore: remover archivos no usados | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 536c85a | feat: agregar mediator en el handler para publicar el evento de dominio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4221c51 | chore: remover evento de factura creada | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | adebfee | feat: agregar mapper para convertir respuesta de azure al dominio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 08c7f55 | feat: agregar configuracion de kafka | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | dcbc63e | feat: agregar event handler de una factura procesada | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | baa9281 | feat: agregar interfaz e implementacionde event bus | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ce3157f | feat: agregar integration event para una factura procesada por ocr | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7d6e524 | feat: agregar domain event para una factura procesada por ocr | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | b234016 | feat: agregar implementacion del repositorio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 0315991 | feat: agregar base de sorage service | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuración para Azure OCR en appsettings.json | - | 27/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integración con Azure Form Recognizer | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuración de OCR de Azure | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ca29c71 | feat: agregar clases FileKey e InvoiceDocument para manejo de documentos de factura | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepción personalizada para el procesamiento de OCR | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR síncrono de facturas | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 92a3569 | feat: agregar comando y manejador para consultar resultados de OCR | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 9cff590 | feat: implementar comando y manejador para iniciar procesamiento OCR de facturas | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validación para solicitudes en el pipeline | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 49207ce | Merge pull request #3 from proyecto-verano-2026/feature/minio-storage | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminación de archivos en S3 | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de solución para soporte de MinIO y Docker | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | e973c56 | feat: refactorizacion de Invoice para usar el InvoiceDocument y actualizaciond el metodo factory | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuración de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuración de MinioSettings en appsettings.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar límites de tamaño de archivo | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuración del almacenamiento en MinIO | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | c878db1 | feat: agregar IStorageService para manejo de operaciones de almacenamiento | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8b940a9 | feat: actualizar InvoiceCreatedEvent para usar FileKey en lugar de FileUrl | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | e232cf7 | feat: agregar InvoiceDocument value object para el manejo de la subida de archivos | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 324cf95 | feat: agregar FileKey value object para la identificacion unica de los archivos | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 7921f86 | feat: agregar Docker Compose configuracion para el servicio de Invoicing | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f1c7b6b | feat: add Dockerfile and .dockerignore for containerization | - | 22/02/2026 |
 
 #### 5.2.2.4. Testing Suite Evidence for Sprint Review
 
-<!-- Relación de Unit Tests, Integration Tests y Acceptance Tests del Sprint, indicando clases y comportamientos cubiertos (y archivos .feature en Gherkin si aplica), más la tabla de commits de testing por repositorio. -->
+En esta sección se presenta la evidencia de la suite de pruebas automatizadas del microservicio **Invoicing** de Vankoo, relacionada con la User Story **US01 – Carga inteligente de facturas**. Los Unit Tests verifican las reglas de dominio, la resolución de líneas de factura y el mapeo de las respuestas OCR. Los Acceptance Tests, escritos bajo el enfoque BDD, verifican el escenario de aceptación de US01 para facturas con datos inconsistentes, sobre el flujo completo de carga y procesamiento de la factura.
+
+La suite comprende **16 casos de prueba**: 12 Unit Tests y 4 escenarios de aceptación.
+
+```text
+Unit Tests:        12 casos identificados
+Acceptance Tests:   4 escenarios identificados
+Total:             16 casos identificados
+```
+
+**Repositorio de Testing**
+
+| Repository | Branch revisada | Testing Scope |
+|---|---|---|
+| `liquilabshq/vankoo-invoicing-service` | `feature/us01-acceptance-tests` | Unit Tests para OCR, consistencia de facturas, líneas de factura y validación del RUC; Acceptance Tests BDD para US01. |
+
+**URL y ubicación de las pruebas**
+
+| Microservicio | URL del repositorio | Ruta de pruebas |
+|---|---|---|
+| Invoicing | https://github.com/liquilabshq/vankoo-invoicing-service | `LiquiLabs.Vankoo.Invoicing.Tests` |
+
+**Unit Tests diseñados**
+
+**Invoicing Service**
+
+Invoicing utiliza **xUnit** sobre **.NET 10**. Las pruebas se organizan por capa (`Application`, `Domain` e `Infrastructure`) y no dependen de MongoDB, Kafka ni del proveedor de almacenamiento.
+
+| Test Class | Related Class / Component | User Story | Validated Behavior |
+|---|---|---|---|
+| `InvoiceLineItemResolverTests` | `InvoiceLineItemResolver` | US01 | Valida la conservación de importes decimales y la resolución de montos ambiguos como precio unitario. |
+| `InvoiceConsistencyValidatorTests` | `InvoiceConsistencyValidator` | US01 | Valida facturas consistentes, facturas vencidas y decisiones de revisión según la confianza de campos críticos y no críticos. |
+| `RucNumberTests` | `RucNumber` | US01 | Valida cuatro RUC peruanos con dígito verificador correcto y rechaza un RUC inválido. |
+| `AzureOcrMapperTests` | `AzureOcrMapper` | US01 | Valida la extracción del emisor y la resolución de ítems desde una respuesta OCR simulada. |
+
+**Acceptance Tests diseñados (BDD)**
+
+Los Acceptance Tests se implementan con **Reqnroll** (framework BDD para .NET) sobre xUnit. El archivo `.feature` describe en Gherkin los criterios de aceptación de US01, y la clase de *Steps* en C# los ejecuta contra los handlers reales de la aplicación (`UploadInvoiceCommandHandler` y `ProcessOcrSynchronouslyHandler`), con el mismo pipeline de MediatR y validaciones que usa el servicio. MongoDB, el almacenamiento de archivos, Azure OCR y Kafka se reemplazan por adaptadores en memoria.
+
+| Archivo | Tipo | Ruta |
+|---|---|---|
+| `SmartInvoiceUpload.feature` | Feature File (Gherkin) | `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Features` |
+| `SmartInvoiceUploadSteps.cs` | Steps (C#) | `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Steps` |
+| `InvoicingTestHost.cs`, `InMemoryAdapters.cs` | Soporte de pruebas (C#) | `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Support` |
+
+| User Story | Escenario de aceptación | Escenario en el `.feature` |
+|---|---|---|
+| US01 | Escenario 2: la factura contiene datos inconsistentes. El sistema la marca como `Requiere revisión` (`REQUIRES_REVIEW`) o como no elegible (`NOT_ELIGIBLE`) y evita que sea enviada a subasta. | `An invoice with inconsistent data is not sent to the auction` |
+
+**Feature File: `SmartInvoiceUpload.feature`**
+
+```gherkin
+@US01
+Feature: Smart invoice upload
+  As a MYPE business owner
+  I want to register my invoice in the MYPE Web
+  So that the system extracts its data and prepares the liquidity operation
+
+  Background:
+    Given a MYPE business owner is signed in through the API Gateway
+
+  Scenario Outline: An invoice with inconsistent data is not sent to the auction
+    Given the business owner has a readable PDF invoice
+    And the OCR reads the invoice with <inconsistency>
+    When the business owner uploads the invoice
+    And the system finishes the extraction and initial validation
+    Then the invoice status is "<status>"
+    And the invoice reports the issue "<issue code>"
+    And the invoice is not sent to the auction
+
+    Examples:
+      | inconsistency                     | status          | issue code              |
+      | a total that does not reconcile   | REQUIRES_REVIEW | TOTALS_DO_NOT_RECONCILE |
+      | a low-confidence due date         | REQUIRES_REVIEW | LOW_OCR_CONFIDENCE      |
+      | an expired due date               | NOT_ELIGIBLE    | INVOICE_EXPIRED         |
+      | the same RUC for issuer and payer | NOT_ELIGIBLE    | ISSUER_EQUALS_PAYER     |
+```
+
+**Ejemplos del Scenario Outline**
+
+Cada fila de `Examples` simula una lectura OCR distinta sobre la misma factura base (emisor `20573093420`, pagador `20169004359`, subtotal S/ 1,398.30, IGV S/ 251.70). La regla que se activa es la del `InvoiceConsistencyValidator` actual del servicio.
+
+| Ejemplo | Dato simulado en la lectura OCR | Regla del servicio | Estado esperado |
+|---|---|---|---|
+| `a total that does not reconcile` | Total de S/ 1,800.00 en lugar de S/ 1,650.00. | Subtotal, descuento, impuestos y total no cuadran dentro de la tolerancia de S/ 0.02 (`TOTALS_DO_NOT_RECONCILE`). | `REQUIRES_REVIEW` |
+| `a low-confidence due date` | Campo crítico `DueDate` leído con 40 % de confianza. | Un campo crítico por debajo del 75 % de confianza requiere revisión (`LOW_OCR_CONFIDENCE`). | `REQUIRES_REVIEW` |
+| `an expired due date` | Emitida hace 90 días y vencida hace 30 días. | Una factura vencida no es elegible para factoring (`INVOICE_EXPIRED`). | `NOT_ELIGIBLE` |
+| `the same RUC for issuer and payer` | El pagador tiene el mismo RUC que el emisor. | El emisor y el pagador no pueden ser la misma empresa (`ISSUER_EQUALS_PAYER`). | `NOT_ELIGIBLE` |
+
+En los cuatro casos se verifica, además, que la factura no queda elegible para financiamiento y que no se publica el evento `InvoiceEligibleForFundingIntegrationEvent`, que es el que envía la factura a la subasta del servicio Investment.
+
+**Step Definitions**
+
+| Paso Gherkin | Método | Qué hace |
+|---|---|---|
+| `Given a MYPE business owner is signed in through the API Gateway` | `GivenABusinessOwnerIsSignedIn` | Genera el `MypeId` que el API Gateway propaga en el header `X-User-Id` tras validar el JWT. |
+| `Given the business owner has a readable PDF invoice` | `GivenAReadablePdfInvoice` | Precondición: se usa un PDF con firma válida que supera la inspección de `InvoiceFileInspector`. |
+| `And the OCR reads the invoice with <inconsistency>` | `GivenTheOcrReadsAnInconsistentInvoice` | Configura el OCR simulado con la lectura inconsistente del ejemplo. |
+| `When the business owner uploads the invoice` | `WhenTheBusinessOwnerUploadsTheInvoice` | Envía `UploadInvoiceCommand` por MediatR; la factura se guarda y se encola su tarea OCR. |
+| `And the system finishes the extraction and initial validation` | `WhenTheSystemFinishesTheExtraction` | Envía `ProcessOcrSynchronouslyCommand`, que aplica el OCR y la validación de consistencia. |
+| `Then the invoice status is "<status>"` | `ThenTheInvoiceStatusIs` | Verifica el estado final de la factura. |
+| `And the invoice reports the issue "<issue code>"` | `ThenTheInvoiceReportsTheIssue` | Verifica que la validación registre el código de observación esperado. |
+| `And the invoice is not sent to the auction` | `ThenTheInvoiceIsNotSentToTheAuction` | Verifica que la factura no es elegible y que no se publicó el evento hacia la subasta. |
+
+**Soporte de pruebas**
+
+| Clase | Responsabilidad |
+|---|---|
+| `InvoicingTestHost` | Arma el mismo pipeline de MediatR que `Program.cs` (handlers, `ValidationBehavior` y validadores FluentValidation). Reqnroll crea una instancia por escenario, por lo que cada ejemplo se ejecuta de forma aislada. |
+| `InMemoryInvoiceRepository` | Reemplaza el repositorio MongoDB de facturas. |
+| `InMemoryStorageService` | Reemplaza el almacenamiento de archivos (Amazon S3 / MinIO). |
+| `StubOcrService` | Reemplaza Azure Document Intelligence y devuelve la lectura definida por el escenario. |
+| `RecordingEventBus` | Reemplaza Kafka y registra los eventos publicados para verificarlos. |
+| `InMemoryOcrTaskRepository` | Reemplaza la cola de tareas OCR; el escenario dispara el OCR de forma síncrona. |
+
+**Steps File: `SmartInvoiceUploadSteps.cs`**
+
+A continuación se muestran los métodos principales de la clase de *Steps*: la simulación de la lectura OCR inconsistente, la carga de la factura, el procesamiento OCR y la verificación de que la factura no llega a la subasta. El archivo completo está en `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Steps/SmartInvoiceUploadSteps.cs`.
+
+```csharp
+[Given(@"^the OCR reads the invoice with (.*)$")]
+public void GivenTheOcrReadsAnInconsistentInvoice(string inconsistency)
+{
+    var today = DateTime.UtcNow.Date;
+
+    _extraction = inconsistency switch
+    {
+        "a total that does not reconcile" => BuildExtraction(
+            PayerRuc, PayerName, total: 1800.00m,
+            issueDate: today.AddDays(-5), dueDate: today.AddDays(60)),
+
+        "a low-confidence due date" => BuildExtraction(
+            PayerRuc, PayerName, total: 1650.00m,
+            issueDate: today.AddDays(-5), dueDate: today.AddDays(60),
+            fieldConfidences: [new OcrFieldConfidence("DueDate", 0.40f)]),
+
+        "an expired due date" => BuildExtraction(
+            PayerRuc, PayerName, total: 1650.00m,
+            issueDate: today.AddDays(-90), dueDate: today.AddDays(-30)),
+
+        "the same RUC for issuer and payer" => BuildExtraction(
+            IssuerRuc, IssuerName, total: 1650.00m,
+            issueDate: today.AddDays(-5), dueDate: today.AddDays(60)),
+
+        _ => throw new ArgumentOutOfRangeException(nameof(inconsistency), inconsistency, "Unknown inconsistency")
+    };
+}
+
+[When("the business owner uploads the invoice")]
+public async Task WhenTheBusinessOwnerUploadsTheInvoice()
+{
+    _host.Ocr.Extraction = _extraction;
+
+    _invoiceId = await _host.SendAsync(new UploadInvoiceCommand
+    {
+        MypeId = _mypeId,
+        OriginalName = "E001-4.pdf",
+        ContentType = "application/pdf",
+        FileSizeBytes = ReadablePdf.Length,
+        FileStream = new MemoryStream(ReadablePdf)
+    });
+}
+
+[When("the system finishes the extraction and initial validation")]
+public async Task WhenTheSystemFinishesTheExtraction()
+{
+    Assert.NotNull(_invoiceId);
+    Assert.Contains(_invoiceId, _host.OcrTasks.EnqueuedInvoiceIds);
+
+    _details = await _host.SendAsync(new ProcessOcrSynchronouslyCommand(_invoiceId));
+}
+
+[Then("the invoice is not sent to the auction")]
+public void ThenTheInvoiceIsNotSentToTheAuction()
+{
+    Assert.NotNull(_details);
+    Assert.False(_details.EligibleForFunding);
+    Assert.Equal(nameof(IntegrationEventPublicationStatus.NOT_APPLICABLE), _details.IntegrationEventStatus);
+    Assert.Empty(_host.EventBus.Published.OfType<InvoiceEligibleForFundingIntegrationEvent>());
+}
+```
+
+**Commits relacionados con Testing**
+
+**Invoicing Service**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | dd1da52 | test(invoicing): add US01 feature describing how inconsistent invoice data blocks sending to the auction | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | b69e65f | test(invoicing): add Reqnroll step definitions that upload invoices and verify inconsistent OCR data handling | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | 184e151 | test(invoicing): add test host that wires the MediatR pipeline with in-memory adapters per scenario | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | ed455b3 | test(invoicing): add in-memory repository, storage, OCR, event bus and task adapters for acceptance tests | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | d95337f | build(tests): add Reqnroll xUnit package to run BDD acceptance scenarios in the invoicing test project | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | c78fe0d | feat: add tests for Azure OCR mapping and invoice consistency validation | - | 06/08/2026 |
+
 
 #### 5.2.2.5. Execution Evidence for Sprint Review
 
