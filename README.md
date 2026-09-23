@@ -3526,7 +3526,25 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 #### 5.2.2.1. Sprint Planning 2
 
-<!-- Introducción y cuadro resumen del Sprint Planning Meeting (Date, Time, Location, Prepared By, Attendees, Sprint 1 Review Summary, Sprint 1 Retrospective Summary, Sprint 2 Goal, Sprint 2 Velocity, Sum of Story Points), con la misma estructura de tabla usada en 5.2.1.1. -->
+<!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
+
+El Sprint Planning 2 define el alcance de la segunda iteración de Vankoo, del 08/09/2026 al 21/09/2026. Con la propuesta de valor publicada y los contratos de identidad y perfiles definidos en el Sprint 1, este sprint conecta las primeras capacidades de negocio con los servicios reales a través del API Gateway. Siguiendo el orden del Product Backlog, se priorizó la carga inteligente de facturas, que es la entrada de toda operación de liquidez para la MYPE, junto con su contrato REST de ingreso y validación. En paralelo, se incorporó la carga de fondos a la billetera y su contrato de depósitos y pagos, para que el inversionista cuente con capital disponible cuando se habiliten las subastas en los siguientes sprints.
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 8 de septiembre de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
+| Sprint 1 Review Summary | Se presentó la Landing Page funcional, con la propuesta de valor, el simulador de adelanto, la orientación de conversión y el soporte en español e inglés (LPS01, LPS02 y LPS03). En el backend se construyó la base de los microservicios IAM, Profile, Invoicing, Investment y Finance; IAM, Profile e Invoicing quedaron documentados con OpenAPI y Scalar (TS01 y TS02), y se registraron 114 pruebas automatizadas entre Finance, Investment e Invoicing. Invoicing se desplegó en Azure detrás de un API Gateway administrado. En la Web Application solo se completó el flujo de inicio de sesión, por lo que la integración de las aplicaciones con los servicios pasa a ser la prioridad de este sprint. |
+| Sprint 1 Retrospective Summary | **Lo que funcionó:** el trabajo en paralelo por microservicio con GitFlow y pull requests permitió avanzar varios servicios a la vez sin bloqueos entre integrantes, y el entorno local con `docker-compose` dio a todos la misma infraestructura.<br>**Lo que se debe mejorar:** el backend avanzó más rápido que las aplicaciones, que llegaron al cierre sin consumir los servicios; parte de la evidencia, como el video de navegación, quedó pendiente al final del sprint.<br>**Acuerdos:** integrar cada historia de punta a punta, desde la aplicación hasta el servicio, a través del API Gateway con autenticación JWT; contenerizar cada servicio e incorporarlo al `docker-compose` de infraestructura; y registrar la evidencia de cada entregable durante el sprint y no al cierre. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | Conectar la gestión de facturas y la billetera con los servicios reales a través del API Gateway: que la MYPE cargue sus facturas desde la Web Application y obtenga sus datos extraídos y validados, y que el inversionista pueda recargar fondos en su billetera con pagos trazables e idempotentes. |
+| User Stories | US01, US14, TS03 y TS06 |
+| Sprint 2 Velocity | 29 story points planificados; se toman como referencia los 26 story points planificados en el Sprint 1. |
+| Sum of Story Points | 29 |
 
 #### 5.2.2.2. Sprint Backlog 2
 
