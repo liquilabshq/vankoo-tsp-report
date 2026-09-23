@@ -3548,7 +3548,140 @@ El Sprint Planning 2 define el alcance de la segunda iteración de Vankoo, del 0
 
 #### 5.2.2.2. Sprint Backlog 2
 
-<!-- Introducción con el objetivo del Sprint, captura del board del Sprint con su URL pública, y tabla de User Stories con sus Work-items/Tasks (Id, Title, Description, Assigned To, Estimation (Hours), Status). -->
+El Sprint Backlog 2 descompone las historias `US01`, `US14`, `TS03` y `TS06`. El objetivo es conectar la gestión de facturas y la billetera con los servicios reales a través del API Gateway: la MYPE carga sus facturas desde la Web Application y obtiene sus datos extraídos y validados, y el inversionista recarga fondos en su billetera desde la aplicación móvil con pagos trazables e idempotentes. La captura del board se presenta a continuación.
+
+![Sprint Backlog 2](assets/cap5-product-implementation/sprint-2/sprint-backlog/sprint-backlog.png)
+
+Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th colspan="2">Sprint #</th>
+        <th colspan="6">Sprint 2</th>
+      </tr>
+      <tr>
+        <th colspan="2">User Story</th>
+        <th colspan="6">Work-Item / Task</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status (To-do / In-Process / To-Review / Done)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GEN-02</td>
+        <td>Integrar servicios en el API Gateway</td>
+        <td>Rutear y proteger con JWT los servicios de Invoicing y Finance en el API Gateway, propagar la identidad del usuario en el header <code>X-User-Id</code> e incorporar los servicios contenerizados al <code>docker-compose</code> de infraestructura.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US01-T01</td>
+        <td>Carga inteligente de facturas</td>
+        <td>Implementar en la MYPE Web la vista para subir el PDF de la factura, con selección o arrastre del archivo y la línea de tiempo de su procesamiento.</td>
+        <td>8</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US01-T02</td>
+        <td>Carga inteligente de facturas</td>
+        <td>Implementar el listado de facturas, su estado vacío y el detalle con los datos extraídos, incluyendo los estados Requiere revisión y No elegible.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US01-T03</td>
+        <td>Carga inteligente de facturas</td>
+        <td>Preparar las pruebas de aceptación de los escenarios en que una factura con datos inconsistentes queda en revisión o no elegible y no se envía a subasta.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US14-T01</td>
+        <td>Carga de fondos a la billetera</td>
+        <td>Implementar en la aplicación móvil la billetera del inversionista y el flujo de recarga contra Finance a través del API Gateway.</td>
+        <td>8</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US14-T02</td>
+        <td>Carga de fondos a la billetera</td>
+        <td>Abrir el checkout de Stripe dentro de la aplicación y mostrar la espera del pago hasta que el proveedor confirme la recarga.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US14-T03</td>
+        <td>Carga de fondos a la billetera</td>
+        <td>Preparar pruebas de la recarga en estado pendiente, de su confirmación por el proveedor y del rechazo de una referencia de operación duplicada.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS03-T01</td>
+        <td>Contrato REST de ingreso y validación de facturas</td>
+        <td>Exponer el endpoint de carga con la inspección del archivo, almacenar el comprobante en el bucket de objetos y devolver el identificador y el estado inicial de la factura.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS03-T02</td>
+        <td>Contrato REST de ingreso y validación de facturas</td>
+        <td>Ajustar la extracción OCR de emisor, pagador, monto, moneda y fecha de vencimiento, y mover la factura por los estados de extracción y validación.</td>
+        <td>8</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS03-T03</td>
+        <td>Contrato REST de ingreso y validación de facturas</td>
+        <td>Publicar el evento de integración de la factura elegible para financiamiento, con su esquema y su topic, para que Investment pueda crear la subasta.</td>
+        <td>4</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS06-T01</td>
+        <td>Contrato REST de depósitos, billetera y pagos</td>
+        <td>Servir la API REST de Finance bajo <code>/api/v1</code>, como el resto de servicios, y documentar con OpenAPI y Scalar los contratos de recargas, saldos, movimientos y webhooks.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS06-T02</td>
+        <td>Contrato REST de depósitos, billetera y pagos</td>
+        <td>Implementar el débito de la billetera con <code>Idempotency-Key</code> y validar que el <code>X-User-Id</code> propagado por el gateway corresponda al dueño de la cuenta.</td>
+        <td>8</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS06-T03</td>
+        <td>Contrato REST de depósitos, billetera y pagos</td>
+        <td>Contenerizar Finance con su Dockerfile e incorporarlo al <code>docker-compose</code> de infraestructura, junto con la configuración de las claves de Stripe.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 #### 5.2.2.3. Development Evidence for Sprint Review
 
