@@ -3861,7 +3861,30 @@ public void ThenTheInvoiceIsNotSentToTheAuction()
 
 #### 5.2.2.5. Execution Evidence for Sprint Review
 
-<!-- Resumen de lo alcanzado en el Sprint, capturas de las principales vistas implementadas y enlace al video que ilustra la navegación lograda. -->
+Durante el Sprint 2 se implementó en la **Web Application para MYPE** el flujo principal para registrar una factura electrónica. La aplicación permite ingresar al módulo de facturas desde la navegación lateral, visualizar el estado vacío cuando todavía no existen comprobantes, seleccionar o arrastrar un archivo PDF y consultar el progreso de su procesamiento mediante una línea de tiempo. Esta línea comunica las etapas previstas del ciclo de la factura: **Recibida**, **Leyendo datos**, **Validando con SUNAT**, **Aprobada** y **En subasta**. También se incorporaron acciones para revisar la factura cargada o iniciar la carga de una nueva.
+
+Las siguientes capturas corresponden a la ejecución de la interfaz desarrollada durante el Sprint y presentan la navegación lograda desde el estado inicial del módulo hasta el procesamiento del documento.
+
+
+**Web Application (MYPE Web App) — Módulo de facturas**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+Al ingresar por primera vez al módulo **Facturas**, la aplicación presenta un estado vacío que informa a la MYPE que aún no tiene comprobantes registrados. Desde esta vista, el botón **Subir factura**, disponible tanto en la cabecera como en el mensaje central, conduce al inicio del flujo de carga.
+
+![Web Application - Estado vacío del módulo de facturas](./assets/cap5-product-implementation/sprint-2/execution-evidence/01-invoices-empty-state.png)
+
+La vista **Subir factura** permite arrastrar un archivo o seleccionarlo desde el equipo. La interfaz especifica que el documento debe ser el PDF de una factura electrónica emitida en SUNAT y explica que sus datos serán extraídos automáticamente. En la parte inferior se anticipan las cinco etapas que seguirá el comprobante después de la carga.
+
+![Web Application - Formulario para subir una factura](./assets/cap5-product-implementation/sprint-2/execution-evidence/02-invoice-upload-form.png)
+
+Después de seleccionar el PDF, la aplicación muestra el nombre y tamaño del archivo, confirma que la subida se completó y marca la factura en la etapa **Recibida**. Desde este punto, el usuario puede abrir el documento mediante **Ver la factura**, descartarlo con el ícono de cierre o elegir **Subir otra**.
+
+![Web Application - Factura recibida después de la carga](./assets/cap5-product-implementation/sprint-2/execution-evidence/03-invoice-received.png)
+
+Finalmente, el indicador de progreso avanza a **Leyendo datos**, brindando retroalimentación visible mientras el sistema procesa la información del comprobante. La línea de tiempo conserva a la vista las etapas restantes validación con SUNAT, aprobación y publicación en subasta para que la MYPE comprenda el estado actual y el recorrido posterior de su factura.
+
+![Web Application - Lectura de datos de la factura](./assets/cap5-product-implementation/sprint-2/execution-evidence/04-invoice-reading-data.png)
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
 
