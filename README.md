@@ -3861,11 +3861,184 @@ public void ThenTheInvoiceIsNotSentToTheAuction()
 
 #### 5.2.2.5. Execution Evidence for Sprint Review
 
-<!-- Resumen de lo alcanzado en el Sprint, capturas de las principales vistas implementadas y enlace al video que ilustra la navegación lograda. -->
+Durante el Sprint 2 se implementó en la **Web Application para MYPE** el flujo principal para registrar una factura electrónica. La aplicación permite ingresar al módulo de facturas desde la navegación lateral, visualizar el estado vacío cuando todavía no existen comprobantes, seleccionar o arrastrar un archivo PDF y consultar el progreso de su procesamiento mediante una línea de tiempo. Esta línea comunica las etapas previstas del ciclo de la factura: **Recibida**, **Leyendo datos**, **Validando con SUNAT**, **Aprobada** y **En subasta**. También se incorporaron acciones para revisar la factura cargada o iniciar la carga de una nueva.
+
+Las siguientes capturas corresponden a la ejecución de la interfaz desarrollada durante el Sprint y presentan la navegación lograda desde el estado inicial del módulo hasta el procesamiento del documento.
+
+
+**Web Application (MYPE Web App) — Módulo de facturas**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+Al ingresar por primera vez al módulo **Facturas**, la aplicación presenta un estado vacío que informa a la MYPE que aún no tiene comprobantes registrados. Desde esta vista, el botón **Subir factura**, disponible tanto en la cabecera como en el mensaje central, conduce al inicio del flujo de carga.
+
+![Web Application - Estado vacío del módulo de facturas](./assets/cap5-product-implementation/sprint-2/execution-evidence/01-invoices-empty-state.png)
+
+La vista **Subir factura** permite arrastrar un archivo o seleccionarlo desde el equipo. La interfaz especifica que el documento debe ser el PDF de una factura electrónica emitida en SUNAT y explica que sus datos serán extraídos automáticamente. En la parte inferior se anticipan las cinco etapas que seguirá el comprobante después de la carga.
+
+![Web Application - Formulario para subir una factura](./assets/cap5-product-implementation/sprint-2/execution-evidence/02-invoice-upload-form.png)
+
+Después de seleccionar el PDF, la aplicación muestra el nombre y tamaño del archivo, confirma que la subida se completó y marca la factura en la etapa **Recibida**. Desde este punto, el usuario puede abrir el documento mediante **Ver la factura**, descartarlo con el ícono de cierre o elegir **Subir otra**.
+
+![Web Application - Factura recibida después de la carga](./assets/cap5-product-implementation/sprint-2/execution-evidence/03-invoice-received.png)
+
+Finalmente, el indicador de progreso avanza a **Leyendo datos**, brindando retroalimentación visible mientras el sistema procesa la información del comprobante. La línea de tiempo conserva a la vista las etapas restantes validación con SUNAT, aprobación y publicación en subasta para que la MYPE comprenda el estado actual y el recorrido posterior de su factura.
+
+![Web Application - Lectura de datos de la factura](./assets/cap5-product-implementation/sprint-2/execution-evidence/04-invoice-reading-data.png)
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
 
-<!-- Introducción con los logros de documentación de Web Services y, por endpoint, tabla con verbo HTTP, sintaxis de llamada, parámetros, ejemplo de response y enlace a la documentación OpenAPI desplegada; capturas de la interacción con datos de muestra y commits relacionados. -->
+Durante el Sprint 2 se completó la documentación OpenAPI del **Finance Service**, microservicio encargado de las recargas de saldo (*deposits*) y de las billeteras de los inversionistas. La especificación expone siete operaciones agrupadas en **Deposits**, **Wallets** y **Provider Webhooks**, y se presenta mediante **Scalar** con tema *mars* y modo oscuro. Además de describir los contratos de entrada y salida, la documentación registra validaciones, códigos de error, paginación, control de propiedad mediante `X-User-Id` e idempotencia mediante `Idempotency-Key` para impedir cargos o débitos duplicados.
+
+En este Sprint el servicio se ejecutó localmente en el puerto `8083`; por ello, las capturas y enlaces corresponden a la documentación local. La configuración OpenAPI también declara como servidor alternativo el API Gateway local en `http://localhost:8080/finance`.
+
+**Finance Service — Depósitos y billeteras**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-finance-service](https://github.com/liquilabshq/vankoo-finance-service)
+
+Documentación local (Scalar): `http://localhost:8083/scalar`
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/deposits` | Iniciar una recarga de saldo. La solicitud se acepta inmediatamente y el procesamiento con Stripe continúa de forma asíncrona. | POST | `POST http://localhost:8083/api/v1/deposits` | Header requerido: `Idempotency-Key`. Body JSON: `accountId` (UUID), `amountMinor` (entero positivo), `currency` (`PEN` o `USD`), `provider` (`STRIPE`) y `description` (opcional, máximo 500 caracteres). | `202 Accepted` → `{"depositId":"0199...","accountId":"0198...","amountMinor":150000,"currency":"PEN","provider":"STRIPE","status":"PENDING","actionUrl":null,...}`. Confirma que la recarga fue registrada o recuperada por idempotencia; `400` indica datos inválidos y `409`, reutilización de la clave con otro contenido. | `http://localhost:8083/scalar` |
+| `/api/v1/deposits/{depositId}` | Consultar el estado proyectado de una recarga. | GET | `GET http://localhost:8083/api/v1/deposits/{depositId}` | Path: `depositId` (UUID). | `200 OK` → objeto con `depositId`, `accountId`, monto, moneda, proveedor, `status`, `actionUrl`, razones de fallo/cancelación y fechas. Permite conocer el estado actualizado; responde `400` ante un identificador inválido y `404` si no existe. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/deposits?page=0&size=20` | Listar de forma paginada las recargas pertenecientes a una cuenta. | GET | `GET http://localhost:8083/api/v1/accounts/{accountId}/deposits?page=0&size=20` | Path: `accountId` (UUID). Query opcionales: `page` (entero desde 0, por defecto `0`) y `size` (entero positivo, por defecto `20`). Header inyectado por el gateway: `X-User-Id`, que debe coincidir con `accountId`. | `200 OK` → `{"items":[{...}],"pageNumber":0,"pageSize":20,"totalElements":1}`. Devuelve una página que puede estar vacía; `400` señala parámetros inválidos y `403`, que el usuario no es propietario de la cuenta. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/wallets/{currency}/debits` | Debitar una billetera de forma síncrona. Una repetición con la misma clave y el mismo body devuelve el mismo `debitId` sin efectuar otro débito. | POST | `POST http://localhost:8083/api/v1/accounts/{accountId}/wallets/{currency}/debits` | Path: `accountId` (UUID) y `currency` (`PEN` o `USD`). Headers: `Idempotency-Key` requerido y `X-User-Id` coincidente. Body JSON: `amountMinor` (entero positivo) y `reason` (`INVERSION`, `RETIRO` o `COMISION`). | `201 Created` → `{"debitId":"0199...","walletId":"...","accountId":"0198...","currency":"PEN","amountMinor":5000,"reason":"INVERSION"}`. Confirma el débito o su repetición idempotente; también contempla `400`, `403`, `404` y `409` por saldo insuficiente o conflicto de idempotencia. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/wallets/{currency}` | Consultar el saldo actual de una billetera. | GET | `GET http://localhost:8083/api/v1/accounts/{accountId}/wallets/{currency}` | Path: `accountId` (UUID) y `currency` (`PEN` o `USD`). Header: `X-User-Id` coincidente. | `200 OK` → `{"walletId":"...","accountId":"0198...","currency":"PEN","balanceMinor":145000,"createdAt":"2026-09-22T...","updatedAt":"2026-09-22T..."}`. Presenta el saldo en unidades menores; responde `404` cuando todavía no existe una billetera para esa moneda. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/wallets/{currency}/movements?page=0&size=20` | Consultar el historial paginado de movimientos de una billetera. | GET | `GET http://localhost:8083/api/v1/accounts/{accountId}/wallets/{currency}/movements?page=0&size=20` | Path: `accountId` (UUID) y `currency` (`PEN` o `USD`). Query opcionales: `page` (desde 0) y `size` (positivo). Header: `X-User-Id` coincidente. | `200 OK` → `{"items":[{"type":"INVERSION","direction":"DEBIT","amountMinor":5000,"currency":"PEN","sourceDepositId":null,"debitId":"0199...","occurredAt":"2026-09-22T..."}],"pageNumber":0,"pageSize":20,"totalElements":1}`. Devuelve los créditos y débitos, o una página vacía si aún no existen movimientos. | `http://localhost:8083/scalar` |
+| `/api/v1/payment-providers/stripe/webhooks` | Recibir eventos enviados por Stripe, verificar su firma y registrarlos en el *inbox* para procesamiento asíncrono. | POST | `POST http://localhost:8083/api/v1/payment-providers/stripe/webhooks` | Header requerido: `Stripe-Signature`. Body: evento JSON original enviado por Stripe; se conserva como texto para verificar exactamente los bytes firmados. | `200 OK` sin body confirma que el evento fue registrado, ya era conocido o no requiere procesamiento. `400 Bad Request` indica que la firma no valida o que el body no representa un evento legible. La respuesta no espera la actualización de la recarga. | `http://localhost:8083/scalar` |
+
+La primera interacción documenta `POST /api/v1/deposits`. Scalar muestra el encabezado obligatorio `Idempotency-Key`, el body de creación, el comando `curl` y el esquema de respuesta `202 Accepted`; la operación devuelve inicialmente la recarga con estado `PENDING` mientras la creación del cargo continúa en segundo plano.
+
+![Finance Service - Iniciar una recarga](./assets/cap5-product-implementation/sprint-2/services-documentation/01-finance-deposit-create.png)
+
+La consulta `GET /api/v1/deposits/{depositId}` recibe el identificador de la recarga por la ruta. La documentación presenta el objeto completo que se obtiene con `200 OK` y diferencia los errores por formato inválido (`400`) y recurso inexistente (`404`).
+
+![Finance Service - Consultar el estado de una recarga](./assets/cap5-product-implementation/sprint-2/services-documentation/02-finance-deposit-get.png)
+
+La operación `GET /api/v1/accounts/{accountId}/deposits` expone los parámetros de paginación `page` y `size`. El ejemplo de respuesta contiene la colección `items` y sus metadatos de página; también evidencia el control `403` cuando el `X-User-Id` autenticado no coincide con la cuenta solicitada.
+
+![Finance Service - Listar recargas de una cuenta](./assets/cap5-product-implementation/sprint-2/services-documentation/03-finance-deposits-list.png)
+
+En `POST /api/v1/accounts/{accountId}/wallets/{currency}/debits` se documentan la cuenta y moneda en la ruta, la clave de idempotencia y los campos `amountMinor` y `reason`. La respuesta `201 Created` entrega un `debitId`, utilizado como referencia de la transacción, sin repetir el débito cuando se reenvía la misma solicitud.
+
+![Finance Service - Debitar una billetera](./assets/cap5-product-implementation/sprint-2/services-documentation/04-finance-wallet-debit.png)
+
+La consulta del saldo mediante `GET /api/v1/accounts/{accountId}/wallets/{currency}` devuelve la identificación de la billetera, su moneda, el saldo en unidades menores y sus fechas de creación y actualización. Los códigos alternativos distinguen entradas inválidas, acceso a otra cuenta y una billetera todavía inexistente.
+
+![Finance Service - Consultar el saldo de una billetera](./assets/cap5-product-implementation/sprint-2/services-documentation/05-finance-wallet-balance.png)
+
+El historial `GET /api/v1/accounts/{accountId}/wallets/{currency}/movements` también utiliza paginación. Cada elemento informa tipo, dirección, monto, moneda, referencias del depósito o débito y fecha de ocurrencia, permitiendo reconstruir los movimientos visibles para el inversionista.
+
+![Finance Service - Historial paginado de movimientos](./assets/cap5-product-implementation/sprint-2/services-documentation/06-finance-wallet-movements.png)
+
+Finalmente, `POST /api/v1/payment-providers/stripe/webhooks` documenta el punto de entrada usado por Stripe. La firma llega en `Stripe-Signature`; una vez validada, el evento se almacena en el *inbox* y se responde inmediatamente con `200 OK`, evitando que Stripe genere reintentos innecesarios mientras la actualización se procesa de manera asíncrona.
+
+![Finance Service - Recepción de un webhook de Stripe](./assets/cap5-product-implementation/sprint-2/services-documentation/07-finance-stripe-webhook.png)
+
+**Commits relacionados — Finance Service**
+
+La siguiente tabla registra la evolución del servicio y permite rastrear la configuración de OpenAPI/Scalar, la implementación de depósitos, billeteras, webhooks, idempotencia y los ajustes realizados para su ejecución e integración durante el Sprint.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-finance-service | develop | a26482d | Merge pull request #25 from liquilabshq/feature/wallet-debit-endpoint | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-debit-endpoint | 4802e61 | feat(finance): debit endpoint, idempotency and X-User-Id ownership check | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 4a233dd | Merge pull request #24 from liquilabshq/docs/finance-stripe-in-compose | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | docs/finance-stripe-in-compose | eb3ef51 | docs(finance): how Stripe keys reach the service when it runs in the compose | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 063f5a1 | Merge pull request #23 from liquilabshq/feature/finance-dockerfile | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-dockerfile | bd1344f | chore(finance): add Dockerfile and .dockerignore | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | f71e52b | Merge pull request #22 from liquilabshq/chore/finance-api-prefix | - | 15/09/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-api-prefix | 6993e2c | refactor(finance): serve the REST API under /api/v1 like the other services | - | 15/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 2c54644 | Merge pull request #21 from liquilabshq/fix/finance-kafka-send-failures | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | dd430ad | docs(finance): record how Kafka send failures are detected | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | ac055a8 | test(finance): cover Kafka send failures and a broker outage | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | 011f013 | fix(finance): detect Kafka send failures in the integration publisher | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 871e22b | Merge pull request #20 from liquilabshq/feature/finance-deposit-charge-creation | - | 04/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 33d1f0f | docs(finance): keep local secrets out of the packaged jar | - | 04/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 0ee5e27 | docs(finance): drop .env.example, Spring Boot never reads it | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | d268fc0 | feat(finance): create the Stripe charge when a deposit is initiated | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 79fd5f3 | docs(finance): document the environment variables Stripe needs | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 7b7d213 | Merge pull request #19 from liquilabshq/chore/finance-service-eureka-name | - | 31/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 7a178e9 | chore(finance): drop the vankoo prefix from spring.application.name | - | 31/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 33348c2 | Merge pull request #18 from liquilabshq/feature/wallet-rest-endpoints | - | 30/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-rest-endpoints | 597b7fe | feat(finance): add read-only REST endpoints for Wallet | - | 30/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | f853591 | Merge pull request #17 from liquilabshq/feature/deposit-rest-endpoints | - | 27/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-rest-endpoints | 1c8c855 | feat(finance): add REST endpoints for Deposit | - | 27/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 562c429 | Merge pull request #16 from liquilabshq/fix/wallet-creditor-eventhandlers-layering | - | 25/08/2026 |
+| liquilabshq/vankoo-finance-service | fix/wallet-creditor-eventhandlers-layering | 2ebab9f | refactor(finance): move WalletCreditor to application/internal/eventhandlers | - | 25/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 614fb9c | Merge pull request #15 from liquilabshq/feature/finance-integrations-events | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 4ef4ffc | docs(finance): mark the integration event tests as pending, not present | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | a3e7f2c | docs(finance): document the integration event topic and headers | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | c1a3af1 | feat(finance): publish deposit outcomes to vankoo.finance.events.v1 | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 6346644 | feat(finance): add the integration event port and its Kafka producer | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 0263568 | build(finance): add the Kafka binder for integration events | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | fa3820a | Merge pull request #14 from liquilabshq/feature/finance-webhook-inbox | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 7d836a8 | docs(finance): record where the inbox pieces live after the move | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | a3e87d3 | refactor(finance): apply the layering rules to the webhook inbox | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | ef727a2 | Merge pull request #13 from liquilabshq/feature/wallet-aggregate | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-aggregate | ebf989c | feat(finance): add Wallet aggregate (event-sourced) | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | e793ec8 | Merge pull request #12 from liquilabshq/docs/wallet-uml-diagram | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-uml-diagram | 3a85e1d | docs(finance): add Wallet's members to the domain model diagram | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | cde24d4 | Merge pull request #11 from liquilabshq/docs/wallet-contract | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-contract | 9c623b6 | docs(finance): draft the Wallet aggregate contract | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 4866da4 | Merge pull request #10 from liquilabshq/docs/deposit-read-model-followups | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/deposit-read-model-followups | b7c5800 | docs(finance): record replay/rebuild procedure and the no-Redis decision | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | facb506 | Merge pull request #9 from liquilabshq/feature/deposit-read-models | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 19f8b2d | feat(finance): add deposit read model (deposit_views projection + query handlers) | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 36f4c02 | Merge pull request #8 from liquilabshq/feature/finance-webhook-inbox | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 5e6d42b | docs(finance): record the webhook inbox decisions in the contract | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 84b32de | feat(finance): add Stripe webhook endpoint | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 7605eaf | feat(finance): add webhook inbox with deduplication, parking and retries | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 425a03d | fix(finance): move @EnableJpaAuditing off the application class | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 441f01a | feat(finance): add finance_ops inbox and provider reference tables | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 06e687d | refactor(finance): rebuild PaymentProvider port on domain types | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 26f0b28 | Merge pull request #7 from liquilabshq/feature/deposit-optimistic-concurrency-test | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | 9d10d8a | test(finance): prove Axon Server's optimistic concurrency by sequence number | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 7f4d33a | Merge pull request #6 from liquilabshq/feature/deposit-aggregate | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 58c50da | refactor(finance): move business exceptions to domain/exceptions, leave the PaymentProvider port untouched | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 2cce23b | test(finance): add Given-When-Then coverage for the Deposit aggregate | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | d7bb43b | feat(finance): rebuild PaymentProvider port on the real domain types | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | e9afb15 | feat(finance): add Deposit domain model | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 9d61c14 | build(finance): add axon-test dependency for aggregate testing | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 738d326 | Merge pull request #5 from liquilabshq/feature/finance-stripe-provider | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | cf8d3e4 | feat(finance): add stripe configuration properties to application.yaml | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 6d46be0 | feat(finance): add stripewebhookcontroller for handling webhook events | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 0df5648 | feat(finance): implement stripe payment provider with configuration properties and webhook handling | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 6441016 | feat(finance): add stripe java sdk dependency and clean up paymentprovider interface | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 0cb64b2 | refactor(finance): clean up PaymentProvider interface by commenting out unused methods | - | 31/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 43af398 | chore(finance): remove provisional files for payment provider port | - | 31/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | 289c9fb | Merge pull request #4 from liquilabshq/feature/project-bootstrap | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | f9de072 | chore: make mvnw executable | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | fed1b3f | feat(finance): add OpenAPI documentation config with Scalar UI | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 042ccb0 | docs(finance): fix Axon Server context name in ADR-0001 (finance ÔåÆ default) | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | d1fe97b | feat(finance): connect to Axon Server and add an event store smoke test | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 5ef4488 | feat(finance): bootstrap persistence with Postgres, Flyway and a custom naming strategy | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | a95ec9e | build(finance): add Axon Framework, Flyway, UUIDv7 and OpenAPI dependencies | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | dc74259 | docs: add AGENTS.md for AI coding agents | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | a972e90 | docs(finance): reconcile the contract after merging the payment port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 2b55bbe | Merge remote-tracking branch 'origin/develop' into feature/project-bootstrap | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | d2e87cd | Merge pull request #3 from liquilabshq/feature/payment-provider-port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | cbe1ebe | docs(finance): switch to Axon 4 and record Axon Server licensing | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | ecc509d | test: prove paymentprovider port with an in-memory fake | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | fa60fa7 | feat: define PaymentProvider outbound port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | 1bf5943 | feat: add sealed payment provider error hierarchy | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | 1be67c1 | feat: add paymentprovider port models and opaque identifiers | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | c850e9f | docs: settle paymentprovider port contract and open decisions | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | d466512 | Merge pull request #2 from liquilabshq/feature/initial-documentation | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 025e2ab | docs(finance): settle currency catalog and event visibility | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 7cf22e9 | docs(finance): add the remaining card 1 diagrams | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | 3cfdcdf | Merge pull request #1 from liquilabshq/feature/initial-documentation | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 3a52691 | docs(finance): show Wallet in the domain model diagram | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | d0455a4 | docs(finance): add Deposit domain model diagram | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | e6aa5b0 | refactor(finance): classify adapter packages by transport and by role | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 98e14bf | docs(finance): rework contracts around Deposit aggregate and Axon 5 | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | c3a996b | docs(finance): rename C4 diagrams for consistency | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 6080212 | docs(finance): correct C4 platform topology diagrams | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 6c1730a | docs(finance): add C4 architecture diagrams in PlantUML | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 5a4c149 | docs(finance): define initial domain and integration contracts | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 64ca120 | docs(finance): add ADR for Axon Server and PostgreSQL read model | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | f31f2d5 | initial commit | - | 22/07/2026 |
 
 #### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
