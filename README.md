@@ -4562,6 +4562,7 @@ Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se res
 | Entrega | Enlace al video | Duración |
 |---|---|---|
 | TB1 | [https://goo.su/F5ct5](https://goo.su/F5ct5) | 24:48 |
+| TB2 | [https://goo.su/FejMKFJ](https://goo.su/FejMKFJ) | 28:15 |
 
 <hr class="page-break">
 
