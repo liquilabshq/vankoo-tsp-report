@@ -78,6 +78,7 @@
 | 1.4.0   | 2026-09-11 | Amaro Villar, Anjali<br>Crispin Ramos, Daniel Franco<br>Sulca Gonzales, Paúl Fernando | Capítulo IV: Style Guidelines, Information Architecture, wireframes, mock-ups, wireflows, user flows y prototipos; arquitectura C4, diagramas de clases, diccionario de clases y diseño de base de datos. |
 | 1.5.0   | 2026-09-12 | Todos los integrantes            | Capítulo V: Software Configuration Management (entorno, GitFlow, convenciones y despliegue) y Sprint 1 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue en Azure, collaboration insights y actas de reunión). |
 | 1.6.0   | 2026-09-12 | Amaro Villar, Anjali            | Student Outcome, Avance de Conclusiones y Recomendaciones; actualización del registro de versiones. |
+| 1.7.0   | 2026-09-23 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: Team Software Process (TSP Launch Overview, matriz de roles TSP y Scrum con la designación del Scrum Master, y User Story Mapping con la línea de corte del MVP), a partir de la retroalimentación docente de la TB1. |
 
 <hr class="page-break">
 
