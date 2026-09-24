@@ -4193,7 +4193,91 @@ La siguiente tabla registra la evolución del servicio y permite rastrear la con
 
 #### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
-<!-- Introducción con lo realizado en despliegue durante el Sprint (cuentas, recursos en cloud, configuración de proyectos para integración o automatización), con capturas y explicación paso a paso. Abarca Landing Page, Web Applications y Web Services. -->
+Para este segundo Sprint se desplegó el microservicio de IAM, responsable del registro, el inicio de sesión y la emisión de tokens JWT de Vankoo. A diferencia del Sprint 1, en el que Invoicing se ejecutó sobre Azure Container Instances (ACI), el IAM se desplegó en **Azure Container Apps (ACA)**, que agrega revisiones inmutables, secretos administrados, sondas de salud y escalado a cero réplicas cuando no recibe tráfico. Su base de datos se aprovisionó en **Azure Database for PostgreSQL Flexible Server**. Todos los recursos se crearon en el mismo grupo de recursos del Sprint 1, `liquilabs-vankoo-prod`.
+
+La suscripción académica (*Azure for Students*) limita los despliegues a cinco regiones mediante la política *Allowed resource deployment regions*. Como PostgreSQL Flexible Server no estaba disponible para esta suscripción en East US 2, la base de datos y la Container App se desplegaron juntas en **North Central US**, para que la aplicación y sus datos queden en la misma región; el Container Registry se mantuvo en East US 2.
+
+**1) Azure Container Registry (ACR)**
+
+Creamos un Container Registry en el grupo de recursos `liquilabs-vankoo-prod`, en la región East US 2 y con el plan **Basic**, para almacenar la imagen del servicio.
+
+![Creación del Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-acr-step-1.png)
+
+En la sección **Claves de acceso (Access keys)** habilitamos el **Usuario administrador (Admin user)**, cuyas credenciales se usan para publicar la imagen desde el entorno local.
+
+![Claves de acceso del Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-acr-step-2.png)
+
+**2) Build y Push de la Imagen Docker**
+
+Construimos la imagen del IAM a partir del `Dockerfile` del repositorio, que compila el proyecto con Maven y genera una imagen final ligera sobre Java 25.
+
+![Build de la imagen Docker del IAM](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-docker-step-1.png)
+
+Publicamos la imagen en el registro con la etiqueta `sprint-2`.
+
+![Push de la imagen hacia Azure Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-docker-step-2.png)
+
+Verificamos en la sección **Repositories** que el repositorio `vankoo-iam-service` contiene la etiqueta publicada.
+
+![Repositorio de la imagen en el Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-acr-step-3.png)
+
+**3) Azure Database for PostgreSQL Flexible Server**
+
+Creamos el servidor `vankoo-iam-db` con PostgreSQL 16 y el tamaño **Burstable B1ms** (1 vCore, 2 GiB de memoria y 32 GiB de almacenamiento), suficiente para la carga del servicio de identidad. Se habilitó la autenticación de PostgreSQL con el usuario administrador `vankooadmin`.
+
+![Configuración de autenticación de PostgreSQL](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-1.png)
+
+En la pestaña de redes seleccionamos el acceso público y permitimos el tráfico desde los servicios de Azure, lo que habilita la conexión desde la Container App.
+
+![Configuración de redes de PostgreSQL](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-2.png)
+
+Comprobamos que el servidor se desplegó correctamente.
+
+![Despliegue de PostgreSQL completado](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-3.png)
+
+Desde la sección **Databases** creamos la base de datos `vankoo_iam_db`, que utiliza el servicio. Las tablas se generan automáticamente en el primer arranque del IAM.
+
+![Creación de la base de datos vankoo_iam_db](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-4.png)
+
+**4) Azure Container Apps**
+
+Creamos la Container App `vankoo-iam-service` en North Central US, junto con un nuevo **Container Apps Environment**, `vankoo-apps-env`, que agrupa las aplicaciones de Vankoo y administra su red y sus registros.
+
+![Configuración básica de la Container App](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-1.png)
+
+En la pestaña del contenedor seleccionamos la imagen `vankoo-iam-service:sprint-2` del registro y asignamos 1 vCPU y 2 GiB de memoria. Además, cargamos las variables de entorno no sensibles, entre ellas `SPRING_PROFILES_ACTIVE=azure`, que activa el perfil del servicio preparado para Container Apps, y los datos de conexión a la base de datos.
+
+![Selección de la imagen del contenedor](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-2.png)
+
+En la configuración de **Ingress** habilitamos el tráfico HTTP desde cualquier origen y definimos el puerto de destino `8081`, en el que escucha el servicio. Container Apps expone la aplicación con HTTPS en un dominio propio.
+
+![Configuración de Ingress de la Container App](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-3.png)
+
+Los valores sensibles se registraron como **secretos** de la Container App: la contraseña de la base de datos (`iam-db-password`), la clave de firma de los tokens JWT (`jwt-secret`) y la credencial del registro. Las variables `IAM_DB_PASSWORD` y `JWT_SECRET` del contenedor referencian estos secretos, de modo que ningún valor sensible queda en texto plano en la configuración.
+
+![Secretos de la Container App](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-4.png)
+
+Creamos una nueva revisión con las variables que referencian los secretos y configuramos las **sondas de salud** (*health probes*) de tipo HTTP sobre el puerto `8081`: la de *liveness* y la de arranque apuntan a `/actuator/health/liveness`, y la de *readiness* a `/actuator/health/readiness`. Con ellas, Container Apps solo envía tráfico a la revisión cuando el servicio está listo y la reinicia si deja de responder.
+
+![Configuración de health probes en una nueva revisión](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-5.png)
+
+Finalmente, verificamos que la Container App se encuentra en estado **Running** y obtenemos su URL pública.
+
+![Container App en ejecución](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-6.png)
+
+**5) Verificación del despliegue**
+
+Consultamos el endpoint de salud `/actuator/health`, que responde con el estado `UP` e incluye los grupos de *liveness* y *readiness* utilizados por las sondas.
+
+![Health check del IAM en Azure](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-verification-step-1.png)
+
+La documentación interactiva del servicio queda disponible con **Scalar** en la URL pública de la Container App, con los endpoints de autenticación (registro, inicio de sesión y recuperación de contraseña) y de usuarios.
+
+![Documentación de Scalar del IAM desplegado](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-verification-step-2.png)
+
+Documentación desplegada (Scalar): [https://vankoo-iam-service.graysmoke-7d6cb97d.northcentralus.azurecontainerapps.io/scalar](https://vankoo-iam-service.graysmoke-7d6cb97d.northcentralus.azurecontainerapps.io/scalar)
+
+Para este sprint, el IAM se ejecuta en Azure sin el servidor de descubrimiento, sin el broker de eventos y sin un proveedor de correo, que por ahora solo existen en el entorno local con `docker-compose`. Por ello, la solicitud de recuperación de contraseña responde correctamente, pero el correo con el enlace aún no se envía. Además, el esquema de la base de datos se genera automáticamente al arrancar, ya que el proyecto todavía no cuenta con migraciones versionadas. Estos aspectos quedan pendientes para los siguientes sprints.
 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
 
