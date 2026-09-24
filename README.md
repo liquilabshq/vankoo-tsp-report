@@ -2434,11 +2434,11 @@ Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a60040
     <thead>
       <tr>
         <th colspan="2">Sprint #</th>
-        <th colspan="6">Sprint 1</th>
+        <th colspan="4">Sprint 1</th>
       </tr>
       <tr>
         <th colspan="2">User Story</th>
-        <th colspan="6">Work-Item / Task</th>
+        <th colspan="4">Work-Item / Task</th>
       </tr>
       <tr>
         <th>Id</th>
@@ -3566,11 +3566,11 @@ Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a60040
     <thead>
       <tr>
         <th colspan="2">Sprint #</th>
-        <th colspan="6">Sprint 2</th>
+        <th colspan="4">Sprint 2</th>
       </tr>
       <tr>
         <th colspan="2">User Story</th>
-        <th colspan="6">Work-Item / Task</th>
+        <th colspan="4">Work-Item / Task</th>
       </tr>
       <tr>
         <th>Id</th>
