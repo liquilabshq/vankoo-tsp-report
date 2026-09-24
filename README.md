@@ -78,6 +78,7 @@
 | 1.4.0   | 2026-09-11 | Amaro Villar, Anjali<br>Crispin Ramos, Daniel Franco<br>Sulca Gonzales, Paúl Fernando | Capítulo IV: Style Guidelines, Information Architecture, wireframes, mock-ups, wireflows, user flows y prototipos; arquitectura C4, diagramas de clases, diccionario de clases y diseño de base de datos. |
 | 1.5.0   | 2026-09-12 | Todos los integrantes            | Capítulo V: Software Configuration Management (entorno, GitFlow, convenciones y despliegue) y Sprint 1 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue en Azure, collaboration insights y actas de reunión). |
 | 1.6.0   | 2026-09-12 | Amaro Villar, Anjali            | Student Outcome, Avance de Conclusiones y Recomendaciones; actualización del registro de versiones. |
+| 1.7.0   | 2026-09-23 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: Team Software Process (TSP Launch Overview, matriz de roles TSP y Scrum con la designación del Scrum Master, y User Story Mapping con la línea de corte del MVP), a partir de la retroalimentación docente de la TB1. |
 
 <hr class="page-break">
 
@@ -172,6 +173,12 @@
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
       - [5.2.2.9. Actas de reunión](#5229-actas-de-reunión)
+- [Capítulo VI: Team Software Process](#capítulo-vi-team-software-process)
+  - [6.1. TSP Launch Overview](#61-tsp-launch-overview)
+  - [6.2. TSP Roles \& Scrum Roles](#62-tsp-roles--scrum-roles)
+  - [6.3. User Story Mapping](#63-user-story-mapping)
+    - [6.3.1. Story Map del MVP](#631-story-map-del-mvp)
+    - [6.3.2. Línea de corte del MVP y plan de sprints](#632-línea-de-corte-del-mvp-y-plan-de-sprints)
 - [Avance de Conclusiones](#avance-de-conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -4312,6 +4319,193 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Temas tratados | Avance del Finance Service y del Invoicing Service, estado de la configuración de Vankoo Infra y del Discovery Server, revisión del flujo de carga de facturas en la MYPE Web App y repartición de las secciones del informe del Sprint 2 |
 | Acuerdos | Continuar con el desarrollo y la documentación de los microservicios asignados a cada integrante, finalizar la integración del Invoicing Service con el API Gateway, distribuir las secciones del informe del Sprint 2 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-2/actas-reunion/acta-reunion-01.png) |
+
+<hr class="page-break">
+
+# Capítulo VI: Team Software Process
+
+<!-- Aplicación del TSP de Watts S. Humphrey al equipo: dónde se documenta cada hito del TSP Launch, la estructura de roles TSP y Scrum, el User Story Mapping del MVP y el modelo de calidad. -->
+
+Este capítulo reúne la forma en que el equipo de LiquiLabs aplica el Team Software Process (TSP) en el desarrollo de Vankoo. El TSP concibe al equipo como autodirigido: sus propios integrantes planifican el trabajo, asumen roles explícitos y se comprometen con metas de calidad y esfuerzo desde el lanzamiento del proyecto (TSP Launch). Se presenta primero dónde se documenta cada hito del lanzamiento dentro de este informe; a continuación, la matriz formal de roles TSP y Scrum del equipo y, por último, el User Story Mapping que delimita el MVP.
+
+## 6.1. TSP Launch Overview
+
+<!-- Relación entre los hitos del TSP Launch (Kick-off, Design Thinking Workshop, Team, Story Mapping Session y Sprint Planning) y las secciones del informe donde se documentan sus artefactos. -->
+
+El lanzamiento del TSP se estructura en cinco hitos: el Kick-off Meeting, el Design Thinking Workshop, la definición del equipo y sus roles, la Story Mapping Session y el Sprint Planning. Varios de los artefactos que produce cada hito se elaboraron como parte de los capítulos anteriores; la siguiente tabla indica en qué sección del informe se encuentra cada uno, para no duplicar su contenido.
+
+| Hito del TSP Launch | Artefactos | Sección del informe |
+|---|---|---|
+| **Kick-off Meeting** | Descripción de la startup, misión y visión; antecedentes y problemática; Lean UX Problem Statements, Assumptions, Hypothesis Statements y Canvas; segmentos objetivo. | [1.1.1](#111-descripción-de-la-startup), [1.2](#12-solution-profile) y [1.3](#13-segmentos-objetivo) |
+| **Design Thinking Workshop** | User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping y As-is Scenario Mapping de la MYPE (Carlos) y del inversionista (Sofía). | [2.3.1](#231-user-personas) a [2.3.5](#235-as-is-scenario-mapping) |
+| **Team** | Perfiles de los integrantes y matriz de roles TSP y Scrum, con la designación del Scrum Master. | [1.1.2](#112-perfiles-de-integrantes-del-equipo) y [6.2](#62-tsp-roles--scrum-roles) |
+| **Story Mapping Session** | To-Be Scenario Mapping, User Stories, Impact Mapping y Product Backlog priorizado; User Story Map con la línea de corte del MVP. | [3.1](#31-to-be-scenario-mapping) a [3.4](#34-product-backlog) y [6.3](#63-user-story-mapping) |
+| **Sprint Planning** | Sprint Goal, historias comprometidas, story points y Sprint Backlog con tareas estimadas en horas y asignadas por integrante. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1), [5.2.2.1](#5221-sprint-planning-2) y [5.2.2.2](#5222-sprint-backlog-2) |
+
+## 6.2. TSP Roles & Scrum Roles
+
+<!-- Matriz formal de roles: rol TSP y rol Scrum de cada integrante, su responsabilidad concreta en Vankoo y la designación explícita del Scrum Master a cargo de las dinámicas. -->
+
+Cada integrante asume un rol TSP, que se mapea a su vez a un rol de Scrum. El rol acompaña al trabajo técnico y no lo sustituye: cada integrante sigue siendo responsable de los bounded contexts y repositorios en los que desarrolla.
+
+| Integrante | Rol TSP | Rol Scrum | Responsabilidad en Vankoo |
+|---|---|---|---|
+| Ramirez Mestanza, Salim Ignacio | Líder de equipo | Product Owner | Mantiene la visión del producto y la prioridad del Product Backlog. Lidera la arquitectura, los ADR y el diseño de producto en Figma, y convoca el lanzamiento, los relanzamientos y el postmortem. |
+| Crispin Ramos, Daniel Franco | Gestor de planificación | **Scrum Master** | Mantiene el plan vivo: estimaciones, orden del backlog, avance real por semana y actas. Facilita las dinámicas del equipo. |
+| Amaro Villar, Anjali | Gestora de desarrollo | Development Team | Guía el diseño técnico de las integraciones: pagos con Stripe, webhooks, mensajería con Kafka y contenedores del Finance Service. |
+| Vilca Saboya, Diego Alejandro | Gestor de calidad y proceso | Development Team | Define el criterio de «hecho», modera las revisiones antes de cada merge y custodia el plan de calidad y el registro de defectos. |
+| Sulca Gonzales, Paúl Fernando | Administrador de requerimientos y soporte | Development Team | Custodia los contratos de los servicios, la trazabilidad entre historia, tarea y pull request, el entorno con Docker Compose y la gestión de configuración. |
+
+**Scrum Master a cargo de las dinámicas:** el equipo designa a **Crispin Ramos, Daniel Franco** como Scrum Master. Es el responsable de que las dinámicas del proceso —Sprint Planning, reuniones de seguimiento, Sprint Review y retrospectiva— se realicen y queden registradas.
+
+El mapeo con Scrum es una adaptación: en Scrum el Product Owner no dirige al equipo de desarrollo, pero en un equipo de cinco integrantes sin cliente interno se asignó el rol a quien sostiene la visión completa del producto. Los roles TSP pueden rotar al cierre de cada postmortem.
+
+## 6.3. User Story Mapping
+
+<!-- User Story Map del MVP: backbone de actividades de cada User Persona, historias debajo de cada actividad y franjas por sprint que marcan la línea de corte del MVP. -->
+
+El User Story Mapping ordena las historias del Product Backlog según el recorrido de cada usuario por Vankoo. El mapa se elaboró en FigJam y parte de las User Personas del capítulo II: el visitante que conoce la plataforma, Carlos como empresario MYPE y Sofía como inversionista.
+
+### 6.3.1. Story Map del MVP
+
+<!-- Grilla visual del story map: actividades del usuario en la fila superior (backbone), historias debajo de cada actividad y una franja por sprint. -->
+
+La fila superior del mapa, o backbone, contiene las once actividades del recorrido de izquierda a derecha. Debajo de cada actividad se ubican sus historias, con su identificador y sus story points, y cada franja horizontal agrupa las historias de un sprint: lo que está más arriba se construye primero. Las historias de usuario se muestran en amarillo, las historias técnicas en turquesa y las que quedan fuera del MVP en gris.
+
+![User Story Map del MVP](assets/cap6-team-software-process/user-story-mapping/story-map-mvp.png)
+
+**Enlace al User Story Map:** [Ver en FigJam](https://www.figma.com/board/km1nMSZlgbDVd6IqR0aa5P)
+
+A continuación se transcribe el mapa en dos tablas. La primera recorre la experiencia del visitante, el registro y la MYPE.
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th rowspan="2">Franja</th>
+        <th>Visitante</th>
+        <th>Todos</th>
+        <th colspan="4">Carlos · MYPE</th>
+      </tr>
+      <tr>
+        <th>Conocer Vankoo</th>
+        <th>Crear cuenta e identificarse</th>
+        <th>Subir factura</th>
+        <th>Conocer riesgo y costo</th>
+        <th>Publicar en subasta</th>
+        <th>Seguir el fondeo y cobrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Sprint 1<br>26 SP</b></td>
+        <td valign="top"><b>LPS01</b> · 3 SP<br>Comprensión de la propuesta de valor<br><br><b>LPS02</b> · 5 SP<br>Simulador de adelanto<br><br><b>LPS03</b> · 3 SP<br>Orientación de conversión y confianza</td>
+        <td valign="top"><b>TS01</b> · 5 SP<br>Contrato REST de IAM<br><br><b>TS02</b> · 5 SP<br>Contrato REST de perfiles y KYC<br><br><b>US18</b> · 5 SP<br>Registro MYPE con RUC</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td><b>Sprint 2<br>29 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US01</b> · 8 SP<br>Carga inteligente de facturas<br><br><b>TS03</b> · 8 SP<br>Contrato REST de ingreso y validación de facturas</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td><b>Sprints 3 a 6<br>75 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US05</b> · 3 SP<br>Corrección manual de datos extraídos</td>
+        <td valign="top"><b>US02</b> · 8 SP<br>Clasificación de riesgo de la operación<br><br><b>TS04</b> · 8 SP<br>Contrato REST de evaluación de riesgo<br><br><b>US03</b> · 3 SP<br>Simulación de costos y adelanto</td>
+        <td valign="top"><b>US06</b> · 5 SP<br>Solicitud de subasta<br><br><b>TS05</b> · 8 SP<br>Contrato REST de subastas e inversiones</td>
+        <td valign="top"><b>US07</b> · 3 SP<br>Seguimiento del fondeo</td>
+      </tr>
+      <tr>
+        <td><b>Fuera del MVP<br>26 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US19</b> · 8 SP<br>Verificación biométrica</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US04</b> · 5 SP<br>Firma digital de cesión</td>
+        <td valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+La segunda recorre la experiencia del inversionista y el retiro de fondos, común a ambos usuarios.
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th rowspan="2">Franja</th>
+        <th colspan="4">Sofía · Inversionista</th>
+        <th>Ambos</th>
+      </tr>
+      <tr>
+        <th>Recargar billetera</th>
+        <th>Explorar oportunidades</th>
+        <th>Invertir</th>
+        <th>Seguir mis inversiones</th>
+        <th>Retirar dinero</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Sprint 2<br>29 SP</b></td>
+        <td valign="top"><b>US14</b> · 5 SP<br>Carga de fondos a la billetera<br><br><b>TS06</b> · 8 SP<br>Contrato REST de depósitos, billetera y pagos</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td><b>Sprints 3 a 6<br>75 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US08</b> · 5 SP<br>Exploración del marketplace<br><br><b>US10</b> · 3 SP<br>Identificación de inversión verde<br><br><b>US11</b> · 3 SP<br>Filtro de impacto positivo</td>
+        <td valign="top"><b>US09</b> · 8 SP<br>Compra de fracciones</td>
+        <td valign="top"><b>US12</b> · 5 SP<br>Gestión gráfica del portafolio<br><br><b>US13</b> · 5 SP<br>Historial inmutable de transacciones</td>
+        <td valign="top"><b>US20</b> · 3 SP<br>Configuración de cuenta CCI<br><br><b>US15</b> · 5 SP<br>Retiro a cuenta bancaria</td>
+      </tr>
+      <tr>
+        <td><b>Fuera del MVP<br>26 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US16</b> · 3 SP<br>Notificaciones de nuevas oportunidades</td>
+        <td valign="top"></td>
+        <td valign="top"><b>US17</b> · 5 SP<br>Alertas de vencimiento y mora<br><br><b>TS07</b> · 5 SP<br>Contrato de notificaciones y eventos de negocio</td>
+        <td valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### 6.3.2. Línea de corte del MVP y plan de sprints
+
+<!-- Criterio con el que se trazó la línea de corte del MVP, historias que quedan fuera y cómo se reparte el MVP entre los sprints. -->
+
+El MVP de Vankoo es el menor conjunto de historias que permite completar de punta a punta el ciclo del crowdfactoring: la MYPE se registra, carga su factura, conoce su riesgo y su costo y la publica en subasta; el inversionista recarga su billetera, explora el marketplace, compra fracciones y sigue su portafolio; y ambos pueden retirar sus fondos a una cuenta bancaria.
+
+| Franja | Historias | Story points |
+|---|---|---|
+| Sprint 1 | LPS01, LPS02, LPS03, TS01, TS02 y US18 | 26 |
+| Sprint 2 | US01, TS03, US14 y TS06 | 29 |
+| Sprints 3 a 6 | US02, US03, US05, US06, US07, US08, US09, US10, US11, US12, US13, US15, US20, TS04 y TS05 | 75 |
+| **Total del MVP** | **25 historias** | **130** |
+| Fuera del MVP | US04, US16, US17, US19 y TS07 | 26 |
+
+Los Sprints 1 y 2 corresponden a lo planificado en las secciones [5.2.1.1](#5211-sprint-planning-1) y [5.2.2.1](#5221-sprint-planning-2). El resto del MVP se distribuye entre los Sprints 3 a 6, según la proyección de seis sprints definida en el Sprint Planning 1.
+
+Quedan fuera del MVP, con 26 de los 156 story points del backlog, las historias que dependen de algo con lo que el proyecto no cuenta:
+
+- **US19 Verificación biométrica** y **US04 Firma digital de cesión** requieren un proveedor externo de biometría y de firma digital.
+- **US16 Notificaciones de nuevas oportunidades**, **US17 Alertas de vencimiento y mora** y **TS07 Contrato de notificaciones y eventos de negocio** dependen de un servicio de notificaciones que no forma parte de los bounded contexts implementados.
+
+Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se reservan para una versión posterior al MVP.
 
 <hr class="page-break">
 
