@@ -4046,11 +4046,37 @@ La siguiente tabla registra la evolución del servicio y permite rastrear la con
 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
 
-<!-- Explicación de cómo se desarrollaron las actividades de implementación y capturas de los analíticos de colaboración y commits en GitHub por repositorio. -->
+A continuación, se presenta los insights durante este segundo sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo de los microservicios, la infraestructura y el despliegue.
+
+| Integrante | Usuario GitHub | Actividad en el Sprint |
+|---|---|---|
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Finance Service (deposits y wallets) |
+| Crispin Ramos, Daniel Franco | danielcr04  | Avances de Invoicing Service |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | Vankoo Infra y Deploy de IAM Service |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Invoicing Service |
+| Vilca Saboya, Diego Alejandro | diesoks  | Vankoo Infra, Discovery Server|
+
+**Vankoo Infra**
+![Contributors Vankoo Infra](./assets/cap5-product-implementation/sprint-2/collaboration-insights/vankoo-infra-contributors-sprint-2.png)
+
+**Discovery Server**
+![Contributors Discovery Server](./assets/cap5-product-implementation/sprint-2/collaboration-insights/discovery-server-contributors-sprint-2.png)
 
 #### 5.2.2.9. Actas de reunión
 
-<!-- Registro de las reuniones del Sprint 2 con fecha, hora, lugar, asistentes, temas tratados, acuerdos y evidencia, con la misma tabla usada en 5.2.1.9. -->
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 2, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
+
+**Acta de reunión 1**
+
+| Campo | Detalle |
+| :---: | :--- |
+| Fecha | Miércoles 16 de setiembre de 2026 |
+| Hora | 09:00 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Avance del Finance Service y del Invoicing Service, estado de la configuración de Vankoo Infra y del Discovery Server, revisión del flujo de carga de facturas en la MYPE Web App y repartición de las secciones del informe del Sprint 2 |
+| Acuerdos | Continuar con el desarrollo y la documentación de los microservicios asignados a cada integrante, finalizar la integración del Invoicing Service con el API Gateway, distribuir las secciones del informe del Sprint 2 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
+| Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-2/actas-reunion/acta-reunion-01.png) |
 
 <hr class="page-break">
 
