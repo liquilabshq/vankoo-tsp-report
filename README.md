@@ -3509,7 +3509,7 @@ A continuación, se presenta los insights durante este primer sprint, donde se r
 ![Contributors Invoicing Service](./assets/cap5-product-implementation/sprint-1/collaboration-insights/invoicing-contributors-sprint-1.png)
 
 **Vankoo Infra**
-![Contributors Vankoo Infra](/assets/cap5-product-implementation/sprint-1/collaboration-insights/vankoo-infra-contributors-sprint-1.png)
+![Contributors Vankoo Infra](./assets/cap5-product-implementation/sprint-1/collaboration-insights/vankoo-infra-contributors-sprint-1.png)
 
 #### 5.2.1.9. Actas de reunión
 
