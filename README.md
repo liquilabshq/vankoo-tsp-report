@@ -2785,13 +2785,13 @@ Microservicio responsable de gestionar los perfiles de usuario, datos empresaria
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | ce643a3 | feat(docker): add Dockerfile | - | 23/07/2026 |
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | d18d956 | style: remove redundant comments | - | 23/07/2026 |
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | 4a35564 | feat: profile orejon ahora escucha eventos | - | 12/03/2026 |
-| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 8115ffa | feat: super refactorizaci├│n | - | 08/03/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 8115ffa | feat: super refactorización | - | 08/03/2026 |
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | 1c17d29 | feat: agregar estructura inicial | - | 27/02/2026 |
-| liquilabshq/vankoo-profile-service | main | 9834860 | feat: agregar logger para inicio de la aplicaci├│n en main.ts | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 9834860 | feat: agregar logger para inicio de la aplicación en main.ts | - | 25/02/2026 |
 | liquilabshq/vankoo-profile-service | main | 926bd5d | feat: agregar ProfilesModule y actualizar nombre del paquete a @vankoo/profile-service | - | 25/02/2026 |
-| liquilabshq/vankoo-profile-service | main | 800a77c | docs: agregar documentaci├│n sobre NestJS y su arquitectura en README.md y crear nest.md | - | 25/02/2026 |
-| liquilabshq/vankoo-profile-service | main | 1a3fb22 | docs: agregar secci├│n de pruebas y configuraci├│n en WebStorm al README.md | - | 25/02/2026 |
-| liquilabshq/vankoo-profile-service | main | a710f36 | docs: actualizar README.md con informaci├│n sobre el microservicio Vankoo y configuraci├│n de pnpm | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 800a77c | docs: agregar documentación sobre NestJS y su arquitectura en README.md y crear nest.md | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 1a3fb22 | docs: agregar sección de pruebas y configuración en WebStorm al README.md | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | a710f36 | docs: actualizar README.md con información sobre el microservicio Vankoo y configuración de pnpm | - | 25/02/2026 |
 | liquilabshq/vankoo-profile-service | main | 7ba43de | build: actualizar .gitignore, y .nvmrc, y configurar el pnpm workspace | - | 25/02/2026 |
 | liquilabshq/vankoo-profile-service | main | d6bb546 | chore: primer commit | - | 25/02/2026 |
 
@@ -2819,29 +2819,29 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 3ef6f53 | feat: add CLAUDE.md for AI agent guidelines and project architecture | - | 16/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 9c4deaf | Merge pull request #10 from proyecto-verano-2026/feature/invoicing-docker | - | 16/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 47dcd3e | feat: remove compose.yaml from solution items | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: a├▒adir verificaci├│n de salud para MinIO mediante un health check | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexi├│n y a├▒adir soporte para OCR y Kafka en archivos de configuraci├│n | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: a├▒adir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: a├▒adir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con m├║ltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: añadir verificación de salud para MinIO mediante un health check | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexión y añadir soporte para OCR y Kafka en archivos de configuración | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: añadir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: añadir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con múltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | a80e424 | Merge pull request #9 from proyecto-verano-2026/feature/internal-ocr-task-worker | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: a├▒adir clase OcrWorkerSettings para configurar par├ímetros del trabajador de OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: a├▒adir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: a├▒adir enumeraci├│n OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: a├▒adir implementaci├│n de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: a├▒adir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: a├▒adir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: a├▒adir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: añadir clase OcrWorkerSettings para configurar parámetros del trabajador de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: añadir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: añadir enumeración OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: añadir implementación de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: añadir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: añadir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: añadir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e0eee2c | feat: eliminar propiedad MypeId de UploadInvoiceResource | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 1d99809 | feat: configurar OcrWorkerSettings y registrar OcrTaskWorker en el contenedor de servicios | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicaci├│n de eventos | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: a├▒adir comentario sobre la creaci├│n din├ímica de t├│picos en KafkaEventBus | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicación de eventos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: añadir comentario sobre la creación dinámica de tópicos en KafkaEventBus | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e5d4768 | feat: actualizar InvoicesController para generar un nuevo MypeId al subir una factura | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar m├®todo EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma s├¡ncrona | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: a├▒adir el m├®todo EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar método EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma síncrona | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: añadir el método EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 58488bf | Merge pull request #8 from proyecto-verano-2026/feature/add-event-for-upload-invoice | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el m├®todo UploadInvoice para usar el request UploadInvoiceResource y a├▒adir la respuesta InvoiceResource | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el método UploadInvoice para usar el request UploadInvoiceResource y añadir la respuesta InvoiceResource | - | 05/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 1a0b494 | feat: agregar funcionalidad para subir y descargar facturas mediante comandos y consultas | - | 05/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | b1783e0 | feat: implementar descarga de archivos desde MinIO en MinioStorageService y ajustar procesamiento de OCR | - | 05/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | c1c41fb | Merge pull request #7 from proyecto-verano-2026/refactor/ocr-implementation-improvements | - | 05/03/2026 |
@@ -2860,7 +2860,7 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 338e4ed | feat: agrega clase StorageException para manejo de errores de almacenamiento | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | a6b5b13 | feat: implementa UploadInvoiceCommand y su manejador para subir facturas | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 975c258 | feat: implementa el GlobalExceptionHandler para manejo centralizado de excepciones | - | 01/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones espec├¡ficas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones específicas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 0afc917 | feat: agrega excepciones base para operaciones de base de datos y respuesta de error | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | e3f9115 | feat: agrega excepciones base para manejo de errores de dominio | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 8527b86 | feat: agrega el global exception handler y el soporte de detalle de problemas en Program.cs | - | 01/03/2026 |
@@ -2871,8 +2871,8 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | cb42611 | feat: enhance error handling in Invoice class by refining exception messages and types | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 51d0f86 | feat: refactor InvalidRucException to extend InvalidValueException and enhance error messaging | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 03b7120 | feat: refactor InvalidInvoiceStateException to extend BusinessRuleViolationException and improve error handling | - | 01/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar m├®todos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gesti├│n de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar métodos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gestión de errores | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 7e962ee | Merge pull request #5 from proyecto-verano-2026/feature/azure-ocr-integration | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 58a5639 | feat: agregar configuracion de servicio y mediatr al Program.cs | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6d3fa23 | feat: agregar metodos para procesamiento de ocr al aggregate Invoice | - | 28/02/2026 |
@@ -2890,27 +2890,27 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7d6e524 | feat: agregar domain event para una factura procesada por ocr | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | b234016 | feat: agregar implementacion del repositorio | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 0315991 | feat: agregar base de sorage service | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuraci├│n para Azure OCR en appsettings.json | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integraci├│n con Azure Form Recognizer | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuraci├│n de OCR de Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuración para Azure OCR en appsettings.json | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integración con Azure Form Recognizer | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuración de OCR de Azure | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ca29c71 | feat: agregar clases FileKey e InvoiceDocument para manejo de documentos de factura | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepci├│n personalizada para el procesamiento de OCR | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR s├¡ncrono de facturas | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepción personalizada para el procesamiento de OCR | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR síncrono de facturas | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 92a3569 | feat: agregar comando y manejador para consultar resultados de OCR | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 9cff590 | feat: implementar comando y manejador para iniciar procesamiento OCR de facturas | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validaci├│n para solicitudes en el pipeline | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validación para solicitudes en el pipeline | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6069cf3 | feat: agregar mapeo de respuesta de Azure Form Recognizer y DTOs asociados | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2da3bef | feat: agregar m├®todos as├¡ncronos para manejo de facturas en IInvoiceRepository | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7e9efb1 | feat: implementar servicio de procesamiento OCR con m├®todos s├¡ncronos y as├¡ncronos | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2da3bef | feat: agregar métodos asíncronos para manejo de facturas en IInvoiceRepository | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7e9efb1 | feat: implementar servicio de procesamiento OCR con métodos síncronos y asíncronos | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | fdbfe3e | feat: agregar OcrOperationId como vo para operacion de Azure | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 49207ce | Merge pull request #3 from proyecto-verano-2026/feature/minio-storage | - | 25/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminaci├│n de archivos en S3 | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de soluci├│n para soporte de MinIO y Docker | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminación de archivos en S3 | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de solución para soporte de MinIO y Docker | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | e973c56 | feat: refactorizacion de Invoice para usar el InvoiceDocument y actualizaciond el metodo factory | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuraci├│n de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuraci├│n de MinioSettings en appsettings.json | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar l├¡mites de tama├▒o de archivo | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuraci├│n del almacenamiento en MinIO | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuración de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuración de MinioSettings en appsettings.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar límites de tamaño de archivo | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuración del almacenamiento en MinIO | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | c878db1 | feat: agregar IStorageService para manejo de operaciones de almacenamiento | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8b940a9 | feat: actualizar InvoiceCreatedEvent para usar FileKey en lugar de FileUrl | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | e232cf7 | feat: agregar InvoiceDocument value object para el manejo de la subida de archivos | - | 22/02/2026 |
@@ -2920,7 +2920,7 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 7cde706 | Merge pull request #2 from proyecto-verano-2026/feature/modelo-dominio | - | 18/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/modelo-dominio | f8cd93b | feat: agregar aggregate y vo's | - | 18/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/modelo-dominio | ef2db6d | Merge pull request #1 from proyecto-verano-2026/feature/estructura-inicial | - | 15/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 002bae3 | chore: agregar configuraci├│n inicial de base de datos y ajustes de token | - | 15/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 002bae3 | chore: agregar configuración inicial de base de datos y ajustes de token | - | 15/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 4191da1 | chore: actualizar ajustes para los ambientes de desarrollo y productos con la base de datos y el token | - | 15/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 5b453bb | chore: agregar paquetes para MongoDB, MediatR, FluentValidation, Humanizer, JWT authentication, y OpenAPI documentation | - | 15/02/2026 |
 | liquilabshq/vankoo-invoicing-service | main | b33e8b8 | chore: primer commit | - | 14/02/2026 |
@@ -2939,22 +2939,22 @@ Microservicio que orquesta el Marketplace de subastas participativas, permitiend
 | liquilabshq/vankoo-investment-service | develop | 5838e67 | Merge pull request #5 from liquilabshq/feature/auction-financial-lifecycle                           | - | 07/09/2026 |
 | liquilabshq/vankoo-investment-service | develop | 01484de | test: cover auction financial lifecycle                                                              | - | 07/09/2026 |
 | liquilabshq/vankoo-investment-service | develop | e2d0ddb | feat: implement auction financial lifecycle                                                          | - | 07/09/2026 |
-| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 08aaa0e | feat: agregar documentaci├│n sobre la arquitectura y el flujo de trabajo del harness                 | - | 26/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 08aaa0e | feat: agregar documentación sobre la arquitectura y el flujo de trabajo del harness                 | - | 26/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 76f818e | Merge pull request #4 from liquilabshq/feature/investment-partitions                                 | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/investment-partitions | a2f17ff | chore: update .gitignore                                                                             | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/investment-partitions | fac2ba6 | feat: implement investment flow for auction partitions                                               | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 4eaf07a | Merge pull request #2 from liquilabshq/feature/interfaces-events                                     | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/interfaces-events | cb12a2d | feat: implement event consumer for invoices eligible for financing and update auction logic          | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/add-harness-engineering | e512952 | Merge pull request #1 from proyecto-verano-2026/feature/interfaces-events                            | - | 15/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/interfaces-events | cf160d0 | feat: agregar consumidor de eventos OCR y ensamblador de comandos para la creaci├│n de subastas      | - | 15/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/interfaces-events | cf160d0 | feat: agregar consumidor de eventos OCR y ensamblador de comandos para la creación de subastas      | - | 15/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/interfaces-rest | b78bbf2 | feat: agregar controlador y recursos para la gestion de subastas                                     | - | 13/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/servicios-de-aplicacion | b2c531b | feat: implementar servicios de comandos y consultas para la gesti├│n de subastas                     | - | 13/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | 34b5094 | feat: actualizar destino de eventos de inversi├│n en la configuraci├│n de aplicaci├│n                | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | fec95d6 | feat: actualizar configuraci├│n de base de datos y agregar repositorios para la gesti├│n de subastas | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | 6d287bf | feat: agregar clase principal para el servicio de inversi├│n Vankoo                                  | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | 4910c83 | feat: agregar servicios de comandos y consultas para la gesti├│n de subastas                         | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | fbaa1e5 | feat: agregar eventos para la gesti├│n de subastas                                                   | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | 5f5547d | feat: agregar comandos y consultas para la gesti├│n de subastas (Auctions)                           | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/servicios-de-aplicacion | b2c531b | feat: implementar servicios de comandos y consultas para la gestión de subastas                     | - | 13/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | 34b5094 | feat: actualizar destino de eventos de inversión en la configuración de aplicación                | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | fec95d6 | feat: actualizar configuración de base de datos y agregar repositorios para la gestión de subastas | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 6d287bf | feat: agregar clase principal para el servicio de inversión Vankoo                                  | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 4910c83 | feat: agregar servicios de comandos y consultas para la gestión de subastas                         | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | fbaa1e5 | feat: agregar eventos para la gestión de subastas                                                   | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 5f5547d | feat: agregar comandos y consultas para la gestión de subastas (Auctions)                           | - | 11/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/domain-model | 9159d2a | feat: agregar Auction y Partition con value objects                                                  | - | 11/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/domain-model | 9d81f03 | feat: agregar value objects para el aggregate root Auction                                           | - | 11/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/domain-model | 22f9d31 | chore: initial commit                                                                                | - | 09/03/2026 |
