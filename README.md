@@ -3571,7 +3571,7 @@ El Sprint Backlog 2 descompone las historias `US01`, `US14`, `TS03` y `TS06`. El
 
 ![Sprint Backlog 2](assets/cap5-product-implementation/sprint-2/sprint-backlog/sprint-backlog.png)
 
-Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
+Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/projects/VANKOO/boards/1)
 
 <div style="font-size:80%; overflow-x:auto;">
   <table border="1" cellspacing="0" cellpadding="5">
@@ -4342,9 +4342,162 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 <!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
 
+El Sprint Planning 3 define el alcance de la tercera iteración de Vankoo, del 22/09/2026 al 05/10/2026. Con la carga inteligente de facturas y la billetera integradas en el Sprint 2, este sprint completa el recorrido de la MYPE hasta la subasta: conocer el costo y el monto de su adelanto, publicar la factura en el marketplace y seguir el avance de su fondeo. Siguiendo el orden del Product Backlog y el plan del MVP de la sección [6.3.2](#632-línea-de-corte-del-mvp-y-plan-de-sprints), se priorizaron las historias de la MYPE que preceden a las del inversionista, junto con el contrato REST de subastas e inversiones que las sostiene.
+
+| Sprint # | Sprint 3 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 22 de septiembre de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
+| Sprint 2 Review Summary | Se presentó el flujo de carga de facturas en la Web Application para MYPE, con el estado vacío del módulo, la subida del PDF y la línea de tiempo de su procesamiento (US01). El Invoicing Service quedó integrado con el API Gateway, que valida el JWT y propaga la identidad de la MYPE, y se verificó con 16 pruebas automatizadas, entre ellas los escenarios de aceptación BDD de facturas con datos inconsistentes (TS03). El Finance Service publicó su documentación OpenAPI de depósitos, billeteras y webhooks de pago (TS06), y el IAM Service se desplegó en Azure Container Apps con su base de datos en Azure Database for PostgreSQL. |
+| Sprint 2 Retrospective Summary | La integración de punta a punta acordada en la retrospectiva anterior dio resultado: la MYPE Web consumió por primera vez un servicio real a través del API Gateway, y contenerizar los servicios permitió desplegar el IAM en Azure reutilizando la misma imagen del entorno local. Como punto de mejora, la evidencia del sprint se concentró en pocos servicios y aplicaciones, y las restricciones de región de la suscripción académica retrasaron el despliegue al descubrirse recién al aprovisionar los recursos. Por ello, el equipo acordó verificar las regiones y servicios disponibles en la suscripción antes de planificar un nuevo despliegue, y repartir las historias de modo que cada integrante aporte evidencia de su propio servicio. |
+| **Sprint Goal & User Stories** | |
+| Sprint 3 Goal | Permitir que la MYPE publique su factura en subasta: conocer el costo y el monto de su adelanto antes de aceptarlo, publicar la operación en el marketplace y seguir el avance de su fondeo, sobre el contrato REST de subastas e inversiones. |
+| User Stories | US03, US06, US07 y TS05 |
+| Sprint 3 Velocity | 19 story points planificados; los 75 story points restantes del MVP se distribuyen en partes similares entre los Sprints 3 y 6, según el plan de la sección 6.3.2. |
+| Sum of Story Points | 19 |
+
 #### 5.2.3.2. Sprint Backlog 3
 
 <!-- Objetivo del sprint, captura del board y tabla de user stories con sus work-items. -->
+
+El Sprint Backlog 3 descompone las historias `US03`, `US06`, `US07` y `TS05`. El objetivo es que la MYPE publique su factura en subasta: el Investment Service calcula la cotización del adelanto, la MYPE la acepta desde la Web Application para publicar la operación en el marketplace y sigue en el detalle de su factura el avance del fondeo. La captura del board se presenta a continuación.
+
+![Sprint Backlog 3](assets/cap5-product-implementation/sprint-3/sprint-backlog/sprint-backlog.png)
+
+Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/projects/VANKOO/boards/1)
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th colspan="2">Sprint #</th>
+        <th colspan="4">Sprint 3</th>
+      </tr>
+      <tr>
+        <th colspan="2">User Story</th>
+        <th colspan="4">Work-Item / Task</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status (To-do / In-Process / To-Review / Done)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GEN-03</td>
+        <td>Integrar Investment en el API Gateway</td>
+        <td>Contenerizar el Investment Service, incorporarlo al <code>docker-compose</code> de infraestructura junto con su base de datos y exponer sus rutas de subastas en el API Gateway, protegidas con JWT.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US03-T01</td>
+        <td>Simulación de costos y adelanto</td>
+        <td>Calcular la cotización de la subasta, con la tasa de descuento, la comisión, el monto adelantado y el costo neto, a partir de la clasificación de riesgo de la operación.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US03-T02</td>
+        <td>Simulación de costos y adelanto</td>
+        <td>Mostrar en el detalle de la factura de la MYPE Web la oferta vigente, con el monto que recibirá la MYPE y el costo del adelanto.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US03-T03</td>
+        <td>Simulación de costos y adelanto</td>
+        <td>Preparar pruebas del cálculo de la cotización para distintas clasificaciones de riesgo, montos y plazos.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T01</td>
+        <td>Solicitud de subasta</td>
+        <td>Implementar la aceptación de la cotización, que publica la subasta, fija su fecha de expiración y solo puede realizar la MYPE dueña de la factura.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T02</td>
+        <td>Solicitud de subasta</td>
+        <td>Implementar en la MYPE Web el diálogo para aceptar la oferta y publicar la factura en subasta.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T03</td>
+        <td>Solicitud de subasta</td>
+        <td>Rechazar la publicación cuando falten la validación de identidad, la cuenta CCI o algún dato obligatorio, e informar a la MYPE los requisitos pendientes.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T01</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Exponer la consulta de las subastas de una MYPE con su estado, el monto financiado y el saldo pendiente, restringida a su dueña.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T02</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Mostrar en la línea de tiempo de la factura el estado de su subasta y el avance del fondeo.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T03</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Preparar pruebas de los estados de la subasta y del cálculo del avance de fondeo y del saldo pendiente.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS05-T01</td>
+        <td>Contrato REST de subastas e inversiones</td>
+        <td>Exponer los endpoints de creación y consulta de subastas y de registro de inversiones, validando el ticket mínimo y el sobre-fondeo con respuestas <code>400</code> o <code>409</code>.</td>
+        <td>8</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS05-T02</td>
+        <td>Contrato REST de subastas e inversiones</td>
+        <td>Implementar el ciclo de vida de la subasta, con su publicación, cierre, cancelación y expiración programada, y los eventos de dominio de cada transición.</td>
+        <td>8</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS05-T03</td>
+        <td>Contrato REST de subastas e inversiones</td>
+        <td>Crear la subasta al consumir el evento de factura elegible para financiamiento y publicar los eventos de la subasta en Kafka mediante un outbox.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 #### 5.2.3.3. Development Evidence for Sprint Review
 
