@@ -173,6 +173,16 @@
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
       - [5.2.2.9. Actas de reunión](#5229-actas-de-reunión)
+    - [5.2.3. Sprint 3](#523-sprint-3)
+      - [5.2.3.1. Sprint Planning 3](#5231-sprint-planning-3)
+      - [5.2.3.2. Sprint Backlog 3](#5232-sprint-backlog-3)
+      - [5.2.3.3. Development Evidence for Sprint Review](#5233-development-evidence-for-sprint-review)
+      - [5.2.3.4. Testing Suite Evidence for Sprint Review](#5234-testing-suite-evidence-for-sprint-review)
+      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
+      - [5.2.3.9. Actas de reunión](#5239-actas-de-reunión)
 - [Capítulo VI: Team Software Process](#capítulo-vi-team-software-process)
   - [6.1. TSP Launch Overview](#61-tsp-launch-overview)
   - [6.2. TSP Roles \& Scrum Roles](#62-tsp-roles--scrum-roles)
@@ -3527,6 +3537,8 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Acuerdos | Continuar con el desarrollo de los microservicios asignados a cada integrante; distribuir las secciones del informe del Sprint 1 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-1/actas-reunion/acta-reunion-01.png) |
 
+<hr class="page-break">
+
 ### 5.2.2. Sprint 2
 
 <!-- Introducción breve del Sprint 2: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
@@ -4319,6 +4331,48 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Temas tratados | Avance del Finance Service y del Invoicing Service, estado de la configuración de Vankoo Infra y del Discovery Server, revisión del flujo de carga de facturas en la MYPE Web App y repartición de las secciones del informe del Sprint 2 |
 | Acuerdos | Continuar con el desarrollo y la documentación de los microservicios asignados a cada integrante, finalizar la integración del Invoicing Service con el API Gateway, distribuir las secciones del informe del Sprint 2 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-2/actas-reunion/acta-reunion-01.png) |
+
+<hr class="page-break">
+
+### 5.2.3. Sprint 3
+
+<!-- Introducción breve del Sprint 3: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
+
+#### 5.2.3.1. Sprint Planning 3
+
+<!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
+
+#### 5.2.3.2. Sprint Backlog 3
+
+<!-- Objetivo del sprint, captura del board y tabla de user stories con sus work-items. -->
+
+#### 5.2.3.3. Development Evidence for Sprint Review
+
+<!-- Tablas de commits por repositorio trabajados en el sprint. -->
+
+#### 5.2.3.4. Testing Suite Evidence for Sprint Review
+
+<!-- Unit, integration y acceptance tests (BDD) del sprint. -->
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+<!-- Capturas y descripción de las funcionalidades ejecutándose. -->
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+<!-- Documentación OpenAPI de los servicios trabajados en el sprint. -->
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+<!-- Despliegue en la nube de los servicios del sprint, paso a paso y con capturas. -->
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+<!-- Insights de colaboración del equipo y gráficos de contribuidores por repositorio. -->
+
+#### 5.2.3.9. Actas de reunión
+
+<!-- Registro de reuniones del Sprint 3: fecha, hora, lugar, asistentes, temas y acuerdos. -->
 
 <hr class="page-break">
 
