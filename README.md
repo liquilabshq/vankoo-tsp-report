@@ -4501,11 +4501,191 @@ Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/
 
 #### 5.2.3.3. Development Evidence for Sprint Review
 
-<!-- Tablas de commits por repositorio trabajados en el sprint. -->
+Los siguientes commits corresponden al flujo de cotización y publicación de subastas, a la inversión desde la aplicación móvil y a las pruebas de Investment Service.
+
+La columna **Branch** identifica la rama de origen de cada commit; los commits de integración (*merge*) pertenecen a `develop`.
+
+---
+
+**Repositorio: Investment Service (Subastas y cotizaciones)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service)
+
+El servicio restringe la creación y aceptación de cotizaciones a la MYPE propietaria, expone la cotización activa y dispone de una evaluación de riesgo simulada en desarrollo para permitir el flujo hasta la publicación. Posteriormente se añadieron pruebas de reglas de cotización y fondeo, contrato REST y escenarios de aceptación Cucumber. La rama de pruebas quedó integrada en `develop` mediante el PR #18.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investment-service | develop | 83f60bb | Merge pull request #18 from liquilabshq/feature/auction-quote-funding-tests | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | dad1efe | test(acceptance): prevent duplicate Cucumber discovery | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 33ed192 | test(acceptance): exclude pending scenarios in Cucumber IDE runs | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | f887f75 | test(acceptance): exclude pending scenarios in JUnit Platform | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 009e956 | test(rest): cover auction contract validation | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 5144230 | test(domain): cover auction quote and funding rules | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 779e3da | test(acceptance): implement cost simulation steps | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 8bbb30a | test(acceptance): configure Cucumber scenario suite | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b3514e9 | test(acceptance): mark funding progress scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 375d980 | test(acceptance): mark auction request scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 3966265 | test(acceptance): mark assignment signing scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 32b913d | test(acceptance): add executable cost simulation feature | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1e9defa | build(test): add Cucumber platform dependencies | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | eeb3b5f | test(acceptance): import funding progress scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b868f7e | test(acceptance): import auction request scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | ff6b395 | test(acceptance): import assignment signing scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1c945db | test(acceptance): import cost simulation scenario | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | develop | 1c157d3 | Merge pull request #14 from liquilabshq/feature/quote-owner-and-simulated-risk | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | eda37bc | feat(auctions): simulate the risk evaluation until a risk service exists | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | ddbe47a | feat(auctions): expose the quote a MYPE can still accept | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | cedf404 | feat(auctions): let only the owning MYPE quote and accept its auction | - | 16/09/2026 |
+
+---
+
+**Repositorio: MYPE Web Application (Cotización y publicación)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+La aplicación consulta la subasta y la oferta financiera de la factura, muestra su avance en la línea de tiempo y permite aceptar la cotización para publicarla. Los commits se integraron en `develop` mediante el PR #16.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-mype-web | develop | 18c8ed6 | Merge pull request #16 from liquilabshq/feature/accept-financial-quote | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | 3f59dde | feat(invoicing): link a processed upload to its detail | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | e166c5f | feat(investment): accept the offer and publish the invoice | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | 347559f | feat(invoicing): show the real offer and follow the auction on the rail | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | 569e5b1 | feat(investment): read a MYPE's auction and its offer | - | 16/09/2026 |
+
+---
+
+**Repositorio: Investor Mobile (Mercado, billetera e inversión)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investor-mobile](https://github.com/liquilabshq/vankoo-investor-mobile)
+
+La aplicación Kotlin Multiplatform incorporó el shell de navegación, la billetera y recarga mediante Finance/Stripe, la consulta del marketplace y detalle de una subasta, y el flujo de confirmación de inversión con débito previo de la billetera.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investor-mobile | develop | c3230fc | Merge pull request #10 from liquilabshq/feature/debit-on-invest | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/debit-on-invest | e9a177d | feat(investment): debit the wallet before investing, via the gateway | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | 785e851 | Merge pull request #9 from liquilabshq/feature/confirm-investment | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/confirm-investment | 23d727a | feat(investment): confirm an investment, and put the rates where they compare | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/confirm-investment | 1bb8c4b | feat(investment): buy a share, and carry the rates a screen can compare | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | 7ee92d9 | Merge pull request #8 from liquilabshq/fix/android-url-opener-wiring | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | fix/android-url-opener-wiring | e52d8cd | fix(android): bind CurrentActivity and hand it to the URL opener | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | 8247837 | Merge pull request #7 from liquilabshq/feature/in-app-checkout | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/in-app-checkout | fc72505 | feat(finance): open Stripe checkout in-app and rework the payment wait screen | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | ac42ae2 | Merge pull request #6 from liquilabshq/feature/investment-market-and-auction-detail | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | 17e1953 | feat(shell): hang the market off the tab bar as a section of its own | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | 0cff8cd | feat(investment): the market and one auction, against the real service | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | 0982fba | feat(core): format rates, and a date with no time attached to it | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | f108fec | feat(designsystem): add the badge and the progress bar the market needs | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | ff18b80 | Merge pull request #5 from liquilabshq/feature/app-shell-and-finance-wallet | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | 2b41ca6 | feat(shell): tab bar and one navigation graph for the signed-in app | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | 62dd78e | feat(finance): the wallet and the top-up flow against the real service | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | b6fcd62 | feat(core): money and date formatting, a URL opener, and where Finance lives | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | ed20443 | feat(designsystem): add the components the app shell and the wallet need | - | 15/09/2026 |
 
 #### 5.2.3.4. Testing Suite Evidence for Sprint Review
 
-<!-- Unit, integration y acceptance tests (BDD) del sprint. -->
+La suite de **Investment Service** utiliza **JUnit 5, AssertJ, Spring Boot Test y Cucumber**. **Investor Mobile** contiene pruebas Kotlin Multiplatform en `commonTest`.
+
+La ejecución de `mvn -q clean test` del **13/10/2026** registró **94 casos en Investment: 85 aprobados, 9 omitidos y ninguno fallido**. La cobertura incorporada incluye 10 pruebas de reglas del agregado `Auction`, 3 de contrato REST y 4 escenarios BDD ejecutables de US03. Los 9 escenarios de US04, US06 y US07 permanecen marcados como `@pending`.
+
+```text
+Investment Service: 94 casos registrados
+  Aprobados:        85
+  Omitidos:          9
+  Fallidos:          0
+Nuevos ejecutables: 17 (10 dominio + 3 REST + 4 BDD)
+Investor Mobile:    27 casos identificados en código; ejecución no verificada
+```
+
+**Repositorios de Testing**
+
+| Repository | Branch revisada | Testing Scope |
+|---|---|---|
+| `liquilabshq/vankoo-investment-service` | `develop` (PR #18 desde `feature/auction-quote-funding-tests`) | Unit Tests del agregado Auction, pruebas de contrato REST y escenarios de aceptación BDD para simulación; escenarios pendientes de firma, publicación y seguimiento. |
+| `liquilabshq/vankoo-investor-mobile` | `develop` | Unit Tests Kotlin para inversión, recarga, mapeo de Finance e inyección de dependencias; casos identificados en fuente, sin ejecución verificada. |
+
+**URL y ubicación de las pruebas**
+
+| Repositorio | URL del repositorio | Ruta de pruebas |
+|---|---|---|
+| Investment Service | https://github.com/liquilabshq/vankoo-investment-service | `src/test/java/com/liquilabs/vankoo/investment` y `src/test/resources/features` |
+| Investor Mobile | https://github.com/liquilabshq/vankoo-investor-mobile | `shared/src/commonTest/kotlin/com/liquilabs/vankoo/investor` |
+
+**Unit Tests y pruebas REST implementados**
+
+| Test Class | Related Class / Component | User Story | Validated Behavior |
+|---|---|---|---|
+| `AuctionQuoteAndFundingRulesTest` (10 casos) | Agregado `Auction` | US03, US06, US07 / TS05 | Verifica cotización, aceptación y publicación, ticket mínimo, fondeo parcial y total, sobre-fondeo, reutilización de transacciones y expiración. |
+| `AuctionContractValidationTest` (3 casos) | API REST de subastas | US03, US07 / TS05 | Verifica validaciones de solicitudes, conflictos de inversión y respuesta ante cancelación. |
+
+**Acceptance Tests (BDD)**
+
+Los cuatro archivos `.feature` se conservaron desde la rama `feature/marketplace-risk-grade-filter` en `docs/acceptance/ep01` y se copiaron a `src/test/resources/features` para Cucumber. `InvestmentCucumberTest` configura la suite y `CostSimulationSteps` implementa los pasos de US03. Las propiedades de Cucumber y JUnit Platform excluyen `@pending` y evitan el descubrimiento duplicado cuando se ejecuta toda la suite.
+
+| Archivo | User Story | Escenarios identificados | Estado |
+|---|---|---:|---|
+| `US03SimulacionCostosAdelanto.feature` | US03 – Simulación de costos y adelanto | 4 | Ejecutados: operación válida y tres variantes con datos inválidos. |
+| `US04FirmaDigitalCesion.feature` | US04 – Firma digital de cesión | 3 | `@pending`: firma válida y dos variantes de firma inválida. |
+| `US06SolicitudSubasta.feature` | US06 – Solicitud de subasta | 4 | `@pending`: publicación válida y tres requisitos faltantes. |
+| `US07SeguimientoFondeo.feature` | US07 – Seguimiento del fondeo | 2 | `@pending`: actualización del avance y fondeo completo. |
+
+| Archivo | Tipo | Ruta |
+|---|---|---|
+| `InvestmentCucumberTest.java` | Suite Cucumber/JUnit Platform | `src/test/java/com/liquilabs/vankoo/investment/acceptance` |
+| `CostSimulationSteps.java` | Definiciones de pasos de US03 | `src/test/java/com/liquilabs/vankoo/investment/acceptance` |
+| `US03SimulacionCostosAdelanto.feature` y los otros tres `.feature` | Especificaciones Gherkin ejecutables o pendientes | `src/test/resources/features` |
+| `junit-platform.properties` y `cucumber.properties` | Selección de escenarios y configuración del motor | `src/test/resources` |
+
+**Feature File: `US03SimulacionCostosAdelanto.feature`**
+
+```gherkin
+# language: es
+@EP01 @US03 @servicio_investment
+Característica: Simulación de costos y adelanto
+
+  Escenario: Consultar las condiciones de una operación válida
+    Dado que la factura tiene monto, moneda, plazo y clasificación de riesgo válidos
+    Cuando el empresario solicita la simulación del adelanto
+    Entonces el sistema informa el monto bruto, el descuento y la comisión
+    Y muestra el monto neto que recibiría el empresario
+    Y muestra el importe estimado para el inversionista
+
+  Esquema del escenario: Rechazar una simulación con datos incompletos o fuera de rango
+    Dado que la factura tiene <problema>
+    Cuando el empresario solicita la simulación del adelanto
+    Entonces el sistema rechaza la simulación e informa el dato que debe corregirse
+    Y no permite crear una subasta con esos datos
+
+    Ejemplos:
+      | problema                            |
+      | una clasificación de riesgo ausente |
+      | un monto fuera del rango permitido  |
+      | un plazo fuera del rango permitido  |
+```
+
+**Pruebas identificadas en Investor Mobile**
+
+En `shared/src/commonTest` hay **27 métodos `@Test`** distribuidos en cuatro clases. Su ejecución no está verificada en esta evidencia; el total corresponde al inventario de pruebas en el código.
+
+| Test Class | Related Class / Component | Casos identificados | Validated Behavior |
+|---|---|---:|---|
+| `ConfirmInvestmentViewModelTest` | Confirmación de inversión y billetera | 5 | Orden débito–inversión, rechazo del débito, reintentos con la misma clave e inversión no completada tras un débito. |
+| `TopUpPendingViewModelTest` | Espera y retorno de la recarga | 13 | Apertura del checkout, señales de retorno, sondeo del depósito, reintentos, estados terminales y lectura del saldo. |
+| `FinanceMappersTest` | Mapeadores de Finance | 8 | Estados y razones de depósito, causas desconocidas, identificador del débito y movimientos. |
+| `KoinGraphTest` | Grafo de inyección Koin | 1 | Resolución de definiciones de dependencias. |
+
+**Commits relacionados con Testing**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | dad1efe | test(acceptance): prevent duplicate Cucumber discovery | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 009e956 | test(rest): cover auction contract validation | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 5144230 | test(domain): cover auction quote and funding rules | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 779e3da | test(acceptance): implement cost simulation steps | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 32b913d | test(acceptance): add executable cost simulation feature | - | 13/10/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/debit-on-invest | e9a177d | feat(investment): debit the wallet before investing, via the gateway | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/in-app-checkout | fc72505 | feat(finance): open Stripe checkout in-app and rework the payment wait screen | - | 15/09/2026 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
