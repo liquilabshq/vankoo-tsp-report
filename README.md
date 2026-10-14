@@ -4525,7 +4525,19 @@ Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/
 
 #### 5.2.3.9. Actas de reunión
 
-<!-- Registro de reuniones del Sprint 3: fecha, hora, lugar, asistentes, temas y acuerdos. -->
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 3, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
+
+**Acta de reunión 1**
+
+| Campo | Detalle |
+| :---: | :--- |
+| Fecha | Martes 06 de octubre de 2026 |
+| Hora | 4:00 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Avance del Investment Service y del contrato REST de subastas e inversiones, estado de la integración del Investment Service con el API Gateway, revisión de la cotización del adelanto, la publicación de la factura en subasta y el seguimiento del fondeo en la MYPE Web App, y repartición de las secciones del informe del Sprint 3 |
+| Acuerdos | Continuar con el desarrollo y la documentación de los servicios y las pantallas asignados a cada integrante, finalizar la integración del Investment Service con el API Gateway, distribuir las secciones del informe del Sprint 3 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
+| Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-3/actas-reunion/acta-reunion-01.png) |
 
 <hr class="page-break">
 
