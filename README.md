@@ -4517,7 +4517,148 @@ Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-<!-- Despliegue en la nube de los servicios del sprint, paso a paso y con capturas. -->
+Para este tercer Sprint se desplegó el API Gateway y, junto con él, se rehízo el despliegue de los Sprints 1 y 2 (Invoicing e IAM), esta vez definido como código con **Terraform**. Hasta ahora cada recurso se creaba a mano desde el portal de Azure, lo que hacía difícil repetir el despliegue, mantenerlo igual entre integrantes y apagarlo cuando no se usa. Con Terraform, toda la infraestructura queda descrita en archivos versionados en el repositorio Vankoo Infra, y se crea, actualiza o elimina con un solo script.
+
+Además del cambio de herramienta, el despliegue incorpora tres cambios de arquitectura:
+
+- **Todos los microservicios corren en Azure Container Apps.** Invoicing deja Azure Container Instances, donde se ejecutó en el Sprint 1.
+- **El punto de entrada es el API Gateway de Vankoo** (Spring Cloud Gateway) en lugar de Azure API Management. El gateway valida el JWT, devuelve los errores en formato problem+json y agrega a cada petición la identidad del usuario (`X-User-Id`), que los microservicios usan para comprobar quién es el propietario de cada recurso. API Management solo reenviaba las peticiones.
+- **Solo el gateway es accesible desde Internet.** IAM e Invoicing tienen ingress interno, y el gateway los alcanza por el DNS interno del Container Apps Environment (`http://vankoo-iam-service`). En la nube no se usa el Discovery Server, que queda para el entorno local con `docker-compose`.
+
+Los recursos se crearon en la región Central US, dentro del grupo de recursos `liquilabs-vankoo` de una nueva suscripción. La suscripción anterior solo permitía Container Apps Environments de tipo Express, que no ofrecen DNS interno ni ingress interno entre aplicaciones.
+
+**1) Organización del código de infraestructura**
+
+El código de Terraform vive en la carpeta `terraform/` de Vankoo Infra y se divide en cuatro capas. Cada capa se aplica y se elimina por separado, y guarda su estado en una cuenta de Azure Storage del mismo grupo de recursos. Así, cualquier integrante con acceso al grupo trabaja sobre el mismo estado.
+
+| Capa | Recursos | Al eliminar el despliegue |
+|---|---|---|
+| `core` | Container Apps Environment, workspace de Log Analytics y Azure Document Intelligence (OCR) | Se conserva. Sin aplicaciones no tiene costo, y así la URL del gateway no cambia entre despliegues |
+| `base` | Azure Container Registry | Se elimina |
+| `data` | Una base de datos por microservicio: Azure Database for PostgreSQL para IAM y Azure Cosmos DB for MongoDB para Invoicing | Se elimina |
+| `apps` | Una Container App por microservicio: API Gateway, IAM e Invoicing | Se elimina |
+
+![Estructura del código de Terraform y de los scripts](./assets/cap5-product-implementation/sprint-3/deployment-evidence/terraform-structure.png)
+
+**2) Scripts de operación**
+
+Tres scripts de `scripts/azure/` cubren todo el ciclo de vida del despliegue. Están pensados para encender Vankoo antes de una revisión y apagarlo después, de modo que el crédito de la suscripción solo se consuma cuando se usa.
+
+| Script | Uso |
+|---|---|
+| `azure-deploy.sh` | Crea, actualiza o reanuda el despliegue |
+| `azure-stop.sh` | Detiene las Container Apps y las bases de datos sin borrar nada. Se conservan los datos |
+| `azure-destroy.sh` | Elimina las capas `base`, `data` y `apps`. El costo pasa a cero y los datos se pierden |
+
+Las contraseñas de las bases de datos, la clave de firma de los JWT y la clave del OCR las genera Terraform y las entrega a cada Container App como secretos, sin que ningún integrante tenga que copiarlas. Solo las credenciales del bucket de Amazon S3 se leen del archivo `.env` local, que no se sube al repositorio.
+
+Como ejemplo, este es un extracto de la definición de la Container App del API Gateway en `terraform/apps/main.tf`. La clave de los JWT llega como secreto y cada ruta apunta al nombre interno de su microservicio:
+
+```hcl
+resource "azurerm_container_app" "gateway" {
+  name                         = "vankoo-api-gateway"
+  container_app_environment_id = local.core.environment_id
+  revision_mode                = "Single"
+
+  secret {
+    name  = "jwt-secret"
+    value = random_password.jwt_secret.result
+  }
+
+  ingress {
+    external_enabled = true
+    target_port      = 8080
+  }
+
+  template {
+    container {
+      name   = "api-gateway"
+      image  = var.images["api-gateway"]
+      cpu    = 0.5
+      memory = "1Gi"
+
+      env {
+        name  = "SPRING_PROFILES_ACTIVE"
+        value = "azure"
+      }
+      env {
+        name        = "JWT_SECRET"
+        secret_name = "jwt-secret"
+      }
+      env {
+        name  = "IAM_SERVICE_URI"
+        value = "http://vankoo-iam-service"
+      }
+    }
+  }
+}
+```
+
+**3) Ejecución del despliegue**
+
+El script `azure-deploy.sh` crea la cuenta del estado si no existe, aplica las capas en orden, construye las imágenes Docker de cada microservicio para la arquitectura x86 que usa Azure y las publica en el Container Registry. Terraform muestra antes de cada capa qué recursos va a crear, modificar o eliminar.
+
+![Ejecución del script de despliegue](./assets/cap5-product-implementation/sprint-3/deployment-evidence/azure-deploy-run.png)
+
+![Recursos gestionados por cada capa de Terraform](./assets/cap5-product-implementation/sprint-3/deployment-evidence/terraform-state-list.png)
+
+**4) Grupo de recursos y Container Apps Environment**
+
+El grupo de recursos `liquilabs-vankoo` reúne todos los recursos de Vankoo. El Container Apps Environment `vankoo-env` se creó con el perfil de carga **Consumption**, que no tiene costo fijo y cobra solo por el uso de las aplicaciones, y es el que proporciona el DNS interno entre ellas.
+
+<!-- NOTA PARA LAS CAPTURAS DEL PORTAL: los nombres de los menús están en español con el inglés entre paréntesis. Si tu portal muestra otro nombre, guíate por el inglés. -->
+
+![Grupo de recursos liquilabs-vankoo](./assets/cap5-product-implementation/sprint-3/deployment-evidence/resource-group.png)
+
+![Perfil de carga Consumption del Container Apps Environment](./assets/cap5-product-implementation/sprint-3/deployment-evidence/environment-workload-profiles.png)
+
+**5) Registro de imágenes, bases de datos y OCR**
+
+El Container Registry almacena las imágenes de los tres microservicios, etiquetadas con el commit desde el que se construyeron. Cada microservicio tiene su propia base de datos, como en el diagrama de contenedores: un Azure Database for PostgreSQL (tamaño Burstable B1ms) para IAM y un clúster de Azure Cosmos DB for MongoDB en el nivel gratuito para Invoicing. Ambos aceptan conexiones solo desde servicios de Azure. El OCR de Invoicing es un recurso de Azure Document Intelligence en el nivel gratuito F0.
+
+![Repositorios del Container Registry](./assets/cap5-product-implementation/sprint-3/deployment-evidence/acr-repositories.png)
+
+![Azure Database for PostgreSQL de IAM](./assets/cap5-product-implementation/sprint-3/deployment-evidence/iam-postgresql.png)
+
+![Azure Cosmos DB for MongoDB de Invoicing](./assets/cap5-product-implementation/sprint-3/deployment-evidence/invoicing-mongodb.png)
+
+![Azure Document Intelligence para el OCR de Invoicing](./assets/cap5-product-implementation/sprint-3/deployment-evidence/ocr-document-intelligence.png)
+
+**6) Container Apps**
+
+El API Gateway es la única Container App con ingress externo: recibe el tráfico de Internet por HTTPS en el dominio que asigna Container Apps y lo reenvía al puerto 8080 del contenedor. Se ejecuta con el perfil `azure` de Spring, que desactiva el cliente de Eureka y dirige cada ruta al nombre interno de su microservicio. Cada aplicación cuenta con sondas de salud, de modo que Container Apps solo envía tráfico a una revisión cuando el servicio está listo y la reinicia si deja de responder. En el gateway y en IAM, la sonda de inicio y la de *liveness* consultan `/actuator/health/liveness`, y la de *readiness*, `/actuator/health/readiness`. En Invoicing, que es .NET, las sondas usan `/health/live`.
+
+![Información general del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-overview.png)
+
+![Ingress externo del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-ingress.png)
+
+![Variables de entorno del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-env-vars.png)
+
+![Sonda de liveness del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-probes.png)
+
+![Sonda de readiness del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-probes-2.png)
+
+![Sonda de inicio del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-probes-3.png)
+
+![Ingress interno del IAM Service](./assets/cap5-product-implementation/sprint-3/deployment-evidence/iam-ingress-internal.png)
+
+**7) Verificación del despliegue**
+
+El gateway responde en su URL pública y su documentación interactiva agrupa con **Scalar** las especificaciones OpenAPI de IAM e Invoicing, que obtiene a través de sus rutas internas. Una ruta protegida sin token responde `401` desde el gateway, y una llamada directa a IAM desde Internet no llega al servicio, lo que confirma que el único acceso es el API Gateway.
+
+![Health check del API Gateway en Azure](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-check.png)
+
+![Documentación de Scalar del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-scalar.png)
+
+![Ruta protegida sin token y acceso directo a IAM desde Internet](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-unauthorized.png)
+
+Documentación desplegada (Scalar): [https://vankoo-api-gateway.whiteriver-9e28ba39.centralus.azurecontainerapps.io/scalar](https://vankoo-api-gateway.whiteriver-9e28ba39.centralus.azurecontainerapps.io/scalar)
+
+<!-- PENDIENTE (Salim): el despliegue manual del API Gateway desde el portal, como procedimiento equivalente al de Terraform, va aquí. -->
+
+<!-- PENDIENTE (equipo): Profile Service e Investment Service se agregan aquí, siguiendo los pasos de terraform/README.md («Añadir un servicio»). -->
+
+Para este sprint, el despliegue en Azure aún no incluye el broker de eventos (Kafka), el Event Store de Finance (Axon Server) ni la base de datos Oracle de Investment, por lo que los microservicios desplegados no publican ni consumen eventos en la nube. Mientras tanto, la sonda de *readiness* de Invoicing comprueba solo que el proceso responde, porque su chequeo de Kafka espera hasta 60 segundos cuando no hay broker. Tampoco hay todavía un proveedor de correo, de modo que la recuperación de contraseña responde correctamente pero no envía el enlace. Estos aspectos, junto con el despliegue de Finance, Investment y Profile, quedan para el siguiente sprint.
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
