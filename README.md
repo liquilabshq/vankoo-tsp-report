@@ -264,6 +264,28 @@ LiquiLabs es una startup Fintech de base tecnológica creada por estudiantes de 
 | **How?** (¿Cómo?)        | El estado óptimo es un ciclo de caja donde el pago se reciba en máximo 30 días según ley. Sin embargo, la realidad muestra un patrón sistémico de postergación: las ventas de las MYPES continúan perdiendo participación en el PBI total debido a que no pueden reinvertir su capital rápidamente al tenerlo "atrapado" en facturas por cobrar (Innova Funding, 2022).                                                               |
 | **How much?** (¿Cuánto?) | El saldo de crédito otorgado a empresas en Perú es de aprox. S/ 213,121 millones (2024), pero la mayoría se concentra en grandes empresas. Se estima que el mercado de factoring aún tiene un potencial de crecimiento de hasta S/ 120,000 millones hacia el 2028 (Contadores y Empresas, 2025).                                                                                                                                      |
 
+**Mini Revisión de la Literatura**
+
+Para contrastar la problemática con la evidencia académica se revisaron dos estudios recientes sobre financiamiento de facturas: uno orientado a prevenir el fraude y otro a medir el riesgo. Ambos confirman el diagnóstico de la tabla anterior, pero ninguno resuelve el problema tal como lo enfrenta una MYPE peruana.
+
+Guerar et al. (2020) proponen una plataforma de financiamiento de facturas sobre la blockchain pública Ethereum. El vendedor publica la factura mediante un contrato inteligente y los inversionistas pujan en una subasta; los datos sensibles se cifran y se guardan en IPFS, y en el contrato solo queda su hash. Además, incorporan un sistema de reputación basado en el historial de cada participante, que permite a una aseguradora ajustar el costo de la póliza, y analizan cómo el diseño resiste fraudes como el doble financiamiento. Su aporte es demostrar que un registro inmutable y trazable reduce las oportunidades de fraude. Sin embargo, se trata de una prueba de concepto ejecutada en una red de pruebas, sin interfaz de usuario (los autores la dejan como trabajo futuro), que opera con criptomonedas y costos de gas, y que depende de que el comprador y un transportista confirmen la entrega dentro del contrato. Su reputación solo mide el comportamiento previo en la plataforma, por lo que no evalúa el riesgo de crédito de una factura nueva, y el estudio no se sitúa en un mercado ni en un marco regulatorio concretos.
+
+Ben Bouheni et al. (2025) analizan el SURF Score de la startup Crowdz con 18,304 transacciones de ventas a crédito realizadas entre 2020 y 2022. Muestran que un puntaje de riesgo actualizado en tiempo real, que combina datos externos, contables, bancarios y transaccionales, reduce la asimetría de información entre el vendedor y quien financia, y produce retornos anualizados ajustados al riesgo mayores que los de operar sin él. Su límite es que se basa en una sola plataforma privada, con datos propietarios que no están disponibles públicamente y una metodología cerrada. Tampoco aborda el mecanismo de subasta, la trazabilidad de cada operación ni el caso de las MYPE de un país emergente. Los propios autores señalan como línea futura incorporar IA y explicar el puntaje en un lenguaje que el usuario promedio pueda interpretar.
+
+**Vacío identificado:** la literatura revisada separa dos problemas que en la práctica van juntos. Guerar et al. (2020) resuelven la confianza y la trazabilidad, pero sin evaluar el riesgo de crédito; Ben Bouheni et al. (2025) resuelven la medición del riesgo, pero sin garantizar la trazabilidad de la operación ni explicar el puntaje al usuario. Ninguno integra la captura automática de la factura, y ninguno plantea una solución para facturas de bajo monto de MYPE en el Perú.
+
+**Cómo lo llena Vankoo:**
+
+| Brecha en la literatura | Estudio | Respuesta de Vankoo |
+|---|---|---|
+| Trazabilidad apoyada en blockchain pública, con costos de gas y billeteras cripto | Guerar et al. (2020) | Registro inmutable de eventos (Event Sourcing) sobre microservicios, que el empresario y el inversionista consultan como línea de tiempo de la factura, con pagos mediante billetera y pasarela de pago convencional. |
+| No se evalúa el riesgo de crédito de la factura | Guerar et al. (2020) | Score de riesgo con IA que considera la solvencia del pagador y no solo la del emisor; la clasificación de riesgo define la cotización del adelanto y las condiciones de la subasta. |
+| Puntaje propietario y difícil de interpretar | Ben Bouheni et al. (2025) | Publicación de resúmenes ejecutivos del funcionamiento del scoring (auditoría de algoritmos) y comunicación de la clasificación de riesgo tanto a la MYPE como a los inversionistas. |
+| Factura aceptada o validada manualmente | Ambos | Carga de la factura en PDF o XML con extracción automática de datos mediante OCR, corrección manual por la MYPE y seguimiento de su verificación con SUNAT y su registro en CAVALI. |
+| Contexto ajeno a las MYPE peruanas y a los tickets bajos | Ambos | Crowdfactoring con inversionistas minoristas, subasta con validación del ticket mínimo y del sobre-fondeo, y enfoque en MYPE del Perú con incentivo de factoring verde. |
+
+En síntesis, Vankoo integra en una sola plataforma la trazabilidad que propone Guerar et al. (2020) y la evaluación de riesgo que valida Ben Bouheni et al. (2025), y las adapta a facturas de bajo monto de MYPE peruanas.
+
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
@@ -4775,9 +4797,11 @@ Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se res
 # Bibliografía
 
 <div>
+<p class="ref">Ben Bouheni, F., Tewari, M., Salamon, A., Johnston, P., &amp; Hopkins, K. (2025). Credit sales and risk scoring: A FinTech innovation. <em>FinTech, 4</em>(3), 31. <a href="https://doi.org/10.3390/fintech4030031">https://doi.org/10.3390/fintech4030031</a></p>
 <p class="ref">CAVALI. (2024). <em>Reporte de desempeño de facturas negociables</em>. <a href="https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf">https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf</a></p>
 <p class="ref">ComexPerú. (2025). <em>Inclusión financiera de las MYPE: avances y retos</em>. <a href="https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos">https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos</a></p>
 <p class="ref">Contadores y Empresas. (2025). <em>Operaciones de factoring crecieron 14% en 2024</em>. <a href="https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/">https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/</a></p>
+<p class="ref">Guerar, M., Merlo, A., Migliardi, M., Palmieri, F., &amp; Verderame, L. (2020). A fraud-resilient blockchain-based solution for invoice financing. <em>IEEE Transactions on Engineering Management, 67</em>(4), 1086–1098. <a href="https://doi.org/10.1109/TEM.2020.2971865">https://doi.org/10.1109/TEM.2020.2971865</a></p>
 <p class="ref">Innova Funding. (2022). <em>Ley de pago de facturas para MYPE a 30 días en Perú</em>. <a href="https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/">https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/</a></p>
 <p class="ref">LP. (2021). <em>Ley 31362, MYPE podrán cobrar facturas en un plazo máximo de 30 días</em>. <a href="https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/">https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/</a></p>
 <p class="ref">PRODUCE. (2025). <em>Estado de la inclusión financiera - MYPE</em>. <a href="https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf">https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf</a></p>
