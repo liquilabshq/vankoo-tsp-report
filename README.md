@@ -4689,11 +4689,178 @@ En `shared/src/commonTest` hay **27 métodos `@Test`** distribuidos en cuatro cl
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-<!-- Capturas y descripción de las funcionalidades ejecutándose. -->
+Durante el Sprint 3 se implementó en la **Web Application para MYPE** el tramo del recorrido de la factura que va desde conocer la oferta de adelanto hasta seguir el avance de su fondeo. En el detalle de una factura aprobada, la aplicación consulta al Investment Service la cotización vigente y muestra cuánto recibirá la MYPE y cuánto le cuesta el adelanto (US03); al aceptarla, la MYPE publica la factura en el marketplace tras confirmar en un diálogo (US06); y desde ese momento el detalle sigue el estado de la subasta y cuánto se ha financiado del monto objetivo (US07). La línea de tiempo de la factura conserva las cinco etapas del Sprint 2 y ahora avanza desde **Aprobada** hasta **En subasta** según el estado de la subasta.
+
+La aplicación se ejecutó localmente (`pnpm run dev`) contra el stack de microservicios levantado con `docker-compose` (`infrastructure/`), y todas las llamadas pasaron por el API Gateway con el JWT de una MYPE de prueba. Como todavía no existe un servicio de riesgo, el Investment Service aplica una evaluación de riesgo simulada a cada subasta nueva (calificación `C`), y esa es la calificación con la que se calculó la oferta que muestran las capturas. La factura F001-000245 se subió mediante el endpoint de carga de Invoicing y se dejó en estado `CONSISTENCY_PASSED` en la base de datos local para poder recorrer el flujo de subasta; la subasta se creó con su `invoiceId`.
+
+**Web Application (MYPE Web App) — Oferta, publicación y seguimiento de la subasta**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+Al abrir una factura aprobada, el detalle muestra bajo la línea de tiempo, en la etapa **Aprobada**, el panel de la oferta vigente. El panel desglosa el importe de la factura (S/ 10,000.00), el descuento del inversionista (2.86 %, S/ 285.50), el neto (S/ 9,714.50), la comisión de Vankoo con IGV (S/ 74.34) y el monto que recibirá la MYPE, **S/ 9,640.16**. Debajo informa la TCEA (23.30 %), el plazo (63 días) y la fecha hasta la que la oferta es válida, y ofrece el botón **Aceptar y publicar**.
+
+![Web Application - Oferta vigente con la simulación de costos y adelanto](./assets/cap5-product-implementation/sprint-3/execution-evidence/01-offer-simulation.png)
+
+Aceptar la oferta es una acción que no se puede deshacer desde la aplicación, por lo que antes de publicar se pide una confirmación. El diálogo repite el monto que recibirá la MYPE (S/ 9,640.16) y advierte que, al aceptar, la factura se publica para los inversionistas y ya no se puede retirar desde allí.
+
+![Web Application - Diálogo de confirmación para aceptar la oferta y publicar](./assets/cap5-product-implementation/sprint-3/execution-evidence/02-accept-dialog.png)
+
+Tras confirmar con **Sí, publicar**, la aplicación acepta la cotización en el Investment Service, que publica la subasta. La línea de tiempo llega a **En subasta**, el estado de la factura cambia a *En subasta* y el panel pasa a mostrar la fecha de publicación y el avance del fondeo, que al inicio es **S/ 0.00 de S/ 9,714.50**.
+
+![Web Application - Factura publicada en subasta](./assets/cap5-product-implementation/sprint-3/execution-evidence/03-auction-published.png)
+
+Cuando un inversionista compra una participación, el detalle refleja el nuevo monto financiado. En la captura se registró una inversión de prueba de S/ 3,000.00 mediante el endpoint de inversiones del Investment Service, y el panel muestra **Financiado S/ 3,000.00 de S/ 9,714.50**; la subasta pasó de `PUBLISHED` a `FUNDING`.
+
+![Web Application - Avance del fondeo de la subasta](./assets/cap5-product-implementation/sprint-3/execution-evidence/04-funding-progress.png)
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-<!-- Documentación OpenAPI de los servicios trabajados en el sprint. -->
+Durante el Sprint 3 se documentó con OpenAPI el **Investment Service**, microservicio encargado de las subastas de facturas y de las inversiones. Utiliza `springdoc-openapi` con la interfaz de **Scalar** (tema *kepler*), igual que el IAM Service. De su contrato REST se documentan las tres operaciones que sostienen las historias del sprint: la creación de una subasta (TS05), la cotización del adelanto con su costo (US03) y la consulta de las subastas de una MYPE con su estado y avance de fondeo (US07). Las demás operaciones del servicio, como la aceptación de la cotización, el registro de inversiones o la consulta del marketplace, quedan fuera de esta sección.
+
+Durante el Sprint el servicio se ejecutó localmente en el puerto `8082`, por lo que los enlaces y capturas corresponden a la documentación local. Todas las rutas de `/api/v1/auctions` están protegidas: el API Gateway exige el JWT, valida su firma e inyecta el encabezado `X-User-Id` con la identidad de la MYPE, y el Investment Service comprueba en cada operación que esa identidad sea la dueña del recurso. Por eso las llamadas de la tabla se hacen a través del gateway, en `http://localhost:8080/investment`. La configuración OpenAPI declara el gateway como servidor por defecto y el servicio directo como alternativo. Los códigos de error de la tabla se verificaron ejecutando cada operación sobre el stack local, ya que la especificación publicada solo declara las respuestas exitosas.
+
+**Investment Service — Subastas y cotización del adelanto**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service)
+
+Documentación local (Scalar): `http://localhost:8082/scalar` (también disponible a través del gateway en `http://localhost:8080/investment/scalar`)
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/auctions` | Crear una subasta candidata para una factura. La operación es idempotente por `invoiceId`: repetirla devuelve el identificador de la subasta ya creada. Al crearse, el servicio le asigna una evaluación de riesgo simulada hasta que exista un servicio de riesgo. | POST | `POST http://localhost:8080/investment/api/v1/auctions` | Header requerido: `Authorization: Bearer <token>`. Body JSON: `invoiceId`, `mypeId`, `payerRuc`, `payerName` (strings no vacíos), `invoiceAmount` (decimal positivo, hasta 2 decimales), `currency` (`PEN` o `USD`), `dueDate` (fecha futura `yyyy-MM-dd`) y `greenCertified` (booleano). | `201 Created` → `077cb57d-a9d4-4dd5-9edf-8a1562866bcc` (texto plano con el `auctionId`). Con él se consulta la subasta y se solicita su cotización; Scalar lo lista como `200 OK`, pero el servicio responde `201`. `400` indica campos vacíos, monto no positivo o fecha de vencimiento pasada, y `401`, que falta el token. | `http://localhost:8082/scalar` |
+| `/api/v1/auctions/{auctionId}/quotes` | Generar la cotización de 24 horas del adelanto de una subasta. Calcula la tasa de descuento, la comisión de la plataforma, el monto que recibe la MYPE y su costo total, según la calificación de riesgo; una cotización nueva reemplaza a la vigente. Solo la MYPE dueña de la subasta puede solicitarla. | POST | `POST http://localhost:8080/investment/api/v1/auctions/{auctionId}/quotes` | Path: `auctionId` (UUID de la subasta). Headers: `Authorization: Bearer <token>` y `X-User-Id`, inyectado por el gateway, que debe coincidir con la MYPE dueña. Sin body. | `201 Created` → `{"quoteId":"3183bfb4-...","status":"ACTIVE","pricingVersion":"demo-2026-09","riskGrade":"A","currency":"PEN","termDays":63,"fundableAmount":10000.00,"investorTeaPct":12.0,"fundingTarget":9803.63,"platformFeeTotal":74.34,"mypeAdvance":9729.29,"mypeTotalCost":270.71,"mypeTceaPct":16.978951,"createdAt":"2026-10-14T00:10:28Z","validUntil":"2026-10-15T00:10:28Z","acceptedAt":null}`. `mypeAdvance` es lo que recibe la MYPE, `mypeTotalCost` su costo del adelanto y `validUntil` el fin de la vigencia. `401` sin token, `403` si la MYPE no es la dueña, `404` si la subasta no existe y `409` si la subasta ya no admite cotizaciones, por ejemplo cuando ya está publicada o en fondeo. | `http://localhost:8082/scalar` |
+| `/api/v1/auctions/mype/{mypeId}` | Listar las subastas de una MYPE con su estado, el monto objetivo, el monto financiado y la cotización aceptada. Solo puede consultarla la propia MYPE. | GET | `GET http://localhost:8080/investment/api/v1/auctions/mype/{mypeId}` | Path: `mypeId` (UUID de la MYPE). Headers: `Authorization: Bearer <token>` y `X-User-Id`, inyectado por el gateway, que debe ser igual a `mypeId`. | `200 OK` → `[{"auctionId":"6d3e6226-...","invoiceId":"d1d7bdd5-...","mypeId":"01a137be-...","status":"FUNDING","riskGrade":"C","invoiceAmount":10000.0,"targetAmount":9714.5,"currentFunding":3000.0,"currency":"PEN","publishedAt":"2026-10-14T00:19:20Z","expiresAt":"2026-10-21T00:19:20Z","acceptedQuote":{...}}]`. El avance del fondeo sale de `currentFunding` frente a `targetAmount`, y el saldo pendiente es su diferencia. Devuelve una lista vacía si la MYPE aún no tiene subastas; `403` si `X-User-Id` no coincide con `mypeId` y `401` sin token. | `http://localhost:8082/scalar` |
+
+La primera operación, `POST /api/v1/auctions`, recibe en el body los datos de la factura que se subasta: identificadores de la factura y de la MYPE, importe y moneda, RUC y razón social del pagador, fecha de vencimiento y la marca de certificación verde. Scalar muestra los campos obligatorios, el comando `curl` contra el gateway y el esquema de la respuesta.
+
+![Investment Service - Crear una subasta](./assets/cap5-product-implementation/sprint-3/services-documentation/01-investment-auction-create.png)
+
+La operación `POST /api/v1/auctions/{auctionId}/quotes` no tiene body: la subasta se identifica por la ruta y la dueña, por el encabezado `X-User-Id`. El ejemplo de respuesta `201 Created` presenta la cotización con la calificación de riesgo, el plazo, el monto financiable, la comisión de la plataforma, el adelanto que recibe la MYPE, su costo total y su TCEA, junto con las fechas de creación y vencimiento de la oferta.
+
+![Investment Service - Cotizar el adelanto de una subasta](./assets/cap5-product-implementation/sprint-3/services-documentation/02-investment-quote-create.png)
+
+Finalmente, `GET /api/v1/auctions/mype/{mypeId}` devuelve las subastas de la MYPE como una lista. Cada elemento informa el estado de la subasta, el monto objetivo, el financiamiento actual, el pagador, las fechas de publicación y expiración y, cuando existe, la cotización aceptada; con estos datos la MYPE Web muestra el avance del fondeo en el detalle de la factura.
+
+![Investment Service - Subastas de una MYPE](./assets/cap5-product-implementation/sprint-3/services-documentation/03-investment-auctions-by-mype.png)
+
+**Commits relacionados — Investment Service**
+
+La siguiente tabla registra la evolución del servicio desde el ciclo de vida financiero de la subasta, base de la cotización, hasta las pruebas de aceptación de la simulación de costos. Permite rastrear la cotización y su titularidad, la evaluación de riesgo simulada, la publicación de eventos mediante outbox, las consultas de subastas, la contenerización y la configuración de OpenAPI.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investment-service | develop | 83f60bb | Merge pull request #18 from liquilabshq/feature/auction-quote-funding-tests | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | dad1efe | test(acceptance): prevent duplicate Cucumber discovery | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 33ed192 | test(acceptance): exclude pending scenarios in Cucumber IDE runs | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | f887f75 | test(acceptance): exclude pending scenarios in JUnit Platform | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 009e956 | test(rest): cover auction contract validation | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 5144230 | test(domain): cover auction quote and funding rules | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 779e3da | test(acceptance): implement cost simulation steps | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 8bbb30a | test(acceptance): configure Cucumber scenario suite | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b3514e9 | test(acceptance): mark funding progress scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 375d980 | test(acceptance): mark auction request scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 3966265 | test(acceptance): mark assignment signing scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 32b913d | test(acceptance): add executable cost simulation feature | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1e9defa | build(test): add Cucumber platform dependencies | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | eeb3b5f | test(acceptance): import funding progress scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b868f7e | test(acceptance): import auction request scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | ff6b395 | test(acceptance): import assignment signing scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1c945db | test(acceptance): import cost simulation scenario | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | develop | f6fd6a7 | Merge pull request #17 from liquilabshq/chore/codeowners-pr-template | - | 08/10/2026 |
+| liquilabshq/vankoo-investment-service | chore/codeowners-pr-template | b176fd8 | chore: add code owners and pull request template | - | 08/10/2026 |
+| liquilabshq/vankoo-investment-service | develop | 68ebe02 | Merge pull request #15 from liquilabshq/feature/openapi-gateway-server | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/openapi-gateway-server | babb7be | feat(docs): declare the gateway and direct servers in the OpenAPI | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 1c157d3 | Merge pull request #14 from liquilabshq/feature/quote-owner-and-simulated-risk | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | eda37bc | feat(auctions): simulate the risk evaluation until a risk service exists | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | ddbe47a | feat(auctions): expose the quote a MYPE can still accept | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | cedf404 | feat(auctions): let only the owning MYPE quote and accept its auction | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 50e560e | Merge pull request #13 from liquilabshq/bugfix/kafka-outbox-key-serializer | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/kafka-outbox-key-serializer | d2bf5ff | docs(outbox): record why the key carries its own serializer | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/kafka-outbox-key-serializer | b2b22da | test(messaging): guard the key serializer the outbox publisher needs | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/kafka-outbox-key-serializer | 77cdfd9 | fix(messaging): serialize the auction lifecycle key as text | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 330d385 | Merge pull request #12 from liquilabshq/feature/dockerize-investment-service-10 | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 624c2ce | docs: log plan, evidence and review for investment service dockerization | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 293cc28 | chore: mark dockerize investment service feature in progress | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | efe835a | build: add docker profile configuration for investment-service | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | ac71c4a | build: add multi-stage Dockerfile for investment-service | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 48ad540 | chore: reset progress log for next feature | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 6a03563 | docs: archive feature 8 closure in history | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | a64fc26 | chore: mark auction participant query feature done | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 21cbe07 | Merge pull request #11 from liquilabshq/feature/expose-auction-participant-query-apis-8 | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | c027842 | docs: log plan, evidence and review for auction participant query apis | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 12bb71e | chore: mark auction participant query feature in progress | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | a0934db | test: cover participant query endpoints and active-auction filtering | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | be66536 | test: cover MYPE and investor auction repository lookups | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | fbae08f | feat: expose MYPE and investor auction query endpoints | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 099ef00 | feat: map unauthorized access to an HTTP 403 response | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | bd60489 | feat: add MYPE and investor lookups with eager quote and partition fetch | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 9bf9f04 | feat: implement MYPE and investor auction queries | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 88903a8 | feat: declare MYPE and investor auction queries in the service contract | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | f47a3ac | feat: add exception for unauthorized participant access | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 17e2af5 | feat: add query to list auctions an investor participated in | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 608fede | feat: add query to list auctions by owning MYPE | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 7b74f8f | Merge pull request #10 from liquilabshq/feature/investment-outbox-events | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 2640613 | chore: close marketplace search feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | b49bd38 | test: verify marketplace search and cache semantics | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 47f0358 | docs: document marketplace search parameters | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 679499b | feat: expose paginated marketplace search | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 0dc8f2b | feat: cache marketplace searches with commit invalidation | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 7048c62 | feat: query marketplace projection with filters | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 4b48c1a | feat: define paginated marketplace query | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 1e7773d | Merge origin/develop into feature/investment-outbox-events | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 1bee53d | chore: close marketplace projection feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 39ea82b | test: verify marketplace projection reliability | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 3af42dc | docs: document marketplace projection materialization | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 5451379 | feat: read marketplace from Kafka projection | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 6e190b8 | feat: project auction lifecycle events from Kafka | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 241e5a9 | feat: add marketplace projection persistence | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 48e2b95 | feat: define marketplace projection command | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | a89dc2b | chore: close reliable event publishing feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | a6c2b86 | test: verify reliable auction event publishing | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 44268d4 | docs: document auction outbox operations | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 1155980 | chore: configure reliable auction event publishing | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 980e2f6 | feat: add transactional auction event outbox | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 211d4aa | feat: emit complete auction lifecycle events | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | e0744c3 | chore: close versioned auction contracts feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | a00f04f | test: verify auction integration contracts | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | b42d16a | docs: publish auction lifecycle v1 contract | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 97d0e74 | feat: define versioned auction lifecycle contracts | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 18ba454 | chore: close marketplace boundary feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | b274198 | chore: track marketplace boundary feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 87598d6 | docs: define marketplace read model boundary | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | fc159eb | refactor: decouple auction pricing from infrastructure | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | f4d1a1f | Merge pull request #9 from liquilabshq/feature/add-auction-expiration-lifecycle-event-3 | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | 23acaad | chore: close auction expiration lifecycle feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | c31c7e1 | docs: log plan, evidence and review for auction expiration lifecycle | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | c185fa3 | chore: mark auction expiration lifecycle feature in progress | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | dc6e5a3 | test: align test minimum-investment defaults with the new 50/15 values | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | 12255d7 | test: cover auction expiration guard for draft and already-expired states | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 52eb27e | Merge pull request #8 from liquilabshq/bugfix/pricing-calculator-domain-leak | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 4cf65db | chore: close fix-pricing-calculator-domain-layering-violation feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 3c686d1 | docs: log plan, evidence and review for pricing calculator domain layering fix | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | a660f04 | chore: mark fix-pricing-calculator-domain-layering-violation feature in progress | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 38969c3 | test: pass PricingParameters explicitly to AuctionPricingCalculator in AuctionRepositoryTest | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | edde20d | test: pass PricingParameters explicitly to AuctionPricingCalculator in AuctionLifecycleTest | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | d8b3dca | test: rebuild AuctionPricingCalculatorTest fixtures around PricingParameters | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 49d995c | fix(application): translate PricingProperties into PricingParameters before pricing calculation | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 97cca69 | fix(domain): decouple AuctionPricingCalculator from infrastructure PricingProperties | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 47fff80 | fix(domain): add PricingParameters value object for calculator pricing data | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | f9b7b92 | Merge pull request #7 from liquilabshq/feature/add-auction-domain-test-baseline | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 887f170 | chore: reset progress log for next feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 22fc638 | docs: archive auction domain test baseline session summary | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | dcfc216 | chore: mark auction domain test baseline feature as done | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 2205633 | docs: forbid AI co-author trailer in the commit skill | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 1b706bf | feat: lower default minimum investment ticket to 50 PEN and 15 USD | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 37ff30d | docs: log plan, evidence and review for auction domain test baseline | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | c8cad1d | chore: mark auction domain test baseline feature in progress | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | ece1679 | test: assert partition added and auction fully funded events are published | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 57c91a7 | test: cover auction creation state and minimum-ticket rejection | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 86d52ef | Merge pull request #6 from liquilabshq/feature/add-harness-engineering | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | f2d8edc | feat: expand feature list with auction lifecycle events and marketplace read model definitions | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | efca9c0 | feat: agregar documentaci�n sobre la arquitectura y el flujo de trabajo del harness | - | 18/08/2026 |
+| liquilabshq/vankoo-investment-service | develop | 5838e67 | Merge pull request #5 from liquilabshq/feature/auction-financial-lifecycle | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-financial-lifecycle | 01484de | test: cover auction financial lifecycle | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-financial-lifecycle | e2d0ddb | feat: implement auction financial lifecycle | - | 07/09/2026 |
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
