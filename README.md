@@ -5009,7 +5009,21 @@ Para este sprint, el despliegue en Azure aún no incluye el broker de eventos (K
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-<!-- Insights de colaboración del equipo y gráficos de contribuidores por repositorio. -->
+A continuación, se presenta los insights durante este tercer sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo de los microservicios de perfiles e inversiones.
+
+| Integrante | Usuario GitHub | Actividad en el Sprint |
+|---|---|---|
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Investment Service |
+| Crispin Ramos, Daniel Franco | danielcr04  | Avances de Investment Service |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | Profile Service e Investment Service |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Avances de Investment Service |
+| Vilca Saboya, Diego Alejandro | diesoks  | Profile Service |
+
+**Profile Service**
+![Contributors Profile Service](./assets/cap5-product-implementation/sprint-3/collaboration-insights/profile-contributors-sprint-3.png)
+
+**Investment Service**
+![Contributors Investment Service](./assets/cap5-product-implementation/sprint-3/collaboration-insights/investment-contributors-sprint-3.png)
 
 #### 5.2.3.9. Actas de reunión
 
