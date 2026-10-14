@@ -79,6 +79,8 @@
 | 1.5.0   | 2026-09-12 | Todos los integrantes            | Capítulo V: Software Configuration Management (entorno, GitFlow, convenciones y despliegue) y Sprint 1 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue en Azure, collaboration insights y actas de reunión). |
 | 1.6.0   | 2026-09-12 | Amaro Villar, Anjali            | Student Outcome, Avance de Conclusiones y Recomendaciones; actualización del registro de versiones. |
 | 1.7.0   | 2026-09-23 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: Team Software Process (TSP Launch Overview, matriz de roles TSP y Scrum con la designación del Scrum Master, y User Story Mapping con la línea de corte del MVP), a partir de la retroalimentación docente de la TB1. |
+| 1.8.0   | 2026-10-07 | Amaro Villar, Anjali            | Corrección de los enlaces de las grabaciones de las entrevistas del Capítulo II, que pasaron a ser públicos para que cualquier lector pueda verificar la evidencia sin permisos de acceso. |
+| 1.9.0   | 2026-10-13 | Todos los integrantes            | Sprint 3 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue, collaboration insights y actas de reunión) y actualización del Student Outcome con las acciones y conclusiones de la TB3. |
 
 <hr class="page-break">
 
