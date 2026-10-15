@@ -81,6 +81,7 @@
 | 1.7.0   | 2026-09-23 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: Team Software Process (TSP Launch Overview, matriz de roles TSP y Scrum con la designación del Scrum Master, y User Story Mapping con la línea de corte del MVP), a partir de la retroalimentación docente de la TB1. |
 | 1.8.0   | 2026-10-07 | Amaro Villar, Anjali            | Corrección de los enlaces de las grabaciones de las entrevistas del Capítulo II, que pasaron a ser públicos para que cualquier lector pueda verificar la evidencia sin permisos de acceso. |
 | 1.9.0   | 2026-10-13 | Todos los integrantes            | Sprint 3 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue, collaboration insights y actas de reunión) y actualización del Student Outcome con las acciones y conclusiones de la TB3. |
+| 1.10.0  | 2026-10-14 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: procesos del equipo modelados en BPMN (ciclo TSP sobre los sprints, plan de pruebas del sprint e integración y pase a producción), normas aplicables (ISO/IEC/IEEE 12207:2026 con conformidad adaptada y controles del Anexo A de la NTP-ISO/IEC 27001:2022) y métricas de calidad del equipo, con su estado de adopción. Enlaces del Sprint 3 en el TSP Launch Overview. |
 
 <hr class="page-break">
 
@@ -191,6 +192,14 @@
   - [6.3. User Story Mapping](#63-user-story-mapping)
     - [6.3.1. Story Map del MVP](#631-story-map-del-mvp)
     - [6.3.2. Línea de corte del MVP y plan de sprints](#632-línea-de-corte-del-mvp-y-plan-de-sprints)
+  - [6.4. Procesos del equipo modelados en BPMN](#64-procesos-del-equipo-modelados-en-bpmn)
+    - [6.4.1. Ciclo TSP sobre los sprints](#641-ciclo-tsp-sobre-los-sprints)
+    - [6.4.2. Proceso de plan de pruebas del sprint](#642-proceso-de-plan-de-pruebas-del-sprint)
+    - [6.4.3. Proceso de integración y pase a producción](#643-proceso-de-integración-y-pase-a-producción)
+  - [6.5. Normas ISO aplicables a Vankoo](#65-normas-iso-aplicables-a-vankoo)
+    - [6.5.1. ISO/IEC/IEEE 12207:2026: procesos del ciclo de vida](#651-isoiecieee-122072026-procesos-del-ciclo-de-vida)
+    - [6.5.2. NTP-ISO/IEC 27001:2022: seguridad de la información](#652-ntp-isoiec-270012022-seguridad-de-la-información)
+  - [6.6. Métricas de calidad del equipo](#66-métricas-de-calidad-del-equipo)
 - [Avance de Conclusiones](#avance-de-conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -5069,9 +5078,9 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 # Capítulo VI: Team Software Process
 
-<!-- Aplicación del TSP de Watts S. Humphrey al equipo: dónde se documenta cada hito del TSP Launch, la estructura de roles TSP y Scrum, el User Story Mapping del MVP y el modelo de calidad. -->
+<!-- Aplicación del TSP de Watts S. Humphrey al equipo: dónde se documenta cada hito del TSP Launch, la estructura de roles TSP y Scrum, el User Story Mapping del MVP, los procesos del equipo en BPMN, las normas ISO aplicables y las métricas de calidad. -->
 
-Este capítulo reúne la forma en que el equipo de LiquiLabs aplica el Team Software Process (TSP) en el desarrollo de Vankoo. El TSP concibe al equipo como autodirigido: sus propios integrantes planifican el trabajo, asumen roles explícitos y se comprometen con metas de calidad y esfuerzo desde el lanzamiento del proyecto (TSP Launch). Se presenta primero dónde se documenta cada hito del lanzamiento dentro de este informe; a continuación, la matriz formal de roles TSP y Scrum del equipo y, por último, el User Story Mapping que delimita el MVP.
+Este capítulo reúne la forma en que el equipo de LiquiLabs aplica el Team Software Process (TSP) en el desarrollo de Vankoo. El TSP concibe al equipo como autodirigido: sus propios integrantes planifican el trabajo, asumen roles explícitos y se comprometen con metas de calidad y esfuerzo desde el lanzamiento del proyecto (TSP Launch). Se presenta primero dónde se documenta cada hito del lanzamiento dentro de este informe. Siguen la matriz formal de roles TSP y Scrum del equipo y el User Story Mapping que delimita el MVP. Después se modelan en BPMN los procesos con los que el equipo prueba e integra el producto, se revisan las normas ISO/IEC/IEEE 12207 y NTP-ISO/IEC 27001 como marco del proceso y de la seguridad, y se reúnen las métricas de calidad del equipo.
 
 ## 6.1. TSP Launch Overview
 
@@ -5085,7 +5094,7 @@ El lanzamiento del TSP se estructura en cinco hitos: el Kick-off Meeting, el Des
 | **Design Thinking Workshop** | User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping y As-is Scenario Mapping de la MYPE (Carlos) y del inversionista (Sofía). | [2.3.1](#231-user-personas) a [2.3.5](#235-as-is-scenario-mapping) |
 | **Team** | Perfiles de los integrantes y matriz de roles TSP y Scrum, con la designación del Scrum Master. | [1.1.2](#112-perfiles-de-integrantes-del-equipo) y [6.2](#62-tsp-roles--scrum-roles) |
 | **Story Mapping Session** | To-Be Scenario Mapping, User Stories, Impact Mapping y Product Backlog priorizado; User Story Map con la línea de corte del MVP. | [3.1](#31-to-be-scenario-mapping) a [3.4](#34-product-backlog) y [6.3](#63-user-story-mapping) |
-| **Sprint Planning** | Sprint Goal, historias comprometidas, story points y Sprint Backlog con tareas estimadas en horas y asignadas por integrante. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1), [5.2.2.1](#5221-sprint-planning-2) y [5.2.2.2](#5222-sprint-backlog-2) |
+| **Sprint Planning** | Sprint Goal, historias comprometidas, story points y Sprint Backlog con tareas estimadas en horas y asignadas por integrante. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1), [5.2.2.1](#5221-sprint-planning-2), [5.2.2.2](#5222-sprint-backlog-2), [5.2.3.1](#5231-sprint-planning-3) y [5.2.3.2](#5232-sprint-backlog-3) |
 
 ## 6.2. TSP Roles & Scrum Roles
 
@@ -5252,6 +5261,222 @@ Quedan fuera del MVP, con 26 de los 156 story points del backlog, las historias 
 
 Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se reservan para una versión posterior al MVP.
 
+## 6.4. Procesos del equipo modelados en BPMN
+
+<!-- Procesos definidos del equipo: ciclo TSP sobre los sprints y dos procesos de calidad modelados en BPMN 2.0, con los roles TSP como carriles y su estado de adopción en Vankoo. -->
+
+El TSP pide que el equipo trabaje con procesos definidos y medibles. Esta sección presenta primero cómo se organiza el ciclo del TSP sobre los sprints de Scrum y luego dos procesos de calidad modelados en BPMN 2.0: el plan de pruebas del sprint y la integración con pase a producción. Ambos procesos describen la forma en que el equipo se propone trabajar hasta el cierre del MVP. Por eso cada uno termina con una tabla de adopción a la fecha de este informe, que separa lo que ya se aplica de lo que falta implementar.
+
+Los diagramas se modelaron para Camunda 8 y sus carriles corresponden a los roles TSP de la sección [6.2](#62-tsp-roles--scrum-roles). Los archivos fuente `.bpmn` están junto a sus imágenes en `assets/cap6-team-software-process/bpmn/` y se abren con Camunda Modeler.
+
+### 6.4.1. Ciclo TSP sobre los sprints
+
+<!-- Correspondencia entre las fases del ciclo TSP (lanzamiento, ciclo, relanzamiento y postmortem) y los eventos de Scrum, con la evidencia de cada una en este informe. -->
+
+En el TSP el trabajo se organiza en ciclos que empiezan con un lanzamiento y continúan con relanzamientos, en los que el equipo vuelve a planificar con sus propios datos (Humphrey, 2000). En Vankoo cada sprint de dos semanas funciona como un ciclo, y cada fase del TSP se apoya en un evento de Scrum que ya se documenta en el capítulo V.
+
+| Fase del ciclo TSP | Evento de Scrum en Vankoo | Qué se decide o se registra | Evidencia en el informe |
+|---|---|---|---|
+| **Lanzamiento** | Sprint Planning 1, el 24 de agosto de 2026 | Metas del producto, roles, plan de seis sprints, Sprint Goal y backlog del primer sprint. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1) y [6.2](#62-tsp-roles--scrum-roles) |
+| **Ciclo de desarrollo** | Sprint de dos semanas con una reunión de seguimiento | Avance de cada historia, bloqueos y acuerdos. | Actas [5.2.1.9](#5219-actas-de-reunión), [5.2.2.9](#5229-actas-de-reunión) y [5.2.3.9](#5239-actas-de-reunión) |
+| **Revisión de estado y de calidad** | Sprint Review | Incremento entregado, pruebas, ejecución, documentación de servicios y despliegue. | Secciones 3 a 7 de cada sprint en [5.2](#52-landing-page-services--applications-implementation) |
+| **Postmortem** | Sprint Retrospective | Qué funcionó, qué mejorar y el acuerdo que entra al plan siguiente. | Retrospective Summary de [5.2.2.1](#5221-sprint-planning-2) y [5.2.3.1](#5231-sprint-planning-3) |
+| **Relanzamiento** | Sprint Planning 2 y 3 | Nuevo plan a partir de la review, la retrospectiva y la velocidad del sprint anterior. | [5.2.2.1](#5221-sprint-planning-2) y [5.2.3.1](#5231-sprint-planning-3) |
+
+Los relanzamientos ya cambiaron la forma de trabajar del equipo. La retrospectiva del Sprint 1 mostró que el backend avanzaba más rápido que las aplicaciones, y el equipo acordó integrar cada historia de punta a punta a través del API Gateway. La del Sprint 2 mostró que las restricciones de la suscripción de Azure se descubrían recién al desplegar, y el equipo acordó verificarlas antes de planificar. Los dos procesos siguientes aplican la misma lógica a la calidad: dejar explícito, antes de construir, cómo se prueba y cómo se integra.
+
+### 6.4.2. Proceso de plan de pruebas del sprint
+
+<!-- BPMN del plan de pruebas: desde que el sprint queda planificado hasta que el Product Owner acepta el incremento. -->
+
+El proceso empieza cuando el sprint queda planificado y termina cuando el Product Owner acepta el incremento. Sigue los pasos de integración y pruebas de sistema vistos en el curso (estrategia de pruebas, desarrollo de pruebas y ejecución) y adapta el contenido de los anexos de plan e informe de pruebas de la directiva de SANIPES (2024), que aplica la NTP-ISO/IEC 12207:2016 en una entidad pública peruana. Del anexo se toma el contenido y no las firmas: en un equipo Scrum la conformidad queda registrada en Jira y en el pull request.
+
+![BPMN del plan de pruebas del sprint](assets/cap6-team-software-process/bpmn/01-plan-de-pruebas.png)
+
+El diagrama tiene dos tramos y dos bucles:
+
+- **Estrategia y desarrollo de pruebas.** El gestor de calidad define los niveles, el alcance y los criterios de salida al planificar el sprint, no al final. El administrador de requerimientos deriva al menos un caso de prueba de cada criterio de aceptación en Gherkin. En paralelo, el gestor de calidad prepara el ambiente y los datos de prueba mientras el equipo automatiza las pruebas junto con la historia.
+- **Ejecución, defectos y aceptación.** El pipeline ejecuta la suite automatizada y la analista de calidad realiza pruebas de sistema y exploratorias. Cada defecto crítico o alto se registra con su severidad y el desarrollador lo corrige añadiendo una prueba de regresión, tras lo cual la suite completa vuelve a ejecutarse. Sin defectos de ese nivel, el gestor de calidad elabora el informe de pruebas y el Product Owner ejecuta las pruebas de aceptación. Si no queda conforme, sus observaciones vuelven al mismo ciclo de defectos.
+
+La estrategia distingue seis niveles de prueba, cada uno con su herramienta, su responsable y su momento:
+
+| Nivel | Qué valida en Vankoo | Herramienta | Responsable y momento |
+|---|---|---|---|
+| **Unitarias** | Reglas de dominio: agregados, saldos y estados de la factura | JUnit 5 con Axon Test Fixtures, xUnit, Jest y kotlin.test | Desarrollador, en cada commit |
+| **Integración** | Cada servicio con su base de datos y su broker reales | Testcontainers | Desarrollador, en cada pull request |
+| **Contrato** | Lo que el API Gateway, Investment y Finance esperan uno del otro | Spring Cloud Contract o Pact | Desarrollador, en cada pull request |
+| **Sistema** | Flujos completos de factura, subasta, inversión y billetera | Playwright en la web MYPE y Maestro en la app del inversionista | Analista de calidad, en el ambiente de pruebas |
+| **Seguridad** | Dependencias vulnerables y riesgos del OWASP Top 10 | OWASP Dependency-Check y OWASP ZAP | Revisor de calidad, antes de cada release |
+| **Aceptación** | Criterios de aceptación de cada historia | Escenarios Gherkin | Product Owner, al cierre del sprint |
+
+El informe de pruebas solo se emite cuando se cumplen los criterios de salida: ningún defecto crítico o alto abierto, el 100% de los casos de aceptación ejecutados, la suite automatizada en verde y la evidencia adjunta. Los defectos se clasifican en cuatro severidades, crítico, alto, medio y leve, como en el informe de pruebas de la directiva de SANIPES.
+
+**Estado de adopción al 14 de octubre de 2026**
+
+| Elemento del proceso | Estado | Evidencia o brecha |
+|---|---|---|
+| Pruebas unitarias | Aplicado | Finance, Investment e Invoicing concentran la suite ([5.2.1.4](#5214-testing-suite-evidence-for-sprint-review), [5.2.2.4](#5224-testing-suite-evidence-for-sprint-review) y [5.2.3.4](#5234-testing-suite-evidence-for-sprint-review)). |
+| Pruebas de integración con infraestructura real | Parcial | Finance usa Testcontainers con Kafka y Axon Server ([5.1.1](#511-software-development-environment-configuration)). Los demás servicios aún no. |
+| Escenarios de aceptación ejecutables | Parcial | Escenarios BDD de US01 en Invoicing y de US03 en Investment. Los de US04, US06 y US07 siguen marcados como pendientes. |
+| Pruebas de contrato y de sistema | Pendiente | Aún no existen suites de contrato entre servicios ni pruebas E2E en navegador o emulador. |
+| Pruebas de seguridad | Pendiente | No hay análisis de dependencias ni escaneo dinámico. |
+| Informe de pruebas por sprint | Parcial | El capítulo V documenta las pruebas de cada sprint, pero sin clasificar los defectos por severidad. |
+
+### 6.4.3. Proceso de integración y pase a producción
+
+<!-- BPMN de la integración continua por pull request y del pase a producción por release, con las tres conformidades. -->
+
+Este proceso cubre lo que ocurre desde que una historia está terminada en su rama hasta que el release queda en producción. Tiene dos ritmos: la integración continua ocurre con cada pull request y el pase a producción ocurre una vez por release, al cierre del sprint. Del pase a producción de la directiva de SANIPES (2024) se toma la idea central: un release solo se autoriza con tres conformidades independientes, la funcional, la de pruebas y la de seguridad.
+
+![BPMN de integración y pase a producción](assets/cap6-team-software-process/bpmn/02-integracion-y-pase-a-produccion.png)
+
+- **Integración continua.** El desarrollador abre un pull request hacia `develop`. El pipeline compila, ejecuta el análisis estático y las pruebas unitarias, y solo con el pipeline en verde el dueño del código según CODEOWNERS revisa el cambio. Si el pipeline o el revisor lo rechazan, el autor corrige y el pipeline vuelve a ejecutarse completo. Aprobado el cambio, se fusiona en `develop`, se despliega en el ambiente de pruebas y allí se ejecutan las pruebas de integración, contrato y sistema, junto con el análisis de vulnerabilidades.
+- **Pase a producción.** El Product Owner, el gestor de calidad y el revisor de calidad dan en paralelo las conformidades funcional, de pruebas y de seguridad. Con las tres, el gestor de planificación programa la ventana de release y el pipeline etiqueta la versión según Semantic Versioning y la despliega. Durante la marcha blanca el gestor de calidad supervisa producción. Ante un incidente crítico el pipeline vuelve a la versión anterior, y si no lo hay, el release se cierra con su postmortem. Sin las tres conformidades, las observaciones vuelven al backlog.
+
+La integración sigue el orden de las dependencias reales del sistema. Cada capa tiene una verificación que debe pasar antes de montar la siguiente:
+
+| Orden | Capa | Verificación antes de continuar |
+|---|---|---|
+| 1 | Kafka y la base de datos de cada servicio | Healthcheck de disponibilidad |
+| 2 | Discovery Server (solo en el entorno local) | Cada servicio aparece registrado |
+| 3 | IAM Service | El inicio de sesión emite un token válido |
+| 4 | API Gateway | Rutas, validación del JWT y preflight CORS desde un navegador |
+| 5 | Profile, Invoicing, Investment y Finance | Contratos entre servicios |
+| 6 | Web MYPE y app del inversionista | Pruebas de sistema de punta a punta |
+
+En Azure no se usa el Discovery Server, porque el gateway resuelve los servicios por el DNS interno del Container Apps Environment ([5.2.3.7](#5237-software-deployment-evidence-for-sprint-review)).
+
+Los dos procesos reparten responsabilidades según los roles TSP. Todo el equipo desarrolla, abre pull requests y corrige los defectos de su propio código.
+
+| Integrante y rol TSP | Plan de pruebas del sprint | Integración y pase a producción |
+|---|---|---|
+| Ramirez Mestanza, Salim · Líder de equipo y Product Owner | Ejecuta las pruebas de aceptación y da la conformidad del incremento | Da la conformidad funcional del release |
+| Crispin Ramos, Daniel · Gestor de planificación | Reserva capacidad del sprint para pruebas y correcciones | Programa la ventana de release y cierra con el postmortem |
+| Amaro Villar, Anjali · Gestora de desarrollo | Ejecuta las pruebas de sistema y registra y clasifica los defectos | Mantiene la suite de sistema que corre en el ambiente de pruebas |
+| Vilca Saboya, Diego · Gestor de calidad y proceso | Define la estrategia, prepara el ambiente y emite el informe de pruebas | Da la conformidad de pruebas y supervisa la marcha blanca |
+| Sulca Gonzales, Paúl · Administrador de requerimientos y soporte | Deriva los casos de prueba de los criterios de aceptación | Revisa el código como dueño y da la conformidad de seguridad |
+
+**Estado de adopción al 14 de octubre de 2026**
+
+| Elemento del proceso | Estado | Evidencia o brecha |
+|---|---|---|
+| Pull request hacia `develop` con GitFlow | Aplicado | Todo el código entra por pull request ([5.1.2](#512-source-code-management)). |
+| Pipeline de CI por pull request | Parcial | Finance e Invoicing tienen un workflow de GitHub Actions sobre `develop`. Los demás repositorios de código aún no. |
+| Rama de integración protegida | Parcial | `develop` de Finance exige una aprobación y resolver las conversaciones antes de fusionar. El resto de repositorios no protege su rama. |
+| Dueño de código con CODEOWNERS | Parcial | Definido en Investment Service y en el repositorio de este informe. |
+| Despliegue reproducible | Aplicado | Infraestructura como código con Terraform y scripts de operación ([5.2.3.7](#5237-software-deployment-evidence-for-sprint-review)). |
+| Ambiente de pruebas compartido | Pendiente | El sistema completo corre en Docker Compose en la máquina de cada integrante y en Azure, sin un ambiente intermedio. |
+| Tres conformidades, marcha blanca y reversión | Pendiente | Existen ramas `release/v0.1.0`, pero el pase aún no exige conformidades ni tiene marcha blanca ni reversión automática. |
+
+## 6.5. Normas ISO aplicables a Vankoo
+
+<!-- Normas internacionales que sirven de marco al proceso del equipo: ISO/IEC/IEEE 12207 para los procesos del ciclo de vida y NTP-ISO/IEC 27001 para la seguridad de la información. Qué se toma de cada una, cómo se aplica y qué falta. -->
+
+Vankoo es un proyecto pequeño por el número de personas, cinco, pero construye un sistema de microservicios en cuatro lenguajes que mueve dinero y datos personales. Dos normas sirven de marco para revisar su proceso: la ISO/IEC/IEEE 12207:2026, sobre los procesos del ciclo de vida del software, y la NTP-ISO/IEC 27001:2022, sobre la seguridad de la información. El equipo no busca certificarse en ninguna de las dos ni las adopta completas. Las usa como referencia para comprobar qué procesos y controles ya cubre y cuáles le faltan.
+
+### 6.5.1. ISO/IEC/IEEE 12207:2026: procesos del ciclo de vida
+
+<!-- Declaración del conjunto adaptado de procesos de la norma (conformidad adaptada, cláusula 4.3 y Anexo A), su aplicación en Vankoo y los procesos que quedan fuera. -->
+
+La segunda edición de la norma, publicada en abril de 2026, organiza los procesos del ciclo de vida del software en cuatro grupos: de acuerdo, de habilitación organizacional del proyecto, de gestión técnica y técnicos (ISO/IEC/IEEE, 2026). Para quien no busca la conformidad completa, la norma prevé una conformidad adaptada (cláusula 4.3): se seleccionan o modifican los procesos siguiendo el proceso de adaptación del Anexo A, se declara el conjunto adaptado y se demuestra que se lograron sus resultados. La norma advierte además que declarar menos procesos con todos sus resultados puede valer más que declarar muchos procesos recortados. Por eso la tabla siguiente declara el conjunto de procesos que aplica Vankoo y su estado real.
+
+| Grupo | Proceso (cláusula) | Cómo lo aplica Vankoo | Evidencia | Estado |
+|---|---|---|---|---|
+| Habilitación organizacional | Gestión del modelo de ciclo de vida (6.2.1) | TSP sobre Scrum: lanzamiento, sprints de dos semanas, relanzamientos y postmortem. | [6.1](#61-tsp-launch-overview) y [6.4.1](#641-ciclo-tsp-sobre-los-sprints) | Aplicado |
+| Habilitación organizacional | Gestión de la infraestructura (6.2.2) | Entorno local con Docker Compose y nube en Azure definida con Terraform. | [5.1.1](#511-software-development-environment-configuration) y [5.2.3.7](#5237-software-deployment-evidence-for-sprint-review) | Aplicado |
+| Gestión técnica | Planificación del proyecto (6.3.1) | Plan de seis sprints y Sprint Planning con goal, story points y tareas estimadas en horas. | [6.3.2](#632-línea-de-corte-del-mvp-y-plan-de-sprints) y Sprint Planning de cada sprint | Aplicado |
+| Gestión técnica | Evaluación y control del proyecto (6.3.2) | Reunión de seguimiento con acta, Sprint Review y retrospectiva. | Actas y Sprint Planning de cada sprint | Aplicado |
+| Gestión técnica | Gestión de decisiones (6.3.3) | Registros de decisiones de arquitectura (ADR). | ADR de Finance sobre Axon Server | Parcial |
+| Gestión técnica | Gestión de riesgos (6.3.4) | Riesgos detectados en las retrospectivas, como las restricciones de la suscripción de Azure. | [5.2.3.1](#5231-sprint-planning-3) | Parcial |
+| Gestión técnica | Gestión de la configuración (6.3.5) | GitFlow, Semantic Versioning, Conventional Commits e infraestructura como código. | [5.1.2](#512-source-code-management) y [5.2.3.7](#5237-software-deployment-evidence-for-sprint-review) | Aplicado |
+| Gestión técnica | Gestión de la información (6.3.6) | Informe versionado en Markdown con registro de versiones y documentación OpenAPI de cada servicio. | Registro de versiones y secciones 6 de cada sprint | Aplicado |
+| Gestión técnica | Medición (6.3.7) | Story points comprometidos, pruebas por sprint y defectos por fase. | [6.6](#66-métricas-de-calidad-del-equipo) | Parcial |
+| Gestión técnica | Aseguramiento de la calidad (6.3.8) | Revisión por pull request y procesos de pruebas e integración. | [6.4.2](#642-proceso-de-plan-de-pruebas-del-sprint) y [6.4.3](#643-proceso-de-integración-y-pase-a-producción) | Parcial |
+| Técnicos | Análisis del negocio o de la misión (6.4.1) | Problemática con fuentes, mini revisión de la literatura y Lean UX. | [1.2](#12-solution-profile) | Aplicado |
+| Técnicos | Necesidades y requisitos de los interesados (6.4.2) | Entrevistas a los dos segmentos, needfinding y To-Be Scenario Mapping. | [2.2](#22-entrevistas), [2.3](#23-needfinding) y [3.1](#31-to-be-scenario-mapping) | Aplicado |
+| Técnicos | Requisitos del sistema (6.4.3) | User stories con criterios en Gherkin y backlog priorizado. | [3.2](#32-user-stories) a [3.4](#34-product-backlog) | Aplicado |
+| Técnicos | Arquitectura del sistema (6.4.4) | Diagramas C4 de contexto, contenedores y componentes. | [4.6](#46-domain-driven-software-architecture) | Aplicado |
+| Técnicos | Diseño (6.4.5) | Guía de estilo, arquitectura de información, wireframes, mock-ups, clases y base de datos. | [4.1](#41-style-guidelines) a [4.5](#45-web-applications-prototyping), [4.7](#47-software-object-oriented-design) y [4.8](#48-database-design) | Aplicado |
+| Técnicos | Implementación (6.4.7) | Microservicios y aplicaciones construidos por sprint. | Development Evidence de cada sprint | Aplicado |
+| Técnicos | Integración (6.4.8) | Integración de las aplicaciones con los servicios a través del API Gateway y de Kafka. | Execution Evidence de cada sprint y [6.4.3](#643-proceso-de-integración-y-pase-a-producción) | Parcial |
+| Técnicos | Verificación (6.4.9) | Pruebas unitarias, de integración y escenarios BDD. | Testing Suite Evidence de cada sprint | Parcial |
+| Técnicos | Transición (6.4.10) | Despliegue de los servicios en Azure Container Apps. | Software Deployment Evidence de cada sprint | Aplicado |
+| Técnicos | Validación (6.4.11) | Hipótesis Lean UX contrastadas con entrevistas y aceptación del Product Owner. Las métricas con usuarios reales siguen pendientes. | [2.2.3](#223-análisis-de-entrevistas) y Avance de Conclusiones | Parcial |
+
+Quedan fuera del conjunto adaptado, con su justificación:
+
+- **Adquisición (6.1.1) y suministro (6.1.2):** el proyecto no tiene contrato con un cliente ni con un proveedor de software.
+- **Gestión del portafolio (6.2.3) y de recursos humanos (6.2.4):** LiquiLabs tiene un único proyecto y el equipo lo fija el curso.
+- **Gestión de la calidad (6.2.5) y del conocimiento (6.2.6):** son procesos de nivel organizacional. En un equipo de cinco, sus prácticas se cubren dentro del aseguramiento de la calidad y de la gestión de la información.
+- **Análisis del sistema (6.4.6):** sus análisis se realizan dentro de la definición de la arquitectura y del diseño.
+- **Operación (6.4.12), mantenimiento (6.4.13) y disposición (6.4.14):** Vankoo todavía no está en operación con usuarios reales.
+
+### 6.5.2. NTP-ISO/IEC 27001:2022: seguridad de la información
+
+<!-- Controles del Anexo A de la norma que aplican al ciclo de desarrollo y a la operación de Vankoo, con su estado real y las prioridades de adopción. -->
+
+Vankoo custodia el dinero de los inversionistas, los datos de identidad de MYPES e inversionistas, como el DNI, el RUC y la cuenta CCI, y las facturas que se negocian en la plataforma. La NTP-ISO/IEC 27001:2022, versión peruana equivalente a la ISO/IEC 27001:2022 publicada por INACAL, establece los requisitos de un sistema de gestión de seguridad de la información y, en su Anexo A, una lista de controles organizados en cuatro temas: organizacionales, de personas, físicos y tecnológicos (INACAL, 2022).
+
+Un sistema de gestión completo exige definir su alcance, evaluar los riesgos y emitir una declaración de aplicabilidad, lo que excede a un proyecto académico. Como primer paso, el equipo seleccionó los controles del Anexo A ligados al ciclo de desarrollo y a la operación de una fintech, y revisó su estado en Vankoo:
+
+| Control del Anexo A | Aplicación en Vankoo | Estado |
+|---|---|---|
+| 5.15 Control de acceso, 5.16 Gestión de identidades y 8.5 Autenticación segura | El IAM Service emite tokens JWT. El API Gateway valida el token en cada petición y agrega la identidad del usuario (`X-User-Id`), y cada servicio comprueba que el usuario sea dueño del recurso que consulta o modifica. | Aplicado |
+| 5.17 Información de autenticación | El IAM Service guarda las contraseñas con hash BCrypt, nunca en texto plano. | Aplicado |
+| 5.23 Seguridad de la información en el uso de servicios en la nube | Los recursos de Azure se definen con Terraform en un grupo de recursos propio, con el estado compartido en Azure Storage. Falta una política escrita de uso de la nube. | Parcial |
+| 5.24 a 5.27 Gestión de incidentes | No hay un procedimiento de respuesta a incidentes. La marcha blanca y la reversión del proceso de [6.4.3](#643-proceso-de-integración-y-pase-a-producción) son el primer paso. | Pendiente |
+| 5.34 Privacidad y protección de datos personales | Los perfiles guardan datos personales sujetos a la Ley N.° 29733, Ley de Protección de Datos Personales (Congreso de la República del Perú, 2011). Faltan la política de privacidad y el tratamiento formal de esos datos. | Pendiente |
+| 8.4 Acceso al código fuente | El código vive en la organización de GitHub del equipo y entra por pull request. CODEOWNERS y la protección de rama existen solo en algunos repositorios. | Parcial |
+| 8.8 Gestión de vulnerabilidades técnicas | Ningún repositorio analiza automáticamente sus dependencias. | Pendiente |
+| 8.9 Gestión de la configuración | GitFlow, Semantic Versioning e infraestructura como código con Terraform. | Aplicado |
+| 8.15 Registro y 8.16 Actividades de monitoreo | Cada contenedor emite sus propios logs, pero no hay registro centralizado ni alertas. | Pendiente |
+| 8.24 Uso de criptografía | El gateway se expone por HTTPS y los tokens JWT van firmados. Las contraseñas de las bases de datos y la clave del JWT las genera Terraform y se guardan como secretos de Container Apps. Falta definir la rotación de claves. | Parcial |
+| 8.25 Ciclo de vida de desarrollo seguro | Los procesos de [6.4.2](#642-proceso-de-plan-de-pruebas-del-sprint) y [6.4.3](#643-proceso-de-integración-y-pase-a-producción) fijan dónde entran la seguridad y su conformidad. | Parcial |
+| 8.26 Requisitos de seguridad de la aplicación | Las historias incluyen la propiedad de los recursos y la idempotencia de los pagos (TS06). La verificación biométrica (US19) quedó fuera del MVP. | Parcial |
+| 8.27 Arquitectura de sistemas seguros | Solo el API Gateway es accesible desde Internet. Los microservicios tienen ingress interno dentro del Container Apps Environment. | Aplicado |
+| 8.28 Codificación segura | Guías de estilo por lenguaje y revisión de cada pull request. El pipeline de Invoicing verifica el formato del código. Falta un análisis estático de seguridad. | Parcial |
+| 8.29 Pruebas de seguridad en desarrollo y aceptación | Previstas como un nivel del plan de pruebas, aún sin herramientas en uso. | Pendiente |
+| 8.31 Separación de los entornos de desarrollo, prueba y producción | El entorno local con Docker Compose está separado de Azure, pero no existe un ambiente de pruebas intermedio. | Parcial |
+| 8.32 Gestión de cambios | Todo cambio entra por pull request y las decisiones de arquitectura quedan en ADR. Falta exigir revisión en todos los repositorios. | Parcial |
+| 8.33 Información de las pruebas | Las evidencias usan cuentas y datos de prueba en el entorno local. Falta una regla escrita que prohíba usar datos personales reales. | Parcial |
+
+El equipo propone adoptar los controles pendientes en el orden de menor costo y mayor efecto. Primero, CODEOWNERS, protección de `develop` y pipeline de CI en todos los repositorios de código (8.4 y 8.32), que se configuran en horas. Después, el análisis de dependencias dentro del pipeline (8.8) y un ambiente de pruebas compartido (8.31). Por último, las pruebas de seguridad dinámicas (8.29) y la política de privacidad (5.34), antes de operar con usuarios reales.
+
+## 6.6. Métricas de calidad del equipo
+
+<!-- Datos de calidad del proceso: compromiso por sprint, pruebas registradas, defectos por fase de detección, yield y metas para el siguiente relanzamiento. -->
+
+El TSP pide que el equipo planifique y decida con sus propios datos de esfuerzo y de calidad. Esta sección reúne los datos que el equipo ya registra.
+
+| Sprint | Story points comprometidos | Pruebas automatizadas registradas |
+|---|---|---|
+| Sprint 1 | 26 | 114 casos en Finance (82), Investment (20) e Invoicing (12) |
+| Sprint 2 | 29 | 16 casos en Invoicing para US01: 12 unitarios y 4 escenarios BDD |
+| Sprint 3 | 19 | 94 casos en Investment: 85 aprobados, 9 omitidos y ninguno fallido |
+
+Las cifras de pruebas no se suman entre sprints, porque cada sprint reporta la suite de los servicios que trabajó.
+
+Durante el primer ciclo del proyecto, hasta el 16 de septiembre de 2026, el equipo registró seis defectos según la fase en que se detectaron. Dos se detectaron en la revisión de código: un envío de eventos a Kafka sin confirmar el resultado y un manejador ubicado en el paquete equivocado. Cuatro se detectaron en pruebas: un conversor de JPA aplicado sobre un identificador, un error 500 en lugar de 400 ante una moneda no soportada, la clave del outbox sin serializar y una configuración rota de la app Android. Ninguno llegó a producción.
+
+| Fase de detección | Defectos |
+|---|---|
+| Revisión de código | 2 |
+| Pruebas | 4 |
+| Producción | 0 |
+| **Total** | **6** |
+
+Con estos datos, el yield del proceso, que es la proporción de defectos eliminados antes de la primera prueba, es de 2 de 6, un 33%. Humphrey (2000) propone como referencia eliminar al menos el 70% de los defectos antes de las pruebas. La diferencia confirma lo que muestran los procesos de [6.4](#64-procesos-del-equipo-modelados-en-bpmn): las revisiones existen, pero todavía no detienen a la mayoría de los defectos.
+
+El equipo propone las siguientes metas para validarlas en el próximo relanzamiento:
+
+| Indicador | Valor actual | Meta propuesta |
+|---|---|---|
+| Yield antes de las pruebas | 33% | 70% o más |
+| Defectos críticos en producción por release | 0 | 0 |
+| Pull requests fusionados con pipeline en verde y una aprobación | Exigido solo en Finance | 100% |
+| Criterios de aceptación con al menos un caso de prueba | Sin medir | 100% |
+| Tiempo registrado por fase en cada tarea | Sin medir | 100% de las tareas |
+
 <hr class="page-break">
 
 # Avance de Conclusiones
@@ -5288,11 +5513,16 @@ Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se res
 <p class="ref">Ben Bouheni, F., Tewari, M., Salamon, A., Johnston, P., &amp; Hopkins, K. (2025). Credit sales and risk scoring: A FinTech innovation. <em>FinTech, 4</em>(3), 31. <a href="https://doi.org/10.3390/fintech4030031">https://doi.org/10.3390/fintech4030031</a></p>
 <p class="ref">CAVALI. (2024). <em>Reporte de desempeño de facturas negociables</em>. <a href="https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf">https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf</a></p>
 <p class="ref">ComexPerú. (2025). <em>Inclusión financiera de las MYPE: avances y retos</em>. <a href="https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos">https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos</a></p>
+<p class="ref">Congreso de la República del Perú. (2011). <em>Ley N.° 29733, Ley de Protección de Datos Personales</em>.</p>
 <p class="ref">Contadores y Empresas. (2025). <em>Operaciones de factoring crecieron 14% en 2024</em>. <a href="https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/">https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/</a></p>
 <p class="ref">Guerar, M., Merlo, A., Migliardi, M., Palmieri, F., &amp; Verderame, L. (2020). A fraud-resilient blockchain-based solution for invoice financing. <em>IEEE Transactions on Engineering Management, 67</em>(4), 1086–1098. <a href="https://doi.org/10.1109/TEM.2020.2971865">https://doi.org/10.1109/TEM.2020.2971865</a></p>
+<p class="ref">Humphrey, W. S. (2000). <em>The Team Software Process (TSP)</em> (Technical Report CMU/SEI-2000-TR-022). Software Engineering Institute, Carnegie Mellon University.</p>
+<p class="ref">INACAL. (2022). <em>NTP-ISO/IEC 27001:2022. Seguridad de la información, ciberseguridad y protección de la privacidad. Sistemas de gestión de seguridad de la información. Requisitos</em> (3.ª ed.). Instituto Nacional de Calidad.</p>
 <p class="ref">Innova Funding. (2022). <em>Ley de pago de facturas para MYPE a 30 días en Perú</em>. <a href="https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/">https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/</a></p>
+<p class="ref">ISO/IEC/IEEE. (2026). <em>Systems and software engineering. Software life cycle processes</em> (ISO/IEC/IEEE 12207:2026, 2.ª ed.). International Organization for Standardization, International Electrotechnical Commission e Institute of Electrical and Electronics Engineers.</p>
 <p class="ref">LP. (2021). <em>Ley 31362, MYPE podrán cobrar facturas en un plazo máximo de 30 días</em>. <a href="https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/">https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/</a></p>
 <p class="ref">PRODUCE. (2025). <em>Estado de la inclusión financiera - MYPE</em>. <a href="https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf">https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf</a></p>
+<p class="ref">SANIPES. (2024). <em>Gestión del ciclo de vida del software en la Autoridad Nacional de Sanidad e Inocuidad en Pesca y Acuicultura</em> (Directiva DIR-005-2024-SANIPES-OTI-PS 01.02-01). Oficina de Tecnologías de la Información.</p>
 </div>
 
 <hr class="page-break">
