@@ -5540,6 +5540,7 @@ El equipo propone las siguientes metas para validarlas en el próximo relanzamie
 |---|---|---|
 | TB1 | [https://goo.su/F5ct5](https://goo.su/F5ct5) | 24:48 |
 | TB2 | [https://goo.su/FejMKFJ](https://goo.su/FejMKFJ) | 28:15 |
+| TP | [https://goo.su/U4nx14W](https://goo.su/U4nx14W) | 28:22 |
 
 <hr class="page-break">
 
