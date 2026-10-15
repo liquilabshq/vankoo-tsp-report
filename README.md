@@ -78,6 +78,7 @@
 | 1.4.0   | 2026-09-11 | Amaro Villar, Anjali<br>Crispin Ramos, Daniel Franco<br>Sulca Gonzales, Paúl Fernando | Capítulo IV: Style Guidelines, Information Architecture, wireframes, mock-ups, wireflows, user flows y prototipos; arquitectura C4, diagramas de clases, diccionario de clases y diseño de base de datos. |
 | 1.5.0   | 2026-09-12 | Todos los integrantes            | Capítulo V: Software Configuration Management (entorno, GitFlow, convenciones y despliegue) y Sprint 1 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue en Azure, collaboration insights y actas de reunión). |
 | 1.6.0   | 2026-09-12 | Amaro Villar, Anjali            | Student Outcome, Avance de Conclusiones y Recomendaciones; actualización del registro de versiones. |
+| 1.7.0   | 2026-09-23 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: Team Software Process (TSP Launch Overview, matriz de roles TSP y Scrum con la designación del Scrum Master, y User Story Mapping con la línea de corte del MVP), a partir de la retroalimentación docente de la TB1. |
 
 <hr class="page-break">
 
@@ -162,6 +163,22 @@
       - [5.2.1.7. Software Deployment Evidence for Sprint Review](#5217-software-deployment-evidence-for-sprint-review)
       - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
       - [5.2.1.9. Actas de reunión](#5219-actas-de-reunión)
+    - [5.2.2. Sprint 2](#522-sprint-2)
+      - [5.2.2.1. Sprint Planning 2](#5221-sprint-planning-2)
+      - [5.2.2.2. Sprint Backlog 2](#5222-sprint-backlog-2)
+      - [5.2.2.3. Development Evidence for Sprint Review](#5223-development-evidence-for-sprint-review)
+      - [5.2.2.4. Testing Suite Evidence for Sprint Review](#5224-testing-suite-evidence-for-sprint-review)
+      - [5.2.2.5. Execution Evidence for Sprint Review](#5225-execution-evidence-for-sprint-review)
+      - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
+      - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
+      - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+      - [5.2.2.9. Actas de reunión](#5229-actas-de-reunión)
+- [Capítulo VI: Team Software Process](#capítulo-vi-team-software-process)
+  - [6.1. TSP Launch Overview](#61-tsp-launch-overview)
+  - [6.2. TSP Roles \& Scrum Roles](#62-tsp-roles--scrum-roles)
+  - [6.3. User Story Mapping](#63-user-story-mapping)
+    - [6.3.1. Story Map del MVP](#631-story-map-del-mvp)
+    - [6.3.2. Línea de corte del MVP y plan de sprints](#632-línea-de-corte-del-mvp-y-plan-de-sprints)
 - [Avance de Conclusiones](#avance-de-conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -182,8 +199,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |:--------------------|:--------------------|:-------------|
-| Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Diseñé la guía de entrevistas y participé en la conducción de las seis entrevistas a empresarios MYPE e inversionistas minoristas, adaptando el lenguaje técnico-financiero (factoring, tasa de descuento, TCEA) a un público sin formación en ingeniería ni finanzas, y sintetizando oralmente los hallazgos ante el equipo para orientar las decisiones de diseño. Presenté y defendí ante el equipo las propuestas de wireframes, mock-ups y user flows de la Landing Page y de la MYPE Web, recogiendo observaciones en las reuniones de Discord. Expuse la sección de diseño UX/UI en la presentación de la TB1.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Participé en el Sprint Planning 1 y en la reunión de seguimiento del 04 de setiembre, donde expliqué al equipo los User Personas, la Task Matrix y los Journey Maps de ambos segmentos como base para priorizar historias de usuario. Sustenté verbalmente las convenciones visuales (Style Guidelines) y la arquitectura de información ante el equipo. Expuse en la TB1 las evidencias de desarrollo y la suite de pruebas automatizadas del Invoicing Service, explicando los resultados en términos comprensibles para el docente y los compañeros.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Preparé y facilité el Sprint Planning 1 en Discord: presenté la proyección de seis sprints, propuse el Sprint Goal y conduje la negociación del alcance (26 story points) con los cuatro integrantes. Comuniqué las decisiones de organización del repositorio (GitFlow, CODEOWNERS, Conventional Commits) y resolví dudas técnicas del IAM Service y del API Gateway en las reuniones de coordinación. Expuse en la TB1 la introducción, el Lean UX Process y el Sprint Planning.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Presenté al equipo los diagramas C4 (contexto, contenedores y componentes), los diagramas de clases y el diseño de base de datos de cada bounded context, explicando las decisiones de arquitectura orientada a eventos y CQRS de forma que los integrantes enfocados en frontend y despliegue pudieran integrarse. Participé en las reuniones de seguimiento del Sprint 1 reportando el avance del Invoicing Service. Expuse en la TB1 la arquitectura de software y la evidencia de ejecución.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Expliqué al equipo el análisis competitivo frente a Finsmart, Innova Funding y Prestamype y las tácticas de diferenciación de Vankoo. Conduje la demostración del despliegue del Invoicing Service en Azure (ACR, ACI, API Management, DocumentDB, S3 y OCR), guiando paso a paso a los compañeros para que puedan replicarlo en sus servicios. Redacté y comuniqué los acuerdos del acta de reunión del 04 de setiembre. Expuse en la TB1 los segmentos objetivo, competidores y el despliegue. | **TB1**<br>Como equipo, aprendimos a ajustar el registro oral según la audiencia: con los entrevistados (empresarios e inversionistas sin formación técnica) usamos un lenguaje cotidiano y ejemplos concretos, mientras que en las reuniones internas y en el Sprint Planning empleamos vocabulario técnico preciso (bounded contexts, event sourcing, story points). Las reuniones sincrónicas en Discord con actas y acuerdos explícitos evitaron ambigüedades en la asignación de tareas del Sprint 1. La exposición de la TB1 nos exigió sintetizar un informe extenso en un discurso breve, objetivo y respaldado por evidencias (capturas, métricas de entrevistas, pruebas y despliegue), lo que reforzó nuestra capacidad de comunicar resultados a un público con distintos niveles jerárquicos y especialidades. |
-| Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Redacté las secciones 2.2.1 Diseño de entrevistas, 2.2.2 Registro de entrevistas y 2.2.3 Análisis de entrevistas, cuantificando los hallazgos (n/3 por característica) y consolidando tres ejes estratégicos verificables. Elaboré y documenté las secciones 4.3 Landing Page UI Design, 4.4 Web Applications UX/UI Design (wireframes, wireflows, mock-ups y user flows) y 4.5 Prototyping, describiendo cada pantalla y el objetivo de usuario que cubre. Actualicé el Registro de Versiones y redacté el Student Outcome y el Avance de Conclusiones y Recomendaciones, contrastando hipótesis Lean UX con los resultados de validación.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Redacté las secciones 2.3.1 User Personas, 2.3.2 User Task Matrix y 2.3.3 User Journey Mapping para los segmentos MYPE e inversionista. Documenté las secciones 4.1 Style Guidelines (branding, paleta, tipografía, componentes web) y 4.2 Information Architecture (organización, etiquetado, SEO, búsqueda y navegación). Elaboré la sección 5.2.1.3 Development Evidence con las tablas de commits por repositorio y la sección 5.2.1.4 Testing Suite Evidence describiendo los 114 casos de prueba de Finance, Investment e Invoicing, con mensajes de commit bajo Conventional Commits.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Definí la estructura base del informe, la carátula y las convenciones de estilo para exportación a PDF. Redacté las secciones 1.1 Startup Profile, 1.2 Solution Profile (antecedentes con fuentes citadas en APA, Lean UX Problem Statements, Assumptions, Hypothesis Statements y Canvas), el Capítulo III (User Stories con criterios de aceptación en formato Gherkin y Product Backlog priorizado), 5.2.1.1 Sprint Planning 1 y 5.2.1.2 Sprint Backlog 1, la Bibliografía y el Anexo B. Documenté el contrato REST del IAM Service (OpenAPI) y revisé pull requests del informe como code owner.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Elaboré y documenté las secciones 2.3.4 Empathy Mapping, 2.3.5 As-is Scenario Mapping, 3.1 To-Be Scenario Mapping y 3.3 Impact Mapping. Redacté las secciones 4.6 Domain-Driven Software Architecture (diagramas C4 en Structurizr DSL), 4.7 Software Object-Oriented Design (diagramas de clases en PlantUML y diccionario de clases) y 4.8 Database Design por bounded context. Documenté 5.1.1 a 5.1.3 (entorno de desarrollo, GitFlow, Conventional Commits y guías de estilo por lenguaje) y las secciones 5.2.1.5 Execution Evidence y 5.2.1.6 Services Documentation Evidence.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Redacté las secciones 1.3 Segmentos objetivo, con datos de PRODUCE, ComexPerú y CAVALI, y 2.1 Competidores (análisis competitivo y estrategias y tácticas). Documenté 5.1.4 Software Deployment Configuration y 5.2.1.7 Software Deployment Evidence, describiendo paso a paso, con capturas, el despliegue del Invoicing Service en Azure. Elaboré 5.2.1.8 Team Collaboration Insights con los gráficos de contribuidores por repositorio y 5.2.1.9 Actas de reunión con fecha, asistentes, temas y acuerdos. | **TB1**<br>Como equipo, comprobamos que la escritura técnica estructurada —tablas de evidencias, diagramas con fuente versionada (PlantUML, Structurizr), criterios de aceptación en Gherkin y citas en formato APA— permite que un mismo informe sea leído con provecho por audiencias distintas: el docente evalúa el proceso, un inversionista o empresario entiende la propuesta de valor y un desarrollador nuevo puede incorporarse al proyecto a partir de las guías de configuración y estilo. El uso de GitFlow, Conventional Commits, CODEOWNERS y pull requests revisados para el propio informe nos obligó a escribir cambios pequeños, descriptivos y trazables, y el Registro de Versiones documenta con objetividad quién modificó qué y cuándo. Identificamos como oportunidad de mejora unificar el tono y la profundidad entre secciones escritas por distintos integrantes y completar las evidencias pendientes (video de ejecución y de exposición). |
+| Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Diseñé la guía de entrevistas y participé en la conducción de las seis entrevistas a empresarios MYPE e inversionistas minoristas, adaptando el lenguaje técnico-financiero (factoring, tasa de descuento, TCEA) a un público sin formación en ingeniería ni finanzas, y sintetizando oralmente los hallazgos ante el equipo para orientar las decisiones de diseño. Presenté y defendí ante el equipo las propuestas de wireframes, mock-ups y user flows de la Landing Page y de la MYPE Web, recogiendo observaciones en las reuniones de Discord. Expuse la sección de diseño UX/UI en la presentación de la TB1.<br><br>**TB2**<br>Facilité el Sprint Planning 2 en Discord, presentando la revisión del Sprint 1, la retrospectiva y la propuesta del Sprint Goal y del Sprint Backlog para el equipo. Expliqué oralmente a los compañeros el detalle de las user stories priorizadas para este sprint y resolví dudas sobre su alcance. Expuse en la TB2 el Sprint Planning y el Sprint Backlog.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Participé en el Sprint Planning 1 y en la reunión de seguimiento del 04 de setiembre, donde expliqué al equipo los User Personas, la Task Matrix y los Journey Maps de ambos segmentos como base para priorizar historias de usuario. Sustenté verbalmente las convenciones visuales (Style Guidelines) y la arquitectura de información ante el equipo. Expuse en la TB1 las evidencias de desarrollo y la suite de pruebas automatizadas del Invoicing Service, explicando los resultados en términos comprensibles para el docente y los compañeros.<br><br>**TB2**<br>Presenté ante el equipo el avance del Invoicing Service y su integración con el API Gateway mediante el header X-User-Id, explicando en términos comprensibles el impacto de este cambio en el flujo de facturación. Sustenté oralmente los resultados de la suite de pruebas automatizadas del sprint. Expuse en la TB2 el Development Evidence y el Testing Suite Evidence.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Preparé y facilité el Sprint Planning 1 en Discord: presenté la proyección de seis sprints, propuse el Sprint Goal y conduje la negociación del alcance (26 story points) con los cuatro integrantes. Comuniqué las decisiones de organización del repositorio (GitFlow, CODEOWNERS, Conventional Commits) y resolví dudas técnicas del IAM Service y del API Gateway en las reuniones de coordinación. Expuse en la TB1 la introducción, el Lean UX Process y el Sprint Planning.<br><br>**TB2**<br>Comuniqué al equipo las decisiones de configuración para el despliegue del Sprint 2 (Landing Page, Web Applications y Web Services), coordinando con Anjali los recursos cloud a documentar. Resolví dudas técnicas sobre la infraestructura compartida en las reuniones de seguimiento. Expuse en la TB2 el Software Deployment Evidence.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Presenté al equipo los diagramas C4 (contexto, contenedores y componentes), los diagramas de clases y el diseño de base de datos de cada bounded context, explicando las decisiones de arquitectura orientada a eventos y CQRS de forma que los integrantes enfocados en frontend y despliegue pudieran integrarse. Participé en las reuniones de seguimiento del Sprint 1 reportando el avance del Invoicing Service. Expuse en la TB1 la arquitectura de software y la evidencia de ejecución.<br><br>**TB2**<br>Presenté al equipo la documentación OpenAPI del Finance Service publicada con Scalar, explicando los contratos de depósitos y billeteras a los compañeros no involucrados directamente en ese servicio. Sustenté verbalmente el flujo de ejecución de la MYPE Web App para el módulo de facturas. Expuse en la TB2 el Execution Evidence y el Services Documentation Evidence.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Expliqué al equipo el análisis competitivo frente a Finsmart, Innova Funding y Prestamype y las tácticas de diferenciación de Vankoo. Conduje la demostración del despliegue del Invoicing Service en Azure (ACR, ACI, API Management, DocumentDB, S3 y OCR), guiando paso a paso a los compañeros para que puedan replicarlo en sus servicios. Redacté y comuniqué los acuerdos del acta de reunión del 04 de setiembre. Expuse en la TB1 los segmentos objetivo, competidores y el despliegue.<br><br>**TB2**<br>Presenté al equipo los analíticos de colaboración y commits por repositorio (Vankoo Infra y Discovery Server), explicando el aporte de cada integrante durante el sprint. Redacté y comuniqué oralmente los acuerdos de la reunión de seguimiento del 16 de setiembre. Expuse en la TB2 el Team Collaboration Insights y las Actas de reunión. | **TB1**<br>Como equipo, aprendimos a ajustar el registro oral según la audiencia: con los entrevistados (empresarios e inversionistas sin formación técnica) usamos un lenguaje cotidiano y ejemplos concretos, mientras que en las reuniones internas y en el Sprint Planning empleamos vocabulario técnico preciso (bounded contexts, event sourcing, story points). Las reuniones sincrónicas en Discord con actas y acuerdos explícitos evitaron ambigüedades en la asignación de tareas del Sprint 1. La exposición de la TB1 nos exigió sintetizar un informe extenso en un discurso breve, objetivo y respaldado por evidencias (capturas, métricas de entrevistas, pruebas y despliegue), lo que reforzó nuestra capacidad de comunicar resultados a un público con distintos niveles jerárquicos y especialidades.<br><br>**TB2**<br>Durante el Sprint 2 reforzamos la práctica de sustentar oralmente los avances técnicos frente a integrantes con distintos focos (frontend, backend, infraestructura y documentación), usando el Sprint Planning 2 y las reuniones de seguimiento en Discord como espacios recurrentes de rendición de cuentas. La necesidad de explicar decisiones de despliegue, resultados de pruebas y analíticos de colaboración a compañeros fuera de esos frentes específicos nos exigió simplificar el vocabulario técnico sin perder precisión, consolidando la capacidad de comunicar resultados de ingeniería a audiencias con distintos niveles de especialización. |
+| Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Redacté las secciones 2.2.1 Diseño de entrevistas, 2.2.2 Registro de entrevistas y 2.2.3 Análisis de entrevistas, cuantificando los hallazgos (n/3 por característica) y consolidando tres ejes estratégicos verificables. Elaboré y documenté las secciones 4.3 Landing Page UI Design, 4.4 Web Applications UX/UI Design (wireframes, wireflows, mock-ups y user flows) y 4.5 Prototyping, describiendo cada pantalla y el objetivo de usuario que cubre. Actualicé el Registro de Versiones y redacté el Student Outcome y el Avance de Conclusiones y Recomendaciones, contrastando hipótesis Lean UX con los resultados de validación.<br><br>**TB2**<br>Redacté la introducción de 5.2 Landing Page, Services & Applications Implementation y de 5.2.2 Sprint 2, así como las secciones 5.2.2.1 Sprint Planning 2 y 5.2.2.2 Sprint Backlog 2, documentando el objetivo del sprint, la captura del board y la tabla de user stories con sus work-items. Colaboré con Salim en la redacción de 5.2.2.7 Software Deployment Evidence.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Redacté las secciones 2.3.1 User Personas, 2.3.2 User Task Matrix y 2.3.3 User Journey Mapping para los segmentos MYPE e inversionista. Documenté las secciones 4.1 Style Guidelines (branding, paleta, tipografía, componentes web) y 4.2 Information Architecture (organización, etiquetado, SEO, búsqueda y navegación). Elaboré la sección 5.2.1.3 Development Evidence con las tablas de commits por repositorio y la sección 5.2.1.4 Testing Suite Evidence describiendo los 114 casos de prueba de Finance, Investment e Invoicing, con mensajes de commit bajo Conventional Commits.<br><br>**TB2**<br>Documenté la sección 5.2.2.3 Development Evidence for Sprint Review con las tablas de commits del Invoicing Service y del Finance Service, y la sección 5.2.2.4 Testing Suite Evidence describiendo los casos de prueba ejecutados durante el sprint. Colaboré con Paúl en 5.2.2.5 Execution Evidence y 5.2.2.6 Services Documentation Evidence.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Definí la estructura base del informe, la carátula y las convenciones de estilo para exportación a PDF. Redacté las secciones 1.1 Startup Profile, 1.2 Solution Profile (antecedentes con fuentes citadas en APA, Lean UX Problem Statements, Assumptions, Hypothesis Statements y Canvas), el Capítulo III (User Stories con criterios de aceptación en formato Gherkin y Product Backlog priorizado), 5.2.1.1 Sprint Planning 1 y 5.2.1.2 Sprint Backlog 1, la Bibliografía y el Anexo B. Documenté el contrato REST del IAM Service (OpenAPI) y revisé pull requests del informe como code owner.<br><br>**TB2**<br>Redacté, junto con Anjali, la sección 5.2.2.7 Software Deployment Evidence for Sprint Review, documentando los recursos cloud configurados durante el Sprint 2 para la Landing Page, las Web Applications y los Web Services.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Elaboré y documenté las secciones 2.3.4 Empathy Mapping, 2.3.5 As-is Scenario Mapping, 3.1 To-Be Scenario Mapping y 3.3 Impact Mapping. Redacté las secciones 4.6 Domain-Driven Software Architecture (diagramas C4 en Structurizr DSL), 4.7 Software Object-Oriented Design (diagramas de clases en PlantUML y diccionario de clases) y 4.8 Database Design por bounded context. Documenté 5.1.1 a 5.1.3 (entorno de desarrollo, GitFlow, Conventional Commits y guías de estilo por lenguaje) y las secciones 5.2.1.5 Execution Evidence y 5.2.1.6 Services Documentation Evidence.<br><br>**TB2**<br>Documenté la sección 5.2.2.5 Execution Evidence for Sprint Review describiendo el flujo de carga de facturas en la MYPE Web App, y la sección 5.2.2.6 Services Documentation Evidence con la especificación OpenAPI del Finance Service publicada en Scalar. Colaboré con Daniel en 5.2.2.3 Development Evidence y 5.2.2.4 Testing Suite Evidence.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Redacté las secciones 1.3 Segmentos objetivo, con datos de PRODUCE, ComexPerú y CAVALI, y 2.1 Competidores (análisis competitivo y estrategias y tácticas). Documenté 5.1.4 Software Deployment Configuration y 5.2.1.7 Software Deployment Evidence, describiendo paso a paso, con capturas, el despliegue del Invoicing Service en Azure. Elaboré 5.2.1.8 Team Collaboration Insights con los gráficos de contribuidores por repositorio y 5.2.1.9 Actas de reunión con fecha, asistentes, temas y acuerdos.<br><br>**TB2**<br>Redacté la sección 5.2.2.8 Team Collaboration Insights during Sprint con la tabla de actividad del equipo y los gráficos de contribuidores de Vankoo Infra y Discovery Server, y la sección 5.2.2.9 Actas de reunión con la fecha, asistentes, temas y acuerdos de la reunión de seguimiento del Sprint 2. | **TB1**<br>Como equipo, comprobamos que la escritura técnica estructurada, con tablas de evidencias, diagramas con fuente versionada (PlantUML, Structurizr), criterios de aceptación en Gherkin y citas en formato APA, permite que un mismo informe sea leído con provecho por audiencias distintas: el docente evalúa el proceso, un inversionista o empresario entiende la propuesta de valor y un desarrollador nuevo puede incorporarse al proyecto a partir de las guías de configuración y estilo. El uso de GitFlow, Conventional Commits, CODEOWNERS y pull requests revisados para el propio informe nos obligó a escribir cambios pequeños, descriptivos y trazables, y el Registro de Versiones documenta con objetividad quién modificó qué y cuándo. Identificamos como oportunidad de mejora unificar el tono y la profundidad entre secciones escritas por distintos integrantes y completar las evidencias pendientes (video de ejecución y de exposición).<br><br>**TB2**<br>En el Sprint 2 mantuvimos la misma disciplina de escritura técnica trazable del Sprint 1, con tablas de commits, capturas de documentación OpenAPI y actas con acuerdos explícitos, y la extendimos a la coordinación de infraestructura compartida (Vankoo Infra, Discovery Server) entre distintos integrantes. Dividir la redacción por evidencia (planning, desarrollo, pruebas, ejecución, documentación de servicios, despliegue y colaboración) nos permitió que cada integrante documentara con precisión el área que ejecutó, mientras el resto del equipo podía revisar y dar seguimiento al informe como un todo coherente. |
 
 <hr class="page-break">
 
@@ -2286,7 +2303,7 @@ Se utilizarán las siguientes plataformas para el despliegue de los diferentes p
 |---|---|---|---|
 | **Landing Page** | **Netlify** | Plataforma utilizada para el despliegue automático y continuo de la landing page estática. | [https://www.netlify.com](https://www.netlify.com) |
 | **Frontend Web Application** | **Netlify** | Alojamiento y despliegue continuo de la aplicación web cliente, con soporte para rutas y variables de entorno. | [https://www.netlify.com](https://www.netlify.com) |
-| **Microservices** | **Microsoft Azure (Azure Container Instances / ACR)** | Ejecución de microservicios contenedorizados sin servidor (serverless containers), alimentados desde imágenes privadas en Azure Container Registry. | [https://portal.azure.com](https://portal.azure.com) |
+| **Microservices** | **Microsoft Azure (Azure Container Apps / ACR)** | Ejecución de microservicios contenedorizados sin servidor (serverless containers), alimentados desde imágenes privadas en Azure Container Registry. | [https://portal.azure.com](https://portal.azure.com) |
 | **Discovery Server** | **Microsoft Azure (Dapr / Azure Container Apps)** | Descubrimiento de servicios y resolución dinámica de nombres entre componentes mediante la integración de Dapr en Azure. | [https://dapr.io](https://dapr.io) |
 | **Message Broker** | **Microsoft Azure (Azure Event Hubs)** | Plataforma de transmisión masiva de datos y desacoplamiento de eventos asíncronos en tiempo real entre microservicios. | [https://azure.microsoft.com/services/event-hubs](https://azure.microsoft.com/services/event-hubs) |
 | **Kotlin Multiplatform Mobile App (Android)** | **Google Play Console** | Publicación, gestión de versiones y distribución del artefacto Android generado desde la base de código compartida. | [https://play.google.com/console](https://play.google.com/console) |
@@ -2317,17 +2334,17 @@ Microsoft Azure centraliza la infraestructura de backend del proyecto, garantiza
 
 Los microservicios son empaquetados como imágenes Docker y gestionados mediante dos servicios complementarios:
 * **Azure Container Registry (ACR):** Repositorio privado y seguro administrado en la nube donde se compilan y almacenan las imágenes de cada microservicio a través de pipelines de CI/CD.
-* **Azure Container Instances (ACI):** Entorno de ejecución serverless que permite inicializar contenedores de forma aislada, rápida y sin necesidad de gestionar la infraestructura de un clúster de máquinas virtuales subyacente.
+* **Azure Container Apps (ACA):** Entorno de ejecución serverless basado en Kubernetes que permite desplegar contenedores de forma aislada, con escalado automático, sin necesidad de gestionar la infraestructura de un clúster de máquinas virtuales subyacente.
 
 **Flujo de despliegue:**
 1. Crear un recurso de Azure Container Registry en el grupo de recursos del proyecto.
 2. Construir la imagen Docker de cada microservicio y publicarla (`docker push`) en ACR utilizando credenciales administradas o un Service Principal.
-3. Crear y configurar instancias en Azure Container Instances vinculando la imagen correspondiente desde ACR.
+3. Crear y configurar aplicaciones en Azure Container Apps vinculando la imagen correspondiente desde ACR.
 4. Definir las variables de entorno (cadenas de conexión a bases de datos, perfiles de entorno) y especificaciones de cómputo (CPU y memoria).
 5. Asignar redes virtuales (VNet) o puertos públicos para permitir la comunicación entre servicios.
 
 **Discovery Server (Azure con Dapr)**
-Para la orquestación, resolución de endpoints y comunicación directa service-to-service, se utiliza **Dapr (Distributed Application Runtime)** integrado en el entorno de Azure (Azure Container Apps / ACI con sidecars).
+Para la orquestación, resolución de endpoints y comunicación directa service-to-service, se utiliza **Dapr (Distributed Application Runtime)** integrado en el entorno de Azure (Azure Container Apps con sidecars).
 * Dapr actúa como capa de abstracción desacoplada, permitiendo que cada microservicio descubra y consuma a otros componentes mediante llamadas seguras gRPC/HTTP utilizando identificadores lógicos (`app-id`), eliminando el acoplamiento a direcciones IP o puertos dinámicos.
 * Proporciona resiliencia automática mediante políticas de reintento, balanceo de carga en el lado del cliente y cifrado mutuo TLS (mTLS).
 
@@ -2417,11 +2434,11 @@ Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a60040
     <thead>
       <tr>
         <th colspan="2">Sprint #</th>
-        <th colspan="6">Sprint 1</th>
+        <th colspan="4">Sprint 1</th>
       </tr>
       <tr>
         <th colspan="2">User Story</th>
-        <th colspan="6">Work-Item / Task</th>
+        <th colspan="4">Work-Item / Task</th>
       </tr>
       <tr>
         <th>Id</th>
@@ -3492,7 +3509,7 @@ A continuación, se presenta los insights durante este primer sprint, donde se r
 ![Contributors Invoicing Service](./assets/cap5-product-implementation/sprint-1/collaboration-insights/invoicing-contributors-sprint-1.png)
 
 **Vankoo Infra**
-![Contributors Vankoo Infra](/assets/cap5-product-implementation/sprint-1/collaboration-insights/vankoo-infra-contributors-sprint-1.png)
+![Contributors Vankoo Infra](./assets/cap5-product-implementation/sprint-1/collaboration-insights/vankoo-infra-contributors-sprint-1.png)
 
 #### 5.2.1.9. Actas de reunión
 
@@ -3509,6 +3526,986 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Temas tratados | Avance del desarrollo de los microservicios, repartición de tareas para la elaboración del informe y seguimiento de los pendientes del Sprint 1 |
 | Acuerdos | Continuar con el desarrollo de los microservicios asignados a cada integrante; distribuir las secciones del informe del Sprint 1 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-1/actas-reunion/acta-reunion-01.png) |
+
+### 5.2.2. Sprint 2
+
+<!-- Introducción breve del Sprint 2: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
+
+#### 5.2.2.1. Sprint Planning 2
+
+<!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
+
+El Sprint Planning 2 define el alcance de la segunda iteración de Vankoo, del 08/09/2026 al 21/09/2026. Con la propuesta de valor publicada y los contratos de identidad y perfiles definidos en el Sprint 1, este sprint conecta las primeras capacidades de negocio con los servicios reales a través del API Gateway. Siguiendo el orden del Product Backlog, se priorizó la carga inteligente de facturas, que es la entrada de toda operación de liquidez para la MYPE, junto con su contrato REST de ingreso y validación. En paralelo, se incorporó la carga de fondos a la billetera y su contrato de depósitos y pagos, para que el inversionista cuente con capital disponible cuando se habiliten las subastas en los siguientes sprints.
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 8 de septiembre de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
+| Sprint 1 Review Summary | Se presentó la Landing Page funcional, con la propuesta de valor, el simulador de adelanto, la orientación de conversión y el soporte en español e inglés (LPS01, LPS02 y LPS03). En el backend se construyó la base de los microservicios IAM, Profile, Invoicing, Investment y Finance; IAM, Profile e Invoicing quedaron documentados con OpenAPI y Scalar (TS01 y TS02), y se registraron 114 pruebas automatizadas entre Finance, Investment e Invoicing. Invoicing se desplegó en Azure detrás de un API Gateway administrado. En la Web Application solo se completó el flujo de inicio de sesión, por lo que la integración de las aplicaciones con los servicios pasa a ser la prioridad de este sprint. |
+| Sprint 1 Retrospective Summary | El trabajo en paralelo por microservicio con GitFlow y pull requests permitió avanzar varios servicios a la vez sin bloqueos entre integrantes, y el entorno local con `docker-compose` dio a todos la misma infraestructura. Como punto de mejora, el backend avanzó más rápido que las aplicaciones, que llegaron al cierre sin consumir los servicios, y parte de la evidencia, como el video de navegación, quedó pendiente al final del sprint. Por ello, el equipo acordó integrar cada historia de punta a punta, desde la aplicación hasta el servicio, a través del API Gateway con autenticación JWT, y contenerizar cada servicio para incorporarlo al `docker-compose` de infraestructura. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | Conectar la gestión de facturas y la billetera con los servicios reales a través del API Gateway: que la MYPE cargue sus facturas desde la Web Application y obtenga sus datos extraídos y validados, y que el inversionista pueda recargar fondos en su billetera con pagos trazables e idempotentes. |
+| User Stories | US01, US14, TS03 y TS06 |
+| Sprint 2 Velocity | 29 story points planificados; se toman como referencia los 26 story points planificados en el Sprint 1. |
+| Sum of Story Points | 29 |
+
+#### 5.2.2.2. Sprint Backlog 2
+
+El Sprint Backlog 2 descompone las historias `US01`, `US14`, `TS03` y `TS06`. El objetivo es conectar la gestión de facturas y la billetera con los servicios reales a través del API Gateway: la MYPE carga sus facturas desde la Web Application y obtiene sus datos extraídos y validados, y el inversionista recarga fondos en su billetera desde la aplicación móvil con pagos trazables e idempotentes. La captura del board se presenta a continuación.
+
+![Sprint Backlog 2](assets/cap5-product-implementation/sprint-2/sprint-backlog/sprint-backlog.png)
+
+Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th colspan="2">Sprint #</th>
+        <th colspan="4">Sprint 2</th>
+      </tr>
+      <tr>
+        <th colspan="2">User Story</th>
+        <th colspan="4">Work-Item / Task</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status (To-do / In-Process / To-Review / Done)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GEN-02</td>
+        <td>Integrar servicios en el API Gateway</td>
+        <td>Rutear y proteger con JWT los servicios de Invoicing y Finance en el API Gateway, propagar la identidad del usuario en el header <code>X-User-Id</code> e incorporar los servicios contenerizados al <code>docker-compose</code> de infraestructura.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US01-T01</td>
+        <td>Carga inteligente de facturas</td>
+        <td>Implementar en la MYPE Web la vista para subir el PDF de la factura, con selección o arrastre del archivo y la línea de tiempo de su procesamiento.</td>
+        <td>8</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US01-T02</td>
+        <td>Carga inteligente de facturas</td>
+        <td>Implementar el listado de facturas, su estado vacío y el detalle con los datos extraídos, incluyendo los estados Requiere revisión y No elegible.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US01-T03</td>
+        <td>Carga inteligente de facturas</td>
+        <td>Preparar las pruebas de aceptación de los escenarios en que una factura con datos inconsistentes queda en revisión o no elegible y no se envía a subasta.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US14-T01</td>
+        <td>Carga de fondos a la billetera</td>
+        <td>Implementar en la aplicación móvil la billetera del inversionista y el flujo de recarga contra Finance a través del API Gateway.</td>
+        <td>8</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US14-T02</td>
+        <td>Carga de fondos a la billetera</td>
+        <td>Abrir el checkout de Stripe dentro de la aplicación y mostrar la espera del pago hasta que el proveedor confirme la recarga.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US14-T03</td>
+        <td>Carga de fondos a la billetera</td>
+        <td>Preparar pruebas de la recarga en estado pendiente, de su confirmación por el proveedor y del rechazo de una referencia de operación duplicada.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS03-T01</td>
+        <td>Contrato REST de ingreso y validación de facturas</td>
+        <td>Exponer el endpoint de carga con la inspección del archivo, almacenar el comprobante en el bucket de objetos y devolver el identificador y el estado inicial de la factura.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS03-T02</td>
+        <td>Contrato REST de ingreso y validación de facturas</td>
+        <td>Ajustar la extracción OCR de emisor, pagador, monto, moneda y fecha de vencimiento, y mover la factura por los estados de extracción y validación.</td>
+        <td>8</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS03-T03</td>
+        <td>Contrato REST de ingreso y validación de facturas</td>
+        <td>Publicar el evento de integración de la factura elegible para financiamiento, con su esquema y su topic, para que Investment pueda crear la subasta.</td>
+        <td>4</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS06-T01</td>
+        <td>Contrato REST de depósitos, billetera y pagos</td>
+        <td>Servir la API REST de Finance bajo <code>/api/v1</code>, como el resto de servicios, y documentar con OpenAPI y Scalar los contratos de recargas, saldos, movimientos y webhooks.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS06-T02</td>
+        <td>Contrato REST de depósitos, billetera y pagos</td>
+        <td>Implementar el débito de la billetera con <code>Idempotency-Key</code> y validar que el <code>X-User-Id</code> propagado por el gateway corresponda al dueño de la cuenta.</td>
+        <td>8</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS06-T03</td>
+        <td>Contrato REST de depósitos, billetera y pagos</td>
+        <td>Contenerizar Finance con su Dockerfile e incorporarlo al <code>docker-compose</code> de infraestructura, junto con la configuración de las claves de Stripe.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+#### 5.2.2.3. Development Evidence for Sprint Review
+
+En el Sprint 2 (**08/09/2026 al 21/09/2026**) se documenta el **Invoicing Service**. El trabajo se centró en preparar el despliegue del servicio y su integración con el **API Gateway**: el `MypeId` de la factura ahora se toma del header `X-User-Id` que el gateway inyecta tras validar el JWT. La tabla incluye los commits de la rama `develop` desde el 22/02/2026.
+
+---
+
+**Repositorio: Invoicing Service (Gestión de Facturas Negociables)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-invoicing-service](https://github.com/liquilabshq/vankoo-invoicing-service)
+
+Microservicio encargado de la recepción de archivos PDF/XML de facturas electrónicas, la extracción automática de metadatos con IA (OCR+NLP), la validación de consistencia de los comprobantes y la gestión de su estado. En el Sprint 2 se incorporó la identificación de la MYPE a partir del header `X-User-Id` propagado por el API Gateway y se ajustó la configuración para el despliegue contenerizado.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---------------------------|-------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|
+| liquilabshq/vankoo-invoicing-service | develop | 7420951 | Merge pull request #19 from liquilabshq/feature/deployment-configuration | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | d850cbb | Merge branch 'develop' into feature/deployment-configuration | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | c31eda9 | fix(invoicing): use the gateway-injected X-User-Id as the invoice's MypeId | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 1ea4da4 | Merge pull request #17 from liquilabshq/feature/deployment-configuration | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | 579797b | fix: enable CORS for the frontend in non-production environments | - | 15/09/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 185ffef | Merge pull request #15 from liquilabshq/feature/deployment-configuration | - | 09/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/deployment-configuration | 43ea9be | chore(docker): ignore appsettings.Docker.json in .dockerignore | - | 09/09/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | dfa5199 | Merge pull request #14 from liquilabshq/refactor/ocr-implementation-improvements | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 2b0dcfe | Merge remote-tracking branch 'origin/develop' into refactor/ocr-implementation-improvements | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | c78fe0d | feat: add tests for Azure OCR mapping and invoice consistency validation | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | ab48d82 | feat: enhance invoice processing with improved data structures and error handling | - | 06/08/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | c4a5bcf | Merge pull request #13 from liquilabshq/feature/add-aws-s3-storage-provider | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-aws-s3-storage-provider | 54e12cb | feat(storage): add AWS S3 provider | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 3ecc325 | Merge pull request #12 from liquilabshq/feature/setup-harness-engineering | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/setup-harness-engineering | b6bb988 | chore: add engineering setup harness | - | 28/07/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | bacbb3b | Merge pull request #11 from proyecto-verano-2026/feature/invoicing-documentation | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 865f52c | feat: add README.md for invoicing service documentation | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 3ef6f53 | feat: add CLAUDE.md for AI agent guidelines and project architecture | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 9c4deaf | Merge pull request #10 from proyecto-verano-2026/feature/invoicing-docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 47dcd3e | feat: remove compose.yaml from solution items | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: añadir verificación de salud para MinIO mediante un health check | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexión y añadir soporte para OCR y Kafka en archivos de configuración | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: añadir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: añadir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con múltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | a80e424 | Merge pull request #9 from proyecto-verano-2026/feature/internal-ocr-task-worker | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: añadir clase OcrWorkerSettings para configurar parámetros del trabajador de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: añadir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: añadir enumeración OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: añadir implementación de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: añadir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: añadir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: añadir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e0eee2c | feat: eliminar propiedad MypeId de UploadInvoiceResource | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 1d99809 | feat: configurar OcrWorkerSettings y registrar OcrTaskWorker en el contenedor de servicios | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicación de eventos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: añadir comentario sobre la creación dinámica de tópicos en KafkaEventBus | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e5d4768 | feat: actualizar InvoicesController para generar un nuevo MypeId al subir una factura | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar método EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma síncrona | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: añadir el método EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 58488bf | Merge pull request #8 from proyecto-verano-2026/feature/add-event-for-upload-invoice | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el método UploadInvoice para usar el request UploadInvoiceResource y añadir la respuesta InvoiceResource | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 1a0b494 | feat: agregar funcionalidad para subir y descargar facturas mediante comandos y consultas | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | b1783e0 | feat: implementar descarga de archivos desde MinIO en MinioStorageService y ajustar procesamiento de OCR | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | c1c41fb | Merge pull request #7 from proyecto-verano-2026/refactor/ocr-implementation-improvements | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 3d09d86 | refactor: remove unused CreateInvoice method from InvoicesController | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | b4bdc83 | refactor: update OCR exception handling to use Azure-specific namespaces | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | bcff487 | refactor: reorganize OCR exception handling by moving exceptions | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | aa3d8b9 | refactor: update MinioStorageService to inject S3 client for improved dependency management | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 2289082 | refactor: enhance OCR processing with improved error handling and field extraction | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 0a8e4ce | refactor: implement domain and infrastructure exception handling for improved error management | - | 03/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | f472f23 | refactor: implement global exception handler for improved error responses | - | 02/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 51f1141 | refactor: enhance OCR exception handling with specific error codes | - | 02/03/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | 20c6d79 | refactor: mejorar manejo de excepciones en el servicio de OCR de Azure | - | 02/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 834c472 | Merge pull request #6 from proyecto-verano-2026/feature/error-handling-strategy | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 4a82e7d | feat: agrega clase MongoDbOperationException para manejo de errores en operaciones de MongoDB | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 729ac4d | feat: agrega clase OcrProcessingException para manejo de errores en el procesamiento de OCR | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 338e4ed | feat: agrega clase StorageException para manejo de errores de almacenamiento | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | a6b5b13 | feat: implementa UploadInvoiceCommand y su manejador para subir facturas | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 975c258 | feat: implementa el GlobalExceptionHandler para manejo centralizado de excepciones | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones específicas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 0afc917 | feat: agrega excepciones base para operaciones de base de datos y respuesta de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | e3f9115 | feat: agrega excepciones base para manejo de errores de dominio | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 8527b86 | feat: agrega el global exception handler y el soporte de detalle de problemas en Program.cs | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | d42cdfd | feat: implementa el MinioStorageService para upload, download, and deletion con manejo de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | f95443f | feat: refactoriza el LowOcrConfidenceException para extender de BusinessRuleViolationException y mejora el mensaje de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 3ff5e5c | feat: actuliza el InvoiceNotFoundException para extender de EntityNotFoundException y mejora el mensaje de error | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 36d5884 | feat: mejora el manejo de errores en InvoiceDocument remplazando por InvoiceDomainException por InvalidValueException | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | cb42611 | feat: enhance error handling in Invoice class by refining exception messages and types | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 51d0f86 | feat: refactor InvalidRucException to extend InvalidValueException and enhance error messaging | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 03b7120 | feat: refactor InvalidInvoiceStateException to extend BusinessRuleViolationException and improve error handling | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar métodos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gestión de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 7e962ee | Merge pull request #5 from proyecto-verano-2026/feature/azure-ocr-integration | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 58a5639 | feat: agregar configuracion de servicio y mediatr al Program.cs | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6d3fa23 | feat: agregar metodos para procesamiento de ocr al aggregate Invoice | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | e3461f8 | feat: agregar endpoint en controller para el proceso de extraer data de factura | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | aece6cb | feat: actualizar dependencias del proyecto | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2132593 | feat: actualizar interfaz e implementacion del servico de OCR Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 011494f | chore: remover archivos no usados | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 536c85a | feat: agregar mediator en el handler para publicar el evento de dominio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4221c51 | chore: remover evento de factura creada | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | adebfee | feat: agregar mapper para convertir respuesta de azure al dominio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 08c7f55 | feat: agregar configuracion de kafka | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | dcbc63e | feat: agregar event handler de una factura procesada | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | baa9281 | feat: agregar interfaz e implementacionde event bus | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ce3157f | feat: agregar integration event para una factura procesada por ocr | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7d6e524 | feat: agregar domain event para una factura procesada por ocr | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | b234016 | feat: agregar implementacion del repositorio | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 0315991 | feat: agregar base de sorage service | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuración para Azure OCR en appsettings.json | - | 27/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integración con Azure Form Recognizer | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuración de OCR de Azure | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ca29c71 | feat: agregar clases FileKey e InvoiceDocument para manejo de documentos de factura | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepción personalizada para el procesamiento de OCR | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR síncrono de facturas | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 92a3569 | feat: agregar comando y manejador para consultar resultados de OCR | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 9cff590 | feat: implementar comando y manejador para iniciar procesamiento OCR de facturas | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validación para solicitudes en el pipeline | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | develop | 49207ce | Merge pull request #3 from proyecto-verano-2026/feature/minio-storage | - | 25/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminación de archivos en S3 | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de solución para soporte de MinIO y Docker | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | e973c56 | feat: refactorizacion de Invoice para usar el InvoiceDocument y actualizaciond el metodo factory | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuración de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuración de MinioSettings en appsettings.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar límites de tamaño de archivo | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuración del almacenamiento en MinIO | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | c878db1 | feat: agregar IStorageService para manejo de operaciones de almacenamiento | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8b940a9 | feat: actualizar InvoiceCreatedEvent para usar FileKey en lugar de FileUrl | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | e232cf7 | feat: agregar InvoiceDocument value object para el manejo de la subida de archivos | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 324cf95 | feat: agregar FileKey value object para la identificacion unica de los archivos | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 7921f86 | feat: agregar Docker Compose configuracion para el servicio de Invoicing | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f1c7b6b | feat: add Dockerfile and .dockerignore for containerization | - | 22/02/2026 |
+
+#### 5.2.2.4. Testing Suite Evidence for Sprint Review
+
+En esta sección se presenta la evidencia de la suite de pruebas automatizadas del microservicio **Invoicing** de Vankoo, relacionada con la User Story **US01 – Carga inteligente de facturas**. Los Unit Tests verifican las reglas de dominio, la resolución de líneas de factura y el mapeo de las respuestas OCR. Los Acceptance Tests, escritos bajo el enfoque BDD, verifican el escenario de aceptación de US01 para facturas con datos inconsistentes, sobre el flujo completo de carga y procesamiento de la factura.
+
+La suite comprende **16 casos de prueba**: 12 Unit Tests y 4 escenarios de aceptación.
+
+```text
+Unit Tests:        12 casos identificados
+Acceptance Tests:   4 escenarios identificados
+Total:             16 casos identificados
+```
+
+**Repositorio de Testing**
+
+| Repository | Branch revisada | Testing Scope |
+|---|---|---|
+| `liquilabshq/vankoo-invoicing-service` | `feature/us01-acceptance-tests` | Unit Tests para OCR, consistencia de facturas, líneas de factura y validación del RUC; Acceptance Tests BDD para US01. |
+
+**URL y ubicación de las pruebas**
+
+| Microservicio | URL del repositorio | Ruta de pruebas |
+|---|---|---|
+| Invoicing | https://github.com/liquilabshq/vankoo-invoicing-service | `LiquiLabs.Vankoo.Invoicing.Tests` |
+
+**Unit Tests diseñados**
+
+**Invoicing Service**
+
+Invoicing utiliza **xUnit** sobre **.NET 10**. Las pruebas se organizan por capa (`Application`, `Domain` e `Infrastructure`) y no dependen de MongoDB, Kafka ni del proveedor de almacenamiento.
+
+| Test Class | Related Class / Component | User Story | Validated Behavior |
+|---|---|---|---|
+| `InvoiceLineItemResolverTests` | `InvoiceLineItemResolver` | US01 | Valida la conservación de importes decimales y la resolución de montos ambiguos como precio unitario. |
+| `InvoiceConsistencyValidatorTests` | `InvoiceConsistencyValidator` | US01 | Valida facturas consistentes, facturas vencidas y decisiones de revisión según la confianza de campos críticos y no críticos. |
+| `RucNumberTests` | `RucNumber` | US01 | Valida cuatro RUC peruanos con dígito verificador correcto y rechaza un RUC inválido. |
+| `AzureOcrMapperTests` | `AzureOcrMapper` | US01 | Valida la extracción del emisor y la resolución de ítems desde una respuesta OCR simulada. |
+
+**Acceptance Tests diseñados (BDD)**
+
+Los Acceptance Tests se implementan con **Reqnroll** (framework BDD para .NET) sobre xUnit. El archivo `.feature` describe en Gherkin los criterios de aceptación de US01, y la clase de *Steps* en C# los ejecuta contra los handlers reales de la aplicación (`UploadInvoiceCommandHandler` y `ProcessOcrSynchronouslyHandler`), con el mismo pipeline de MediatR y validaciones que usa el servicio. MongoDB, el almacenamiento de archivos, Azure OCR y Kafka se reemplazan por adaptadores en memoria.
+
+| Archivo | Tipo | Ruta |
+|---|---|---|
+| `SmartInvoiceUpload.feature` | Feature File (Gherkin) | `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Features` |
+| `SmartInvoiceUploadSteps.cs` | Steps (C#) | `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Steps` |
+| `InvoicingTestHost.cs`, `InMemoryAdapters.cs` | Soporte de pruebas (C#) | `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Support` |
+
+| User Story | Escenario de aceptación | Escenario en el `.feature` |
+|---|---|---|
+| US01 | Escenario 2: la factura contiene datos inconsistentes. El sistema la marca como `Requiere revisión` (`REQUIRES_REVIEW`) o como no elegible (`NOT_ELIGIBLE`) y evita que sea enviada a subasta. | `An invoice with inconsistent data is not sent to the auction` |
+
+**Feature File: `SmartInvoiceUpload.feature`**
+
+```gherkin
+@US01
+Feature: Smart invoice upload
+  As a MYPE business owner
+  I want to register my invoice in the MYPE Web
+  So that the system extracts its data and prepares the liquidity operation
+
+  Background:
+    Given a MYPE business owner is signed in through the API Gateway
+
+  Scenario Outline: An invoice with inconsistent data is not sent to the auction
+    Given the business owner has a readable PDF invoice
+    And the OCR reads the invoice with <inconsistency>
+    When the business owner uploads the invoice
+    And the system finishes the extraction and initial validation
+    Then the invoice status is "<status>"
+    And the invoice reports the issue "<issue code>"
+    And the invoice is not sent to the auction
+
+    Examples:
+      | inconsistency                     | status          | issue code              |
+      | a total that does not reconcile   | REQUIRES_REVIEW | TOTALS_DO_NOT_RECONCILE |
+      | a low-confidence due date         | REQUIRES_REVIEW | LOW_OCR_CONFIDENCE      |
+      | an expired due date               | NOT_ELIGIBLE    | INVOICE_EXPIRED         |
+      | the same RUC for issuer and payer | NOT_ELIGIBLE    | ISSUER_EQUALS_PAYER     |
+```
+
+**Ejemplos del Scenario Outline**
+
+Cada fila de `Examples` simula una lectura OCR distinta sobre la misma factura base (emisor `20573093420`, pagador `20169004359`, subtotal S/ 1,398.30, IGV S/ 251.70). La regla que se activa es la del `InvoiceConsistencyValidator` actual del servicio.
+
+| Ejemplo | Dato simulado en la lectura OCR | Regla del servicio | Estado esperado |
+|---|---|---|---|
+| `a total that does not reconcile` | Total de S/ 1,800.00 en lugar de S/ 1,650.00. | Subtotal, descuento, impuestos y total no cuadran dentro de la tolerancia de S/ 0.02 (`TOTALS_DO_NOT_RECONCILE`). | `REQUIRES_REVIEW` |
+| `a low-confidence due date` | Campo crítico `DueDate` leído con 40 % de confianza. | Un campo crítico por debajo del 75 % de confianza requiere revisión (`LOW_OCR_CONFIDENCE`). | `REQUIRES_REVIEW` |
+| `an expired due date` | Emitida hace 90 días y vencida hace 30 días. | Una factura vencida no es elegible para factoring (`INVOICE_EXPIRED`). | `NOT_ELIGIBLE` |
+| `the same RUC for issuer and payer` | El pagador tiene el mismo RUC que el emisor. | El emisor y el pagador no pueden ser la misma empresa (`ISSUER_EQUALS_PAYER`). | `NOT_ELIGIBLE` |
+
+En los cuatro casos se verifica, además, que la factura no queda elegible para financiamiento y que no se publica el evento `InvoiceEligibleForFundingIntegrationEvent`, que es el que envía la factura a la subasta del servicio Investment.
+
+**Step Definitions**
+
+| Paso Gherkin | Método | Qué hace |
+|---|---|---|
+| `Given a MYPE business owner is signed in through the API Gateway` | `GivenABusinessOwnerIsSignedIn` | Genera el `MypeId` que el API Gateway propaga en el header `X-User-Id` tras validar el JWT. |
+| `Given the business owner has a readable PDF invoice` | `GivenAReadablePdfInvoice` | Precondición: se usa un PDF con firma válida que supera la inspección de `InvoiceFileInspector`. |
+| `And the OCR reads the invoice with <inconsistency>` | `GivenTheOcrReadsAnInconsistentInvoice` | Configura el OCR simulado con la lectura inconsistente del ejemplo. |
+| `When the business owner uploads the invoice` | `WhenTheBusinessOwnerUploadsTheInvoice` | Envía `UploadInvoiceCommand` por MediatR; la factura se guarda y se encola su tarea OCR. |
+| `And the system finishes the extraction and initial validation` | `WhenTheSystemFinishesTheExtraction` | Envía `ProcessOcrSynchronouslyCommand`, que aplica el OCR y la validación de consistencia. |
+| `Then the invoice status is "<status>"` | `ThenTheInvoiceStatusIs` | Verifica el estado final de la factura. |
+| `And the invoice reports the issue "<issue code>"` | `ThenTheInvoiceReportsTheIssue` | Verifica que la validación registre el código de observación esperado. |
+| `And the invoice is not sent to the auction` | `ThenTheInvoiceIsNotSentToTheAuction` | Verifica que la factura no es elegible y que no se publicó el evento hacia la subasta. |
+
+**Soporte de pruebas**
+
+| Clase | Responsabilidad |
+|---|---|
+| `InvoicingTestHost` | Arma el mismo pipeline de MediatR que `Program.cs` (handlers, `ValidationBehavior` y validadores FluentValidation). Reqnroll crea una instancia por escenario, por lo que cada ejemplo se ejecuta de forma aislada. |
+| `InMemoryInvoiceRepository` | Reemplaza el repositorio MongoDB de facturas. |
+| `InMemoryStorageService` | Reemplaza el almacenamiento de archivos (Amazon S3 / MinIO). |
+| `StubOcrService` | Reemplaza Azure Document Intelligence y devuelve la lectura definida por el escenario. |
+| `RecordingEventBus` | Reemplaza Kafka y registra los eventos publicados para verificarlos. |
+| `InMemoryOcrTaskRepository` | Reemplaza la cola de tareas OCR; el escenario dispara el OCR de forma síncrona. |
+
+**Steps File: `SmartInvoiceUploadSteps.cs`**
+
+A continuación se muestran los métodos principales de la clase de *Steps*: la simulación de la lectura OCR inconsistente, la carga de la factura, el procesamiento OCR y la verificación de que la factura no llega a la subasta. El archivo completo está en `LiquiLabs.Vankoo.Invoicing.Tests/Acceptance/Steps/SmartInvoiceUploadSteps.cs`.
+
+```csharp
+[Given(@"^the OCR reads the invoice with (.*)$")]
+public void GivenTheOcrReadsAnInconsistentInvoice(string inconsistency)
+{
+    var today = DateTime.UtcNow.Date;
+
+    _extraction = inconsistency switch
+    {
+        "a total that does not reconcile" => BuildExtraction(
+            PayerRuc, PayerName, total: 1800.00m,
+            issueDate: today.AddDays(-5), dueDate: today.AddDays(60)),
+
+        "a low-confidence due date" => BuildExtraction(
+            PayerRuc, PayerName, total: 1650.00m,
+            issueDate: today.AddDays(-5), dueDate: today.AddDays(60),
+            fieldConfidences: [new OcrFieldConfidence("DueDate", 0.40f)]),
+
+        "an expired due date" => BuildExtraction(
+            PayerRuc, PayerName, total: 1650.00m,
+            issueDate: today.AddDays(-90), dueDate: today.AddDays(-30)),
+
+        "the same RUC for issuer and payer" => BuildExtraction(
+            IssuerRuc, IssuerName, total: 1650.00m,
+            issueDate: today.AddDays(-5), dueDate: today.AddDays(60)),
+
+        _ => throw new ArgumentOutOfRangeException(nameof(inconsistency), inconsistency, "Unknown inconsistency")
+    };
+}
+
+[When("the business owner uploads the invoice")]
+public async Task WhenTheBusinessOwnerUploadsTheInvoice()
+{
+    _host.Ocr.Extraction = _extraction;
+
+    _invoiceId = await _host.SendAsync(new UploadInvoiceCommand
+    {
+        MypeId = _mypeId,
+        OriginalName = "E001-4.pdf",
+        ContentType = "application/pdf",
+        FileSizeBytes = ReadablePdf.Length,
+        FileStream = new MemoryStream(ReadablePdf)
+    });
+}
+
+[When("the system finishes the extraction and initial validation")]
+public async Task WhenTheSystemFinishesTheExtraction()
+{
+    Assert.NotNull(_invoiceId);
+    Assert.Contains(_invoiceId, _host.OcrTasks.EnqueuedInvoiceIds);
+
+    _details = await _host.SendAsync(new ProcessOcrSynchronouslyCommand(_invoiceId));
+}
+
+[Then("the invoice is not sent to the auction")]
+public void ThenTheInvoiceIsNotSentToTheAuction()
+{
+    Assert.NotNull(_details);
+    Assert.False(_details.EligibleForFunding);
+    Assert.Equal(nameof(IntegrationEventPublicationStatus.NOT_APPLICABLE), _details.IntegrationEventStatus);
+    Assert.Empty(_host.EventBus.Published.OfType<InvoiceEligibleForFundingIntegrationEvent>());
+}
+```
+
+**Commits relacionados con Testing**
+
+**Invoicing Service**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | dd1da52 | test(invoicing): add US01 feature describing how inconsistent invoice data blocks sending to the auction | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | b69e65f | test(invoicing): add Reqnroll step definitions that upload invoices and verify inconsistent OCR data handling | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | 184e151 | test(invoicing): add test host that wires the MediatR pipeline with in-memory adapters per scenario | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | ed455b3 | test(invoicing): add in-memory repository, storage, OCR, event bus and task adapters for acceptance tests | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/us01-acceptance-tests | d95337f | build(tests): add Reqnroll xUnit package to run BDD acceptance scenarios in the invoicing test project | - | 22/09/2026 |
+| liquilabshq/vankoo-invoicing-service | refactor/ocr-implementation-improvements | c78fe0d | feat: add tests for Azure OCR mapping and invoice consistency validation | - | 06/08/2026 |
+
+
+#### 5.2.2.5. Execution Evidence for Sprint Review
+
+Durante el Sprint 2 se implementó en la **Web Application para MYPE** el flujo principal para registrar una factura electrónica. La aplicación permite ingresar al módulo de facturas desde la navegación lateral, visualizar el estado vacío cuando todavía no existen comprobantes, seleccionar o arrastrar un archivo PDF y consultar el progreso de su procesamiento mediante una línea de tiempo. Esta línea comunica las etapas previstas del ciclo de la factura: **Recibida**, **Leyendo datos**, **Validando con SUNAT**, **Aprobada** y **En subasta**. También se incorporaron acciones para revisar la factura cargada o iniciar la carga de una nueva.
+
+Las siguientes capturas corresponden a la ejecución de la interfaz desarrollada durante el Sprint y presentan la navegación lograda desde el estado inicial del módulo hasta el procesamiento del documento.
+
+
+**Web Application (MYPE Web App) — Módulo de facturas**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+Al ingresar por primera vez al módulo **Facturas**, la aplicación presenta un estado vacío que informa a la MYPE que aún no tiene comprobantes registrados. Desde esta vista, el botón **Subir factura**, disponible tanto en la cabecera como en el mensaje central, conduce al inicio del flujo de carga.
+
+![Web Application - Estado vacío del módulo de facturas](./assets/cap5-product-implementation/sprint-2/execution-evidence/01-invoices-empty-state.png)
+
+La vista **Subir factura** permite arrastrar un archivo o seleccionarlo desde el equipo. La interfaz especifica que el documento debe ser el PDF de una factura electrónica emitida en SUNAT y explica que sus datos serán extraídos automáticamente. En la parte inferior se anticipan las cinco etapas que seguirá el comprobante después de la carga.
+
+![Web Application - Formulario para subir una factura](./assets/cap5-product-implementation/sprint-2/execution-evidence/02-invoice-upload-form.png)
+
+Después de seleccionar el PDF, la aplicación muestra el nombre y tamaño del archivo, confirma que la subida se completó y marca la factura en la etapa **Recibida**. Desde este punto, el usuario puede abrir el documento mediante **Ver la factura**, descartarlo con el ícono de cierre o elegir **Subir otra**.
+
+![Web Application - Factura recibida después de la carga](./assets/cap5-product-implementation/sprint-2/execution-evidence/03-invoice-received.png)
+
+Finalmente, el indicador de progreso avanza a **Leyendo datos**, brindando retroalimentación visible mientras el sistema procesa la información del comprobante. La línea de tiempo conserva a la vista las etapas restantes validación con SUNAT, aprobación y publicación en subasta para que la MYPE comprenda el estado actual y el recorrido posterior de su factura.
+
+![Web Application - Lectura de datos de la factura](./assets/cap5-product-implementation/sprint-2/execution-evidence/04-invoice-reading-data.png)
+
+#### 5.2.2.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 2 se completó la documentación OpenAPI del **Finance Service**, microservicio encargado de las recargas de saldo (*deposits*) y de las billeteras de los inversionistas. La especificación expone siete operaciones agrupadas en **Deposits**, **Wallets** y **Provider Webhooks**, y se presenta mediante **Scalar** con tema *mars* y modo oscuro. Además de describir los contratos de entrada y salida, la documentación registra validaciones, códigos de error, paginación, control de propiedad mediante `X-User-Id` e idempotencia mediante `Idempotency-Key` para impedir cargos o débitos duplicados.
+
+En este Sprint el servicio se ejecutó localmente en el puerto `8083`; por ello, las capturas y enlaces corresponden a la documentación local. La configuración OpenAPI también declara como servidor alternativo el API Gateway local en `http://localhost:8080/finance`.
+
+**Finance Service — Depósitos y billeteras**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-finance-service](https://github.com/liquilabshq/vankoo-finance-service)
+
+Documentación local (Scalar): `http://localhost:8083/scalar`
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/deposits` | Iniciar una recarga de saldo. La solicitud se acepta inmediatamente y el procesamiento con Stripe continúa de forma asíncrona. | POST | `POST http://localhost:8083/api/v1/deposits` | Header requerido: `Idempotency-Key`. Body JSON: `accountId` (UUID), `amountMinor` (entero positivo), `currency` (`PEN` o `USD`), `provider` (`STRIPE`) y `description` (opcional, máximo 500 caracteres). | `202 Accepted` → `{"depositId":"0199...","accountId":"0198...","amountMinor":150000,"currency":"PEN","provider":"STRIPE","status":"PENDING","actionUrl":null,...}`. Confirma que la recarga fue registrada o recuperada por idempotencia; `400` indica datos inválidos y `409`, reutilización de la clave con otro contenido. | `http://localhost:8083/scalar` |
+| `/api/v1/deposits/{depositId}` | Consultar el estado proyectado de una recarga. | GET | `GET http://localhost:8083/api/v1/deposits/{depositId}` | Path: `depositId` (UUID). | `200 OK` → objeto con `depositId`, `accountId`, monto, moneda, proveedor, `status`, `actionUrl`, razones de fallo/cancelación y fechas. Permite conocer el estado actualizado; responde `400` ante un identificador inválido y `404` si no existe. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/deposits?page=0&size=20` | Listar de forma paginada las recargas pertenecientes a una cuenta. | GET | `GET http://localhost:8083/api/v1/accounts/{accountId}/deposits?page=0&size=20` | Path: `accountId` (UUID). Query opcionales: `page` (entero desde 0, por defecto `0`) y `size` (entero positivo, por defecto `20`). Header inyectado por el gateway: `X-User-Id`, que debe coincidir con `accountId`. | `200 OK` → `{"items":[{...}],"pageNumber":0,"pageSize":20,"totalElements":1}`. Devuelve una página que puede estar vacía; `400` señala parámetros inválidos y `403`, que el usuario no es propietario de la cuenta. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/wallets/{currency}/debits` | Debitar una billetera de forma síncrona. Una repetición con la misma clave y el mismo body devuelve el mismo `debitId` sin efectuar otro débito. | POST | `POST http://localhost:8083/api/v1/accounts/{accountId}/wallets/{currency}/debits` | Path: `accountId` (UUID) y `currency` (`PEN` o `USD`). Headers: `Idempotency-Key` requerido y `X-User-Id` coincidente. Body JSON: `amountMinor` (entero positivo) y `reason` (`INVERSION`, `RETIRO` o `COMISION`). | `201 Created` → `{"debitId":"0199...","walletId":"...","accountId":"0198...","currency":"PEN","amountMinor":5000,"reason":"INVERSION"}`. Confirma el débito o su repetición idempotente; también contempla `400`, `403`, `404` y `409` por saldo insuficiente o conflicto de idempotencia. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/wallets/{currency}` | Consultar el saldo actual de una billetera. | GET | `GET http://localhost:8083/api/v1/accounts/{accountId}/wallets/{currency}` | Path: `accountId` (UUID) y `currency` (`PEN` o `USD`). Header: `X-User-Id` coincidente. | `200 OK` → `{"walletId":"...","accountId":"0198...","currency":"PEN","balanceMinor":145000,"createdAt":"2026-09-22T...","updatedAt":"2026-09-22T..."}`. Presenta el saldo en unidades menores; responde `404` cuando todavía no existe una billetera para esa moneda. | `http://localhost:8083/scalar` |
+| `/api/v1/accounts/{accountId}/wallets/{currency}/movements?page=0&size=20` | Consultar el historial paginado de movimientos de una billetera. | GET | `GET http://localhost:8083/api/v1/accounts/{accountId}/wallets/{currency}/movements?page=0&size=20` | Path: `accountId` (UUID) y `currency` (`PEN` o `USD`). Query opcionales: `page` (desde 0) y `size` (positivo). Header: `X-User-Id` coincidente. | `200 OK` → `{"items":[{"type":"INVERSION","direction":"DEBIT","amountMinor":5000,"currency":"PEN","sourceDepositId":null,"debitId":"0199...","occurredAt":"2026-09-22T..."}],"pageNumber":0,"pageSize":20,"totalElements":1}`. Devuelve los créditos y débitos, o una página vacía si aún no existen movimientos. | `http://localhost:8083/scalar` |
+| `/api/v1/payment-providers/stripe/webhooks` | Recibir eventos enviados por Stripe, verificar su firma y registrarlos en el *inbox* para procesamiento asíncrono. | POST | `POST http://localhost:8083/api/v1/payment-providers/stripe/webhooks` | Header requerido: `Stripe-Signature`. Body: evento JSON original enviado por Stripe; se conserva como texto para verificar exactamente los bytes firmados. | `200 OK` sin body confirma que el evento fue registrado, ya era conocido o no requiere procesamiento. `400 Bad Request` indica que la firma no valida o que el body no representa un evento legible. La respuesta no espera la actualización de la recarga. | `http://localhost:8083/scalar` |
+
+La primera interacción documenta `POST /api/v1/deposits`. Scalar muestra el encabezado obligatorio `Idempotency-Key`, el body de creación, el comando `curl` y el esquema de respuesta `202 Accepted`; la operación devuelve inicialmente la recarga con estado `PENDING` mientras la creación del cargo continúa en segundo plano.
+
+![Finance Service - Iniciar una recarga](./assets/cap5-product-implementation/sprint-2/services-documentation/01-finance-deposit-create.png)
+
+La consulta `GET /api/v1/deposits/{depositId}` recibe el identificador de la recarga por la ruta. La documentación presenta el objeto completo que se obtiene con `200 OK` y diferencia los errores por formato inválido (`400`) y recurso inexistente (`404`).
+
+![Finance Service - Consultar el estado de una recarga](./assets/cap5-product-implementation/sprint-2/services-documentation/02-finance-deposit-get.png)
+
+La operación `GET /api/v1/accounts/{accountId}/deposits` expone los parámetros de paginación `page` y `size`. El ejemplo de respuesta contiene la colección `items` y sus metadatos de página; también evidencia el control `403` cuando el `X-User-Id` autenticado no coincide con la cuenta solicitada.
+
+![Finance Service - Listar recargas de una cuenta](./assets/cap5-product-implementation/sprint-2/services-documentation/03-finance-deposits-list.png)
+
+En `POST /api/v1/accounts/{accountId}/wallets/{currency}/debits` se documentan la cuenta y moneda en la ruta, la clave de idempotencia y los campos `amountMinor` y `reason`. La respuesta `201 Created` entrega un `debitId`, utilizado como referencia de la transacción, sin repetir el débito cuando se reenvía la misma solicitud.
+
+![Finance Service - Debitar una billetera](./assets/cap5-product-implementation/sprint-2/services-documentation/04-finance-wallet-debit.png)
+
+La consulta del saldo mediante `GET /api/v1/accounts/{accountId}/wallets/{currency}` devuelve la identificación de la billetera, su moneda, el saldo en unidades menores y sus fechas de creación y actualización. Los códigos alternativos distinguen entradas inválidas, acceso a otra cuenta y una billetera todavía inexistente.
+
+![Finance Service - Consultar el saldo de una billetera](./assets/cap5-product-implementation/sprint-2/services-documentation/05-finance-wallet-balance.png)
+
+El historial `GET /api/v1/accounts/{accountId}/wallets/{currency}/movements` también utiliza paginación. Cada elemento informa tipo, dirección, monto, moneda, referencias del depósito o débito y fecha de ocurrencia, permitiendo reconstruir los movimientos visibles para el inversionista.
+
+![Finance Service - Historial paginado de movimientos](./assets/cap5-product-implementation/sprint-2/services-documentation/06-finance-wallet-movements.png)
+
+Finalmente, `POST /api/v1/payment-providers/stripe/webhooks` documenta el punto de entrada usado por Stripe. La firma llega en `Stripe-Signature`; una vez validada, el evento se almacena en el *inbox* y se responde inmediatamente con `200 OK`, evitando que Stripe genere reintentos innecesarios mientras la actualización se procesa de manera asíncrona.
+
+![Finance Service - Recepción de un webhook de Stripe](./assets/cap5-product-implementation/sprint-2/services-documentation/07-finance-stripe-webhook.png)
+
+**Commits relacionados — Finance Service**
+
+La siguiente tabla registra la evolución del servicio y permite rastrear la configuración de OpenAPI/Scalar, la implementación de depósitos, billeteras, webhooks, idempotencia y los ajustes realizados para su ejecución e integración durante el Sprint.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-finance-service | develop | a26482d | Merge pull request #25 from liquilabshq/feature/wallet-debit-endpoint | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-debit-endpoint | 4802e61 | feat(finance): debit endpoint, idempotency and X-User-Id ownership check | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 4a233dd | Merge pull request #24 from liquilabshq/docs/finance-stripe-in-compose | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | docs/finance-stripe-in-compose | eb3ef51 | docs(finance): how Stripe keys reach the service when it runs in the compose | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 063f5a1 | Merge pull request #23 from liquilabshq/feature/finance-dockerfile | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-dockerfile | bd1344f | chore(finance): add Dockerfile and .dockerignore | - | 16/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | f71e52b | Merge pull request #22 from liquilabshq/chore/finance-api-prefix | - | 15/09/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-api-prefix | 6993e2c | refactor(finance): serve the REST API under /api/v1 like the other services | - | 15/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 2c54644 | Merge pull request #21 from liquilabshq/fix/finance-kafka-send-failures | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | dd430ad | docs(finance): record how Kafka send failures are detected | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | ac055a8 | test(finance): cover Kafka send failures and a broker outage | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | fix/finance-kafka-send-failures | 011f013 | fix(finance): detect Kafka send failures in the integration publisher | - | 05/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 871e22b | Merge pull request #20 from liquilabshq/feature/finance-deposit-charge-creation | - | 04/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 33d1f0f | docs(finance): keep local secrets out of the packaged jar | - | 04/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 0ee5e27 | docs(finance): drop .env.example, Spring Boot never reads it | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | d268fc0 | feat(finance): create the Stripe charge when a deposit is initiated | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-deposit-charge-creation | 79fd5f3 | docs(finance): document the environment variables Stripe needs | - | 02/09/2026 |
+| liquilabshq/vankoo-finance-service | develop | 7b7d213 | Merge pull request #19 from liquilabshq/chore/finance-service-eureka-name | - | 31/08/2026 |
+| liquilabshq/vankoo-finance-service | chore/finance-service-eureka-name | 7a178e9 | chore(finance): drop the vankoo prefix from spring.application.name | - | 31/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 33348c2 | Merge pull request #18 from liquilabshq/feature/wallet-rest-endpoints | - | 30/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-rest-endpoints | 597b7fe | feat(finance): add read-only REST endpoints for Wallet | - | 30/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | f853591 | Merge pull request #17 from liquilabshq/feature/deposit-rest-endpoints | - | 27/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-rest-endpoints | 1c8c855 | feat(finance): add REST endpoints for Deposit | - | 27/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 562c429 | Merge pull request #16 from liquilabshq/fix/wallet-creditor-eventhandlers-layering | - | 25/08/2026 |
+| liquilabshq/vankoo-finance-service | fix/wallet-creditor-eventhandlers-layering | 2ebab9f | refactor(finance): move WalletCreditor to application/internal/eventhandlers | - | 25/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 614fb9c | Merge pull request #15 from liquilabshq/feature/finance-integrations-events | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 4ef4ffc | docs(finance): mark the integration event tests as pending, not present | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | a3e7f2c | docs(finance): document the integration event topic and headers | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | c1a3af1 | feat(finance): publish deposit outcomes to vankoo.finance.events.v1 | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 6346644 | feat(finance): add the integration event port and its Kafka producer | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-integrations-events | 0263568 | build(finance): add the Kafka binder for integration events | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | fa3820a | Merge pull request #14 from liquilabshq/feature/finance-webhook-inbox | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 7d836a8 | docs(finance): record where the inbox pieces live after the move | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | a3e87d3 | refactor(finance): apply the layering rules to the webhook inbox | - | 22/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | ef727a2 | Merge pull request #13 from liquilabshq/feature/wallet-aggregate | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/wallet-aggregate | ebf989c | feat(finance): add Wallet aggregate (event-sourced) | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | e793ec8 | Merge pull request #12 from liquilabshq/docs/wallet-uml-diagram | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-uml-diagram | 3a85e1d | docs(finance): add Wallet's members to the domain model diagram | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | cde24d4 | Merge pull request #11 from liquilabshq/docs/wallet-contract | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/wallet-contract | 9c623b6 | docs(finance): draft the Wallet aggregate contract | - | 21/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 4866da4 | Merge pull request #10 from liquilabshq/docs/deposit-read-model-followups | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | docs/deposit-read-model-followups | b7c5800 | docs(finance): record replay/rebuild procedure and the no-Redis decision | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | facb506 | Merge pull request #9 from liquilabshq/feature/deposit-read-models | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-read-models | 19f8b2d | feat(finance): add deposit read model (deposit_views projection + query handlers) | - | 20/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 36f4c02 | Merge pull request #8 from liquilabshq/feature/finance-webhook-inbox | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 5e6d42b | docs(finance): record the webhook inbox decisions in the contract | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 84b32de | feat(finance): add Stripe webhook endpoint | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 7605eaf | feat(finance): add webhook inbox with deduplication, parking and retries | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 425a03d | fix(finance): move @EnableJpaAuditing off the application class | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 441f01a | feat(finance): add finance_ops inbox and provider reference tables | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-webhook-inbox | 06e687d | refactor(finance): rebuild PaymentProvider port on domain types | - | 12/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 26f0b28 | Merge pull request #7 from liquilabshq/feature/deposit-optimistic-concurrency-test | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-optimistic-concurrency-test | 9d10d8a | test(finance): prove Axon Server's optimistic concurrency by sequence number | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 7f4d33a | Merge pull request #6 from liquilabshq/feature/deposit-aggregate | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 58c50da | refactor(finance): move business exceptions to domain/exceptions, leave the PaymentProvider port untouched | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 2cce23b | test(finance): add Given-When-Then coverage for the Deposit aggregate | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | d7bb43b | feat(finance): rebuild PaymentProvider port on the real domain types | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | e9afb15 | feat(finance): add Deposit domain model | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/deposit-aggregate | 9d61c14 | build(finance): add axon-test dependency for aggregate testing | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | develop | 738d326 | Merge pull request #5 from liquilabshq/feature/finance-stripe-provider | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | cf8d3e4 | feat(finance): add stripe configuration properties to application.yaml | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 6d46be0 | feat(finance): add stripewebhookcontroller for handling webhook events | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 0df5648 | feat(finance): implement stripe payment provider with configuration properties and webhook handling | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 6441016 | feat(finance): add stripe java sdk dependency and clean up paymentprovider interface | - | 08/08/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 0cb64b2 | refactor(finance): clean up PaymentProvider interface by commenting out unused methods | - | 31/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/finance-stripe-provider | 43af398 | chore(finance): remove provisional files for payment provider port | - | 31/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | 289c9fb | Merge pull request #4 from liquilabshq/feature/project-bootstrap | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | f9de072 | chore: make mvnw executable | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | fed1b3f | feat(finance): add OpenAPI documentation config with Scalar UI | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 042ccb0 | docs(finance): fix Axon Server context name in ADR-0001 (finance ÔåÆ default) | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | d1fe97b | feat(finance): connect to Axon Server and add an event store smoke test | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 5ef4488 | feat(finance): bootstrap persistence with Postgres, Flyway and a custom naming strategy | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | a95ec9e | build(finance): add Axon Framework, Flyway, UUIDv7 and OpenAPI dependencies | - | 29/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | dc74259 | docs: add AGENTS.md for AI coding agents | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | a972e90 | docs(finance): reconcile the contract after merging the payment port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | 2b55bbe | Merge remote-tracking branch 'origin/develop' into feature/project-bootstrap | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | d2e87cd | Merge pull request #3 from liquilabshq/feature/payment-provider-port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/project-bootstrap | cbe1ebe | docs(finance): switch to Axon 4 and record Axon Server licensing | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | ecc509d | test: prove paymentprovider port with an in-memory fake | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | fa60fa7 | feat: define PaymentProvider outbound port | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | 1bf5943 | feat: add sealed payment provider error hierarchy | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | 1be67c1 | feat: add paymentprovider port models and opaque identifiers | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/payment-provider-port | c850e9f | docs: settle paymentprovider port contract and open decisions | - | 28/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | d466512 | Merge pull request #2 from liquilabshq/feature/initial-documentation | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 025e2ab | docs(finance): settle currency catalog and event visibility | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 7cf22e9 | docs(finance): add the remaining card 1 diagrams | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | 3cfdcdf | Merge pull request #1 from liquilabshq/feature/initial-documentation | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 3a52691 | docs(finance): show Wallet in the domain model diagram | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | d0455a4 | docs(finance): add Deposit domain model diagram | - | 27/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | e6aa5b0 | refactor(finance): classify adapter packages by transport and by role | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 98e14bf | docs(finance): rework contracts around Deposit aggregate and Axon 5 | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | c3a996b | docs(finance): rename C4 diagrams for consistency | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 6080212 | docs(finance): correct C4 platform topology diagrams | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 6c1730a | docs(finance): add C4 architecture diagrams in PlantUML | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 5a4c149 | docs(finance): define initial domain and integration contracts | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | feature/initial-documentation | 64ca120 | docs(finance): add ADR for Axon Server and PostgreSQL read model | - | 26/07/2026 |
+| liquilabshq/vankoo-finance-service | develop | f31f2d5 | initial commit | - | 22/07/2026 |
+
+#### 5.2.2.7. Software Deployment Evidence for Sprint Review
+
+Para este segundo Sprint se desplegó el microservicio de IAM, responsable del registro, el inicio de sesión y la emisión de tokens JWT de Vankoo. A diferencia del Sprint 1, en el que Invoicing se ejecutó sobre Azure Container Instances (ACI), el IAM se desplegó en **Azure Container Apps (ACA)**, que agrega revisiones inmutables, secretos administrados, sondas de salud y escalado a cero réplicas cuando no recibe tráfico. Su base de datos se aprovisionó en **Azure Database for PostgreSQL Flexible Server**. Todos los recursos se crearon en el mismo grupo de recursos del Sprint 1, `liquilabs-vankoo-prod`.
+
+La suscripción académica (*Azure for Students*) limita los despliegues a cinco regiones mediante la política *Allowed resource deployment regions*. Como PostgreSQL Flexible Server no estaba disponible para esta suscripción en East US 2, la base de datos y la Container App se desplegaron juntas en **North Central US**, para que la aplicación y sus datos queden en la misma región; el Container Registry se mantuvo en East US 2.
+
+**1) Azure Container Registry (ACR)**
+
+Creamos un Container Registry en el grupo de recursos `liquilabs-vankoo-prod`, en la región East US 2 y con el plan **Basic**, para almacenar la imagen del servicio.
+
+![Creación del Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-acr-step-1.png)
+
+En la sección **Claves de acceso (Access keys)** habilitamos el **Usuario administrador (Admin user)**, cuyas credenciales se usan para publicar la imagen desde el entorno local.
+
+![Claves de acceso del Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-acr-step-2.png)
+
+**2) Build y Push de la Imagen Docker**
+
+Construimos la imagen del IAM a partir del `Dockerfile` del repositorio, que compila el proyecto con Maven y genera una imagen final ligera sobre Java 25.
+
+![Build de la imagen Docker del IAM](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-docker-step-1.png)
+
+Publicamos la imagen en el registro con la etiqueta `sprint-2`.
+
+![Push de la imagen hacia Azure Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-docker-step-2.png)
+
+Verificamos en la sección **Repositories** que el repositorio `vankoo-iam-service` contiene la etiqueta publicada.
+
+![Repositorio de la imagen en el Container Registry](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-acr-step-3.png)
+
+**3) Azure Database for PostgreSQL Flexible Server**
+
+Creamos el servidor `vankoo-iam-db` con PostgreSQL 16 y el tamaño **Burstable B1ms** (1 vCore, 2 GiB de memoria y 32 GiB de almacenamiento), suficiente para la carga del servicio de identidad. Se habilitó la autenticación de PostgreSQL con el usuario administrador `vankooadmin`.
+
+![Configuración de autenticación de PostgreSQL](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-1.png)
+
+En la pestaña de redes seleccionamos el acceso público y permitimos el tráfico desde los servicios de Azure, lo que habilita la conexión desde la Container App.
+
+![Configuración de redes de PostgreSQL](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-2.png)
+
+Comprobamos que el servidor se desplegó correctamente.
+
+![Despliegue de PostgreSQL completado](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-3.png)
+
+Desde la sección **Databases** creamos la base de datos `vankoo_iam_db`, que utiliza el servicio. Las tablas se generan automáticamente en el primer arranque del IAM.
+
+![Creación de la base de datos vankoo_iam_db](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-postgres-step-4.png)
+
+**4) Azure Container Apps**
+
+Creamos la Container App `vankoo-iam-service` en North Central US, junto con un nuevo **Container Apps Environment**, `vankoo-apps-env`, que agrupa las aplicaciones de Vankoo y administra su red y sus registros.
+
+![Configuración básica de la Container App](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-1.png)
+
+En la pestaña del contenedor seleccionamos la imagen `vankoo-iam-service:sprint-2` del registro y asignamos 1 vCPU y 2 GiB de memoria. Además, cargamos las variables de entorno no sensibles, entre ellas `SPRING_PROFILES_ACTIVE=azure`, que activa el perfil del servicio preparado para Container Apps, y los datos de conexión a la base de datos.
+
+![Selección de la imagen del contenedor](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-2.png)
+
+En la configuración de **Ingress** habilitamos el tráfico HTTP desde cualquier origen y definimos el puerto de destino `8081`, en el que escucha el servicio. Container Apps expone la aplicación con HTTPS en un dominio propio.
+
+![Configuración de Ingress de la Container App](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-3.png)
+
+Los valores sensibles se registraron como **secretos** de la Container App: la contraseña de la base de datos (`iam-db-password`), la clave de firma de los tokens JWT (`jwt-secret`) y la credencial del registro. Las variables `IAM_DB_PASSWORD` y `JWT_SECRET` del contenedor referencian estos secretos, de modo que ningún valor sensible queda en texto plano en la configuración.
+
+![Secretos de la Container App](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-4.png)
+
+Creamos una nueva revisión con las variables que referencian los secretos y configuramos las **sondas de salud** (*health probes*) de tipo HTTP sobre el puerto `8081`: la de *liveness* y la de arranque apuntan a `/actuator/health/liveness`, y la de *readiness* a `/actuator/health/readiness`. Con ellas, Container Apps solo envía tráfico a la revisión cuando el servicio está listo y la reinicia si deja de responder.
+
+![Configuración de health probes en una nueva revisión](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-5.png)
+
+Finalmente, verificamos que la Container App se encuentra en estado **Running** y obtenemos su URL pública.
+
+![Container App en ejecución](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-aca-step-6.png)
+
+**5) Verificación del despliegue**
+
+Consultamos el endpoint de salud `/actuator/health`, que responde con el estado `UP` e incluye los grupos de *liveness* y *readiness* utilizados por las sondas.
+
+![Health check del IAM en Azure](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-verification-step-1.png)
+
+La documentación interactiva del servicio queda disponible con **Scalar** en la URL pública de la Container App, con los endpoints de autenticación (registro, inicio de sesión y recuperación de contraseña) y de usuarios.
+
+![Documentación de Scalar del IAM desplegado](./assets/cap5-product-implementation/sprint-2/deployment-evidence/iam-verification-step-2.png)
+
+Documentación desplegada (Scalar): [https://vankoo-iam-service.graysmoke-7d6cb97d.northcentralus.azurecontainerapps.io/scalar](https://vankoo-iam-service.graysmoke-7d6cb97d.northcentralus.azurecontainerapps.io/scalar)
+
+Para este sprint, el IAM se ejecuta en Azure sin el servidor de descubrimiento, sin el broker de eventos y sin un proveedor de correo, que por ahora solo existen en el entorno local con `docker-compose`. Por ello, la solicitud de recuperación de contraseña responde correctamente, pero el correo con el enlace aún no se envía. Además, el esquema de la base de datos se genera automáticamente al arrancar, ya que el proyecto todavía no cuenta con migraciones versionadas. Estos aspectos quedan pendientes para los siguientes sprints.
+
+#### 5.2.2.8. Team Collaboration Insights during Sprint
+
+A continuación, se presenta los insights durante este segundo sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo de los microservicios, la infraestructura y el despliegue.
+
+| Integrante | Usuario GitHub | Actividad en el Sprint |
+|---|---|---|
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Finance Service (deposits y wallets) |
+| Crispin Ramos, Daniel Franco | danielcr04  | Avances de Invoicing Service |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | Vankoo Infra y Deploy de IAM Service |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Invoicing Service |
+| Vilca Saboya, Diego Alejandro | diesoks  | Vankoo Infra, Discovery Server|
+
+**Vankoo Infra**
+![Contributors Vankoo Infra](./assets/cap5-product-implementation/sprint-2/collaboration-insights/vankoo-infra-contributors-sprint-2.png)
+
+**Discovery Server**
+![Contributors Discovery Server](./assets/cap5-product-implementation/sprint-2/collaboration-insights/discovery-server-contributors-sprint-2.png)
+
+#### 5.2.2.9. Actas de reunión
+
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 2, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
+
+**Acta de reunión 1**
+
+| Campo | Detalle |
+| :---: | :--- |
+| Fecha | Miércoles 16 de setiembre de 2026 |
+| Hora | 09:00 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Avance del Finance Service y del Invoicing Service, estado de la configuración de Vankoo Infra y del Discovery Server, revisión del flujo de carga de facturas en la MYPE Web App y repartición de las secciones del informe del Sprint 2 |
+| Acuerdos | Continuar con el desarrollo y la documentación de los microservicios asignados a cada integrante, finalizar la integración del Invoicing Service con el API Gateway, distribuir las secciones del informe del Sprint 2 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
+| Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-2/actas-reunion/acta-reunion-01.png) |
+
+<hr class="page-break">
+
+# Capítulo VI: Team Software Process
+
+<!-- Aplicación del TSP de Watts S. Humphrey al equipo: dónde se documenta cada hito del TSP Launch, la estructura de roles TSP y Scrum, el User Story Mapping del MVP y el modelo de calidad. -->
+
+Este capítulo reúne la forma en que el equipo de LiquiLabs aplica el Team Software Process (TSP) en el desarrollo de Vankoo. El TSP concibe al equipo como autodirigido: sus propios integrantes planifican el trabajo, asumen roles explícitos y se comprometen con metas de calidad y esfuerzo desde el lanzamiento del proyecto (TSP Launch). Se presenta primero dónde se documenta cada hito del lanzamiento dentro de este informe; a continuación, la matriz formal de roles TSP y Scrum del equipo y, por último, el User Story Mapping que delimita el MVP.
+
+## 6.1. TSP Launch Overview
+
+<!-- Relación entre los hitos del TSP Launch (Kick-off, Design Thinking Workshop, Team, Story Mapping Session y Sprint Planning) y las secciones del informe donde se documentan sus artefactos. -->
+
+El lanzamiento del TSP se estructura en cinco hitos: el Kick-off Meeting, el Design Thinking Workshop, la definición del equipo y sus roles, la Story Mapping Session y el Sprint Planning. Varios de los artefactos que produce cada hito se elaboraron como parte de los capítulos anteriores; la siguiente tabla indica en qué sección del informe se encuentra cada uno, para no duplicar su contenido.
+
+| Hito del TSP Launch | Artefactos | Sección del informe |
+|---|---|---|
+| **Kick-off Meeting** | Descripción de la startup, misión y visión; antecedentes y problemática; Lean UX Problem Statements, Assumptions, Hypothesis Statements y Canvas; segmentos objetivo. | [1.1.1](#111-descripción-de-la-startup), [1.2](#12-solution-profile) y [1.3](#13-segmentos-objetivo) |
+| **Design Thinking Workshop** | User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping y As-is Scenario Mapping de la MYPE (Carlos) y del inversionista (Sofía). | [2.3.1](#231-user-personas) a [2.3.5](#235-as-is-scenario-mapping) |
+| **Team** | Perfiles de los integrantes y matriz de roles TSP y Scrum, con la designación del Scrum Master. | [1.1.2](#112-perfiles-de-integrantes-del-equipo) y [6.2](#62-tsp-roles--scrum-roles) |
+| **Story Mapping Session** | To-Be Scenario Mapping, User Stories, Impact Mapping y Product Backlog priorizado; User Story Map con la línea de corte del MVP. | [3.1](#31-to-be-scenario-mapping) a [3.4](#34-product-backlog) y [6.3](#63-user-story-mapping) |
+| **Sprint Planning** | Sprint Goal, historias comprometidas, story points y Sprint Backlog con tareas estimadas en horas y asignadas por integrante. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1), [5.2.2.1](#5221-sprint-planning-2) y [5.2.2.2](#5222-sprint-backlog-2) |
+
+## 6.2. TSP Roles & Scrum Roles
+
+<!-- Matriz formal de roles: rol TSP y rol Scrum de cada integrante, su responsabilidad concreta en Vankoo y la designación explícita del Scrum Master a cargo de las dinámicas. -->
+
+Cada integrante asume un rol TSP, que se mapea a su vez a un rol de Scrum. El rol acompaña al trabajo técnico y no lo sustituye: cada integrante sigue siendo responsable de los bounded contexts y repositorios en los que desarrolla.
+
+| Integrante | Rol TSP | Rol Scrum | Responsabilidad en Vankoo |
+|---|---|---|---|
+| Ramirez Mestanza, Salim Ignacio | Líder de equipo | Product Owner | Mantiene la visión del producto y la prioridad del Product Backlog. Lidera la arquitectura, los ADR y el diseño de producto en Figma, y convoca el lanzamiento, los relanzamientos y el postmortem. |
+| Crispin Ramos, Daniel Franco | Gestor de planificación | **Scrum Master** | Mantiene el plan vivo: estimaciones, orden del backlog, avance real por semana y actas. Facilita las dinámicas del equipo. |
+| Amaro Villar, Anjali | Gestora de desarrollo | Development Team | Guía el diseño técnico de las integraciones: pagos con Stripe, webhooks, mensajería con Kafka y contenedores del Finance Service. |
+| Vilca Saboya, Diego Alejandro | Gestor de calidad y proceso | Development Team | Define el criterio de «hecho», modera las revisiones antes de cada merge y custodia el plan de calidad y el registro de defectos. |
+| Sulca Gonzales, Paúl Fernando | Administrador de requerimientos y soporte | Development Team | Custodia los contratos de los servicios, la trazabilidad entre historia, tarea y pull request, el entorno con Docker Compose y la gestión de configuración. |
+
+**Scrum Master a cargo de las dinámicas:** el equipo designa a **Crispin Ramos, Daniel Franco** como Scrum Master. Es el responsable de que las dinámicas del proceso —Sprint Planning, reuniones de seguimiento, Sprint Review y retrospectiva— se realicen y queden registradas.
+
+El mapeo con Scrum es una adaptación: en Scrum el Product Owner no dirige al equipo de desarrollo, pero en un equipo de cinco integrantes sin cliente interno se asignó el rol a quien sostiene la visión completa del producto. Los roles TSP pueden rotar al cierre de cada postmortem.
+
+## 6.3. User Story Mapping
+
+<!-- User Story Map del MVP: backbone de actividades de cada User Persona, historias debajo de cada actividad y franjas por sprint que marcan la línea de corte del MVP. -->
+
+El User Story Mapping ordena las historias del Product Backlog según el recorrido de cada usuario por Vankoo. El mapa se elaboró en FigJam y parte de las User Personas del capítulo II: el visitante que conoce la plataforma, Carlos como empresario MYPE y Sofía como inversionista.
+
+### 6.3.1. Story Map del MVP
+
+<!-- Grilla visual del story map: actividades del usuario en la fila superior (backbone), historias debajo de cada actividad y una franja por sprint. -->
+
+La fila superior del mapa, o backbone, contiene las once actividades del recorrido de izquierda a derecha. Debajo de cada actividad se ubican sus historias, con su identificador y sus story points, y cada franja horizontal agrupa las historias de un sprint: lo que está más arriba se construye primero. Las historias de usuario se muestran en amarillo, las historias técnicas en turquesa y las que quedan fuera del MVP en gris.
+
+![User Story Map del MVP](assets/cap6-team-software-process/user-story-mapping/story-map-mvp.png)
+
+**Enlace al User Story Map:** [Ver en FigJam](https://www.figma.com/board/km1nMSZlgbDVd6IqR0aa5P)
+
+A continuación se transcribe el mapa en dos tablas. La primera recorre la experiencia del visitante, el registro y la MYPE.
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th rowspan="2">Franja</th>
+        <th>Visitante</th>
+        <th>Todos</th>
+        <th colspan="4">Carlos · MYPE</th>
+      </tr>
+      <tr>
+        <th>Conocer Vankoo</th>
+        <th>Crear cuenta e identificarse</th>
+        <th>Subir factura</th>
+        <th>Conocer riesgo y costo</th>
+        <th>Publicar en subasta</th>
+        <th>Seguir el fondeo y cobrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Sprint 1<br>26 SP</b></td>
+        <td valign="top"><b>LPS01</b> · 3 SP<br>Comprensión de la propuesta de valor<br><br><b>LPS02</b> · 5 SP<br>Simulador de adelanto<br><br><b>LPS03</b> · 3 SP<br>Orientación de conversión y confianza</td>
+        <td valign="top"><b>TS01</b> · 5 SP<br>Contrato REST de IAM<br><br><b>TS02</b> · 5 SP<br>Contrato REST de perfiles y KYC<br><br><b>US18</b> · 5 SP<br>Registro MYPE con RUC</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td><b>Sprint 2<br>29 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US01</b> · 8 SP<br>Carga inteligente de facturas<br><br><b>TS03</b> · 8 SP<br>Contrato REST de ingreso y validación de facturas</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td><b>Sprints 3 a 6<br>75 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US05</b> · 3 SP<br>Corrección manual de datos extraídos</td>
+        <td valign="top"><b>US02</b> · 8 SP<br>Clasificación de riesgo de la operación<br><br><b>TS04</b> · 8 SP<br>Contrato REST de evaluación de riesgo<br><br><b>US03</b> · 3 SP<br>Simulación de costos y adelanto</td>
+        <td valign="top"><b>US06</b> · 5 SP<br>Solicitud de subasta<br><br><b>TS05</b> · 8 SP<br>Contrato REST de subastas e inversiones</td>
+        <td valign="top"><b>US07</b> · 3 SP<br>Seguimiento del fondeo</td>
+      </tr>
+      <tr>
+        <td><b>Fuera del MVP<br>26 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US19</b> · 8 SP<br>Verificación biométrica</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US04</b> · 5 SP<br>Firma digital de cesión</td>
+        <td valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+La segunda recorre la experiencia del inversionista y el retiro de fondos, común a ambos usuarios.
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th rowspan="2">Franja</th>
+        <th colspan="4">Sofía · Inversionista</th>
+        <th>Ambos</th>
+      </tr>
+      <tr>
+        <th>Recargar billetera</th>
+        <th>Explorar oportunidades</th>
+        <th>Invertir</th>
+        <th>Seguir mis inversiones</th>
+        <th>Retirar dinero</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Sprint 2<br>29 SP</b></td>
+        <td valign="top"><b>US14</b> · 5 SP<br>Carga de fondos a la billetera<br><br><b>TS06</b> · 8 SP<br>Contrato REST de depósitos, billetera y pagos</td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td><b>Sprints 3 a 6<br>75 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US08</b> · 5 SP<br>Exploración del marketplace<br><br><b>US10</b> · 3 SP<br>Identificación de inversión verde<br><br><b>US11</b> · 3 SP<br>Filtro de impacto positivo</td>
+        <td valign="top"><b>US09</b> · 8 SP<br>Compra de fracciones</td>
+        <td valign="top"><b>US12</b> · 5 SP<br>Gestión gráfica del portafolio<br><br><b>US13</b> · 5 SP<br>Historial inmutable de transacciones</td>
+        <td valign="top"><b>US20</b> · 3 SP<br>Configuración de cuenta CCI<br><br><b>US15</b> · 5 SP<br>Retiro a cuenta bancaria</td>
+      </tr>
+      <tr>
+        <td><b>Fuera del MVP<br>26 SP</b></td>
+        <td valign="top"></td>
+        <td valign="top"><b>US16</b> · 3 SP<br>Notificaciones de nuevas oportunidades</td>
+        <td valign="top"></td>
+        <td valign="top"><b>US17</b> · 5 SP<br>Alertas de vencimiento y mora<br><br><b>TS07</b> · 5 SP<br>Contrato de notificaciones y eventos de negocio</td>
+        <td valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### 6.3.2. Línea de corte del MVP y plan de sprints
+
+<!-- Criterio con el que se trazó la línea de corte del MVP, historias que quedan fuera y cómo se reparte el MVP entre los sprints. -->
+
+El MVP de Vankoo es el menor conjunto de historias que permite completar de punta a punta el ciclo del crowdfactoring: la MYPE se registra, carga su factura, conoce su riesgo y su costo y la publica en subasta; el inversionista recarga su billetera, explora el marketplace, compra fracciones y sigue su portafolio; y ambos pueden retirar sus fondos a una cuenta bancaria.
+
+| Franja | Historias | Story points |
+|---|---|---|
+| Sprint 1 | LPS01, LPS02, LPS03, TS01, TS02 y US18 | 26 |
+| Sprint 2 | US01, TS03, US14 y TS06 | 29 |
+| Sprints 3 a 6 | US02, US03, US05, US06, US07, US08, US09, US10, US11, US12, US13, US15, US20, TS04 y TS05 | 75 |
+| **Total del MVP** | **25 historias** | **130** |
+| Fuera del MVP | US04, US16, US17, US19 y TS07 | 26 |
+
+Los Sprints 1 y 2 corresponden a lo planificado en las secciones [5.2.1.1](#5211-sprint-planning-1) y [5.2.2.1](#5221-sprint-planning-2). El resto del MVP se distribuye entre los Sprints 3 a 6, según la proyección de seis sprints definida en el Sprint Planning 1.
+
+Quedan fuera del MVP, con 26 de los 156 story points del backlog, las historias que dependen de algo con lo que el proyecto no cuenta:
+
+- **US19 Verificación biométrica** y **US04 Firma digital de cesión** requieren un proveedor externo de biometría y de firma digital.
+- **US16 Notificaciones de nuevas oportunidades**, **US17 Alertas de vencimiento y mora** y **TS07 Contrato de notificaciones y eventos de negocio** dependen de un servicio de notificaciones que no forma parte de los bounded contexts implementados.
+
+Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se reservan para una versión posterior al MVP.
 
 <hr class="page-break">
 
@@ -3565,6 +4562,7 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Entrega | Enlace al video | Duración |
 |---|---|---|
 | TB1 | [https://goo.su/F5ct5](https://goo.su/F5ct5) | 24:48 |
+| TB2 | [https://goo.su/FejMKFJ](https://goo.su/FejMKFJ) | 28:15 |
 
 <hr class="page-break">
 
