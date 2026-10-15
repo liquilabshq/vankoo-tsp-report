@@ -79,6 +79,9 @@
 | 1.5.0   | 2026-09-12 | Todos los integrantes            | Capítulo V: Software Configuration Management (entorno, GitFlow, convenciones y despliegue) y Sprint 1 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue en Azure, collaboration insights y actas de reunión). |
 | 1.6.0   | 2026-09-12 | Amaro Villar, Anjali            | Student Outcome, Avance de Conclusiones y Recomendaciones; actualización del registro de versiones. |
 | 1.7.0   | 2026-09-23 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: Team Software Process (TSP Launch Overview, matriz de roles TSP y Scrum con la designación del Scrum Master, y User Story Mapping con la línea de corte del MVP), a partir de la retroalimentación docente de la TB1. |
+| 1.8.0   | 2026-10-07 | Amaro Villar, Anjali            | Corrección de los enlaces de las grabaciones de las entrevistas del Capítulo II, que pasaron a ser públicos para que cualquier lector pueda verificar la evidencia sin permisos de acceso. |
+| 1.9.0   | 2026-10-13 | Todos los integrantes            | Sprint 3 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue, collaboration insights y actas de reunión) y actualización del Student Outcome con las acciones y conclusiones de la TB3. |
+| 1.10.0  | 2026-10-14 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: procesos del equipo modelados en BPMN (ciclo TSP sobre los sprints, plan de pruebas del sprint e integración y pase a producción), normas aplicables (ISO/IEC/IEEE 12207:2026 con conformidad adaptada y controles del Anexo A de la NTP-ISO/IEC 27001:2022) y métricas de calidad del equipo, con su estado de adopción. Enlaces del Sprint 3 en el TSP Launch Overview. |
 
 <hr class="page-break">
 
@@ -173,12 +176,30 @@
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
       - [5.2.2.9. Actas de reunión](#5229-actas-de-reunión)
+    - [5.2.3. Sprint 3](#523-sprint-3)
+      - [5.2.3.1. Sprint Planning 3](#5231-sprint-planning-3)
+      - [5.2.3.2. Sprint Backlog 3](#5232-sprint-backlog-3)
+      - [5.2.3.3. Development Evidence for Sprint Review](#5233-development-evidence-for-sprint-review)
+      - [5.2.3.4. Testing Suite Evidence for Sprint Review](#5234-testing-suite-evidence-for-sprint-review)
+      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
+      - [5.2.3.9. Actas de reunión](#5239-actas-de-reunión)
 - [Capítulo VI: Team Software Process](#capítulo-vi-team-software-process)
   - [6.1. TSP Launch Overview](#61-tsp-launch-overview)
   - [6.2. TSP Roles \& Scrum Roles](#62-tsp-roles--scrum-roles)
   - [6.3. User Story Mapping](#63-user-story-mapping)
     - [6.3.1. Story Map del MVP](#631-story-map-del-mvp)
     - [6.3.2. Línea de corte del MVP y plan de sprints](#632-línea-de-corte-del-mvp-y-plan-de-sprints)
+  - [6.4. Procesos del equipo modelados en BPMN](#64-procesos-del-equipo-modelados-en-bpmn)
+    - [6.4.1. Ciclo TSP sobre los sprints](#641-ciclo-tsp-sobre-los-sprints)
+    - [6.4.2. Proceso de plan de pruebas del sprint](#642-proceso-de-plan-de-pruebas-del-sprint)
+    - [6.4.3. Proceso de integración y pase a producción](#643-proceso-de-integración-y-pase-a-producción)
+  - [6.5. Normas ISO aplicables a Vankoo](#65-normas-iso-aplicables-a-vankoo)
+    - [6.5.1. ISO/IEC/IEEE 12207:2026: procesos del ciclo de vida](#651-isoiecieee-122072026-procesos-del-ciclo-de-vida)
+    - [6.5.2. NTP-ISO/IEC 27001:2022: seguridad de la información](#652-ntp-isoiec-270012022-seguridad-de-la-información)
+  - [6.6. Métricas de calidad del equipo](#66-métricas-de-calidad-del-equipo)
 - [Avance de Conclusiones](#avance-de-conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -199,8 +220,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |:--------------------|:--------------------|:-------------|
-| Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Diseñé la guía de entrevistas y participé en la conducción de las seis entrevistas a empresarios MYPE e inversionistas minoristas, adaptando el lenguaje técnico-financiero (factoring, tasa de descuento, TCEA) a un público sin formación en ingeniería ni finanzas, y sintetizando oralmente los hallazgos ante el equipo para orientar las decisiones de diseño. Presenté y defendí ante el equipo las propuestas de wireframes, mock-ups y user flows de la Landing Page y de la MYPE Web, recogiendo observaciones en las reuniones de Discord. Expuse la sección de diseño UX/UI en la presentación de la TB1.<br><br>**TB2**<br>Facilité el Sprint Planning 2 en Discord, presentando la revisión del Sprint 1, la retrospectiva y la propuesta del Sprint Goal y del Sprint Backlog para el equipo. Expliqué oralmente a los compañeros el detalle de las user stories priorizadas para este sprint y resolví dudas sobre su alcance. Expuse en la TB2 el Sprint Planning y el Sprint Backlog.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Participé en el Sprint Planning 1 y en la reunión de seguimiento del 04 de setiembre, donde expliqué al equipo los User Personas, la Task Matrix y los Journey Maps de ambos segmentos como base para priorizar historias de usuario. Sustenté verbalmente las convenciones visuales (Style Guidelines) y la arquitectura de información ante el equipo. Expuse en la TB1 las evidencias de desarrollo y la suite de pruebas automatizadas del Invoicing Service, explicando los resultados en términos comprensibles para el docente y los compañeros.<br><br>**TB2**<br>Presenté ante el equipo el avance del Invoicing Service y su integración con el API Gateway mediante el header X-User-Id, explicando en términos comprensibles el impacto de este cambio en el flujo de facturación. Sustenté oralmente los resultados de la suite de pruebas automatizadas del sprint. Expuse en la TB2 el Development Evidence y el Testing Suite Evidence.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Preparé y facilité el Sprint Planning 1 en Discord: presenté la proyección de seis sprints, propuse el Sprint Goal y conduje la negociación del alcance (26 story points) con los cuatro integrantes. Comuniqué las decisiones de organización del repositorio (GitFlow, CODEOWNERS, Conventional Commits) y resolví dudas técnicas del IAM Service y del API Gateway en las reuniones de coordinación. Expuse en la TB1 la introducción, el Lean UX Process y el Sprint Planning.<br><br>**TB2**<br>Comuniqué al equipo las decisiones de configuración para el despliegue del Sprint 2 (Landing Page, Web Applications y Web Services), coordinando con Anjali los recursos cloud a documentar. Resolví dudas técnicas sobre la infraestructura compartida en las reuniones de seguimiento. Expuse en la TB2 el Software Deployment Evidence.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Presenté al equipo los diagramas C4 (contexto, contenedores y componentes), los diagramas de clases y el diseño de base de datos de cada bounded context, explicando las decisiones de arquitectura orientada a eventos y CQRS de forma que los integrantes enfocados en frontend y despliegue pudieran integrarse. Participé en las reuniones de seguimiento del Sprint 1 reportando el avance del Invoicing Service. Expuse en la TB1 la arquitectura de software y la evidencia de ejecución.<br><br>**TB2**<br>Presenté al equipo la documentación OpenAPI del Finance Service publicada con Scalar, explicando los contratos de depósitos y billeteras a los compañeros no involucrados directamente en ese servicio. Sustenté verbalmente el flujo de ejecución de la MYPE Web App para el módulo de facturas. Expuse en la TB2 el Execution Evidence y el Services Documentation Evidence.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Expliqué al equipo el análisis competitivo frente a Finsmart, Innova Funding y Prestamype y las tácticas de diferenciación de Vankoo. Conduje la demostración del despliegue del Invoicing Service en Azure (ACR, ACI, API Management, DocumentDB, S3 y OCR), guiando paso a paso a los compañeros para que puedan replicarlo en sus servicios. Redacté y comuniqué los acuerdos del acta de reunión del 04 de setiembre. Expuse en la TB1 los segmentos objetivo, competidores y el despliegue.<br><br>**TB2**<br>Presenté al equipo los analíticos de colaboración y commits por repositorio (Vankoo Infra y Discovery Server), explicando el aporte de cada integrante durante el sprint. Redacté y comuniqué oralmente los acuerdos de la reunión de seguimiento del 16 de setiembre. Expuse en la TB2 el Team Collaboration Insights y las Actas de reunión. | **TB1**<br>Como equipo, aprendimos a ajustar el registro oral según la audiencia: con los entrevistados (empresarios e inversionistas sin formación técnica) usamos un lenguaje cotidiano y ejemplos concretos, mientras que en las reuniones internas y en el Sprint Planning empleamos vocabulario técnico preciso (bounded contexts, event sourcing, story points). Las reuniones sincrónicas en Discord con actas y acuerdos explícitos evitaron ambigüedades en la asignación de tareas del Sprint 1. La exposición de la TB1 nos exigió sintetizar un informe extenso en un discurso breve, objetivo y respaldado por evidencias (capturas, métricas de entrevistas, pruebas y despliegue), lo que reforzó nuestra capacidad de comunicar resultados a un público con distintos niveles jerárquicos y especialidades.<br><br>**TB2**<br>Durante el Sprint 2 reforzamos la práctica de sustentar oralmente los avances técnicos frente a integrantes con distintos focos (frontend, backend, infraestructura y documentación), usando el Sprint Planning 2 y las reuniones de seguimiento en Discord como espacios recurrentes de rendición de cuentas. La necesidad de explicar decisiones de despliegue, resultados de pruebas y analíticos de colaboración a compañeros fuera de esos frentes específicos nos exigió simplificar el vocabulario técnico sin perder precisión, consolidando la capacidad de comunicar resultados de ingeniería a audiencias con distintos niveles de especialización. |
-| Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Redacté las secciones 2.2.1 Diseño de entrevistas, 2.2.2 Registro de entrevistas y 2.2.3 Análisis de entrevistas, cuantificando los hallazgos (n/3 por característica) y consolidando tres ejes estratégicos verificables. Elaboré y documenté las secciones 4.3 Landing Page UI Design, 4.4 Web Applications UX/UI Design (wireframes, wireflows, mock-ups y user flows) y 4.5 Prototyping, describiendo cada pantalla y el objetivo de usuario que cubre. Actualicé el Registro de Versiones y redacté el Student Outcome y el Avance de Conclusiones y Recomendaciones, contrastando hipótesis Lean UX con los resultados de validación.<br><br>**TB2**<br>Redacté la introducción de 5.2 Landing Page, Services & Applications Implementation y de 5.2.2 Sprint 2, así como las secciones 5.2.2.1 Sprint Planning 2 y 5.2.2.2 Sprint Backlog 2, documentando el objetivo del sprint, la captura del board y la tabla de user stories con sus work-items. Colaboré con Salim en la redacción de 5.2.2.7 Software Deployment Evidence.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Redacté las secciones 2.3.1 User Personas, 2.3.2 User Task Matrix y 2.3.3 User Journey Mapping para los segmentos MYPE e inversionista. Documenté las secciones 4.1 Style Guidelines (branding, paleta, tipografía, componentes web) y 4.2 Information Architecture (organización, etiquetado, SEO, búsqueda y navegación). Elaboré la sección 5.2.1.3 Development Evidence con las tablas de commits por repositorio y la sección 5.2.1.4 Testing Suite Evidence describiendo los 114 casos de prueba de Finance, Investment e Invoicing, con mensajes de commit bajo Conventional Commits.<br><br>**TB2**<br>Documenté la sección 5.2.2.3 Development Evidence for Sprint Review con las tablas de commits del Invoicing Service y del Finance Service, y la sección 5.2.2.4 Testing Suite Evidence describiendo los casos de prueba ejecutados durante el sprint. Colaboré con Paúl en 5.2.2.5 Execution Evidence y 5.2.2.6 Services Documentation Evidence.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Definí la estructura base del informe, la carátula y las convenciones de estilo para exportación a PDF. Redacté las secciones 1.1 Startup Profile, 1.2 Solution Profile (antecedentes con fuentes citadas en APA, Lean UX Problem Statements, Assumptions, Hypothesis Statements y Canvas), el Capítulo III (User Stories con criterios de aceptación en formato Gherkin y Product Backlog priorizado), 5.2.1.1 Sprint Planning 1 y 5.2.1.2 Sprint Backlog 1, la Bibliografía y el Anexo B. Documenté el contrato REST del IAM Service (OpenAPI) y revisé pull requests del informe como code owner.<br><br>**TB2**<br>Redacté, junto con Anjali, la sección 5.2.2.7 Software Deployment Evidence for Sprint Review, documentando los recursos cloud configurados durante el Sprint 2 para la Landing Page, las Web Applications y los Web Services.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Elaboré y documenté las secciones 2.3.4 Empathy Mapping, 2.3.5 As-is Scenario Mapping, 3.1 To-Be Scenario Mapping y 3.3 Impact Mapping. Redacté las secciones 4.6 Domain-Driven Software Architecture (diagramas C4 en Structurizr DSL), 4.7 Software Object-Oriented Design (diagramas de clases en PlantUML y diccionario de clases) y 4.8 Database Design por bounded context. Documenté 5.1.1 a 5.1.3 (entorno de desarrollo, GitFlow, Conventional Commits y guías de estilo por lenguaje) y las secciones 5.2.1.5 Execution Evidence y 5.2.1.6 Services Documentation Evidence.<br><br>**TB2**<br>Documenté la sección 5.2.2.5 Execution Evidence for Sprint Review describiendo el flujo de carga de facturas en la MYPE Web App, y la sección 5.2.2.6 Services Documentation Evidence con la especificación OpenAPI del Finance Service publicada en Scalar. Colaboré con Daniel en 5.2.2.3 Development Evidence y 5.2.2.4 Testing Suite Evidence.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Redacté las secciones 1.3 Segmentos objetivo, con datos de PRODUCE, ComexPerú y CAVALI, y 2.1 Competidores (análisis competitivo y estrategias y tácticas). Documenté 5.1.4 Software Deployment Configuration y 5.2.1.7 Software Deployment Evidence, describiendo paso a paso, con capturas, el despliegue del Invoicing Service en Azure. Elaboré 5.2.1.8 Team Collaboration Insights con los gráficos de contribuidores por repositorio y 5.2.1.9 Actas de reunión con fecha, asistentes, temas y acuerdos.<br><br>**TB2**<br>Redacté la sección 5.2.2.8 Team Collaboration Insights during Sprint con la tabla de actividad del equipo y los gráficos de contribuidores de Vankoo Infra y Discovery Server, y la sección 5.2.2.9 Actas de reunión con la fecha, asistentes, temas y acuerdos de la reunión de seguimiento del Sprint 2. | **TB1**<br>Como equipo, comprobamos que la escritura técnica estructurada, con tablas de evidencias, diagramas con fuente versionada (PlantUML, Structurizr), criterios de aceptación en Gherkin y citas en formato APA, permite que un mismo informe sea leído con provecho por audiencias distintas: el docente evalúa el proceso, un inversionista o empresario entiende la propuesta de valor y un desarrollador nuevo puede incorporarse al proyecto a partir de las guías de configuración y estilo. El uso de GitFlow, Conventional Commits, CODEOWNERS y pull requests revisados para el propio informe nos obligó a escribir cambios pequeños, descriptivos y trazables, y el Registro de Versiones documenta con objetividad quién modificó qué y cuándo. Identificamos como oportunidad de mejora unificar el tono y la profundidad entre secciones escritas por distintos integrantes y completar las evidencias pendientes (video de ejecución y de exposición).<br><br>**TB2**<br>En el Sprint 2 mantuvimos la misma disciplina de escritura técnica trazable del Sprint 1, con tablas de commits, capturas de documentación OpenAPI y actas con acuerdos explícitos, y la extendimos a la coordinación de infraestructura compartida (Vankoo Infra, Discovery Server) entre distintos integrantes. Dividir la redacción por evidencia (planning, desarrollo, pruebas, ejecución, documentación de servicios, despliegue y colaboración) nos permitió que cada integrante documentara con precisión el área que ejecutó, mientras el resto del equipo podía revisar y dar seguimiento al informe como un todo coherente. |
+| Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Diseñé la guía de entrevistas y participé en la conducción de las seis entrevistas a empresarios MYPE e inversionistas minoristas, adaptando el lenguaje técnico-financiero (factoring, tasa de descuento, TCEA) a un público sin formación en ingeniería ni finanzas, y sintetizando oralmente los hallazgos ante el equipo para orientar las decisiones de diseño. Presenté y defendí ante el equipo las propuestas de wireframes, mock-ups y user flows de la Landing Page y de la MYPE Web, recogiendo observaciones en las reuniones de Discord. Expuse la sección de diseño UX/UI en la presentación de la TB1.<br><br>**TB2**<br>Facilité el Sprint Planning 2 en Discord, presentando la revisión del Sprint 1, la retrospectiva y la propuesta del Sprint Goal y del Sprint Backlog para el equipo. Expliqué oralmente a los compañeros el detalle de las user stories priorizadas para este sprint y resolví dudas sobre su alcance. Expuse en la TB2 el Sprint Planning y el Sprint Backlog.<br><br>**TB3**<br>Presenté al equipo el Sprint Planning 3 y el Sprint Backlog 3, explicando el Sprint Goal de publicar la factura de la MYPE en subasta y detallando las historias US03, US06, US07 y TS05 con sus work-items, de modo que cada integrante conociera el alcance de su servicio. Retomé los acuerdos de la retrospectiva del Sprint 2 y expliqué cómo se repartieron las historias para que cada integrante aporte evidencia de su propio servicio. Expuse en la TB3 el Sprint Planning y el Sprint Backlog.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Participé en el Sprint Planning 1 y en la reunión de seguimiento del 04 de setiembre, donde expliqué al equipo los User Personas, la Task Matrix y los Journey Maps de ambos segmentos como base para priorizar historias de usuario. Sustenté verbalmente las convenciones visuales (Style Guidelines) y la arquitectura de información ante el equipo. Expuse en la TB1 las evidencias de desarrollo y la suite de pruebas automatizadas del Invoicing Service, explicando los resultados en términos comprensibles para el docente y los compañeros.<br><br>**TB2**<br>Presenté ante el equipo el avance del Invoicing Service y su integración con el API Gateway mediante el header X-User-Id, explicando en términos comprensibles el impacto de este cambio en el flujo de facturación. Sustenté oralmente los resultados de la suite de pruebas automatizadas del sprint. Expuse en la TB2 el Development Evidence y el Testing Suite Evidence.<br><br>**TB3**<br>Presenté al equipo el avance del ciclo de vida de la subasta del Investment Service y la creación de la subasta a partir del evento de factura elegible para financiamiento, explicando en términos comprensibles cómo los eventos publicados en Kafka mediante un outbox conectan el Invoicing Service con el Investment Service. Sustenté oralmente, junto con Paúl, la evidencia de desarrollo, de pruebas, de ejecución y de documentación de los servicios del sprint. Expuse en la TB3, junto con Paúl, el Development Evidence, el Testing Suite Evidence, el Execution Evidence y el Services Documentation Evidence.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Preparé y facilité el Sprint Planning 1 en Discord: presenté la proyección de seis sprints, propuse el Sprint Goal y conduje la negociación del alcance (26 story points) con los cuatro integrantes. Comuniqué las decisiones de organización del repositorio (GitFlow, CODEOWNERS, Conventional Commits) y resolví dudas técnicas del IAM Service y del API Gateway en las reuniones de coordinación. Expuse en la TB1 la introducción, el Lean UX Process y el Sprint Planning.<br><br>**TB2**<br>Comuniqué al equipo las decisiones de configuración para el despliegue del Sprint 2 (Landing Page, Web Applications y Web Services), coordinando con Anjali los recursos cloud a documentar. Resolví dudas técnicas sobre la infraestructura compartida en las reuniones de seguimiento. Expuse en la TB2 el Software Deployment Evidence.<br><br>**TB3**<br>Preparé el Sprint Planning 3 en Discord y expliqué al equipo cómo la cotización del adelanto (tasa de descuento, comisión, monto adelantado y costo neto) y la aceptación de la oferta conducen a la publicación de la subasta, para que los integrantes del frontend y de los demás servicios pudieran integrarse con ese flujo. Comuniqué las decisiones de configuración del despliegue del sprint y coordiné con el equipo los recursos cloud a documentar. Expuse en la TB3 el Software Deployment Evidence.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Presenté al equipo los diagramas C4 (contexto, contenedores y componentes), los diagramas de clases y el diseño de base de datos de cada bounded context, explicando las decisiones de arquitectura orientada a eventos y CQRS de forma que los integrantes enfocados en frontend y despliegue pudieran integrarse. Participé en las reuniones de seguimiento del Sprint 1 reportando el avance del Invoicing Service. Expuse en la TB1 la arquitectura de software y la evidencia de ejecución.<br><br>**TB2**<br>Presenté al equipo la documentación OpenAPI del Finance Service publicada con Scalar, explicando los contratos de depósitos y billeteras a los compañeros no involucrados directamente en ese servicio. Sustenté verbalmente el flujo de ejecución de la MYPE Web App para el módulo de facturas. Expuse en la TB2 el Execution Evidence y el Services Documentation Evidence.<br><br>**TB3**<br>Presenté al equipo la integración del Investment Service con el API Gateway y el contrato REST de subastas e inversiones, explicando las validaciones del ticket mínimo y del sobre-fondeo (respuestas `400` y `409`) a los compañeros que consumen esos endpoints desde la MYPE Web. Sustenté oralmente, junto con Daniel, la evidencia de desarrollo, de pruebas, de ejecución y de documentación de los servicios del sprint. Expuse en la TB3, junto con Daniel, el Development Evidence, el Testing Suite Evidence, el Execution Evidence y el Services Documentation Evidence.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Expliqué al equipo el análisis competitivo frente a Finsmart, Innova Funding y Prestamype y las tácticas de diferenciación de Vankoo. Conduje la demostración del despliegue del Invoicing Service en Azure (ACR, ACI, API Management, DocumentDB, S3 y OCR), guiando paso a paso a los compañeros para que puedan replicarlo en sus servicios. Redacté y comuniqué los acuerdos del acta de reunión del 04 de setiembre. Expuse en la TB1 los segmentos objetivo, competidores y el despliegue.<br><br>**TB2**<br>Presenté al equipo los analíticos de colaboración y commits por repositorio (Vankoo Infra y Discovery Server), explicando el aporte de cada integrante durante el sprint. Redacté y comuniqué oralmente los acuerdos de la reunión de seguimiento del 16 de setiembre. Expuse en la TB2 el Team Collaboration Insights y las Actas de reunión.<br><br>**TB3**<br>Presenté al equipo los analíticos de colaboración y commits de los repositorios de Profile e Investment, explicando el aporte de cada integrante durante el sprint. Redacté y comuniqué oralmente los acuerdos de la reunión de seguimiento del 06 de octubre. Expuse en la TB3 el Team Collaboration Insights y las Actas de reunión. | **TB1**<br>Como equipo, aprendimos a ajustar el registro oral según la audiencia: con los entrevistados (empresarios e inversionistas sin formación técnica) usamos un lenguaje cotidiano y ejemplos concretos, mientras que en las reuniones internas y en el Sprint Planning empleamos vocabulario técnico preciso (bounded contexts, event sourcing, story points). Las reuniones sincrónicas en Discord con actas y acuerdos explícitos evitaron ambigüedades en la asignación de tareas del Sprint 1. La exposición de la TB1 nos exigió sintetizar un informe extenso en un discurso breve, objetivo y respaldado por evidencias (capturas, métricas de entrevistas, pruebas y despliegue), lo que reforzó nuestra capacidad de comunicar resultados a un público con distintos niveles jerárquicos y especialidades.<br><br>**TB2**<br>Durante el Sprint 2 reforzamos la práctica de sustentar oralmente los avances técnicos frente a integrantes con distintos focos (frontend, backend, infraestructura y documentación), usando el Sprint Planning 2 y las reuniones de seguimiento en Discord como espacios recurrentes de rendición de cuentas. La necesidad de explicar decisiones de despliegue, resultados de pruebas y analíticos de colaboración a compañeros fuera de esos frentes específicos nos exigió simplificar el vocabulario técnico sin perder precisión, consolidando la capacidad de comunicar resultados de ingeniería a audiencias con distintos niveles de especialización.<br><br>**TB3**<br>En el Sprint 3 la comunicación oral se centró en articular servicios y aplicaciones que dependen unos de otros: quien construía la cotización y la subasta en el Investment Service debía explicar contratos, validaciones y eventos a quien los consumía desde la MYPE Web, y viceversa. El Sprint Planning 3 retomó el acuerdo de la retrospectiva anterior de repartir las historias para que cada integrante aportara evidencia de su propio servicio, y la reunión de seguimiento del 06 de octubre mantuvo la rendición de cuentas con acuerdos explícitos. Comprobamos que presentar cada avance desde el objetivo del usuario (publicar una factura en subasta y seguir su fondeo) antes del detalle técnico ayuda a que audiencias con distintos focos sigan la exposición sin perder precisión. |
+| Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería. | **Amaro Villar, Anjali**<br>**TB1**<br>Redacté las secciones 2.2.1 Diseño de entrevistas, 2.2.2 Registro de entrevistas y 2.2.3 Análisis de entrevistas, cuantificando los hallazgos (n/3 por característica) y consolidando tres ejes estratégicos verificables. Elaboré y documenté las secciones 4.3 Landing Page UI Design, 4.4 Web Applications UX/UI Design (wireframes, wireflows, mock-ups y user flows) y 4.5 Prototyping, describiendo cada pantalla y el objetivo de usuario que cubre. Actualicé el Registro de Versiones y redacté el Student Outcome y el Avance de Conclusiones y Recomendaciones, contrastando hipótesis Lean UX con los resultados de validación.<br><br>**TB2**<br>Redacté la introducción de 5.2 Landing Page, Services & Applications Implementation y de 5.2.2 Sprint 2, así como las secciones 5.2.2.1 Sprint Planning 2 y 5.2.2.2 Sprint Backlog 2, documentando el objetivo del sprint, la captura del board y la tabla de user stories con sus work-items. Colaboré con Salim en la redacción de 5.2.2.7 Software Deployment Evidence.<br><br>**TB3**<br>Redacté las secciones 5.2.3.1 Sprint Planning 3 y 5.2.3.2 Sprint Backlog 3, documentando el objetivo del sprint, la captura del board de Jira y la tabla de user stories con sus work-items y su estimación en horas. Corregí los enlaces de las grabaciones de las entrevistas del Capítulo II para que fueran públicos y cualquier lector pueda verificar la evidencia sin permisos de acceso.<br><br>**Crispin Ramos, Daniel Franco**<br>**TB1**<br>Redacté las secciones 2.3.1 User Personas, 2.3.2 User Task Matrix y 2.3.3 User Journey Mapping para los segmentos MYPE e inversionista. Documenté las secciones 4.1 Style Guidelines (branding, paleta, tipografía, componentes web) y 4.2 Information Architecture (organización, etiquetado, SEO, búsqueda y navegación). Elaboré la sección 5.2.1.3 Development Evidence con las tablas de commits por repositorio y la sección 5.2.1.4 Testing Suite Evidence describiendo los 114 casos de prueba de Finance, Investment e Invoicing, con mensajes de commit bajo Conventional Commits.<br><br>**TB2**<br>Documenté la sección 5.2.2.3 Development Evidence for Sprint Review con las tablas de commits del Invoicing Service y del Finance Service, y la sección 5.2.2.4 Testing Suite Evidence describiendo los casos de prueba ejecutados durante el sprint. Colaboré con Paúl en 5.2.2.5 Execution Evidence y 5.2.2.6 Services Documentation Evidence.<br><br>**TB3**<br>Redacté, junto con Paúl, las secciones 5.2.3.3 Development Evidence, 5.2.3.4 Testing Suite Evidence, 5.2.3.5 Execution Evidence y 5.2.3.6 Services Documentation Evidence for Sprint Review, documentando los commits, las pruebas, la ejecución y la documentación OpenAPI de los servicios trabajados durante el Sprint 3.<br><br>**Ramirez Mestanza, Salim Ignacio**<br>**TB1**<br>Definí la estructura base del informe, la carátula y las convenciones de estilo para exportación a PDF. Redacté las secciones 1.1 Startup Profile, 1.2 Solution Profile (antecedentes con fuentes citadas en APA, Lean UX Problem Statements, Assumptions, Hypothesis Statements y Canvas), el Capítulo III (User Stories con criterios de aceptación en formato Gherkin y Product Backlog priorizado), 5.2.1.1 Sprint Planning 1 y 5.2.1.2 Sprint Backlog 1, la Bibliografía y el Anexo B. Documenté el contrato REST del IAM Service (OpenAPI) y revisé pull requests del informe como code owner.<br><br>**TB2**<br>Redacté, junto con Anjali, la sección 5.2.2.7 Software Deployment Evidence for Sprint Review, documentando los recursos cloud configurados durante el Sprint 2 para la Landing Page, las Web Applications y los Web Services.<br><br>**TB3**<br>Redacté la sección 5.2.3.7 Software Deployment Evidence for Sprint Review, documentando paso a paso, con capturas, el despliegue en la nube de los servicios del Sprint 3.<br><br>**Sulca Gonzales, Paúl Fernando**<br>**TB1**<br>Elaboré y documenté las secciones 2.3.4 Empathy Mapping, 2.3.5 As-is Scenario Mapping, 3.1 To-Be Scenario Mapping y 3.3 Impact Mapping. Redacté las secciones 4.6 Domain-Driven Software Architecture (diagramas C4 en Structurizr DSL), 4.7 Software Object-Oriented Design (diagramas de clases en PlantUML y diccionario de clases) y 4.8 Database Design por bounded context. Documenté 5.1.1 a 5.1.3 (entorno de desarrollo, GitFlow, Conventional Commits y guías de estilo por lenguaje) y las secciones 5.2.1.5 Execution Evidence y 5.2.1.6 Services Documentation Evidence.<br><br>**TB2**<br>Documenté la sección 5.2.2.5 Execution Evidence for Sprint Review describiendo el flujo de carga de facturas en la MYPE Web App, y la sección 5.2.2.6 Services Documentation Evidence con la especificación OpenAPI del Finance Service publicada en Scalar. Colaboré con Daniel en 5.2.2.3 Development Evidence y 5.2.2.4 Testing Suite Evidence.<br><br>**TB3**<br>Redacté, junto con Daniel, las secciones 5.2.3.3 Development Evidence, 5.2.3.4 Testing Suite Evidence, 5.2.3.5 Execution Evidence y 5.2.3.6 Services Documentation Evidence for Sprint Review, documentando los commits, las pruebas, la ejecución y la documentación OpenAPI de los servicios trabajados durante el Sprint 3.<br><br>**Vilca Saboya, Diego Alejandro**<br>**TB1**<br>Redacté las secciones 1.3 Segmentos objetivo, con datos de PRODUCE, ComexPerú y CAVALI, y 2.1 Competidores (análisis competitivo y estrategias y tácticas). Documenté 5.1.4 Software Deployment Configuration y 5.2.1.7 Software Deployment Evidence, describiendo paso a paso, con capturas, el despliegue del Invoicing Service en Azure. Elaboré 5.2.1.8 Team Collaboration Insights con los gráficos de contribuidores por repositorio y 5.2.1.9 Actas de reunión con fecha, asistentes, temas y acuerdos.<br><br>**TB2**<br>Redacté la sección 5.2.2.8 Team Collaboration Insights during Sprint con la tabla de actividad del equipo y los gráficos de contribuidores de Vankoo Infra y Discovery Server, y la sección 5.2.2.9 Actas de reunión con la fecha, asistentes, temas y acuerdos de la reunión de seguimiento del Sprint 2.<br><br>**TB3**<br>Redacté la sección 5.2.3.8 Team Collaboration Insights during Sprint con la tabla de actividad del equipo y los gráficos de contribuidores de Profile Service e Investment Service, y la sección 5.2.3.9 Actas de reunión con la fecha, asistentes, temas y acuerdos de la reunión de seguimiento del Sprint 3. | **TB1**<br>Como equipo, comprobamos que la escritura técnica estructurada, con tablas de evidencias, diagramas con fuente versionada (PlantUML, Structurizr), criterios de aceptación en Gherkin y citas en formato APA, permite que un mismo informe sea leído con provecho por audiencias distintas: el docente evalúa el proceso, un inversionista o empresario entiende la propuesta de valor y un desarrollador nuevo puede incorporarse al proyecto a partir de las guías de configuración y estilo. El uso de GitFlow, Conventional Commits, CODEOWNERS y pull requests revisados para el propio informe nos obligó a escribir cambios pequeños, descriptivos y trazables, y el Registro de Versiones documenta con objetividad quién modificó qué y cuándo. Identificamos como oportunidad de mejora unificar el tono y la profundidad entre secciones escritas por distintos integrantes y completar las evidencias pendientes (video de ejecución y de exposición).<br><br>**TB2**<br>En el Sprint 2 mantuvimos la misma disciplina de escritura técnica trazable del Sprint 1, con tablas de commits, capturas de documentación OpenAPI y actas con acuerdos explícitos, y la extendimos a la coordinación de infraestructura compartida (Vankoo Infra, Discovery Server) entre distintos integrantes. Dividir la redacción por evidencia (planning, desarrollo, pruebas, ejecución, documentación de servicios, despliegue y colaboración) nos permitió que cada integrante documentara con precisión el área que ejecutó, mientras el resto del equipo podía revisar y dar seguimiento al informe como un todo coherente.<br><br>**TB3**<br>En el Sprint 3 mantuvimos la división de la redacción por evidencia, esta vez con varios integrantes documentando el mismo servicio (Investment) desde distintos frentes: planning, desarrollo, pruebas, ejecución, documentación de servicios y despliegue. Esto exigió cuidar la coherencia de nombres, estados y alcance entre secciones escritas por distintas personas. Además, corregimos los enlaces de las grabaciones de las entrevistas para que fueran públicos, pues la evidencia escrita solo comunica si el lector, sea el docente o un tercero, puede acceder a ella sin permisos adicionales. Los gráficos de contribuidores y las actas siguen aportando trazabilidad objetiva del aporte de cada integrante. |
 
 <hr class="page-break">
 
@@ -251,6 +272,28 @@ LiquiLabs es una startup Fintech de base tecnológica creada por estudiantes de 
 | **Why?** (¿Por qué?)     | Se debe a la alta percepción de riesgo y los costos operativos de la banca tradicional. El 95% de los deudores MYPE son personas naturales con negocio, lo que dificulta su evaluación bajo modelos de scoring tradicionales (ComexPerú, 2025). Además, existe una ausencia de plataformas descentralizadas (Crowdfactoring) que automaticen la evaluación de riesgo mediante IA y reduzcan costos de intermediación.                 |
 | **How?** (¿Cómo?)        | El estado óptimo es un ciclo de caja donde el pago se reciba en máximo 30 días según ley. Sin embargo, la realidad muestra un patrón sistémico de postergación: las ventas de las MYPES continúan perdiendo participación en el PBI total debido a que no pueden reinvertir su capital rápidamente al tenerlo "atrapado" en facturas por cobrar (Innova Funding, 2022).                                                               |
 | **How much?** (¿Cuánto?) | El saldo de crédito otorgado a empresas en Perú es de aprox. S/ 213,121 millones (2024), pero la mayoría se concentra en grandes empresas. Se estima que el mercado de factoring aún tiene un potencial de crecimiento de hasta S/ 120,000 millones hacia el 2028 (Contadores y Empresas, 2025).                                                                                                                                      |
+
+**Mini Revisión de la Literatura**
+
+Para contrastar la problemática con la evidencia académica se revisaron dos estudios recientes sobre financiamiento de facturas: uno orientado a prevenir el fraude y otro a medir el riesgo. Ambos confirman el diagnóstico de la tabla anterior, pero ninguno resuelve el problema tal como lo enfrenta una MYPE peruana.
+
+Guerar et al. (2020) proponen una plataforma de financiamiento de facturas sobre la blockchain pública Ethereum. El vendedor publica la factura mediante un contrato inteligente y los inversionistas pujan en una subasta; los datos sensibles se cifran y se guardan en IPFS, y en el contrato solo queda su hash. Además, incorporan un sistema de reputación basado en el historial de cada participante, que permite a una aseguradora ajustar el costo de la póliza, y analizan cómo el diseño resiste fraudes como el doble financiamiento. Su aporte es demostrar que un registro inmutable y trazable reduce las oportunidades de fraude. Sin embargo, se trata de una prueba de concepto ejecutada en una red de pruebas, sin interfaz de usuario (los autores la dejan como trabajo futuro), que opera con criptomonedas y costos de gas, y que depende de que el comprador y un transportista confirmen la entrega dentro del contrato. Su reputación solo mide el comportamiento previo en la plataforma, por lo que no evalúa el riesgo de crédito de una factura nueva, y el estudio no se sitúa en un mercado ni en un marco regulatorio concretos.
+
+Ben Bouheni et al. (2025) analizan el SURF Score de la startup Crowdz con 18,304 transacciones de ventas a crédito realizadas entre 2020 y 2022. Muestran que un puntaje de riesgo actualizado en tiempo real, que combina datos externos, contables, bancarios y transaccionales, reduce la asimetría de información entre el vendedor y quien financia, y produce retornos anualizados ajustados al riesgo mayores que los de operar sin él. Su límite es que se basa en una sola plataforma privada, con datos propietarios que no están disponibles públicamente y una metodología cerrada. Tampoco aborda el mecanismo de subasta, la trazabilidad de cada operación ni el caso de las MYPE de un país emergente. Los propios autores señalan como línea futura incorporar IA y explicar el puntaje en un lenguaje que el usuario promedio pueda interpretar.
+
+**Vacío identificado:** la literatura revisada separa dos problemas que en la práctica van juntos. Guerar et al. (2020) resuelven la confianza y la trazabilidad, pero sin evaluar el riesgo de crédito; Ben Bouheni et al. (2025) resuelven la medición del riesgo, pero sin garantizar la trazabilidad de la operación ni explicar el puntaje al usuario. Ninguno integra la captura automática de la factura, y ninguno plantea una solución para facturas de bajo monto de MYPE en el Perú.
+
+**Cómo lo llena Vankoo:**
+
+| Brecha en la literatura | Estudio | Respuesta de Vankoo |
+|---|---|---|
+| Trazabilidad apoyada en blockchain pública, con costos de gas y billeteras cripto | Guerar et al. (2020) | Registro inmutable de eventos (Event Sourcing) sobre microservicios, que el empresario y el inversionista consultan como línea de tiempo de la factura, con pagos mediante billetera y pasarela de pago convencional. |
+| No se evalúa el riesgo de crédito de la factura | Guerar et al. (2020) | Score de riesgo con IA que considera la solvencia del pagador y no solo la del emisor; la clasificación de riesgo define la cotización del adelanto y las condiciones de la subasta. |
+| Puntaje propietario y difícil de interpretar | Ben Bouheni et al. (2025) | Publicación de resúmenes ejecutivos del funcionamiento del scoring (auditoría de algoritmos) y comunicación de la clasificación de riesgo tanto a la MYPE como a los inversionistas. |
+| Factura aceptada o validada manualmente | Ambos | Carga de la factura en PDF o XML con extracción automática de datos mediante OCR, corrección manual por la MYPE y seguimiento de su verificación con SUNAT y su registro en CAVALI. |
+| Contexto ajeno a las MYPE peruanas y a los tickets bajos | Ambos | Crowdfactoring con inversionistas minoristas, subasta con validación del ticket mínimo y del sobre-fondeo, y enfoque en MYPE del Perú con incentivo de factoring verde. |
+
+En síntesis, Vankoo integra en una sola plataforma la trazabilidad que propone Guerar et al. (2020) y la evaluación de riesgo que valida Ben Bouheni et al. (2025), y las adapta a facturas de bajo monto de MYPE peruanas.
 
 ### 1.2.2. Lean UX Process
 
@@ -661,7 +704,7 @@ A continuación se presenta el guión de preguntas elaborado para cada segmento 
 | Fecha de entrevista | 08/09/2026                                                                               |
 | Timing de inicio | 00:00 - 8:58                                                                             |
 | Duración | 8:58 minutos                                                                             |
-| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=WJmOfj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MC42OX19)                                                            |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=e79hbN&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7fX0%3D)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 1](./assets/cap2-requirements-elicitation/entrevistas/s1-entrevista-01.png) |
 | Resumen |  Empresario del sector metalmecánico a cargo de la gestión comercial y operativa de su taller, donde equilibra proyectos al contado con contratos pagados a crédito. Identifica como principal limitación la brecha de liquidez que generan los plazos de cobranza de 30 a 60 días o más, impidiéndole comprar materia prima de forma inmediata para cerrar nuevos contratos y afectando el cumplimiento con trabajadores y proveedores. Valora de forma muy positiva un mecanismo ágil de anticipo de cobro con procesamiento automatizado de facturas electrónicas, condicionado a contar con claridad absoluta sobre el costo total de la operación, respaldo de seguridad institucional y trazabilidad transparente sobre el estado de aprobación y desembolso de los fondos.                                                                                        |
 
@@ -676,7 +719,7 @@ A continuación se presenta el guión de preguntas elaborado para cada segmento 
 | Fecha de entrevista | 08/09/2026                                                                               |
 | Timing de inicio | 8:58 - 17:30                                                                             |
 | Duración | 8:32                                                                                     |
-| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=Guig5U&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6NTM5LjF9fQ%3D%3D)                                                            |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=RU3bhl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6NTM4LjJ9fQ%3D%3D)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 2](./assets/cap2-requirements-elicitation/entrevistas/s1-entrevista-02.png) |
 | Resumen | Empresario y técnico en redes con cuatro años administrando su propia empresa de servicios tecnológicos, cuyo volumen de ventas se divide entre pagos al contado y facturas a crédito. Su principal obstáculo radica en el desfase del flujo de caja originado por clientes que extienden sus pagos entre 45 y 60 días, lo que le impide asumir nuevos proyectos o cubrir planillas y proveedores a tiempo, forzándolo a recurrir a financiamientos inmediatos pero costosos como las tarjetas de crédito. Valora de forma muy positiva una alternativa de liquidez en menos de 48 horas basada en la lectura automática de facturas electrónicas, siempre que la plataforma ofrezca total transparencia en comisiones netas, tiempos de desembolso y un seguimiento visual en tiempo real de cada etapa del proceso.                                                                                         |
 
@@ -691,7 +734,7 @@ A continuación se presenta el guión de preguntas elaborado para cada segmento 
 | Fecha de entrevista | 08/09/2026                                                                               |
 | Timing de inicio | 17:30 - 27:30                                                                            |
 | Duración | 9:58                                                                                     |
-| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=RYPQOg&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTA1MS40M319)                                                            |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=Bokz2F&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTA1MS4zMX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 3](./assets/cap2-requirements-elicitation/entrevistas/s1-entrevista-03.png) |
 | Resumen |  Socio y administrador de una microempresa de soporte técnico para laptops, computadoras y celulares, a cargo de dos colaboradores y con un margen de ingresos mensual modesto de entre 2,000 y 4,000 soles. Gestiona el registro contable y las cuentas pendientes mediante hojas de cálculo manuales en Excel, enfrentando como principal obstáculo los desfases de liquidez derivados de clientes que demoran entre 15 y 30 días en liquidar sus servicios. Esta falta de caja inmediata lo ha obligado a recurrir a soluciones de emergencia poco convenientes, como microcréditos digitales con intereses cercanos al 20%, un costo financiero desproporcionado que además descarta la opción de adquirir deudas bancarias tradicionales de mayor escala. Valora de forma muy positiva la posibilidad de incorporar el factoring para anticipar el cobro de sus facturas a cambio de una comisión transparente y acotada, señalando que adoptaría esta solución si la plataforma demuestra procesos nítidos, directos y sin costos ocultos frente a las alternativas de endeudamiento rápido.                                                                                        |
 
@@ -710,7 +753,7 @@ A continuación se presenta el guión de preguntas elaborado para cada segmento 
 | Fecha de entrevista | 08/09/2026                                                                               |
 | Timing de inicio | 27:30 - 40:15                                                                            |
 | Duración | 12:45                                                                                    |
-| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=0XdsHP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTY1MC40OX19)                                                            |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=qls86Y&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTY0OS45NH19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 4](./assets/cap2-requirements-elicitation/entrevistas/s2-entrevista-04.png) |
 | Resumen | Estudiante universitario de Ciencias de la Computación y aficionado a los mercados financieros, habituado a colocar tickets de entre 1,000 y 1,500 soles en vehículos tradicionales como depósitos a plazo fijo. Identifica como principal limitación el bajo rendimiento de la banca convencional frente a la rigidez de mantener su dinero inmovilizado por largos periodos, sumado a la desconfianza generada por experiencias negativas previas en fondos mutuos debido a la volatilidad imprevista. Considera que un rendimiento en torno al 8% anual justificaría la búsqueda de nuevos instrumentos. Valora de forma muy positiva incursionar en el factoring mediante la compra fraccionada de facturas por cobrar, siempre y cuando la plataforma tecnológica ofrezca respaldo institucional verificable, reglas claras sobre la gestión del riesgo de cobro y una estricta transparencia operativa que garantice el retorno puntual de los rendimientos pactados.                                                                                         |
 
@@ -725,7 +768,7 @@ A continuación se presenta el guión de preguntas elaborado para cada segmento 
 | Fecha de entrevista | 07/09/2026                                                                               |
 | Timing de inicio | 40:15 - 55:19                                                                            |
 | Duración | 15:04                                                                                    |
-| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=FHk57K&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjQxNS45OX19)                                                            |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=75bsmS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjQxNS41MX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 5](./assets/cap2-requirements-elicitation/entrevistas/s2-entrevista-05.png) |
 | Resumen |  Estudiante y administradora de un negocio del rubro de snacks, con un perfil de inversión orientado a la colocación directa de préstamos personales de envergadura relevante (de 30,000 a 150,000 soles) entre su red de contactos. Descarta las alternativas bancarias tradicionales por considerarlas poco rentables y tras haber enfrentado la incomodidad de mantener su capital retenido en depósitos a plazo sin suficiente flexibilidad; no obstante, reconoce que prestar a conocidos demanda un proceso de evaluación manual, largo y desgastante para mitigar el riesgo de impago. Constantemente informada a través de medios digitales especializados como podcasts y YouTube, valora de forma muy positiva la transición hacia una plataforma de factoring que fundamente la seguridad crediticia con evidencia técnica, ofrezca asignación automatizada de fondos para diversificar el riesgo de su cartera y demuestre transparencia rigurosa ante retrasos en la cobranza, respaldada por protocolos de solución claros y estructurados.                                                                                        |
 
@@ -740,7 +783,7 @@ A continuación se presenta el guión de preguntas elaborado para cada segmento 
 | Fecha de entrevista | 07/09/2026                                                                               |
 | Timing de inicio | 55:19 - 1:06:47                                                                          |
 | Duración | 11:28                                                                                    |
-| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=i6G1cy&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzMyMC43NX19)                                                            |
+| Enlace a la grabación | [*Ver en Microsoft Stream*](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=DYaPMo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzMxOS44OX19)                                                            |
 | Captura de pantalla de la grabación | ![Entrevista 6](./assets/cap2-requirements-elicitation/entrevistas/s2-entrevista-06.png) |
 | Resumen |  Estudiante de Ingeniería de Software y practicante que se encuentra dando sus primeros pasos en el ámbito de las inversiones con montos de entrada pequeños mediante fondos mutuos de banca tradicional. Señala como principal barrera la complejidad del lenguaje financiero técnico y la falta de claridad respecto al destino exacto y nivel de riesgo de su capital, lo que le genera desconfianza ante plataformas o instrumentos no regulados como el factoring. Valora de forma muy positiva la posibilidad de invertir desde montos mínimos accesibles con diversificación asistida, exigiendo trazabilidad continua del estado de las facturas, protocolos nítidos ante retrasos o impagos y una rentabilidad superior a la de una cuenta de ahorros que justifique el riesgo asumido.                                                                                        |
 
@@ -2785,13 +2828,13 @@ Microservicio responsable de gestionar los perfiles de usuario, datos empresaria
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | ce643a3 | feat(docker): add Dockerfile | - | 23/07/2026 |
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | d18d956 | style: remove redundant comments | - | 23/07/2026 |
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | 4a35564 | feat: profile orejon ahora escucha eventos | - | 12/03/2026 |
-| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 8115ffa | feat: super refactorizaci├│n | - | 08/03/2026 |
+| liquilabshq/vankoo-profile-service | feature/estructura-inicial | 8115ffa | feat: super refactorización | - | 08/03/2026 |
 | liquilabshq/vankoo-profile-service | feature/estructura-inicial | 1c17d29 | feat: agregar estructura inicial | - | 27/02/2026 |
-| liquilabshq/vankoo-profile-service | main | 9834860 | feat: agregar logger para inicio de la aplicaci├│n en main.ts | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 9834860 | feat: agregar logger para inicio de la aplicación en main.ts | - | 25/02/2026 |
 | liquilabshq/vankoo-profile-service | main | 926bd5d | feat: agregar ProfilesModule y actualizar nombre del paquete a @vankoo/profile-service | - | 25/02/2026 |
-| liquilabshq/vankoo-profile-service | main | 800a77c | docs: agregar documentaci├│n sobre NestJS y su arquitectura en README.md y crear nest.md | - | 25/02/2026 |
-| liquilabshq/vankoo-profile-service | main | 1a3fb22 | docs: agregar secci├│n de pruebas y configuraci├│n en WebStorm al README.md | - | 25/02/2026 |
-| liquilabshq/vankoo-profile-service | main | a710f36 | docs: actualizar README.md con informaci├│n sobre el microservicio Vankoo y configuraci├│n de pnpm | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 800a77c | docs: agregar documentación sobre NestJS y su arquitectura en README.md y crear nest.md | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | 1a3fb22 | docs: agregar sección de pruebas y configuración en WebStorm al README.md | - | 25/02/2026 |
+| liquilabshq/vankoo-profile-service | main | a710f36 | docs: actualizar README.md con información sobre el microservicio Vankoo y configuración de pnpm | - | 25/02/2026 |
 | liquilabshq/vankoo-profile-service | main | 7ba43de | build: actualizar .gitignore, y .nvmrc, y configurar el pnpm workspace | - | 25/02/2026 |
 | liquilabshq/vankoo-profile-service | main | d6bb546 | chore: primer commit | - | 25/02/2026 |
 
@@ -2819,29 +2862,29 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 3ef6f53 | feat: add CLAUDE.md for AI agent guidelines and project architecture | - | 16/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 9c4deaf | Merge pull request #10 from proyecto-verano-2026/feature/invoicing-docker | - | 16/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 47dcd3e | feat: remove compose.yaml from solution items | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: a├▒adir verificaci├│n de salud para MinIO mediante un health check | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexi├│n y a├▒adir soporte para OCR y Kafka en archivos de configuraci├│n | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: a├▒adir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: a├▒adir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con m├║ltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | c463d21 | feat: añadir verificación de salud para MinIO mediante un health check | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | f86f08a | feat: actualizar configuraciones de conexión y añadir soporte para OCR y Kafka en archivos de configuración | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 798e81e | feat: añadir endpoints de health checks para MongoDB, Kafka y MinIO | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | 968c29e | feat: añadir referencias de paquetes para salud de servicios y descubrimiento en Docker | - | 16/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/invoicing-docker | b946d06 | feat: mejorar Dockerfile con múltiples etapas y optimizaciones de seguridad | - | 16/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | a80e424 | Merge pull request #9 from proyecto-verano-2026/feature/internal-ocr-task-worker | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: a├▒adir clase OcrWorkerSettings para configurar par├ímetros del trabajador de OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: a├▒adir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: a├▒adir enumeraci├│n OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: a├▒adir implementaci├│n de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: a├▒adir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: a├▒adir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: a├▒adir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | f164d7e | feat: añadir clase OcrWorkerSettings para configurar parámetros del trabajador de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 43eeee6 | feat: añadir clase OcrTaskWorker para gestionar el procesamiento de tareas de OCR en segundo plano | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 8d6e917 | feat: añadir enumeración OcrTaskStatus para gestionar estados de tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ba3b95e | feat: añadir implementación de OcrTaskRepository para gestionar tareas de OCR en MongoDB | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ea7ce94 | feat: añadir clase OcrTask para gestionar tareas de procesamiento OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 56a7f0f | feat: añadir interfaz IOcrTaskRepository para gestionar tareas de OCR | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 13067f4 | feat: añadir IncompleteOcrDataException para manejar escenarios de datos de OCR incompletos | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e0eee2c | feat: eliminar propiedad MypeId de UploadInvoiceResource | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 1d99809 | feat: configurar OcrWorkerSettings y registrar OcrTaskWorker en el contenedor de servicios | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicaci├│n de eventos | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: a├▒adir comentario sobre la creaci├│n din├ímica de t├│picos en KafkaEventBus | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 73b657c | feat: mejorar el manejo del estado de la factura en el procesamiento OCR, incluyendo validaciones y re-publicación de eventos | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 21a07a8 | refactor: añadir comentario sobre la creación dinámica de tópicos en KafkaEventBus | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | e5d4768 | feat: actualizar InvoicesController para generar un nuevo MypeId al subir una factura | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar m├®todo EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma s├¡ncrona | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: a├▒adir el m├®todo EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | d351d08 | feat: utilizar método EnsureReadyForOcrProcessedEvent en InvoiceOcrProcessedEventHandler para validar el estado de la factura antes de crear el evento de OCR procesado | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | ac787c9 | feat: actualizar InvoiceCreatedEventHandler para encolar tareas OCR internas en lugar de procesar OCR de forma síncrona | - | 15/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/internal-ocr-task-worker | 68b4e70 | feat: añadir el método EnsureReadyForOcrProcessedEvent para validar el estado de la factura antes de publicar el evento de OCR procesado | - | 15/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/invoicing-documentation | 58488bf | Merge pull request #8 from proyecto-verano-2026/feature/add-event-for-upload-invoice | - | 15/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el m├®todo UploadInvoice para usar el request UploadInvoiceResource y a├▒adir la respuesta InvoiceResource | - | 05/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 763db1f | refactor: refactorizar el método UploadInvoice para usar el request UploadInvoiceResource y añadir la respuesta InvoiceResource | - | 05/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 1a0b494 | feat: agregar funcionalidad para subir y descargar facturas mediante comandos y consultas | - | 05/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | b1783e0 | feat: implementar descarga de archivos desde MinIO en MinioStorageService y ajustar procesamiento de OCR | - | 05/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | c1c41fb | Merge pull request #7 from proyecto-verano-2026/refactor/ocr-implementation-improvements | - | 05/03/2026 |
@@ -2860,7 +2903,7 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 338e4ed | feat: agrega clase StorageException para manejo de errores de almacenamiento | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | a6b5b13 | feat: implementa UploadInvoiceCommand y su manejador para subir facturas | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 975c258 | feat: implementa el GlobalExceptionHandler para manejo centralizado de excepciones | - | 01/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones espec├¡ficas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7ba4993 | feat: agrega excepciones específicas para manejo de errores de almacenamiento en MinIO | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 0afc917 | feat: agrega excepciones base para operaciones de base de datos y respuesta de error | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | e3f9115 | feat: agrega excepciones base para manejo de errores de dominio | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 8527b86 | feat: agrega el global exception handler y el soporte de detalle de problemas en Program.cs | - | 01/03/2026 |
@@ -2871,8 +2914,8 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | cb42611 | feat: enhance error handling in Invoice class by refining exception messages and types | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 51d0f86 | feat: refactor InvalidRucException to extend InvalidValueException and enhance error messaging | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 03b7120 | feat: refactor InvalidInvoiceStateException to extend BusinessRuleViolationException and improve error handling | - | 01/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar m├®todos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gesti├│n de errores | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 7698145 | feat: reorganizar métodos en IInvoiceRepository para mejorar la legibilidad y consistencia | - | 01/03/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/error-handling-strategy | 307cc28 | feat: actualizar referencia de excepciones en AzureOcrService para mejorar la gestión de errores | - | 01/03/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 7e962ee | Merge pull request #5 from proyecto-verano-2026/feature/azure-ocr-integration | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 58a5639 | feat: agregar configuracion de servicio y mediatr al Program.cs | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6d3fa23 | feat: agregar metodos para procesamiento de ocr al aggregate Invoice | - | 28/02/2026 |
@@ -2890,27 +2933,27 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7d6e524 | feat: agregar domain event para una factura procesada por ocr | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | b234016 | feat: agregar implementacion del repositorio | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 0315991 | feat: agregar base de sorage service | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuraci├│n para Azure OCR en appsettings.json | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integraci├│n con Azure Form Recognizer | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuraci├│n de OCR de Azure | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | cc5aaf7 | feat: agregar configuración para Azure OCR en appsettings.json | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 4cb3b6c | feat: quitar clases AzureOcrResponseDto y AzureOcrService para integración con Azure Form Recognizer | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ebc5b9b | feat: agregar clase AzureOcrSettings para configuración de OCR de Azure | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | ca29c71 | feat: agregar clases FileKey e InvoiceDocument para manejo de documentos de factura | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepci├│n personalizada para el procesamiento de OCR | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR s├¡ncrono de facturas | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 13588f8 | feat: agregar excepción personalizada para el procesamiento de OCR | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 10f1647 | feat: agregar comando y manejador para procesamiento OCR síncrono de facturas | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 92a3569 | feat: agregar comando y manejador para consultar resultados de OCR | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 9cff590 | feat: implementar comando y manejador para iniciar procesamiento OCR de facturas | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validaci├│n para solicitudes en el pipeline | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 1363aa3 | feat: agregar comportamiento de validación para solicitudes en el pipeline | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 6069cf3 | feat: agregar mapeo de respuesta de Azure Form Recognizer y DTOs asociados | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2da3bef | feat: agregar m├®todos as├¡ncronos para manejo de facturas en IInvoiceRepository | - | 28/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7e9efb1 | feat: implementar servicio de procesamiento OCR con m├®todos s├¡ncronos y as├¡ncronos | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 2da3bef | feat: agregar métodos asíncronos para manejo de facturas en IInvoiceRepository | - | 28/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | 7e9efb1 | feat: implementar servicio de procesamiento OCR con métodos síncronos y asíncronos | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/azure-ocr-integration | fdbfe3e | feat: agregar OcrOperationId como vo para operacion de Azure | - | 28/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 49207ce | Merge pull request #3 from proyecto-verano-2026/feature/minio-storage | - | 25/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminaci├│n de archivos en S3 | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de soluci├│n para soporte de MinIO y Docker | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 3d5d168 | feat: implementar MinioStorageService con operaciones de carga, descarga y eliminación de archivos en S3 | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | f845335 | chore: agregar referencia a AWSSDK.S3, carpetas de proyecto y archivos de solución para soporte de MinIO y Docker | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | e973c56 | feat: refactorizacion de Invoice para usar el InvoiceDocument y actualizaciond el metodo factory | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuraci├│n de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuraci├│n de MinioSettings en appsettings.json | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar l├¡mites de tama├▒o de archivo | - | 22/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuraci├│n del almacenamiento en MinIO | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | eda1cd2 | feat: agregar configuración de MinioSettings en appsettings.Development.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 6691d93 | feat: agregar configuración de MinioSettings en appsettings.json | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 5f9b83c | feat: configurar Minio como cliente S3 y agregar límites de tamaño de archivo | - | 22/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8d9a685 | feat: agregar MinioSettings para la configuración del almacenamiento en MinIO | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | c878db1 | feat: agregar IStorageService para manejo de operaciones de almacenamiento | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | 8b940a9 | feat: actualizar InvoiceCreatedEvent para usar FileKey en lugar de FileUrl | - | 22/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/minio-storage | e232cf7 | feat: agregar InvoiceDocument value object para el manejo de la subida de archivos | - | 22/02/2026 |
@@ -2920,7 +2963,7 @@ Microservicio encargado de la recepción de archivos PDF/XML de facturas electr�
 | liquilabshq/vankoo-invoicing-service | feature/add-event-for-upload-invoice | 7cde706 | Merge pull request #2 from proyecto-verano-2026/feature/modelo-dominio | - | 18/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/modelo-dominio | f8cd93b | feat: agregar aggregate y vo's | - | 18/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/modelo-dominio | ef2db6d | Merge pull request #1 from proyecto-verano-2026/feature/estructura-inicial | - | 15/02/2026 |
-| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 002bae3 | chore: agregar configuraci├│n inicial de base de datos y ajustes de token | - | 15/02/2026 |
+| liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 002bae3 | chore: agregar configuración inicial de base de datos y ajustes de token | - | 15/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 4191da1 | chore: actualizar ajustes para los ambientes de desarrollo y productos con la base de datos y el token | - | 15/02/2026 |
 | liquilabshq/vankoo-invoicing-service | feature/estructura-inicial | 5b453bb | chore: agregar paquetes para MongoDB, MediatR, FluentValidation, Humanizer, JWT authentication, y OpenAPI documentation | - | 15/02/2026 |
 | liquilabshq/vankoo-invoicing-service | main | b33e8b8 | chore: primer commit | - | 14/02/2026 |
@@ -2939,22 +2982,22 @@ Microservicio que orquesta el Marketplace de subastas participativas, permitiend
 | liquilabshq/vankoo-investment-service | develop | 5838e67 | Merge pull request #5 from liquilabshq/feature/auction-financial-lifecycle                           | - | 07/09/2026 |
 | liquilabshq/vankoo-investment-service | develop | 01484de | test: cover auction financial lifecycle                                                              | - | 07/09/2026 |
 | liquilabshq/vankoo-investment-service | develop | e2d0ddb | feat: implement auction financial lifecycle                                                          | - | 07/09/2026 |
-| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 08aaa0e | feat: agregar documentaci├│n sobre la arquitectura y el flujo de trabajo del harness                 | - | 26/08/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 08aaa0e | feat: agregar documentación sobre la arquitectura y el flujo de trabajo del harness                 | - | 26/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 76f818e | Merge pull request #4 from liquilabshq/feature/investment-partitions                                 | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/investment-partitions | a2f17ff | chore: update .gitignore                                                                             | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/investment-partitions | fac2ba6 | feat: implement investment flow for auction partitions                                               | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/add-harness-engineering | 4eaf07a | Merge pull request #2 from liquilabshq/feature/interfaces-events                                     | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/interfaces-events | cb12a2d | feat: implement event consumer for invoices eligible for financing and update auction logic          | - | 19/08/2026 |
 | liquilabshq/vankoo-investment-service | feature/add-harness-engineering | e512952 | Merge pull request #1 from proyecto-verano-2026/feature/interfaces-events                            | - | 15/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/interfaces-events | cf160d0 | feat: agregar consumidor de eventos OCR y ensamblador de comandos para la creaci├│n de subastas      | - | 15/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/interfaces-events | cf160d0 | feat: agregar consumidor de eventos OCR y ensamblador de comandos para la creación de subastas      | - | 15/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/interfaces-rest | b78bbf2 | feat: agregar controlador y recursos para la gestion de subastas                                     | - | 13/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/servicios-de-aplicacion | b2c531b | feat: implementar servicios de comandos y consultas para la gesti├│n de subastas                     | - | 13/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | 34b5094 | feat: actualizar destino de eventos de inversi├│n en la configuraci├│n de aplicaci├│n                | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | fec95d6 | feat: actualizar configuraci├│n de base de datos y agregar repositorios para la gesti├│n de subastas | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | 6d287bf | feat: agregar clase principal para el servicio de inversi├│n Vankoo                                  | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | 4910c83 | feat: agregar servicios de comandos y consultas para la gesti├│n de subastas                         | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | fbaa1e5 | feat: agregar eventos para la gesti├│n de subastas                                                   | - | 11/03/2026 |
-| liquilabshq/vankoo-investment-service | feature/domain-model | 5f5547d | feat: agregar comandos y consultas para la gesti├│n de subastas (Auctions)                           | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/servicios-de-aplicacion | b2c531b | feat: implementar servicios de comandos y consultas para la gestión de subastas                     | - | 13/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | 34b5094 | feat: actualizar destino de eventos de inversión en la configuración de aplicación                | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/infraestructura-y-proyecciones | fec95d6 | feat: actualizar configuración de base de datos y agregar repositorios para la gestión de subastas | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 6d287bf | feat: agregar clase principal para el servicio de inversión Vankoo                                  | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 4910c83 | feat: agregar servicios de comandos y consultas para la gestión de subastas                         | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | fbaa1e5 | feat: agregar eventos para la gestión de subastas                                                   | - | 11/03/2026 |
+| liquilabshq/vankoo-investment-service | feature/domain-model | 5f5547d | feat: agregar comandos y consultas para la gestión de subastas (Auctions)                           | - | 11/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/domain-model | 9159d2a | feat: agregar Auction y Partition con value objects                                                  | - | 11/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/domain-model | 9d81f03 | feat: agregar value objects para el aggregate root Auction                                           | - | 11/03/2026 |
 | liquilabshq/vankoo-investment-service | feature/domain-model | 22f9d31 | chore: initial commit                                                                                | - | 09/03/2026 |
@@ -3527,6 +3570,8 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Acuerdos | Continuar con el desarrollo de los microservicios asignados a cada integrante; distribuir las secciones del informe del Sprint 1 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-1/actas-reunion/acta-reunion-01.png) |
 
+<hr class="page-break">
+
 ### 5.2.2. Sprint 2
 
 <!-- Introducción breve del Sprint 2: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
@@ -3559,7 +3604,7 @@ El Sprint Backlog 2 descompone las historias `US01`, `US14`, `TS03` y `TS06`. El
 
 ![Sprint Backlog 2](assets/cap5-product-implementation/sprint-2/sprint-backlog/sprint-backlog.png)
 
-Enlace público del board: [*Ver en Trello*](https://trello.com/invite/b/6a600400d41af9c7addef882/ATTIf3dc638540deeadd39c566dbb36b3433ED44E731/vankoo-tareas)
+Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/projects/VANKOO/boards/1)
 
 <div style="font-size:80%; overflow-x:auto;">
   <table border="1" cellspacing="0" cellpadding="5">
@@ -4322,11 +4367,720 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 <hr class="page-break">
 
+### 5.2.3. Sprint 3
+
+<!-- Introducción breve del Sprint 3: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
+
+#### 5.2.3.1. Sprint Planning 3
+
+<!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
+
+El Sprint Planning 3 define el alcance de la tercera iteración de Vankoo, del 22/09/2026 al 05/10/2026. Con la carga inteligente de facturas y la billetera integradas en el Sprint 2, este sprint completa el recorrido de la MYPE hasta la subasta: conocer el costo y el monto de su adelanto, publicar la factura en el marketplace y seguir el avance de su fondeo. Siguiendo el orden del Product Backlog y el plan del MVP de la sección [6.3.2](#632-línea-de-corte-del-mvp-y-plan-de-sprints), se priorizaron las historias de la MYPE que preceden a las del inversionista, junto con el contrato REST de subastas e inversiones que las sostiene.
+
+| Sprint # | Sprint 3 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 22 de septiembre de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
+| Sprint 2 Review Summary | Se presentó el flujo de carga de facturas en la Web Application para MYPE, con el estado vacío del módulo, la subida del PDF y la línea de tiempo de su procesamiento (US01). El Invoicing Service quedó integrado con el API Gateway, que valida el JWT y propaga la identidad de la MYPE, y se verificó con 16 pruebas automatizadas, entre ellas los escenarios de aceptación BDD de facturas con datos inconsistentes (TS03). El Finance Service publicó su documentación OpenAPI de depósitos, billeteras y webhooks de pago (TS06), y el IAM Service se desplegó en Azure Container Apps con su base de datos en Azure Database for PostgreSQL. |
+| Sprint 2 Retrospective Summary | La integración de punta a punta acordada en la retrospectiva anterior dio resultado: la MYPE Web consumió por primera vez un servicio real a través del API Gateway, y contenerizar los servicios permitió desplegar el IAM en Azure reutilizando la misma imagen del entorno local. Como punto de mejora, la evidencia del sprint se concentró en pocos servicios y aplicaciones, y las restricciones de región de la suscripción académica retrasaron el despliegue al descubrirse recién al aprovisionar los recursos. Por ello, el equipo acordó verificar las regiones y servicios disponibles en la suscripción antes de planificar un nuevo despliegue, y repartir las historias de modo que cada integrante aporte evidencia de su propio servicio. |
+| **Sprint Goal & User Stories** | |
+| Sprint 3 Goal | Permitir que la MYPE publique su factura en subasta: conocer el costo y el monto de su adelanto antes de aceptarlo, publicar la operación en el marketplace y seguir el avance de su fondeo, sobre el contrato REST de subastas e inversiones. |
+| User Stories | US03, US06, US07 y TS05 |
+| Sprint 3 Velocity | 19 story points planificados; los 75 story points restantes del MVP se distribuyen en partes similares entre los Sprints 3 y 6, según el plan de la sección 6.3.2. |
+| Sum of Story Points | 19 |
+
+#### 5.2.3.2. Sprint Backlog 3
+
+<!-- Objetivo del sprint, captura del board y tabla de user stories con sus work-items. -->
+
+El Sprint Backlog 3 descompone las historias `US03`, `US06`, `US07` y `TS05`. El objetivo es que la MYPE publique su factura en subasta: el Investment Service calcula la cotización del adelanto, la MYPE la acepta desde la Web Application para publicar la operación en el marketplace y sigue en el detalle de su factura el avance del fondeo. La captura del board se presenta a continuación.
+
+![Sprint Backlog 3](assets/cap5-product-implementation/sprint-3/sprint-backlog/sprint-backlog.png)
+
+Enlace del board: [*Ver en Jira*](https://liquilabs.atlassian.net/jira/software/projects/VANKOO/boards/1)
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th colspan="2">Sprint #</th>
+        <th colspan="4">Sprint 3</th>
+      </tr>
+      <tr>
+        <th colspan="2">User Story</th>
+        <th colspan="4">Work-Item / Task</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status (To-do / In-Process / To-Review / Done)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GEN-03</td>
+        <td>Integrar Investment en el API Gateway</td>
+        <td>Contenerizar el Investment Service, incorporarlo al <code>docker-compose</code> de infraestructura junto con su base de datos y exponer sus rutas de subastas en el API Gateway, protegidas con JWT.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US03-T01</td>
+        <td>Simulación de costos y adelanto</td>
+        <td>Calcular la cotización de la subasta, con la tasa de descuento, la comisión, el monto adelantado y el costo neto, a partir de la clasificación de riesgo de la operación.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US03-T02</td>
+        <td>Simulación de costos y adelanto</td>
+        <td>Mostrar en el detalle de la factura de la MYPE Web la oferta vigente, con el monto que recibirá la MYPE y el costo del adelanto.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US03-T03</td>
+        <td>Simulación de costos y adelanto</td>
+        <td>Preparar pruebas del cálculo de la cotización para distintas clasificaciones de riesgo, montos y plazos.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T01</td>
+        <td>Solicitud de subasta</td>
+        <td>Implementar la aceptación de la cotización, que publica la subasta, fija su fecha de expiración y solo puede realizar la MYPE dueña de la factura.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T02</td>
+        <td>Solicitud de subasta</td>
+        <td>Implementar en la MYPE Web el diálogo para aceptar la oferta y publicar la factura en subasta.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T03</td>
+        <td>Solicitud de subasta</td>
+        <td>Rechazar la publicación cuando falten la validación de identidad, la cuenta CCI o algún dato obligatorio, e informar a la MYPE los requisitos pendientes.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T01</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Exponer la consulta de las subastas de una MYPE con su estado, el monto financiado y el saldo pendiente, restringida a su dueña.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T02</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Mostrar en la línea de tiempo de la factura el estado de su subasta y el avance del fondeo.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T03</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Preparar pruebas de los estados de la subasta y del cálculo del avance de fondeo y del saldo pendiente.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS05-T01</td>
+        <td>Contrato REST de subastas e inversiones</td>
+        <td>Exponer los endpoints de creación y consulta de subastas y de registro de inversiones, validando el ticket mínimo y el sobre-fondeo con respuestas <code>400</code> o <code>409</code>.</td>
+        <td>8</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS05-T02</td>
+        <td>Contrato REST de subastas e inversiones</td>
+        <td>Implementar el ciclo de vida de la subasta, con su publicación, cierre, cancelación y expiración programada, y los eventos de dominio de cada transición.</td>
+        <td>8</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS05-T03</td>
+        <td>Contrato REST de subastas e inversiones</td>
+        <td>Crear la subasta al consumir el evento de factura elegible para financiamiento y publicar los eventos de la subasta en Kafka mediante un outbox.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+#### 5.2.3.3. Development Evidence for Sprint Review
+
+Los siguientes commits corresponden al flujo de cotización y publicación de subastas, a la inversión desde la aplicación móvil y a las pruebas de Investment Service.
+
+La columna **Branch** identifica la rama de origen de cada commit; los commits de integración (*merge*) pertenecen a `develop`.
+
+---
+
+**Repositorio: Investment Service (Subastas y cotizaciones)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service)
+
+El servicio restringe la creación y aceptación de cotizaciones a la MYPE propietaria, expone la cotización activa y dispone de una evaluación de riesgo simulada en desarrollo para permitir el flujo hasta la publicación. Posteriormente se añadieron pruebas de reglas de cotización y fondeo, contrato REST y escenarios de aceptación Cucumber. La rama de pruebas quedó integrada en `develop` mediante el PR #18.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investment-service | develop | 83f60bb | Merge pull request #18 from liquilabshq/feature/auction-quote-funding-tests | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | dad1efe | test(acceptance): prevent duplicate Cucumber discovery | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 33ed192 | test(acceptance): exclude pending scenarios in Cucumber IDE runs | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | f887f75 | test(acceptance): exclude pending scenarios in JUnit Platform | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 009e956 | test(rest): cover auction contract validation | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 5144230 | test(domain): cover auction quote and funding rules | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 779e3da | test(acceptance): implement cost simulation steps | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 8bbb30a | test(acceptance): configure Cucumber scenario suite | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b3514e9 | test(acceptance): mark funding progress scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 375d980 | test(acceptance): mark auction request scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 3966265 | test(acceptance): mark assignment signing scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 32b913d | test(acceptance): add executable cost simulation feature | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1e9defa | build(test): add Cucumber platform dependencies | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | eeb3b5f | test(acceptance): import funding progress scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b868f7e | test(acceptance): import auction request scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | ff6b395 | test(acceptance): import assignment signing scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1c945db | test(acceptance): import cost simulation scenario | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | develop | 1c157d3 | Merge pull request #14 from liquilabshq/feature/quote-owner-and-simulated-risk | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | eda37bc | feat(auctions): simulate the risk evaluation until a risk service exists | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | ddbe47a | feat(auctions): expose the quote a MYPE can still accept | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | cedf404 | feat(auctions): let only the owning MYPE quote and accept its auction | - | 16/09/2026 |
+
+---
+
+**Repositorio: MYPE Web Application (Cotización y publicación)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+La aplicación consulta la subasta y la oferta financiera de la factura, muestra su avance en la línea de tiempo y permite aceptar la cotización para publicarla. Los commits se integraron en `develop` mediante el PR #16.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-mype-web | develop | 18c8ed6 | Merge pull request #16 from liquilabshq/feature/accept-financial-quote | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | 3f59dde | feat(invoicing): link a processed upload to its detail | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | e166c5f | feat(investment): accept the offer and publish the invoice | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | 347559f | feat(invoicing): show the real offer and follow the auction on the rail | - | 16/09/2026 |
+| liquilabshq/vankoo-mype-web | feature/accept-financial-quote | 569e5b1 | feat(investment): read a MYPE's auction and its offer | - | 16/09/2026 |
+
+---
+
+**Repositorio: Investor Mobile (Mercado, billetera e inversión)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investor-mobile](https://github.com/liquilabshq/vankoo-investor-mobile)
+
+La aplicación Kotlin Multiplatform incorporó el shell de navegación, la billetera y recarga mediante Finance/Stripe, la consulta del marketplace y detalle de una subasta, y el flujo de confirmación de inversión con débito previo de la billetera.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investor-mobile | develop | c3230fc | Merge pull request #10 from liquilabshq/feature/debit-on-invest | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/debit-on-invest | e9a177d | feat(investment): debit the wallet before investing, via the gateway | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | 785e851 | Merge pull request #9 from liquilabshq/feature/confirm-investment | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/confirm-investment | 23d727a | feat(investment): confirm an investment, and put the rates where they compare | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/confirm-investment | 1bb8c4b | feat(investment): buy a share, and carry the rates a screen can compare | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | 7ee92d9 | Merge pull request #8 from liquilabshq/fix/android-url-opener-wiring | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | fix/android-url-opener-wiring | e52d8cd | fix(android): bind CurrentActivity and hand it to the URL opener | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | 8247837 | Merge pull request #7 from liquilabshq/feature/in-app-checkout | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/in-app-checkout | fc72505 | feat(finance): open Stripe checkout in-app and rework the payment wait screen | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | ac42ae2 | Merge pull request #6 from liquilabshq/feature/investment-market-and-auction-detail | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | 17e1953 | feat(shell): hang the market off the tab bar as a section of its own | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | 0cff8cd | feat(investment): the market and one auction, against the real service | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | 0982fba | feat(core): format rates, and a date with no time attached to it | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/investment-market-and-auction-detail | f108fec | feat(designsystem): add the badge and the progress bar the market needs | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | develop | ff18b80 | Merge pull request #5 from liquilabshq/feature/app-shell-and-finance-wallet | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | 2b41ca6 | feat(shell): tab bar and one navigation graph for the signed-in app | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | 62dd78e | feat(finance): the wallet and the top-up flow against the real service | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | b6fcd62 | feat(core): money and date formatting, a URL opener, and where Finance lives | - | 15/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/app-shell-and-finance-wallet | ed20443 | feat(designsystem): add the components the app shell and the wallet need | - | 15/09/2026 |
+
+#### 5.2.3.4. Testing Suite Evidence for Sprint Review
+
+La suite de **Investment Service** utiliza **JUnit 5, AssertJ, Spring Boot Test y Cucumber**. **Investor Mobile** contiene pruebas Kotlin Multiplatform en `commonTest`.
+
+La ejecución de `mvn -q clean test` del **13/10/2026** registró **94 casos en Investment: 85 aprobados, 9 omitidos y ninguno fallido**. La cobertura incorporada incluye 10 pruebas de reglas del agregado `Auction`, 3 de contrato REST y 4 escenarios BDD ejecutables de US03. Los 9 escenarios de US04, US06 y US07 permanecen marcados como `@pending`.
+
+```text
+Investment Service: 94 casos registrados
+  Aprobados:        85
+  Omitidos:          9
+  Fallidos:          0
+Nuevos ejecutables: 17 (10 dominio + 3 REST + 4 BDD)
+Investor Mobile:    27 casos identificados en código; ejecución no verificada
+```
+
+**Repositorios de Testing**
+
+| Repository | Branch revisada | Testing Scope |
+|---|---|---|
+| `liquilabshq/vankoo-investment-service` | `develop` (PR #18 desde `feature/auction-quote-funding-tests`) | Unit Tests del agregado Auction, pruebas de contrato REST y escenarios de aceptación BDD para simulación; escenarios pendientes de firma, publicación y seguimiento. |
+| `liquilabshq/vankoo-investor-mobile` | `develop` | Unit Tests Kotlin para inversión, recarga, mapeo de Finance e inyección de dependencias; casos identificados en fuente, sin ejecución verificada. |
+
+**URL y ubicación de las pruebas**
+
+| Repositorio | URL del repositorio | Ruta de pruebas |
+|---|---|---|
+| Investment Service | https://github.com/liquilabshq/vankoo-investment-service | `src/test/java/com/liquilabs/vankoo/investment` y `src/test/resources/features` |
+| Investor Mobile | https://github.com/liquilabshq/vankoo-investor-mobile | `shared/src/commonTest/kotlin/com/liquilabs/vankoo/investor` |
+
+**Unit Tests y pruebas REST implementados**
+
+| Test Class | Related Class / Component | User Story | Validated Behavior |
+|---|---|---|---|
+| `AuctionQuoteAndFundingRulesTest` (10 casos) | Agregado `Auction` | US03, US06, US07 / TS05 | Verifica cotización, aceptación y publicación, ticket mínimo, fondeo parcial y total, sobre-fondeo, reutilización de transacciones y expiración. |
+| `AuctionContractValidationTest` (3 casos) | API REST de subastas | US03, US07 / TS05 | Verifica validaciones de solicitudes, conflictos de inversión y respuesta ante cancelación. |
+
+**Acceptance Tests (BDD)**
+
+Los cuatro archivos `.feature` se conservaron desde la rama `feature/marketplace-risk-grade-filter` en `docs/acceptance/ep01` y se copiaron a `src/test/resources/features` para Cucumber. `InvestmentCucumberTest` configura la suite y `CostSimulationSteps` implementa los pasos de US03. Las propiedades de Cucumber y JUnit Platform excluyen `@pending` y evitan el descubrimiento duplicado cuando se ejecuta toda la suite.
+
+| Archivo | User Story | Escenarios identificados | Estado |
+|---|---|---:|---|
+| `US03SimulacionCostosAdelanto.feature` | US03 – Simulación de costos y adelanto | 4 | Ejecutados: operación válida y tres variantes con datos inválidos. |
+| `US04FirmaDigitalCesion.feature` | US04 – Firma digital de cesión | 3 | `@pending`: firma válida y dos variantes de firma inválida. |
+| `US06SolicitudSubasta.feature` | US06 – Solicitud de subasta | 4 | `@pending`: publicación válida y tres requisitos faltantes. |
+| `US07SeguimientoFondeo.feature` | US07 – Seguimiento del fondeo | 2 | `@pending`: actualización del avance y fondeo completo. |
+
+| Archivo | Tipo | Ruta |
+|---|---|---|
+| `InvestmentCucumberTest.java` | Suite Cucumber/JUnit Platform | `src/test/java/com/liquilabs/vankoo/investment/acceptance` |
+| `CostSimulationSteps.java` | Definiciones de pasos de US03 | `src/test/java/com/liquilabs/vankoo/investment/acceptance` |
+| `US03SimulacionCostosAdelanto.feature` y los otros tres `.feature` | Especificaciones Gherkin ejecutables o pendientes | `src/test/resources/features` |
+| `junit-platform.properties` y `cucumber.properties` | Selección de escenarios y configuración del motor | `src/test/resources` |
+
+**Feature File: `US03SimulacionCostosAdelanto.feature`**
+
+```gherkin
+# language: es
+@EP01 @US03 @servicio_investment
+Característica: Simulación de costos y adelanto
+
+  Escenario: Consultar las condiciones de una operación válida
+    Dado que la factura tiene monto, moneda, plazo y clasificación de riesgo válidos
+    Cuando el empresario solicita la simulación del adelanto
+    Entonces el sistema informa el monto bruto, el descuento y la comisión
+    Y muestra el monto neto que recibiría el empresario
+    Y muestra el importe estimado para el inversionista
+
+  Esquema del escenario: Rechazar una simulación con datos incompletos o fuera de rango
+    Dado que la factura tiene <problema>
+    Cuando el empresario solicita la simulación del adelanto
+    Entonces el sistema rechaza la simulación e informa el dato que debe corregirse
+    Y no permite crear una subasta con esos datos
+
+    Ejemplos:
+      | problema                            |
+      | una clasificación de riesgo ausente |
+      | un monto fuera del rango permitido  |
+      | un plazo fuera del rango permitido  |
+```
+
+**Pruebas identificadas en Investor Mobile**
+
+En `shared/src/commonTest` hay **27 métodos `@Test`** distribuidos en cuatro clases. Su ejecución no está verificada en esta evidencia; el total corresponde al inventario de pruebas en el código.
+
+| Test Class | Related Class / Component | Casos identificados | Validated Behavior |
+|---|---|---:|---|
+| `ConfirmInvestmentViewModelTest` | Confirmación de inversión y billetera | 5 | Orden débito–inversión, rechazo del débito, reintentos con la misma clave e inversión no completada tras un débito. |
+| `TopUpPendingViewModelTest` | Espera y retorno de la recarga | 13 | Apertura del checkout, señales de retorno, sondeo del depósito, reintentos, estados terminales y lectura del saldo. |
+| `FinanceMappersTest` | Mapeadores de Finance | 8 | Estados y razones de depósito, causas desconocidas, identificador del débito y movimientos. |
+| `KoinGraphTest` | Grafo de inyección Koin | 1 | Resolución de definiciones de dependencias. |
+
+**Commits relacionados con Testing**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | dad1efe | test(acceptance): prevent duplicate Cucumber discovery | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 009e956 | test(rest): cover auction contract validation | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 5144230 | test(domain): cover auction quote and funding rules | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 779e3da | test(acceptance): implement cost simulation steps | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 32b913d | test(acceptance): add executable cost simulation feature | - | 13/10/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/debit-on-invest | e9a177d | feat(investment): debit the wallet before investing, via the gateway | - | 16/09/2026 |
+| liquilabshq/vankoo-investor-mobile | feature/in-app-checkout | fc72505 | feat(finance): open Stripe checkout in-app and rework the payment wait screen | - | 15/09/2026 |
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+Durante el Sprint 3 se implementó en la **Web Application para MYPE** el tramo del recorrido de la factura que va desde conocer la oferta de adelanto hasta seguir el avance de su fondeo. En el detalle de una factura aprobada, la aplicación consulta al Investment Service la cotización vigente y muestra cuánto recibirá la MYPE y cuánto le cuesta el adelanto (US03); al aceptarla, la MYPE publica la factura en el marketplace tras confirmar en un diálogo (US06); y desde ese momento el detalle sigue el estado de la subasta y cuánto se ha financiado del monto objetivo (US07). La línea de tiempo de la factura conserva las cinco etapas del Sprint 2 y ahora avanza desde **Aprobada** hasta **En subasta** según el estado de la subasta.
+
+La aplicación se ejecutó localmente (`pnpm run dev`) contra el stack de microservicios levantado con `docker-compose` (`infrastructure/`), y todas las llamadas pasaron por el API Gateway con el JWT de una MYPE de prueba. Como todavía no existe un servicio de riesgo, el Investment Service aplica una evaluación de riesgo simulada a cada subasta nueva (calificación `C`), y esa es la calificación con la que se calculó la oferta que muestran las capturas. La factura F001-000245 se subió mediante el endpoint de carga de Invoicing y se dejó en estado `CONSISTENCY_PASSED` en la base de datos local para poder recorrer el flujo de subasta; la subasta se creó con su `invoiceId`.
+
+**Web Application (MYPE Web App) — Oferta, publicación y seguimiento de la subasta**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+Al abrir una factura aprobada, el detalle muestra bajo la línea de tiempo, en la etapa **Aprobada**, el panel de la oferta vigente. El panel desglosa el importe de la factura (S/ 10,000.00), el descuento del inversionista (2.86 %, S/ 285.50), el neto (S/ 9,714.50), la comisión de Vankoo con IGV (S/ 74.34) y el monto que recibirá la MYPE, **S/ 9,640.16**. Debajo informa la TCEA (23.30 %), el plazo (63 días) y la fecha hasta la que la oferta es válida, y ofrece el botón **Aceptar y publicar**.
+
+![Web Application - Oferta vigente con la simulación de costos y adelanto](./assets/cap5-product-implementation/sprint-3/execution-evidence/01-offer-simulation.png)
+
+Aceptar la oferta es una acción que no se puede deshacer desde la aplicación, por lo que antes de publicar se pide una confirmación. El diálogo repite el monto que recibirá la MYPE (S/ 9,640.16) y advierte que, al aceptar, la factura se publica para los inversionistas y ya no se puede retirar desde allí.
+
+![Web Application - Diálogo de confirmación para aceptar la oferta y publicar](./assets/cap5-product-implementation/sprint-3/execution-evidence/02-accept-dialog.png)
+
+Tras confirmar con **Sí, publicar**, la aplicación acepta la cotización en el Investment Service, que publica la subasta. La línea de tiempo llega a **En subasta**, el estado de la factura cambia a *En subasta* y el panel pasa a mostrar la fecha de publicación y el avance del fondeo, que al inicio es **S/ 0.00 de S/ 9,714.50**.
+
+![Web Application - Factura publicada en subasta](./assets/cap5-product-implementation/sprint-3/execution-evidence/03-auction-published.png)
+
+Cuando un inversionista compra una participación, el detalle refleja el nuevo monto financiado. En la captura se registró una inversión de prueba de S/ 3,000.00 mediante el endpoint de inversiones del Investment Service, y el panel muestra **Financiado S/ 3,000.00 de S/ 9,714.50**; la subasta pasó de `PUBLISHED` a `FUNDING`.
+
+![Web Application - Avance del fondeo de la subasta](./assets/cap5-product-implementation/sprint-3/execution-evidence/04-funding-progress.png)
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 3 se documentó con OpenAPI el **Investment Service**, microservicio encargado de las subastas de facturas y de las inversiones. Utiliza `springdoc-openapi` con la interfaz de **Scalar** (tema *kepler*), igual que el IAM Service. De su contrato REST se documentan las tres operaciones que sostienen las historias del sprint: la creación de una subasta (TS05), la cotización del adelanto con su costo (US03) y la consulta de las subastas de una MYPE con su estado y avance de fondeo (US07). Las demás operaciones del servicio, como la aceptación de la cotización, el registro de inversiones o la consulta del marketplace, quedan fuera de esta sección.
+
+Durante el Sprint el servicio se ejecutó localmente en el puerto `8082`, por lo que los enlaces y capturas corresponden a la documentación local. Todas las rutas de `/api/v1/auctions` están protegidas: el API Gateway exige el JWT, valida su firma e inyecta el encabezado `X-User-Id` con la identidad de la MYPE, y el Investment Service comprueba en cada operación que esa identidad sea la dueña del recurso. Por eso las llamadas de la tabla se hacen a través del gateway, en `http://localhost:8080/investment`. La configuración OpenAPI declara el gateway como servidor por defecto y el servicio directo como alternativo. Los códigos de error de la tabla se verificaron ejecutando cada operación sobre el stack local, ya que la especificación publicada solo declara las respuestas exitosas.
+
+**Investment Service — Subastas y cotización del adelanto**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-investment-service](https://github.com/liquilabshq/vankoo-investment-service)
+
+Documentación local (Scalar): `http://localhost:8082/scalar` (también disponible a través del gateway en `http://localhost:8080/investment/scalar`)
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/auctions` | Crear una subasta candidata para una factura. La operación es idempotente por `invoiceId`: repetirla devuelve el identificador de la subasta ya creada. Al crearse, el servicio le asigna una evaluación de riesgo simulada hasta que exista un servicio de riesgo. | POST | `POST http://localhost:8080/investment/api/v1/auctions` | Header requerido: `Authorization: Bearer <token>`. Body JSON: `invoiceId`, `mypeId`, `payerRuc`, `payerName` (strings no vacíos), `invoiceAmount` (decimal positivo, hasta 2 decimales), `currency` (`PEN` o `USD`), `dueDate` (fecha futura `yyyy-MM-dd`) y `greenCertified` (booleano). | `201 Created` → `077cb57d-a9d4-4dd5-9edf-8a1562866bcc` (texto plano con el `auctionId`). Con él se consulta la subasta y se solicita su cotización; Scalar lo lista como `200 OK`, pero el servicio responde `201`. `400` indica campos vacíos, monto no positivo o fecha de vencimiento pasada, y `401`, que falta el token. | `http://localhost:8082/scalar` |
+| `/api/v1/auctions/{auctionId}/quotes` | Generar la cotización de 24 horas del adelanto de una subasta. Calcula la tasa de descuento, la comisión de la plataforma, el monto que recibe la MYPE y su costo total, según la calificación de riesgo; una cotización nueva reemplaza a la vigente. Solo la MYPE dueña de la subasta puede solicitarla. | POST | `POST http://localhost:8080/investment/api/v1/auctions/{auctionId}/quotes` | Path: `auctionId` (UUID de la subasta). Headers: `Authorization: Bearer <token>` y `X-User-Id`, inyectado por el gateway, que debe coincidir con la MYPE dueña. Sin body. | `201 Created` → `{"quoteId":"3183bfb4-...","status":"ACTIVE","pricingVersion":"demo-2026-09","riskGrade":"A","currency":"PEN","termDays":63,"fundableAmount":10000.00,"investorTeaPct":12.0,"fundingTarget":9803.63,"platformFeeTotal":74.34,"mypeAdvance":9729.29,"mypeTotalCost":270.71,"mypeTceaPct":16.978951,"createdAt":"2026-10-14T00:10:28Z","validUntil":"2026-10-15T00:10:28Z","acceptedAt":null}`. `mypeAdvance` es lo que recibe la MYPE, `mypeTotalCost` su costo del adelanto y `validUntil` el fin de la vigencia. `401` sin token, `403` si la MYPE no es la dueña, `404` si la subasta no existe y `409` si la subasta ya no admite cotizaciones, por ejemplo cuando ya está publicada o en fondeo. | `http://localhost:8082/scalar` |
+| `/api/v1/auctions/mype/{mypeId}` | Listar las subastas de una MYPE con su estado, el monto objetivo, el monto financiado y la cotización aceptada. Solo puede consultarla la propia MYPE. | GET | `GET http://localhost:8080/investment/api/v1/auctions/mype/{mypeId}` | Path: `mypeId` (UUID de la MYPE). Headers: `Authorization: Bearer <token>` y `X-User-Id`, inyectado por el gateway, que debe ser igual a `mypeId`. | `200 OK` → `[{"auctionId":"6d3e6226-...","invoiceId":"d1d7bdd5-...","mypeId":"01a137be-...","status":"FUNDING","riskGrade":"C","invoiceAmount":10000.0,"targetAmount":9714.5,"currentFunding":3000.0,"currency":"PEN","publishedAt":"2026-10-14T00:19:20Z","expiresAt":"2026-10-21T00:19:20Z","acceptedQuote":{...}}]`. El avance del fondeo sale de `currentFunding` frente a `targetAmount`, y el saldo pendiente es su diferencia. Devuelve una lista vacía si la MYPE aún no tiene subastas; `403` si `X-User-Id` no coincide con `mypeId` y `401` sin token. | `http://localhost:8082/scalar` |
+
+La primera operación, `POST /api/v1/auctions`, recibe en el body los datos de la factura que se subasta: identificadores de la factura y de la MYPE, importe y moneda, RUC y razón social del pagador, fecha de vencimiento y la marca de certificación verde. Scalar muestra los campos obligatorios, el comando `curl` contra el gateway y el esquema de la respuesta.
+
+![Investment Service - Crear una subasta](./assets/cap5-product-implementation/sprint-3/services-documentation/01-investment-auction-create.png)
+
+La operación `POST /api/v1/auctions/{auctionId}/quotes` no tiene body: la subasta se identifica por la ruta y la dueña, por el encabezado `X-User-Id`. El ejemplo de respuesta `201 Created` presenta la cotización con la calificación de riesgo, el plazo, el monto financiable, la comisión de la plataforma, el adelanto que recibe la MYPE, su costo total y su TCEA, junto con las fechas de creación y vencimiento de la oferta.
+
+![Investment Service - Cotizar el adelanto de una subasta](./assets/cap5-product-implementation/sprint-3/services-documentation/02-investment-quote-create.png)
+
+Finalmente, `GET /api/v1/auctions/mype/{mypeId}` devuelve las subastas de la MYPE como una lista. Cada elemento informa el estado de la subasta, el monto objetivo, el financiamiento actual, el pagador, las fechas de publicación y expiración y, cuando existe, la cotización aceptada; con estos datos la MYPE Web muestra el avance del fondeo en el detalle de la factura.
+
+![Investment Service - Subastas de una MYPE](./assets/cap5-product-implementation/sprint-3/services-documentation/03-investment-auctions-by-mype.png)
+
+**Commits relacionados — Investment Service**
+
+La siguiente tabla registra la evolución del servicio desde el ciclo de vida financiero de la subasta, base de la cotización, hasta las pruebas de aceptación de la simulación de costos. Permite rastrear la cotización y su titularidad, la evaluación de riesgo simulada, la publicación de eventos mediante outbox, las consultas de subastas, la contenerización y la configuración de OpenAPI.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-investment-service | develop | 83f60bb | Merge pull request #18 from liquilabshq/feature/auction-quote-funding-tests | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | dad1efe | test(acceptance): prevent duplicate Cucumber discovery | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 33ed192 | test(acceptance): exclude pending scenarios in Cucumber IDE runs | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | f887f75 | test(acceptance): exclude pending scenarios in JUnit Platform | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 009e956 | test(rest): cover auction contract validation | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 5144230 | test(domain): cover auction quote and funding rules | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 779e3da | test(acceptance): implement cost simulation steps | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 8bbb30a | test(acceptance): configure Cucumber scenario suite | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b3514e9 | test(acceptance): mark funding progress scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 375d980 | test(acceptance): mark auction request scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 3966265 | test(acceptance): mark assignment signing scenarios pending | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 32b913d | test(acceptance): add executable cost simulation feature | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1e9defa | build(test): add Cucumber platform dependencies | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | eeb3b5f | test(acceptance): import funding progress scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | b868f7e | test(acceptance): import auction request scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | ff6b395 | test(acceptance): import assignment signing scenarios | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-quote-funding-tests | 1c945db | test(acceptance): import cost simulation scenario | - | 13/10/2026 |
+| liquilabshq/vankoo-investment-service | develop | f6fd6a7 | Merge pull request #17 from liquilabshq/chore/codeowners-pr-template | - | 08/10/2026 |
+| liquilabshq/vankoo-investment-service | chore/codeowners-pr-template | b176fd8 | chore: add code owners and pull request template | - | 08/10/2026 |
+| liquilabshq/vankoo-investment-service | develop | 68ebe02 | Merge pull request #15 from liquilabshq/feature/openapi-gateway-server | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/openapi-gateway-server | babb7be | feat(docs): declare the gateway and direct servers in the OpenAPI | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 1c157d3 | Merge pull request #14 from liquilabshq/feature/quote-owner-and-simulated-risk | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | eda37bc | feat(auctions): simulate the risk evaluation until a risk service exists | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | ddbe47a | feat(auctions): expose the quote a MYPE can still accept | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/quote-owner-and-simulated-risk | cedf404 | feat(auctions): let only the owning MYPE quote and accept its auction | - | 16/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 50e560e | Merge pull request #13 from liquilabshq/bugfix/kafka-outbox-key-serializer | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/kafka-outbox-key-serializer | d2bf5ff | docs(outbox): record why the key carries its own serializer | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/kafka-outbox-key-serializer | b2b22da | test(messaging): guard the key serializer the outbox publisher needs | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/kafka-outbox-key-serializer | 77cdfd9 | fix(messaging): serialize the auction lifecycle key as text | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 330d385 | Merge pull request #12 from liquilabshq/feature/dockerize-investment-service-10 | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 624c2ce | docs: log plan, evidence and review for investment service dockerization | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 293cc28 | chore: mark dockerize investment service feature in progress | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | efe835a | build: add docker profile configuration for investment-service | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | ac71c4a | build: add multi-stage Dockerfile for investment-service | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 48ad540 | chore: reset progress log for next feature | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | 6a03563 | docs: archive feature 8 closure in history | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/dockerize-investment-service-10 | a64fc26 | chore: mark auction participant query feature done | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 21cbe07 | Merge pull request #11 from liquilabshq/feature/expose-auction-participant-query-apis-8 | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | c027842 | docs: log plan, evidence and review for auction participant query apis | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 12bb71e | chore: mark auction participant query feature in progress | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | a0934db | test: cover participant query endpoints and active-auction filtering | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | be66536 | test: cover MYPE and investor auction repository lookups | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | fbae08f | feat: expose MYPE and investor auction query endpoints | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 099ef00 | feat: map unauthorized access to an HTTP 403 response | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | bd60489 | feat: add MYPE and investor lookups with eager quote and partition fetch | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 9bf9f04 | feat: implement MYPE and investor auction queries | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 88903a8 | feat: declare MYPE and investor auction queries in the service contract | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | f47a3ac | feat: add exception for unauthorized participant access | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 17e2af5 | feat: add query to list auctions an investor participated in | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/expose-auction-participant-query-apis-8 | 608fede | feat: add query to list auctions by owning MYPE | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 7b74f8f | Merge pull request #10 from liquilabshq/feature/investment-outbox-events | - | 15/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 2640613 | chore: close marketplace search feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | b49bd38 | test: verify marketplace search and cache semantics | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 47f0358 | docs: document marketplace search parameters | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 679499b | feat: expose paginated marketplace search | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 0dc8f2b | feat: cache marketplace searches with commit invalidation | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 7048c62 | feat: query marketplace projection with filters | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 4b48c1a | feat: define paginated marketplace query | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 1e7773d | Merge origin/develop into feature/investment-outbox-events | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 1bee53d | chore: close marketplace projection feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 39ea82b | test: verify marketplace projection reliability | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 3af42dc | docs: document marketplace projection materialization | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 5451379 | feat: read marketplace from Kafka projection | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 6e190b8 | feat: project auction lifecycle events from Kafka | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 241e5a9 | feat: add marketplace projection persistence | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 48e2b95 | feat: define marketplace projection command | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | a89dc2b | chore: close reliable event publishing feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | a6c2b86 | test: verify reliable auction event publishing | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 44268d4 | docs: document auction outbox operations | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 1155980 | chore: configure reliable auction event publishing | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 980e2f6 | feat: add transactional auction event outbox | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 211d4aa | feat: emit complete auction lifecycle events | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | e0744c3 | chore: close versioned auction contracts feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | a00f04f | test: verify auction integration contracts | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | b42d16a | docs: publish auction lifecycle v1 contract | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 97d0e74 | feat: define versioned auction lifecycle contracts | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 18ba454 | chore: close marketplace boundary feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | b274198 | chore: track marketplace boundary feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | 87598d6 | docs: define marketplace read model boundary | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/investment-outbox-events | fc159eb | refactor: decouple auction pricing from infrastructure | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | f4d1a1f | Merge pull request #9 from liquilabshq/feature/add-auction-expiration-lifecycle-event-3 | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | 23acaad | chore: close auction expiration lifecycle feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | c31c7e1 | docs: log plan, evidence and review for auction expiration lifecycle | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | c185fa3 | chore: mark auction expiration lifecycle feature in progress | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | dc6e5a3 | test: align test minimum-investment defaults with the new 50/15 values | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-expiration-lifecycle-event-3 | 12255d7 | test: cover auction expiration guard for draft and already-expired states | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 52eb27e | Merge pull request #8 from liquilabshq/bugfix/pricing-calculator-domain-leak | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 4cf65db | chore: close fix-pricing-calculator-domain-layering-violation feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 3c686d1 | docs: log plan, evidence and review for pricing calculator domain layering fix | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | a660f04 | chore: mark fix-pricing-calculator-domain-layering-violation feature in progress | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 38969c3 | test: pass PricingParameters explicitly to AuctionPricingCalculator in AuctionRepositoryTest | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | edde20d | test: pass PricingParameters explicitly to AuctionPricingCalculator in AuctionLifecycleTest | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | d8b3dca | test: rebuild AuctionPricingCalculatorTest fixtures around PricingParameters | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 49d995c | fix(application): translate PricingProperties into PricingParameters before pricing calculation | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 97cca69 | fix(domain): decouple AuctionPricingCalculator from infrastructure PricingProperties | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | bugfix/pricing-calculator-domain-leak | 47fff80 | fix(domain): add PricingParameters value object for calculator pricing data | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | f9b7b92 | Merge pull request #7 from liquilabshq/feature/add-auction-domain-test-baseline | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 887f170 | chore: reset progress log for next feature | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 22fc638 | docs: archive auction domain test baseline session summary | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | dcfc216 | chore: mark auction domain test baseline feature as done | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 2205633 | docs: forbid AI co-author trailer in the commit skill | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 1b706bf | feat: lower default minimum investment ticket to 50 PEN and 15 USD | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 37ff30d | docs: log plan, evidence and review for auction domain test baseline | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | c8cad1d | chore: mark auction domain test baseline feature in progress | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | ece1679 | test: assert partition added and auction fully funded events are published | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-auction-domain-test-baseline | 57c91a7 | test: cover auction creation state and minimum-ticket rejection | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | develop | 86d52ef | Merge pull request #6 from liquilabshq/feature/add-harness-engineering | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | f2d8edc | feat: expand feature list with auction lifecycle events and marketplace read model definitions | - | 14/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/add-harness-engineering | efca9c0 | feat: agregar documentaci�n sobre la arquitectura y el flujo de trabajo del harness | - | 18/08/2026 |
+| liquilabshq/vankoo-investment-service | develop | 5838e67 | Merge pull request #5 from liquilabshq/feature/auction-financial-lifecycle | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-financial-lifecycle | 01484de | test: cover auction financial lifecycle | - | 07/09/2026 |
+| liquilabshq/vankoo-investment-service | feature/auction-financial-lifecycle | e2d0ddb | feat: implement auction financial lifecycle | - | 07/09/2026 |
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+Para este tercer Sprint se desplegó el API Gateway y, junto con él, se rehízo el despliegue de los Sprints 1 y 2 (Invoicing e IAM), esta vez definido como código con **Terraform**. Hasta ahora cada recurso se creaba a mano desde el portal de Azure, lo que hacía difícil repetir el despliegue, mantenerlo igual entre integrantes y apagarlo cuando no se usa. Con Terraform, toda la infraestructura queda descrita en archivos versionados en el repositorio Vankoo Infra, y se crea, actualiza o elimina con un solo script.
+
+Además del cambio de herramienta, el despliegue incorpora tres cambios de arquitectura:
+
+- **Todos los microservicios corren en Azure Container Apps.** Invoicing deja Azure Container Instances, donde se ejecutó en el Sprint 1.
+- **El punto de entrada es el API Gateway de Vankoo** (Spring Cloud Gateway) en lugar de Azure API Management. El gateway valida el JWT, devuelve los errores en formato problem+json y agrega a cada petición la identidad del usuario (`X-User-Id`), que los microservicios usan para comprobar quién es el propietario de cada recurso. API Management solo reenviaba las peticiones.
+- **Solo el gateway es accesible desde Internet.** IAM e Invoicing tienen ingress interno, y el gateway los alcanza por el DNS interno del Container Apps Environment (`http://vankoo-iam-service`). En la nube no se usa el Discovery Server, que queda para el entorno local con `docker-compose`.
+
+Los recursos se crearon en la región Central US, dentro del grupo de recursos `liquilabs-vankoo` de una nueva suscripción. La suscripción anterior solo permitía Container Apps Environments de tipo Express, que no ofrecen DNS interno ni ingress interno entre aplicaciones.
+
+**1) Organización del código de infraestructura**
+
+El código de Terraform vive en la carpeta `terraform/` de Vankoo Infra y se divide en cuatro capas. Cada capa se aplica y se elimina por separado, y guarda su estado en una cuenta de Azure Storage del mismo grupo de recursos. Así, cualquier integrante con acceso al grupo trabaja sobre el mismo estado.
+
+| Capa | Recursos | Al eliminar el despliegue |
+|---|---|---|
+| `core` | Container Apps Environment, workspace de Log Analytics y Azure Document Intelligence (OCR) | Se conserva. Sin aplicaciones no tiene costo, y así la URL del gateway no cambia entre despliegues |
+| `base` | Azure Container Registry | Se elimina |
+| `data` | Una base de datos por microservicio: Azure Database for PostgreSQL para IAM y Azure Cosmos DB for MongoDB para Invoicing | Se elimina |
+| `apps` | Una Container App por microservicio: API Gateway, IAM e Invoicing | Se elimina |
+
+![Estructura del código de Terraform y de los scripts](./assets/cap5-product-implementation/sprint-3/deployment-evidence/terraform-structure.png)
+
+**2) Scripts de operación**
+
+Tres scripts de `scripts/azure/` cubren todo el ciclo de vida del despliegue. Están pensados para encender Vankoo antes de una revisión y apagarlo después, de modo que el crédito de la suscripción solo se consuma cuando se usa.
+
+| Script | Uso |
+|---|---|
+| `azure-deploy.sh` | Crea, actualiza o reanuda el despliegue |
+| `azure-stop.sh` | Detiene las Container Apps y las bases de datos sin borrar nada. Se conservan los datos |
+| `azure-destroy.sh` | Elimina las capas `base`, `data` y `apps`. El costo pasa a cero y los datos se pierden |
+
+Las contraseñas de las bases de datos, la clave de firma de los JWT y la clave del OCR las genera Terraform y las entrega a cada Container App como secretos, sin que ningún integrante tenga que copiarlas. Solo las credenciales del bucket de Amazon S3 se leen del archivo `.env` local, que no se sube al repositorio.
+
+Como ejemplo, este es un extracto de la definición de la Container App del API Gateway en `terraform/apps/main.tf`. La clave de los JWT llega como secreto y cada ruta apunta al nombre interno de su microservicio:
+
+```hcl
+resource "azurerm_container_app" "gateway" {
+  name                         = "vankoo-api-gateway"
+  container_app_environment_id = local.core.environment_id
+  revision_mode                = "Single"
+
+  secret {
+    name  = "jwt-secret"
+    value = random_password.jwt_secret.result
+  }
+
+  ingress {
+    external_enabled = true
+    target_port      = 8080
+  }
+
+  template {
+    container {
+      name   = "api-gateway"
+      image  = var.images["api-gateway"]
+      cpu    = 0.5
+      memory = "1Gi"
+
+      env {
+        name  = "SPRING_PROFILES_ACTIVE"
+        value = "azure"
+      }
+      env {
+        name        = "JWT_SECRET"
+        secret_name = "jwt-secret"
+      }
+      env {
+        name  = "IAM_SERVICE_URI"
+        value = "http://vankoo-iam-service"
+      }
+    }
+  }
+}
+```
+
+**3) Ejecución del despliegue**
+
+El script `azure-deploy.sh` crea la cuenta del estado si no existe, aplica las capas en orden, construye las imágenes Docker de cada microservicio para la arquitectura x86 que usa Azure y las publica en el Container Registry. Terraform muestra antes de cada capa qué recursos va a crear, modificar o eliminar.
+
+![Ejecución del script de despliegue](./assets/cap5-product-implementation/sprint-3/deployment-evidence/azure-deploy-run.png)
+
+![Recursos gestionados por cada capa de Terraform](./assets/cap5-product-implementation/sprint-3/deployment-evidence/terraform-state-list.png)
+
+**4) Grupo de recursos y Container Apps Environment**
+
+El grupo de recursos `liquilabs-vankoo` reúne todos los recursos de Vankoo. El Container Apps Environment `vankoo-env` se creó con el perfil de carga **Consumption**, que no tiene costo fijo y cobra solo por el uso de las aplicaciones, y es el que proporciona el DNS interno entre ellas.
+
+<!-- NOTA PARA LAS CAPTURAS DEL PORTAL: los nombres de los menús están en español con el inglés entre paréntesis. Si tu portal muestra otro nombre, guíate por el inglés. -->
+
+![Grupo de recursos liquilabs-vankoo](./assets/cap5-product-implementation/sprint-3/deployment-evidence/resource-group.png)
+
+![Perfil de carga Consumption del Container Apps Environment](./assets/cap5-product-implementation/sprint-3/deployment-evidence/environment-workload-profiles.png)
+
+**5) Registro de imágenes, bases de datos y OCR**
+
+El Container Registry almacena las imágenes de los tres microservicios, etiquetadas con el commit desde el que se construyeron. Cada microservicio tiene su propia base de datos, como en el diagrama de contenedores: un Azure Database for PostgreSQL (tamaño Burstable B1ms) para IAM y un clúster de Azure Cosmos DB for MongoDB en el nivel gratuito para Invoicing. Ambos aceptan conexiones solo desde servicios de Azure. El OCR de Invoicing es un recurso de Azure Document Intelligence en el nivel gratuito F0.
+
+![Repositorios del Container Registry](./assets/cap5-product-implementation/sprint-3/deployment-evidence/acr-repositories.png)
+
+![Azure Database for PostgreSQL de IAM](./assets/cap5-product-implementation/sprint-3/deployment-evidence/iam-postgresql.png)
+
+![Azure Cosmos DB for MongoDB de Invoicing](./assets/cap5-product-implementation/sprint-3/deployment-evidence/invoicing-mongodb.png)
+
+![Azure Document Intelligence para el OCR de Invoicing](./assets/cap5-product-implementation/sprint-3/deployment-evidence/ocr-document-intelligence.png)
+
+**6) Container Apps**
+
+El API Gateway es la única Container App con ingress externo: recibe el tráfico de Internet por HTTPS en el dominio que asigna Container Apps y lo reenvía al puerto 8080 del contenedor. Se ejecuta con el perfil `azure` de Spring, que desactiva el cliente de Eureka y dirige cada ruta al nombre interno de su microservicio. Cada aplicación cuenta con sondas de salud, de modo que Container Apps solo envía tráfico a una revisión cuando el servicio está listo y la reinicia si deja de responder. En el gateway y en IAM, la sonda de inicio y la de *liveness* consultan `/actuator/health/liveness`, y la de *readiness*, `/actuator/health/readiness`. En Invoicing, que es .NET, las sondas usan `/health/live`.
+
+![Información general del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-overview.png)
+
+![Ingress externo del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-ingress.png)
+
+![Variables de entorno del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-env-vars.png)
+
+![Sonda de liveness del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-probes.png)
+
+![Sonda de readiness del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-probes-2.png)
+
+![Sonda de inicio del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-probes-3.png)
+
+![Ingress interno del IAM Service](./assets/cap5-product-implementation/sprint-3/deployment-evidence/iam-ingress-internal.png)
+
+**7) Verificación del despliegue**
+
+El gateway responde en su URL pública y su documentación interactiva agrupa con **Scalar** las especificaciones OpenAPI de IAM e Invoicing, que obtiene a través de sus rutas internas. Una ruta protegida sin token responde `401` desde el gateway, y una llamada directa a IAM desde Internet no llega al servicio, lo que confirma que el único acceso es el API Gateway.
+
+![Health check del API Gateway en Azure](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-health-check.png)
+
+![Documentación de Scalar del API Gateway](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-scalar.png)
+
+![Ruta protegida sin token y acceso directo a IAM desde Internet](./assets/cap5-product-implementation/sprint-3/deployment-evidence/gateway-unauthorized.png)
+
+Documentación desplegada (Scalar): [https://vankoo-api-gateway.whiteriver-9e28ba39.centralus.azurecontainerapps.io/scalar](https://vankoo-api-gateway.whiteriver-9e28ba39.centralus.azurecontainerapps.io/scalar)
+
+<!-- PENDIENTE (Salim): el despliegue manual del API Gateway desde el portal, como procedimiento equivalente al de Terraform, va aquí. -->
+
+<!-- PENDIENTE (equipo): Profile Service e Investment Service se agregan aquí, siguiendo los pasos de terraform/README.md («Añadir un servicio»). -->
+
+Para este sprint, el despliegue en Azure aún no incluye el broker de eventos (Kafka), el Event Store de Finance (Axon Server) ni la base de datos Oracle de Investment, por lo que los microservicios desplegados no publican ni consumen eventos en la nube. Mientras tanto, la sonda de *readiness* de Invoicing comprueba solo que el proceso responde, porque su chequeo de Kafka espera hasta 60 segundos cuando no hay broker. Tampoco hay todavía un proveedor de correo, de modo que la recuperación de contraseña responde correctamente pero no envía el enlace. Estos aspectos, junto con el despliegue de Finance, Investment y Profile, quedan para el siguiente sprint.
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+A continuación, se presenta los insights durante este tercer sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo de los microservicios de perfiles e inversiones.
+
+| Integrante | Usuario GitHub | Actividad en el Sprint |
+|---|---|---|
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Investment Service |
+| Crispin Ramos, Daniel Franco | danielcr04  | Avances de Investment Service |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | Profile Service e Investment Service |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Avances de Investment Service |
+| Vilca Saboya, Diego Alejandro | diesoks  | Profile Service |
+
+**Profile Service**
+![Contributors Profile Service](./assets/cap5-product-implementation/sprint-3/collaboration-insights/profile-contributors-sprint-3.png)
+
+**Investment Service**
+![Contributors Investment Service](./assets/cap5-product-implementation/sprint-3/collaboration-insights/investment-contributors-sprint-3.png)
+
+#### 5.2.3.9. Actas de reunión
+
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 3, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
+
+**Acta de reunión 1**
+
+| Campo | Detalle |
+| :---: | :--- |
+| Fecha | Martes 06 de octubre de 2026 |
+| Hora | 4:00 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Avance del Investment Service y del contrato REST de subastas e inversiones, estado de la integración del Investment Service con el API Gateway, revisión de la cotización del adelanto, la publicación de la factura en subasta y el seguimiento del fondeo en la MYPE Web App, y repartición de las secciones del informe del Sprint 3 |
+| Acuerdos | Continuar con el desarrollo y la documentación de los servicios y las pantallas asignados a cada integrante, finalizar la integración del Investment Service con el API Gateway, distribuir las secciones del informe del Sprint 3 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
+| Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-3/actas-reunion/acta-reunion-01.png) |
+
+<hr class="page-break">
+
 # Capítulo VI: Team Software Process
 
-<!-- Aplicación del TSP de Watts S. Humphrey al equipo: dónde se documenta cada hito del TSP Launch, la estructura de roles TSP y Scrum, el User Story Mapping del MVP y el modelo de calidad. -->
+<!-- Aplicación del TSP de Watts S. Humphrey al equipo: dónde se documenta cada hito del TSP Launch, la estructura de roles TSP y Scrum, el User Story Mapping del MVP, los procesos del equipo en BPMN, las normas ISO aplicables y las métricas de calidad. -->
 
-Este capítulo reúne la forma en que el equipo de LiquiLabs aplica el Team Software Process (TSP) en el desarrollo de Vankoo. El TSP concibe al equipo como autodirigido: sus propios integrantes planifican el trabajo, asumen roles explícitos y se comprometen con metas de calidad y esfuerzo desde el lanzamiento del proyecto (TSP Launch). Se presenta primero dónde se documenta cada hito del lanzamiento dentro de este informe; a continuación, la matriz formal de roles TSP y Scrum del equipo y, por último, el User Story Mapping que delimita el MVP.
+Este capítulo reúne la forma en que el equipo de LiquiLabs aplica el Team Software Process (TSP) en el desarrollo de Vankoo. El TSP concibe al equipo como autodirigido: sus propios integrantes planifican el trabajo, asumen roles explícitos y se comprometen con metas de calidad y esfuerzo desde el lanzamiento del proyecto (TSP Launch). Se presenta primero dónde se documenta cada hito del lanzamiento dentro de este informe. Siguen la matriz formal de roles TSP y Scrum del equipo y el User Story Mapping que delimita el MVP. Después se modelan en BPMN los procesos con los que el equipo prueba e integra el producto, se revisan las normas ISO/IEC/IEEE 12207 y NTP-ISO/IEC 27001 como marco del proceso y de la seguridad, y se reúnen las métricas de calidad del equipo.
 
 ## 6.1. TSP Launch Overview
 
@@ -4340,7 +5094,7 @@ El lanzamiento del TSP se estructura en cinco hitos: el Kick-off Meeting, el Des
 | **Design Thinking Workshop** | User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping y As-is Scenario Mapping de la MYPE (Carlos) y del inversionista (Sofía). | [2.3.1](#231-user-personas) a [2.3.5](#235-as-is-scenario-mapping) |
 | **Team** | Perfiles de los integrantes y matriz de roles TSP y Scrum, con la designación del Scrum Master. | [1.1.2](#112-perfiles-de-integrantes-del-equipo) y [6.2](#62-tsp-roles--scrum-roles) |
 | **Story Mapping Session** | To-Be Scenario Mapping, User Stories, Impact Mapping y Product Backlog priorizado; User Story Map con la línea de corte del MVP. | [3.1](#31-to-be-scenario-mapping) a [3.4](#34-product-backlog) y [6.3](#63-user-story-mapping) |
-| **Sprint Planning** | Sprint Goal, historias comprometidas, story points y Sprint Backlog con tareas estimadas en horas y asignadas por integrante. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1), [5.2.2.1](#5221-sprint-planning-2) y [5.2.2.2](#5222-sprint-backlog-2) |
+| **Sprint Planning** | Sprint Goal, historias comprometidas, story points y Sprint Backlog con tareas estimadas en horas y asignadas por integrante. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1), [5.2.2.1](#5221-sprint-planning-2), [5.2.2.2](#5222-sprint-backlog-2), [5.2.3.1](#5231-sprint-planning-3) y [5.2.3.2](#5232-sprint-backlog-3) |
 
 ## 6.2. TSP Roles & Scrum Roles
 
@@ -4507,6 +5261,222 @@ Quedan fuera del MVP, con 26 de los 156 story points del backlog, las historias 
 
 Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se reservan para una versión posterior al MVP.
 
+## 6.4. Procesos del equipo modelados en BPMN
+
+<!-- Procesos definidos del equipo: ciclo TSP sobre los sprints y dos procesos de calidad modelados en BPMN 2.0, con los roles TSP como carriles y su estado de adopción en Vankoo. -->
+
+El TSP pide que el equipo trabaje con procesos definidos y medibles. Esta sección presenta primero cómo se organiza el ciclo del TSP sobre los sprints de Scrum y luego dos procesos de calidad modelados en BPMN 2.0: el plan de pruebas del sprint y la integración con pase a producción. Ambos procesos describen la forma en que el equipo se propone trabajar hasta el cierre del MVP. Por eso cada uno termina con una tabla de adopción a la fecha de este informe, que separa lo que ya se aplica de lo que falta implementar.
+
+Los diagramas se modelaron para Camunda 8 y sus carriles corresponden a los roles TSP de la sección [6.2](#62-tsp-roles--scrum-roles). Los archivos fuente `.bpmn` están junto a sus imágenes en `assets/cap6-team-software-process/bpmn/` y se abren con Camunda Modeler.
+
+### 6.4.1. Ciclo TSP sobre los sprints
+
+<!-- Correspondencia entre las fases del ciclo TSP (lanzamiento, ciclo, relanzamiento y postmortem) y los eventos de Scrum, con la evidencia de cada una en este informe. -->
+
+En el TSP el trabajo se organiza en ciclos que empiezan con un lanzamiento y continúan con relanzamientos, en los que el equipo vuelve a planificar con sus propios datos (Humphrey, 2000). En Vankoo cada sprint de dos semanas funciona como un ciclo, y cada fase del TSP se apoya en un evento de Scrum que ya se documenta en el capítulo V.
+
+| Fase del ciclo TSP | Evento de Scrum en Vankoo | Qué se decide o se registra | Evidencia en el informe |
+|---|---|---|---|
+| **Lanzamiento** | Sprint Planning 1, el 24 de agosto de 2026 | Metas del producto, roles, plan de seis sprints, Sprint Goal y backlog del primer sprint. | [5.2.1.1](#5211-sprint-planning-1), [5.2.1.2](#5212-sprint-backlog-1) y [6.2](#62-tsp-roles--scrum-roles) |
+| **Ciclo de desarrollo** | Sprint de dos semanas con una reunión de seguimiento | Avance de cada historia, bloqueos y acuerdos. | Actas [5.2.1.9](#5219-actas-de-reunión), [5.2.2.9](#5229-actas-de-reunión) y [5.2.3.9](#5239-actas-de-reunión) |
+| **Revisión de estado y de calidad** | Sprint Review | Incremento entregado, pruebas, ejecución, documentación de servicios y despliegue. | Secciones 3 a 7 de cada sprint en [5.2](#52-landing-page-services--applications-implementation) |
+| **Postmortem** | Sprint Retrospective | Qué funcionó, qué mejorar y el acuerdo que entra al plan siguiente. | Retrospective Summary de [5.2.2.1](#5221-sprint-planning-2) y [5.2.3.1](#5231-sprint-planning-3) |
+| **Relanzamiento** | Sprint Planning 2 y 3 | Nuevo plan a partir de la review, la retrospectiva y la velocidad del sprint anterior. | [5.2.2.1](#5221-sprint-planning-2) y [5.2.3.1](#5231-sprint-planning-3) |
+
+Los relanzamientos ya cambiaron la forma de trabajar del equipo. La retrospectiva del Sprint 1 mostró que el backend avanzaba más rápido que las aplicaciones, y el equipo acordó integrar cada historia de punta a punta a través del API Gateway. La del Sprint 2 mostró que las restricciones de la suscripción de Azure se descubrían recién al desplegar, y el equipo acordó verificarlas antes de planificar. Los dos procesos siguientes aplican la misma lógica a la calidad: dejar explícito, antes de construir, cómo se prueba y cómo se integra.
+
+### 6.4.2. Proceso de plan de pruebas del sprint
+
+<!-- BPMN del plan de pruebas: desde que el sprint queda planificado hasta que el Product Owner acepta el incremento. -->
+
+El proceso empieza cuando el sprint queda planificado y termina cuando el Product Owner acepta el incremento. Sigue los pasos de integración y pruebas de sistema vistos en el curso (estrategia de pruebas, desarrollo de pruebas y ejecución) y adapta el contenido de los anexos de plan e informe de pruebas de la directiva de SANIPES (2024), que aplica la NTP-ISO/IEC 12207:2016 en una entidad pública peruana. Del anexo se toma el contenido y no las firmas: en un equipo Scrum la conformidad queda registrada en Jira y en el pull request.
+
+![BPMN del plan de pruebas del sprint](assets/cap6-team-software-process/bpmn/01-plan-de-pruebas.png)
+
+El diagrama tiene dos tramos y dos bucles:
+
+- **Estrategia y desarrollo de pruebas.** El gestor de calidad define los niveles, el alcance y los criterios de salida al planificar el sprint, no al final. El administrador de requerimientos deriva al menos un caso de prueba de cada criterio de aceptación en Gherkin. En paralelo, el gestor de calidad prepara el ambiente y los datos de prueba mientras el equipo automatiza las pruebas junto con la historia.
+- **Ejecución, defectos y aceptación.** El pipeline ejecuta la suite automatizada y la analista de calidad realiza pruebas de sistema y exploratorias. Cada defecto crítico o alto se registra con su severidad y el desarrollador lo corrige añadiendo una prueba de regresión, tras lo cual la suite completa vuelve a ejecutarse. Sin defectos de ese nivel, el gestor de calidad elabora el informe de pruebas y el Product Owner ejecuta las pruebas de aceptación. Si no queda conforme, sus observaciones vuelven al mismo ciclo de defectos.
+
+La estrategia distingue seis niveles de prueba, cada uno con su herramienta, su responsable y su momento:
+
+| Nivel | Qué valida en Vankoo | Herramienta | Responsable y momento |
+|---|---|---|---|
+| **Unitarias** | Reglas de dominio: agregados, saldos y estados de la factura | JUnit 5 con Axon Test Fixtures, xUnit, Jest y kotlin.test | Desarrollador, en cada commit |
+| **Integración** | Cada servicio con su base de datos y su broker reales | Testcontainers | Desarrollador, en cada pull request |
+| **Contrato** | Lo que el API Gateway, Investment y Finance esperan uno del otro | Spring Cloud Contract o Pact | Desarrollador, en cada pull request |
+| **Sistema** | Flujos completos de factura, subasta, inversión y billetera | Playwright en la web MYPE y Maestro en la app del inversionista | Analista de calidad, en el ambiente de pruebas |
+| **Seguridad** | Dependencias vulnerables y riesgos del OWASP Top 10 | OWASP Dependency-Check y OWASP ZAP | Revisor de calidad, antes de cada release |
+| **Aceptación** | Criterios de aceptación de cada historia | Escenarios Gherkin | Product Owner, al cierre del sprint |
+
+El informe de pruebas solo se emite cuando se cumplen los criterios de salida: ningún defecto crítico o alto abierto, el 100% de los casos de aceptación ejecutados, la suite automatizada en verde y la evidencia adjunta. Los defectos se clasifican en cuatro severidades, crítico, alto, medio y leve, como en el informe de pruebas de la directiva de SANIPES.
+
+**Estado de adopción al 14 de octubre de 2026**
+
+| Elemento del proceso | Estado | Evidencia o brecha |
+|---|---|---|
+| Pruebas unitarias | Aplicado | Finance, Investment e Invoicing concentran la suite ([5.2.1.4](#5214-testing-suite-evidence-for-sprint-review), [5.2.2.4](#5224-testing-suite-evidence-for-sprint-review) y [5.2.3.4](#5234-testing-suite-evidence-for-sprint-review)). |
+| Pruebas de integración con infraestructura real | Parcial | Finance usa Testcontainers con Kafka y Axon Server ([5.1.1](#511-software-development-environment-configuration)). Los demás servicios aún no. |
+| Escenarios de aceptación ejecutables | Parcial | Escenarios BDD de US01 en Invoicing y de US03 en Investment. Los de US04, US06 y US07 siguen marcados como pendientes. |
+| Pruebas de contrato y de sistema | Pendiente | Aún no existen suites de contrato entre servicios ni pruebas E2E en navegador o emulador. |
+| Pruebas de seguridad | Pendiente | No hay análisis de dependencias ni escaneo dinámico. |
+| Informe de pruebas por sprint | Parcial | El capítulo V documenta las pruebas de cada sprint, pero sin clasificar los defectos por severidad. |
+
+### 6.4.3. Proceso de integración y pase a producción
+
+<!-- BPMN de la integración continua por pull request y del pase a producción por release, con las tres conformidades. -->
+
+Este proceso cubre lo que ocurre desde que una historia está terminada en su rama hasta que el release queda en producción. Tiene dos ritmos: la integración continua ocurre con cada pull request y el pase a producción ocurre una vez por release, al cierre del sprint. Del pase a producción de la directiva de SANIPES (2024) se toma la idea central: un release solo se autoriza con tres conformidades independientes, la funcional, la de pruebas y la de seguridad.
+
+![BPMN de integración y pase a producción](assets/cap6-team-software-process/bpmn/02-integracion-y-pase-a-produccion.png)
+
+- **Integración continua.** El desarrollador abre un pull request hacia `develop`. El pipeline compila, ejecuta el análisis estático y las pruebas unitarias, y solo con el pipeline en verde el dueño del código según CODEOWNERS revisa el cambio. Si el pipeline o el revisor lo rechazan, el autor corrige y el pipeline vuelve a ejecutarse completo. Aprobado el cambio, se fusiona en `develop`, se despliega en el ambiente de pruebas y allí se ejecutan las pruebas de integración, contrato y sistema, junto con el análisis de vulnerabilidades.
+- **Pase a producción.** El Product Owner, el gestor de calidad y el revisor de calidad dan en paralelo las conformidades funcional, de pruebas y de seguridad. Con las tres, el gestor de planificación programa la ventana de release y el pipeline etiqueta la versión según Semantic Versioning y la despliega. Durante la marcha blanca el gestor de calidad supervisa producción. Ante un incidente crítico el pipeline vuelve a la versión anterior, y si no lo hay, el release se cierra con su postmortem. Sin las tres conformidades, las observaciones vuelven al backlog.
+
+La integración sigue el orden de las dependencias reales del sistema. Cada capa tiene una verificación que debe pasar antes de montar la siguiente:
+
+| Orden | Capa | Verificación antes de continuar |
+|---|---|---|
+| 1 | Kafka y la base de datos de cada servicio | Healthcheck de disponibilidad |
+| 2 | Discovery Server (solo en el entorno local) | Cada servicio aparece registrado |
+| 3 | IAM Service | El inicio de sesión emite un token válido |
+| 4 | API Gateway | Rutas, validación del JWT y preflight CORS desde un navegador |
+| 5 | Profile, Invoicing, Investment y Finance | Contratos entre servicios |
+| 6 | Web MYPE y app del inversionista | Pruebas de sistema de punta a punta |
+
+En Azure no se usa el Discovery Server, porque el gateway resuelve los servicios por el DNS interno del Container Apps Environment ([5.2.3.7](#5237-software-deployment-evidence-for-sprint-review)).
+
+Los dos procesos reparten responsabilidades según los roles TSP. Todo el equipo desarrolla, abre pull requests y corrige los defectos de su propio código.
+
+| Integrante y rol TSP | Plan de pruebas del sprint | Integración y pase a producción |
+|---|---|---|
+| Ramirez Mestanza, Salim · Líder de equipo y Product Owner | Ejecuta las pruebas de aceptación y da la conformidad del incremento | Da la conformidad funcional del release |
+| Crispin Ramos, Daniel · Gestor de planificación | Reserva capacidad del sprint para pruebas y correcciones | Programa la ventana de release y cierra con el postmortem |
+| Amaro Villar, Anjali · Gestora de desarrollo | Ejecuta las pruebas de sistema y registra y clasifica los defectos | Mantiene la suite de sistema que corre en el ambiente de pruebas |
+| Vilca Saboya, Diego · Gestor de calidad y proceso | Define la estrategia, prepara el ambiente y emite el informe de pruebas | Da la conformidad de pruebas y supervisa la marcha blanca |
+| Sulca Gonzales, Paúl · Administrador de requerimientos y soporte | Deriva los casos de prueba de los criterios de aceptación | Revisa el código como dueño y da la conformidad de seguridad |
+
+**Estado de adopción al 14 de octubre de 2026**
+
+| Elemento del proceso | Estado | Evidencia o brecha |
+|---|---|---|
+| Pull request hacia `develop` con GitFlow | Aplicado | Todo el código entra por pull request ([5.1.2](#512-source-code-management)). |
+| Pipeline de CI por pull request | Parcial | Finance e Invoicing tienen un workflow de GitHub Actions sobre `develop`. Los demás repositorios de código aún no. |
+| Rama de integración protegida | Parcial | `develop` de Finance exige una aprobación y resolver las conversaciones antes de fusionar. El resto de repositorios no protege su rama. |
+| Dueño de código con CODEOWNERS | Parcial | Definido en Investment Service y en el repositorio de este informe. |
+| Despliegue reproducible | Aplicado | Infraestructura como código con Terraform y scripts de operación ([5.2.3.7](#5237-software-deployment-evidence-for-sprint-review)). |
+| Ambiente de pruebas compartido | Pendiente | El sistema completo corre en Docker Compose en la máquina de cada integrante y en Azure, sin un ambiente intermedio. |
+| Tres conformidades, marcha blanca y reversión | Pendiente | Existen ramas `release/v0.1.0`, pero el pase aún no exige conformidades ni tiene marcha blanca ni reversión automática. |
+
+## 6.5. Normas ISO aplicables a Vankoo
+
+<!-- Normas internacionales que sirven de marco al proceso del equipo: ISO/IEC/IEEE 12207 para los procesos del ciclo de vida y NTP-ISO/IEC 27001 para la seguridad de la información. Qué se toma de cada una, cómo se aplica y qué falta. -->
+
+Vankoo es un proyecto pequeño por el número de personas, cinco, pero construye un sistema de microservicios en cuatro lenguajes que mueve dinero y datos personales. Dos normas sirven de marco para revisar su proceso: la ISO/IEC/IEEE 12207:2026, sobre los procesos del ciclo de vida del software, y la NTP-ISO/IEC 27001:2022, sobre la seguridad de la información. El equipo no busca certificarse en ninguna de las dos ni las adopta completas. Las usa como referencia para comprobar qué procesos y controles ya cubre y cuáles le faltan.
+
+### 6.5.1. ISO/IEC/IEEE 12207:2026: procesos del ciclo de vida
+
+<!-- Declaración del conjunto adaptado de procesos de la norma (conformidad adaptada, cláusula 4.3 y Anexo A), su aplicación en Vankoo y los procesos que quedan fuera. -->
+
+La segunda edición de la norma, publicada en abril de 2026, organiza los procesos del ciclo de vida del software en cuatro grupos: de acuerdo, de habilitación organizacional del proyecto, de gestión técnica y técnicos (ISO/IEC/IEEE, 2026). Para quien no busca la conformidad completa, la norma prevé una conformidad adaptada (cláusula 4.3): se seleccionan o modifican los procesos siguiendo el proceso de adaptación del Anexo A, se declara el conjunto adaptado y se demuestra que se lograron sus resultados. La norma advierte además que declarar menos procesos con todos sus resultados puede valer más que declarar muchos procesos recortados. Por eso la tabla siguiente declara el conjunto de procesos que aplica Vankoo y su estado real.
+
+| Grupo | Proceso (cláusula) | Cómo lo aplica Vankoo | Evidencia | Estado |
+|---|---|---|---|---|
+| Habilitación organizacional | Gestión del modelo de ciclo de vida (6.2.1) | TSP sobre Scrum: lanzamiento, sprints de dos semanas, relanzamientos y postmortem. | [6.1](#61-tsp-launch-overview) y [6.4.1](#641-ciclo-tsp-sobre-los-sprints) | Aplicado |
+| Habilitación organizacional | Gestión de la infraestructura (6.2.2) | Entorno local con Docker Compose y nube en Azure definida con Terraform. | [5.1.1](#511-software-development-environment-configuration) y [5.2.3.7](#5237-software-deployment-evidence-for-sprint-review) | Aplicado |
+| Gestión técnica | Planificación del proyecto (6.3.1) | Plan de seis sprints y Sprint Planning con goal, story points y tareas estimadas en horas. | [6.3.2](#632-línea-de-corte-del-mvp-y-plan-de-sprints) y Sprint Planning de cada sprint | Aplicado |
+| Gestión técnica | Evaluación y control del proyecto (6.3.2) | Reunión de seguimiento con acta, Sprint Review y retrospectiva. | Actas y Sprint Planning de cada sprint | Aplicado |
+| Gestión técnica | Gestión de decisiones (6.3.3) | Registros de decisiones de arquitectura (ADR). | ADR de Finance sobre Axon Server | Parcial |
+| Gestión técnica | Gestión de riesgos (6.3.4) | Riesgos detectados en las retrospectivas, como las restricciones de la suscripción de Azure. | [5.2.3.1](#5231-sprint-planning-3) | Parcial |
+| Gestión técnica | Gestión de la configuración (6.3.5) | GitFlow, Semantic Versioning, Conventional Commits e infraestructura como código. | [5.1.2](#512-source-code-management) y [5.2.3.7](#5237-software-deployment-evidence-for-sprint-review) | Aplicado |
+| Gestión técnica | Gestión de la información (6.3.6) | Informe versionado en Markdown con registro de versiones y documentación OpenAPI de cada servicio. | Registro de versiones y secciones 6 de cada sprint | Aplicado |
+| Gestión técnica | Medición (6.3.7) | Story points comprometidos, pruebas por sprint y defectos por fase. | [6.6](#66-métricas-de-calidad-del-equipo) | Parcial |
+| Gestión técnica | Aseguramiento de la calidad (6.3.8) | Revisión por pull request y procesos de pruebas e integración. | [6.4.2](#642-proceso-de-plan-de-pruebas-del-sprint) y [6.4.3](#643-proceso-de-integración-y-pase-a-producción) | Parcial |
+| Técnicos | Análisis del negocio o de la misión (6.4.1) | Problemática con fuentes, mini revisión de la literatura y Lean UX. | [1.2](#12-solution-profile) | Aplicado |
+| Técnicos | Necesidades y requisitos de los interesados (6.4.2) | Entrevistas a los dos segmentos, needfinding y To-Be Scenario Mapping. | [2.2](#22-entrevistas), [2.3](#23-needfinding) y [3.1](#31-to-be-scenario-mapping) | Aplicado |
+| Técnicos | Requisitos del sistema (6.4.3) | User stories con criterios en Gherkin y backlog priorizado. | [3.2](#32-user-stories) a [3.4](#34-product-backlog) | Aplicado |
+| Técnicos | Arquitectura del sistema (6.4.4) | Diagramas C4 de contexto, contenedores y componentes. | [4.6](#46-domain-driven-software-architecture) | Aplicado |
+| Técnicos | Diseño (6.4.5) | Guía de estilo, arquitectura de información, wireframes, mock-ups, clases y base de datos. | [4.1](#41-style-guidelines) a [4.5](#45-web-applications-prototyping), [4.7](#47-software-object-oriented-design) y [4.8](#48-database-design) | Aplicado |
+| Técnicos | Implementación (6.4.7) | Microservicios y aplicaciones construidos por sprint. | Development Evidence de cada sprint | Aplicado |
+| Técnicos | Integración (6.4.8) | Integración de las aplicaciones con los servicios a través del API Gateway y de Kafka. | Execution Evidence de cada sprint y [6.4.3](#643-proceso-de-integración-y-pase-a-producción) | Parcial |
+| Técnicos | Verificación (6.4.9) | Pruebas unitarias, de integración y escenarios BDD. | Testing Suite Evidence de cada sprint | Parcial |
+| Técnicos | Transición (6.4.10) | Despliegue de los servicios en Azure Container Apps. | Software Deployment Evidence de cada sprint | Aplicado |
+| Técnicos | Validación (6.4.11) | Hipótesis Lean UX contrastadas con entrevistas y aceptación del Product Owner. Las métricas con usuarios reales siguen pendientes. | [2.2.3](#223-análisis-de-entrevistas) y Avance de Conclusiones | Parcial |
+
+Quedan fuera del conjunto adaptado, con su justificación:
+
+- **Adquisición (6.1.1) y suministro (6.1.2):** el proyecto no tiene contrato con un cliente ni con un proveedor de software.
+- **Gestión del portafolio (6.2.3) y de recursos humanos (6.2.4):** LiquiLabs tiene un único proyecto y el equipo lo fija el curso.
+- **Gestión de la calidad (6.2.5) y del conocimiento (6.2.6):** son procesos de nivel organizacional. En un equipo de cinco, sus prácticas se cubren dentro del aseguramiento de la calidad y de la gestión de la información.
+- **Análisis del sistema (6.4.6):** sus análisis se realizan dentro de la definición de la arquitectura y del diseño.
+- **Operación (6.4.12), mantenimiento (6.4.13) y disposición (6.4.14):** Vankoo todavía no está en operación con usuarios reales.
+
+### 6.5.2. NTP-ISO/IEC 27001:2022: seguridad de la información
+
+<!-- Controles del Anexo A de la norma que aplican al ciclo de desarrollo y a la operación de Vankoo, con su estado real y las prioridades de adopción. -->
+
+Vankoo custodia el dinero de los inversionistas, los datos de identidad de MYPES e inversionistas, como el DNI, el RUC y la cuenta CCI, y las facturas que se negocian en la plataforma. La NTP-ISO/IEC 27001:2022, versión peruana equivalente a la ISO/IEC 27001:2022 publicada por INACAL, establece los requisitos de un sistema de gestión de seguridad de la información y, en su Anexo A, una lista de controles organizados en cuatro temas: organizacionales, de personas, físicos y tecnológicos (INACAL, 2022).
+
+Un sistema de gestión completo exige definir su alcance, evaluar los riesgos y emitir una declaración de aplicabilidad, lo que excede a un proyecto académico. Como primer paso, el equipo seleccionó los controles del Anexo A ligados al ciclo de desarrollo y a la operación de una fintech, y revisó su estado en Vankoo:
+
+| Control del Anexo A | Aplicación en Vankoo | Estado |
+|---|---|---|
+| 5.15 Control de acceso, 5.16 Gestión de identidades y 8.5 Autenticación segura | El IAM Service emite tokens JWT. El API Gateway valida el token en cada petición y agrega la identidad del usuario (`X-User-Id`), y cada servicio comprueba que el usuario sea dueño del recurso que consulta o modifica. | Aplicado |
+| 5.17 Información de autenticación | El IAM Service guarda las contraseñas con hash BCrypt, nunca en texto plano. | Aplicado |
+| 5.23 Seguridad de la información en el uso de servicios en la nube | Los recursos de Azure se definen con Terraform en un grupo de recursos propio, con el estado compartido en Azure Storage. Falta una política escrita de uso de la nube. | Parcial |
+| 5.24 a 5.27 Gestión de incidentes | No hay un procedimiento de respuesta a incidentes. La marcha blanca y la reversión del proceso de [6.4.3](#643-proceso-de-integración-y-pase-a-producción) son el primer paso. | Pendiente |
+| 5.34 Privacidad y protección de datos personales | Los perfiles guardan datos personales sujetos a la Ley N.° 29733, Ley de Protección de Datos Personales (Congreso de la República del Perú, 2011). Faltan la política de privacidad y el tratamiento formal de esos datos. | Pendiente |
+| 8.4 Acceso al código fuente | El código vive en la organización de GitHub del equipo y entra por pull request. CODEOWNERS y la protección de rama existen solo en algunos repositorios. | Parcial |
+| 8.8 Gestión de vulnerabilidades técnicas | Ningún repositorio analiza automáticamente sus dependencias. | Pendiente |
+| 8.9 Gestión de la configuración | GitFlow, Semantic Versioning e infraestructura como código con Terraform. | Aplicado |
+| 8.15 Registro y 8.16 Actividades de monitoreo | Cada contenedor emite sus propios logs, pero no hay registro centralizado ni alertas. | Pendiente |
+| 8.24 Uso de criptografía | El gateway se expone por HTTPS y los tokens JWT van firmados. Las contraseñas de las bases de datos y la clave del JWT las genera Terraform y se guardan como secretos de Container Apps. Falta definir la rotación de claves. | Parcial |
+| 8.25 Ciclo de vida de desarrollo seguro | Los procesos de [6.4.2](#642-proceso-de-plan-de-pruebas-del-sprint) y [6.4.3](#643-proceso-de-integración-y-pase-a-producción) fijan dónde entran la seguridad y su conformidad. | Parcial |
+| 8.26 Requisitos de seguridad de la aplicación | Las historias incluyen la propiedad de los recursos y la idempotencia de los pagos (TS06). La verificación biométrica (US19) quedó fuera del MVP. | Parcial |
+| 8.27 Arquitectura de sistemas seguros | Solo el API Gateway es accesible desde Internet. Los microservicios tienen ingress interno dentro del Container Apps Environment. | Aplicado |
+| 8.28 Codificación segura | Guías de estilo por lenguaje y revisión de cada pull request. El pipeline de Invoicing verifica el formato del código. Falta un análisis estático de seguridad. | Parcial |
+| 8.29 Pruebas de seguridad en desarrollo y aceptación | Previstas como un nivel del plan de pruebas, aún sin herramientas en uso. | Pendiente |
+| 8.31 Separación de los entornos de desarrollo, prueba y producción | El entorno local con Docker Compose está separado de Azure, pero no existe un ambiente de pruebas intermedio. | Parcial |
+| 8.32 Gestión de cambios | Todo cambio entra por pull request y las decisiones de arquitectura quedan en ADR. Falta exigir revisión en todos los repositorios. | Parcial |
+| 8.33 Información de las pruebas | Las evidencias usan cuentas y datos de prueba en el entorno local. Falta una regla escrita que prohíba usar datos personales reales. | Parcial |
+
+El equipo propone adoptar los controles pendientes en el orden de menor costo y mayor efecto. Primero, CODEOWNERS, protección de `develop` y pipeline de CI en todos los repositorios de código (8.4 y 8.32), que se configuran en horas. Después, el análisis de dependencias dentro del pipeline (8.8) y un ambiente de pruebas compartido (8.31). Por último, las pruebas de seguridad dinámicas (8.29) y la política de privacidad (5.34), antes de operar con usuarios reales.
+
+## 6.6. Métricas de calidad del equipo
+
+<!-- Datos de calidad del proceso: compromiso por sprint, pruebas registradas, defectos por fase de detección, yield y metas para el siguiente relanzamiento. -->
+
+El TSP pide que el equipo planifique y decida con sus propios datos de esfuerzo y de calidad. Esta sección reúne los datos que el equipo ya registra.
+
+| Sprint | Story points comprometidos | Pruebas automatizadas registradas |
+|---|---|---|
+| Sprint 1 | 26 | 114 casos en Finance (82), Investment (20) e Invoicing (12) |
+| Sprint 2 | 29 | 16 casos en Invoicing para US01: 12 unitarios y 4 escenarios BDD |
+| Sprint 3 | 19 | 94 casos en Investment: 85 aprobados, 9 omitidos y ninguno fallido |
+
+Las cifras de pruebas no se suman entre sprints, porque cada sprint reporta la suite de los servicios que trabajó.
+
+Durante el primer ciclo del proyecto, hasta el 16 de septiembre de 2026, el equipo registró seis defectos según la fase en que se detectaron. Dos se detectaron en la revisión de código: un envío de eventos a Kafka sin confirmar el resultado y un manejador ubicado en el paquete equivocado. Cuatro se detectaron en pruebas: un conversor de JPA aplicado sobre un identificador, un error 500 en lugar de 400 ante una moneda no soportada, la clave del outbox sin serializar y una configuración rota de la app Android. Ninguno llegó a producción.
+
+| Fase de detección | Defectos |
+|---|---|
+| Revisión de código | 2 |
+| Pruebas | 4 |
+| Producción | 0 |
+| **Total** | **6** |
+
+Con estos datos, el yield del proceso, que es la proporción de defectos eliminados antes de la primera prueba, es de 2 de 6, un 33%. Humphrey (2000) propone como referencia eliminar al menos el 70% de los defectos antes de las pruebas. La diferencia confirma lo que muestran los procesos de [6.4](#64-procesos-del-equipo-modelados-en-bpmn): las revisiones existen, pero todavía no detienen a la mayoría de los defectos.
+
+El equipo propone las siguientes metas para validarlas en el próximo relanzamiento:
+
+| Indicador | Valor actual | Meta propuesta |
+|---|---|---|
+| Yield antes de las pruebas | 33% | 70% o más |
+| Defectos críticos en producción por release | 0 | 0 |
+| Pull requests fusionados con pipeline en verde y una aprobación | Exigido solo en Finance | 100% |
+| Criterios de aceptación con al menos un caso de prueba | Sin medir | 100% |
+| Tiempo registrado por fase en cada tarea | Sin medir | 100% de las tareas |
+
 <hr class="page-break">
 
 # Avance de Conclusiones
@@ -4540,12 +5510,19 @@ Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se res
 # Bibliografía
 
 <div>
+<p class="ref">Ben Bouheni, F., Tewari, M., Salamon, A., Johnston, P., &amp; Hopkins, K. (2025). Credit sales and risk scoring: A FinTech innovation. <em>FinTech, 4</em>(3), 31. <a href="https://doi.org/10.3390/fintech4030031">https://doi.org/10.3390/fintech4030031</a></p>
 <p class="ref">CAVALI. (2024). <em>Reporte de desempeño de facturas negociables</em>. <a href="https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf">https://www.cavali.com.pe/factrack/uploads/shares/home/Reporte_Estadistico_FN_2024__1_.pdf</a></p>
 <p class="ref">ComexPerú. (2025). <em>Inclusión financiera de las MYPE: avances y retos</em>. <a href="https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos">https://www.comexperu.org.pe/articulo/inclusion-financiera-de-las-mypes-avances-y-retos</a></p>
+<p class="ref">Congreso de la República del Perú. (2011). <em>Ley N.° 29733, Ley de Protección de Datos Personales</em>.</p>
 <p class="ref">Contadores y Empresas. (2025). <em>Operaciones de factoring crecieron 14% en 2024</em>. <a href="https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/">https://www.contadoresyempresas.com.pe/operaciones-de-factoring-crecieron-14-en-2024/</a></p>
+<p class="ref">Guerar, M., Merlo, A., Migliardi, M., Palmieri, F., &amp; Verderame, L. (2020). A fraud-resilient blockchain-based solution for invoice financing. <em>IEEE Transactions on Engineering Management, 67</em>(4), 1086–1098. <a href="https://doi.org/10.1109/TEM.2020.2971865">https://doi.org/10.1109/TEM.2020.2971865</a></p>
+<p class="ref">Humphrey, W. S. (2000). <em>The Team Software Process (TSP)</em> (Technical Report CMU/SEI-2000-TR-022). Software Engineering Institute, Carnegie Mellon University.</p>
+<p class="ref">INACAL. (2022). <em>NTP-ISO/IEC 27001:2022. Seguridad de la información, ciberseguridad y protección de la privacidad. Sistemas de gestión de seguridad de la información. Requisitos</em> (3.ª ed.). Instituto Nacional de Calidad.</p>
 <p class="ref">Innova Funding. (2022). <em>Ley de pago de facturas para MYPE a 30 días en Perú</em>. <a href="https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/">https://innova-funding.com/claves-del-pago-de-facturas-mype-a-treinta-dias/</a></p>
+<p class="ref">ISO/IEC/IEEE. (2026). <em>Systems and software engineering. Software life cycle processes</em> (ISO/IEC/IEEE 12207:2026, 2.ª ed.). International Organization for Standardization, International Electrotechnical Commission e Institute of Electrical and Electronics Engineers.</p>
 <p class="ref">LP. (2021). <em>Ley 31362, MYPE podrán cobrar facturas en un plazo máximo de 30 días</em>. <a href="https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/">https://lpderecho.pe/ley-31362-pago-facturas-mype-treinta-dias/</a></p>
 <p class="ref">PRODUCE. (2025). <em>Estado de la inclusión financiera - MYPE</em>. <a href="https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf">https://www.producempresarial.pe/wp-content/uploads/2025/03/268-Reporte-de-Factoring-DIC-2024.pdf</a></p>
+<p class="ref">SANIPES. (2024). <em>Gestión del ciclo de vida del software en la Autoridad Nacional de Sanidad e Inocuidad en Pesca y Acuicultura</em> (Directiva DIR-005-2024-SANIPES-OTI-PS 01.02-01). Oficina de Tecnologías de la Información.</p>
 </div>
 
 <hr class="page-break">
@@ -4563,6 +5540,7 @@ Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se res
 |---|---|---|
 | TB1 | [https://goo.su/F5ct5](https://goo.su/F5ct5) | 24:48 |
 | TB2 | [https://goo.su/FejMKFJ](https://goo.su/FejMKFJ) | 28:15 |
+| TP1 | [https://goo.su/U4nx14W](https://goo.su/U4nx14W) | 28:22 |
 
 <hr class="page-break">
 
@@ -4589,4 +5567,4 @@ Ninguna de ellas impide completar el ciclo del crowdfactoring, por lo que se res
 
 ## Anexo C: Enlaces a los videos de entrevistas de los segmentos objetivo
 
-Enlace: [https://goo.su/j42cb8](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAWCjy1cb2NoZaTQaVktAxrk?e=vVeYrJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+Enlace: [https://goo.su/GCu5X](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221g044_upc_edu_pe/IQBH1rA-DTogSZAoQrPM1UIOAT_XBb0WF4QBJDp1wQwl648?e=3MRLHF&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
