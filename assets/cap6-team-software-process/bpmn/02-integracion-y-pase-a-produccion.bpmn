@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_VankooIntegracionYPase" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Pool_VankooIntegracionYPase" name="Vankoo · Integración y pase a producción (proceso ideal)" processRef="VankooIntegracionYPase" />
+  </bpmn:collaboration>
+  <bpmn:process id="VankooIntegracionYPase" name="Integración y pase a producción" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_PO" name="Product Owner · Salim">
+        <bpmn:flowNodeRef>FunctionalSignOff</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_GP" name="Planificación · Daniel">
+        <bpmn:flowNodeRef>ScheduleRelease</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>CloseRelease</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ReleaseLive</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_GC" name="Gestor de calidad · Diego">
+        <bpmn:flowNodeRef>ForkConformity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>QualitySignOff</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>JoinConformity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>AllSignOffs</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>MonitorPilot</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>CriticalIncident</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_RC" name="Revisor de calidad · Paúl">
+        <bpmn:flowNodeRef>ReviewCode</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ReviewApproved</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>SecuritySignOff</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BackToBacklog</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Dev" name="Desarrollador (autor)">
+        <bpmn:flowNodeRef>StoryDone</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>OpenPullRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>FixPullRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>MergeFix</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_CI" name="Pipeline CI/CD (automático)">
+        <bpmn:flowNodeRef>MergeRetry</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BuildAndUnitTest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>PipelineGreen</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>DeployStaging</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>RunIntegrationTests</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ScanVulnerabilities</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>DeployProduction</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Rollback</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ReleaseRolledBack</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StoryDone" name="Historia terminada en su rama">
+      <bpmn:outgoing>F2_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="OpenPullRequest" name="Abrir pull request hacia develop">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="desarrollo" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_01</bpmn:incoming>
+      <bpmn:outgoing>F2_02</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="MergeRetry">
+      <bpmn:incoming>F2_02</bpmn:incoming>
+      <bpmn:incoming>F2_11</bpmn:incoming>
+      <bpmn:outgoing>F2_03</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="BuildAndUnitTest" name="Compilar, analizar y ejecutar pruebas unitarias">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ci-build-unit" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_03</bpmn:incoming>
+      <bpmn:outgoing>F2_04</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="PipelineGreen" name="¿Pipeline en verde?" default="F2_06">
+      <bpmn:incoming>F2_04</bpmn:incoming>
+      <bpmn:outgoing>F2_05</bpmn:outgoing>
+      <bpmn:outgoing>F2_06</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="FixPullRequest" name="Corregir el pull request">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="desarrollo" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_10</bpmn:incoming>
+      <bpmn:outgoing>F2_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="MergeFix">
+      <bpmn:incoming>F2_06</bpmn:incoming>
+      <bpmn:incoming>F2_09</bpmn:incoming>
+      <bpmn:outgoing>F2_10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="ReviewCode" name="Revisar código (dueño según CODEOWNERS)">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="revisor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_05</bpmn:incoming>
+      <bpmn:outgoing>F2_07</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="ReviewApproved" name="¿Aprobado?" default="F2_09">
+      <bpmn:incoming>F2_07</bpmn:incoming>
+      <bpmn:outgoing>F2_08</bpmn:outgoing>
+      <bpmn:outgoing>F2_09</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="DeployStaging" name="Fusionar en develop y desplegar en staging">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="cd-deploy-staging" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_08</bpmn:incoming>
+      <bpmn:outgoing>F2_12</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="RunIntegrationTests" name="Ejecutar pruebas de integración, contrato y E2E">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ci-integration-e2e" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_12</bpmn:incoming>
+      <bpmn:outgoing>F2_13</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="ScanVulnerabilities" name="Analizar vulnerabilidades">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ci-security-scan" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_13</bpmn:incoming>
+      <bpmn:outgoing>F2_14</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="ForkConformity">
+      <bpmn:incoming>F2_14</bpmn:incoming>
+      <bpmn:outgoing>F2_15</bpmn:outgoing>
+      <bpmn:outgoing>F2_16</bpmn:outgoing>
+      <bpmn:outgoing>F2_17</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="FunctionalSignOff" name="Dar conformidad funcional">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="product-owner" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_15</bpmn:incoming>
+      <bpmn:outgoing>F2_18</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="QualitySignOff" name="Dar conformidad de pruebas">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_16</bpmn:incoming>
+      <bpmn:outgoing>F2_19</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="SecuritySignOff" name="Dar conformidad de seguridad">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="revisor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_17</bpmn:incoming>
+      <bpmn:outgoing>F2_20</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="JoinConformity">
+      <bpmn:incoming>F2_18</bpmn:incoming>
+      <bpmn:incoming>F2_19</bpmn:incoming>
+      <bpmn:incoming>F2_20</bpmn:incoming>
+      <bpmn:outgoing>F2_21</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:exclusiveGateway id="AllSignOffs" name="¿Tres conformidades?" default="F2_23">
+      <bpmn:incoming>F2_21</bpmn:incoming>
+      <bpmn:outgoing>F2_22</bpmn:outgoing>
+      <bpmn:outgoing>F2_23</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="BackToBacklog" name="Observaciones al backlog">
+      <bpmn:incoming>F2_23</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="ScheduleRelease" name="Programar ventana de release">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-planificacion" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_22</bpmn:incoming>
+      <bpmn:outgoing>F2_24</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="DeployProduction" name="Etiquetar release y desplegar en producción">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="cd-deploy-production" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_24</bpmn:incoming>
+      <bpmn:outgoing>F2_25</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="MonitorPilot" name="Supervisar marcha blanca">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_25</bpmn:incoming>
+      <bpmn:outgoing>F2_26</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="CriticalIncident" name="¿Incidente crítico?" default="F2_28">
+      <bpmn:incoming>F2_26</bpmn:incoming>
+      <bpmn:outgoing>F2_27</bpmn:outgoing>
+      <bpmn:outgoing>F2_28</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Rollback" name="Revertir a la versión anterior">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="cd-rollback" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_27</bpmn:incoming>
+      <bpmn:outgoing>F2_29</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="CloseRelease" name="Cerrar release y registrar postmortem">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-planificacion" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F2_28</bpmn:incoming>
+      <bpmn:outgoing>F2_30</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="ReleaseRolledBack" name="Release revertido">
+      <bpmn:incoming>F2_29</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="ReleaseLive" name="Release en producción">
+      <bpmn:incoming>F2_30</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="F2_01" sourceRef="StoryDone" targetRef="OpenPullRequest" />
+    <bpmn:sequenceFlow id="F2_02" sourceRef="OpenPullRequest" targetRef="MergeRetry" />
+    <bpmn:sequenceFlow id="F2_03" sourceRef="MergeRetry" targetRef="BuildAndUnitTest" />
+    <bpmn:sequenceFlow id="F2_04" sourceRef="BuildAndUnitTest" targetRef="PipelineGreen" />
+    <bpmn:sequenceFlow id="F2_05" name="Sí" sourceRef="PipelineGreen" targetRef="ReviewCode">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=pipelineVerde = true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F2_06" name="No" sourceRef="PipelineGreen" targetRef="MergeFix" />
+    <bpmn:sequenceFlow id="F2_07" sourceRef="ReviewCode" targetRef="ReviewApproved" />
+    <bpmn:sequenceFlow id="F2_08" name="Sí" sourceRef="ReviewApproved" targetRef="DeployStaging">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=aprobado = true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F2_09" name="No" sourceRef="ReviewApproved" targetRef="MergeFix" />
+    <bpmn:sequenceFlow id="F2_10" sourceRef="MergeFix" targetRef="FixPullRequest" />
+    <bpmn:sequenceFlow id="F2_11" sourceRef="FixPullRequest" targetRef="MergeRetry" />
+    <bpmn:sequenceFlow id="F2_12" sourceRef="DeployStaging" targetRef="RunIntegrationTests" />
+    <bpmn:sequenceFlow id="F2_13" sourceRef="RunIntegrationTests" targetRef="ScanVulnerabilities" />
+    <bpmn:sequenceFlow id="F2_14" sourceRef="ScanVulnerabilities" targetRef="ForkConformity" />
+    <bpmn:sequenceFlow id="F2_15" sourceRef="ForkConformity" targetRef="FunctionalSignOff" />
+    <bpmn:sequenceFlow id="F2_16" sourceRef="ForkConformity" targetRef="QualitySignOff" />
+    <bpmn:sequenceFlow id="F2_17" sourceRef="ForkConformity" targetRef="SecuritySignOff" />
+    <bpmn:sequenceFlow id="F2_18" sourceRef="FunctionalSignOff" targetRef="JoinConformity" />
+    <bpmn:sequenceFlow id="F2_19" sourceRef="QualitySignOff" targetRef="JoinConformity" />
+    <bpmn:sequenceFlow id="F2_20" sourceRef="SecuritySignOff" targetRef="JoinConformity" />
+    <bpmn:sequenceFlow id="F2_21" sourceRef="JoinConformity" targetRef="AllSignOffs" />
+    <bpmn:sequenceFlow id="F2_22" name="Sí" sourceRef="AllSignOffs" targetRef="ScheduleRelease">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=conformidadFuncional and conformidadPruebas and conformidadSeguridad</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F2_23" name="No" sourceRef="AllSignOffs" targetRef="BackToBacklog" />
+    <bpmn:sequenceFlow id="F2_24" sourceRef="ScheduleRelease" targetRef="DeployProduction" />
+    <bpmn:sequenceFlow id="F2_25" sourceRef="DeployProduction" targetRef="MonitorPilot" />
+    <bpmn:sequenceFlow id="F2_26" sourceRef="MonitorPilot" targetRef="CriticalIncident" />
+    <bpmn:sequenceFlow id="F2_27" name="Sí" sourceRef="CriticalIncident" targetRef="Rollback">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=incidenteCritico = true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F2_28" name="No" sourceRef="CriticalIncident" targetRef="CloseRelease" />
+    <bpmn:sequenceFlow id="F2_29" sourceRef="Rollback" targetRef="ReleaseRolledBack" />
+    <bpmn:sequenceFlow id="F2_30" sourceRef="CloseRelease" targetRef="ReleaseLive" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Pool_VankooIntegracionYPase_di" bpmnElement="Pool_VankooIntegracionYPase" isHorizontal="true">
+        <dc:Bounds x="120" y="60" width="3610" height="900" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_PO_di" bpmnElement="Lane_PO" isHorizontal="true">
+        <dc:Bounds x="150" y="60" width="3580" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_GP_di" bpmnElement="Lane_GP" isHorizontal="true">
+        <dc:Bounds x="150" y="210" width="3580" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_GC_di" bpmnElement="Lane_GC" isHorizontal="true">
+        <dc:Bounds x="150" y="360" width="3580" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_RC_di" bpmnElement="Lane_RC" isHorizontal="true">
+        <dc:Bounds x="150" y="510" width="3580" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Dev_di" bpmnElement="Lane_Dev" isHorizontal="true">
+        <dc:Bounds x="150" y="660" width="3580" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_CI_di" bpmnElement="Lane_CI" isHorizontal="true">
+        <dc:Bounds x="150" y="810" width="3580" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StoryDone_di" bpmnElement="StoryDone">
+        <dc:Bounds x="257" y="717" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="225" y="759" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="OpenPullRequest_di" bpmnElement="OpenPullRequest">
+        <dc:Bounds x="385" y="690" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MergeRetry_di" bpmnElement="MergeRetry" isMarkerVisible="true">
+        <dc:Bounds x="600" y="860" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BuildAndUnitTest_di" bpmnElement="BuildAndUnitTest">
+        <dc:Bounds x="735" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PipelineGreen_di" bpmnElement="PipelineGreen" isMarkerVisible="true">
+        <dc:Bounds x="950" y="860" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="983" y="914" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FixPullRequest_di" bpmnElement="FixPullRequest">
+        <dc:Bounds x="735" y="690" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MergeFix_di" bpmnElement="MergeFix" isMarkerVisible="true">
+        <dc:Bounds x="950" y="710" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ReviewCode_di" bpmnElement="ReviewCode">
+        <dc:Bounds x="1085" y="540" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ReviewApproved_di" bpmnElement="ReviewApproved" isMarkerVisible="true">
+        <dc:Bounds x="1300" y="560" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1275" y="526" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DeployStaging_di" bpmnElement="DeployStaging">
+        <dc:Bounds x="1435" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RunIntegrationTests_di" bpmnElement="RunIntegrationTests">
+        <dc:Bounds x="1610" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ScanVulnerabilities_di" bpmnElement="ScanVulnerabilities">
+        <dc:Bounds x="1785" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ForkConformity_di" bpmnElement="ForkConformity">
+        <dc:Bounds x="2000" y="410" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FunctionalSignOff_di" bpmnElement="FunctionalSignOff">
+        <dc:Bounds x="2135" y="90" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QualitySignOff_di" bpmnElement="QualitySignOff">
+        <dc:Bounds x="2135" y="390" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SecuritySignOff_di" bpmnElement="SecuritySignOff">
+        <dc:Bounds x="2135" y="540" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="JoinConformity_di" bpmnElement="JoinConformity">
+        <dc:Bounds x="2350" y="410" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AllSignOffs_di" bpmnElement="AllSignOffs" isMarkerVisible="true">
+        <dc:Bounds x="2525" y="410" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2433" y="380" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BackToBacklog_di" bpmnElement="BackToBacklog">
+        <dc:Bounds x="2707" y="567" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2675" y="609" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ScheduleRelease_di" bpmnElement="ScheduleRelease">
+        <dc:Bounds x="2660" y="240" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DeployProduction_di" bpmnElement="DeployProduction">
+        <dc:Bounds x="2835" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MonitorPilot_di" bpmnElement="MonitorPilot">
+        <dc:Bounds x="3010" y="390" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CriticalIncident_di" bpmnElement="CriticalIncident" isMarkerVisible="true">
+        <dc:Bounds x="3225" y="410" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3133" y="380" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Rollback_di" bpmnElement="Rollback">
+        <dc:Bounds x="3360" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CloseRelease_di" bpmnElement="CloseRelease">
+        <dc:Bounds x="3360" y="240" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ReleaseRolledBack_di" bpmnElement="ReleaseRolledBack">
+        <dc:Bounds x="3582" y="867" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3550" y="909" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ReleaseLive_di" bpmnElement="ReleaseLive">
+        <dc:Bounds x="3582" y="267" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3550" y="309" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="F2_01_di" bpmnElement="F2_01">
+        <di:waypoint x="293" y="735" />
+        <di:waypoint x="385" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_02_di" bpmnElement="F2_02">
+        <di:waypoint x="515" y="735" />
+        <di:waypoint x="557.5" y="735" />
+        <di:waypoint x="557.5" y="885" />
+        <di:waypoint x="600" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_03_di" bpmnElement="F2_03">
+        <di:waypoint x="650" y="885" />
+        <di:waypoint x="735" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_04_di" bpmnElement="F2_04">
+        <di:waypoint x="865" y="885" />
+        <di:waypoint x="950" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_05_di" bpmnElement="F2_05">
+        <di:waypoint x="1000" y="885" />
+        <di:waypoint x="1042.5" y="885" />
+        <di:waypoint x="1042.5" y="585" />
+        <di:waypoint x="1085" y="585" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1006" y="867" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_06_di" bpmnElement="F2_06">
+        <di:waypoint x="975" y="860" />
+        <di:waypoint x="975" y="760" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="981" y="838" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_07_di" bpmnElement="F2_07">
+        <di:waypoint x="1215" y="585" />
+        <di:waypoint x="1300" y="585" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_08_di" bpmnElement="F2_08">
+        <di:waypoint x="1350" y="585" />
+        <di:waypoint x="1392.5" y="585" />
+        <di:waypoint x="1392.5" y="885" />
+        <di:waypoint x="1435" y="885" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1356" y="567" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_09_di" bpmnElement="F2_09">
+        <di:waypoint x="1325" y="610" />
+        <di:waypoint x="1325" y="674" />
+        <di:waypoint x="975" y="674" />
+        <di:waypoint x="975" y="710" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1331" y="616" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_10_di" bpmnElement="F2_10">
+        <di:waypoint x="950" y="735" />
+        <di:waypoint x="865" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_11_di" bpmnElement="F2_11">
+        <di:waypoint x="735" y="735" />
+        <di:waypoint x="625" y="735" />
+        <di:waypoint x="625" y="860" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_12_di" bpmnElement="F2_12">
+        <di:waypoint x="1565" y="885" />
+        <di:waypoint x="1610" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_13_di" bpmnElement="F2_13">
+        <di:waypoint x="1740" y="885" />
+        <di:waypoint x="1785" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_14_di" bpmnElement="F2_14">
+        <di:waypoint x="1915" y="885" />
+        <di:waypoint x="1957.5" y="885" />
+        <di:waypoint x="1957.5" y="435" />
+        <di:waypoint x="2000" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_15_di" bpmnElement="F2_15">
+        <di:waypoint x="2025" y="410" />
+        <di:waypoint x="2025" y="135" />
+        <di:waypoint x="2135" y="135" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_16_di" bpmnElement="F2_16">
+        <di:waypoint x="2050" y="435" />
+        <di:waypoint x="2135" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_17_di" bpmnElement="F2_17">
+        <di:waypoint x="2025" y="460" />
+        <di:waypoint x="2025" y="585" />
+        <di:waypoint x="2135" y="585" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_18_di" bpmnElement="F2_18">
+        <di:waypoint x="2265" y="135" />
+        <di:waypoint x="2375" y="135" />
+        <di:waypoint x="2375" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_19_di" bpmnElement="F2_19">
+        <di:waypoint x="2265" y="435" />
+        <di:waypoint x="2350" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_20_di" bpmnElement="F2_20">
+        <di:waypoint x="2265" y="585" />
+        <di:waypoint x="2375" y="585" />
+        <di:waypoint x="2375" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_21_di" bpmnElement="F2_21">
+        <di:waypoint x="2400" y="435" />
+        <di:waypoint x="2525" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_22_di" bpmnElement="F2_22">
+        <di:waypoint x="2550" y="410" />
+        <di:waypoint x="2550" y="285" />
+        <di:waypoint x="2660" y="285" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2556" y="388" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_23_di" bpmnElement="F2_23">
+        <di:waypoint x="2550" y="460" />
+        <di:waypoint x="2550" y="585" />
+        <di:waypoint x="2707" y="585" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2556" y="466" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_24_di" bpmnElement="F2_24">
+        <di:waypoint x="2790" y="285" />
+        <di:waypoint x="2812.5" y="285" />
+        <di:waypoint x="2812.5" y="885" />
+        <di:waypoint x="2835" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_25_di" bpmnElement="F2_25">
+        <di:waypoint x="2965" y="885" />
+        <di:waypoint x="2987.5" y="885" />
+        <di:waypoint x="2987.5" y="435" />
+        <di:waypoint x="3010" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_26_di" bpmnElement="F2_26">
+        <di:waypoint x="3140" y="435" />
+        <di:waypoint x="3225" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_27_di" bpmnElement="F2_27">
+        <di:waypoint x="3250" y="460" />
+        <di:waypoint x="3250" y="885" />
+        <di:waypoint x="3360" y="885" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3256" y="466" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_28_di" bpmnElement="F2_28">
+        <di:waypoint x="3250" y="410" />
+        <di:waypoint x="3250" y="285" />
+        <di:waypoint x="3360" y="285" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3256" y="388" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_29_di" bpmnElement="F2_29">
+        <di:waypoint x="3490" y="885" />
+        <di:waypoint x="3582" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F2_30_di" bpmnElement="F2_30">
+        <di:waypoint x="3490" y="285" />
+        <di:waypoint x="3582" y="285" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_VankooPlanDePruebas" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Pool_VankooPlanDePruebas" name="Vankoo · Plan de pruebas del sprint (proceso ideal)" processRef="VankooPlanDePruebas" />
+  </bpmn:collaboration>
+  <bpmn:process id="VankooPlanDePruebas" name="Plan de pruebas del sprint" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_PO" name="Product Owner · Salim">
+        <bpmn:flowNodeRef>SprintPlanned</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>RunAcceptanceTests</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Accepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>IncrementAccepted</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_GC" name="Gestor de calidad · Diego">
+        <bpmn:flowNodeRef>DefineTestStrategy</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>PrepareEnvironment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>WriteTestReport</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_AC" name="Analista de calidad · Anjali">
+        <bpmn:flowNodeRef>RunSystemTests</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BlockingDefects</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>MergeObservations</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>LogDefect</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_AR" name="Requerimientos · Paúl">
+        <bpmn:flowNodeRef>DeriveTestCases</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ForkPreparation</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Dev" name="Equipo de desarrollo">
+        <bpmn:flowNodeRef>DevelopAutomatedTests</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>JoinPreparation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>FixDefect</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_CI" name="Pipeline CI (automático)">
+        <bpmn:flowNodeRef>MergeRegression</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>RunAutomatedSuite</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="SprintPlanned" name="Sprint planificado">
+      <bpmn:outgoing>F1_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="DefineTestStrategy" name="Definir estrategia de pruebas del sprint">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_01</bpmn:incoming>
+      <bpmn:outgoing>F1_02</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="DeriveTestCases" name="Derivar casos de prueba de los criterios de aceptación">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="adm-requerimientos" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_02</bpmn:incoming>
+      <bpmn:outgoing>F1_03</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="ForkPreparation">
+      <bpmn:incoming>F1_03</bpmn:incoming>
+      <bpmn:outgoing>F1_04</bpmn:outgoing>
+      <bpmn:outgoing>F1_05</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="PrepareEnvironment" name="Preparar ambiente y datos de prueba">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_04</bpmn:incoming>
+      <bpmn:outgoing>F1_06</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="DevelopAutomatedTests" name="Automatizar pruebas junto con la historia">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="desarrollo" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_05</bpmn:incoming>
+      <bpmn:outgoing>F1_07</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="JoinPreparation">
+      <bpmn:incoming>F1_06</bpmn:incoming>
+      <bpmn:incoming>F1_07</bpmn:incoming>
+      <bpmn:outgoing>F1_08</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:exclusiveGateway id="MergeRegression">
+      <bpmn:incoming>F1_08</bpmn:incoming>
+      <bpmn:incoming>F1_16</bpmn:incoming>
+      <bpmn:outgoing>F1_09</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="RunAutomatedSuite" name="Ejecutar suite automatizada">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ci-run-test-suite" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_09</bpmn:incoming>
+      <bpmn:outgoing>F1_10</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="RunSystemTests" name="Ejecutar pruebas de sistema y exploratorias">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="analista-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_10</bpmn:incoming>
+      <bpmn:outgoing>F1_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="BlockingDefects" name="¿Defectos críticos o altos?" default="F1_13">
+      <bpmn:incoming>F1_11</bpmn:incoming>
+      <bpmn:outgoing>F1_12</bpmn:outgoing>
+      <bpmn:outgoing>F1_13</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="MergeObservations">
+      <bpmn:incoming>F1_12</bpmn:incoming>
+      <bpmn:incoming>F1_20</bpmn:incoming>
+      <bpmn:outgoing>F1_14</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="WriteTestReport" name="Elaborar informe de pruebas">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="gestor-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_13</bpmn:incoming>
+      <bpmn:outgoing>F1_17</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="LogDefect" name="Registrar y clasificar defecto">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="analista-calidad" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_14</bpmn:incoming>
+      <bpmn:outgoing>F1_15</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="RunAcceptanceTests" name="Ejecutar pruebas de aceptación">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="product-owner" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_17</bpmn:incoming>
+      <bpmn:outgoing>F1_18</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="FixDefect" name="Corregir defecto y añadir prueba de regresión">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:assignmentDefinition candidateGroups="desarrollo" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>F1_15</bpmn:incoming>
+      <bpmn:outgoing>F1_16</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Accepted" name="¿Conforme?" default="F1_20">
+      <bpmn:incoming>F1_18</bpmn:incoming>
+      <bpmn:outgoing>F1_19</bpmn:outgoing>
+      <bpmn:outgoing>F1_20</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="IncrementAccepted" name="Incremento aceptado">
+      <bpmn:incoming>F1_19</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="F1_01" sourceRef="SprintPlanned" targetRef="DefineTestStrategy" />
+    <bpmn:sequenceFlow id="F1_02" sourceRef="DefineTestStrategy" targetRef="DeriveTestCases" />
+    <bpmn:sequenceFlow id="F1_03" sourceRef="DeriveTestCases" targetRef="ForkPreparation" />
+    <bpmn:sequenceFlow id="F1_04" sourceRef="ForkPreparation" targetRef="PrepareEnvironment" />
+    <bpmn:sequenceFlow id="F1_05" sourceRef="ForkPreparation" targetRef="DevelopAutomatedTests" />
+    <bpmn:sequenceFlow id="F1_06" sourceRef="PrepareEnvironment" targetRef="JoinPreparation" />
+    <bpmn:sequenceFlow id="F1_07" sourceRef="DevelopAutomatedTests" targetRef="JoinPreparation" />
+    <bpmn:sequenceFlow id="F1_08" sourceRef="JoinPreparation" targetRef="MergeRegression" />
+    <bpmn:sequenceFlow id="F1_09" sourceRef="MergeRegression" targetRef="RunAutomatedSuite" />
+    <bpmn:sequenceFlow id="F1_10" sourceRef="RunAutomatedSuite" targetRef="RunSystemTests" />
+    <bpmn:sequenceFlow id="F1_11" sourceRef="RunSystemTests" targetRef="BlockingDefects" />
+    <bpmn:sequenceFlow id="F1_12" name="Sí" sourceRef="BlockingDefects" targetRef="MergeObservations">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=defectosBloqueantes &gt; 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F1_13" name="No" sourceRef="BlockingDefects" targetRef="WriteTestReport" />
+    <bpmn:sequenceFlow id="F1_14" sourceRef="MergeObservations" targetRef="LogDefect" />
+    <bpmn:sequenceFlow id="F1_15" sourceRef="LogDefect" targetRef="FixDefect" />
+    <bpmn:sequenceFlow id="F1_16" sourceRef="FixDefect" targetRef="MergeRegression" />
+    <bpmn:sequenceFlow id="F1_17" sourceRef="WriteTestReport" targetRef="RunAcceptanceTests" />
+    <bpmn:sequenceFlow id="F1_18" sourceRef="RunAcceptanceTests" targetRef="Accepted" />
+    <bpmn:sequenceFlow id="F1_19" name="Sí" sourceRef="Accepted" targetRef="IncrementAccepted">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=conforme = true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F1_20" name="No" sourceRef="Accepted" targetRef="MergeObservations" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Pool_VankooPlanDePruebas_di" bpmnElement="Pool_VankooPlanDePruebas" isHorizontal="true">
+        <dc:Bounds x="120" y="60" width="2560" height="900" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_PO_di" bpmnElement="Lane_PO" isHorizontal="true">
+        <dc:Bounds x="150" y="60" width="2530" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_GC_di" bpmnElement="Lane_GC" isHorizontal="true">
+        <dc:Bounds x="150" y="210" width="2530" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_AC_di" bpmnElement="Lane_AC" isHorizontal="true">
+        <dc:Bounds x="150" y="360" width="2530" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_AR_di" bpmnElement="Lane_AR" isHorizontal="true">
+        <dc:Bounds x="150" y="510" width="2530" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Dev_di" bpmnElement="Lane_Dev" isHorizontal="true">
+        <dc:Bounds x="150" y="660" width="2530" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_CI_di" bpmnElement="Lane_CI" isHorizontal="true">
+        <dc:Bounds x="150" y="810" width="2530" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SprintPlanned_di" bpmnElement="SprintPlanned">
+        <dc:Bounds x="257" y="117" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="225" y="159" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DefineTestStrategy_di" bpmnElement="DefineTestStrategy">
+        <dc:Bounds x="385" y="240" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DeriveTestCases_di" bpmnElement="DeriveTestCases">
+        <dc:Bounds x="560" y="540" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ForkPreparation_di" bpmnElement="ForkPreparation">
+        <dc:Bounds x="775" y="560" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PrepareEnvironment_di" bpmnElement="PrepareEnvironment">
+        <dc:Bounds x="910" y="240" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DevelopAutomatedTests_di" bpmnElement="DevelopAutomatedTests">
+        <dc:Bounds x="910" y="690" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="JoinPreparation_di" bpmnElement="JoinPreparation">
+        <dc:Bounds x="1125" y="710" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MergeRegression_di" bpmnElement="MergeRegression" isMarkerVisible="true">
+        <dc:Bounds x="1300" y="860" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RunAutomatedSuite_di" bpmnElement="RunAutomatedSuite">
+        <dc:Bounds x="1435" y="840" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RunSystemTests_di" bpmnElement="RunSystemTests">
+        <dc:Bounds x="1610" y="390" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BlockingDefects_di" bpmnElement="BlockingDefects" isMarkerVisible="true">
+        <dc:Bounds x="1825" y="410" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1858" y="464" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MergeObservations_di" bpmnElement="MergeObservations" isMarkerVisible="true">
+        <dc:Bounds x="2000" y="410" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="WriteTestReport_di" bpmnElement="WriteTestReport">
+        <dc:Bounds x="1960" y="240" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LogDefect_di" bpmnElement="LogDefect">
+        <dc:Bounds x="2135" y="390" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RunAcceptanceTests_di" bpmnElement="RunAcceptanceTests">
+        <dc:Bounds x="2135" y="90" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FixDefect_di" bpmnElement="FixDefect">
+        <dc:Bounds x="2310" y="690" width="130" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Accepted_di" bpmnElement="Accepted" isMarkerVisible="true">
+        <dc:Bounds x="2350" y="110" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2325" y="76" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="IncrementAccepted_di" bpmnElement="IncrementAccepted">
+        <dc:Bounds x="2532" y="117" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2500" y="159" width="100" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="F1_01_di" bpmnElement="F1_01">
+        <di:waypoint x="293" y="135" />
+        <di:waypoint x="339" y="135" />
+        <di:waypoint x="339" y="285" />
+        <di:waypoint x="385" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_02_di" bpmnElement="F1_02">
+        <di:waypoint x="515" y="285" />
+        <di:waypoint x="537.5" y="285" />
+        <di:waypoint x="537.5" y="585" />
+        <di:waypoint x="560" y="585" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_03_di" bpmnElement="F1_03">
+        <di:waypoint x="690" y="585" />
+        <di:waypoint x="775" y="585" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_04_di" bpmnElement="F1_04">
+        <di:waypoint x="800" y="560" />
+        <di:waypoint x="800" y="285" />
+        <di:waypoint x="910" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_05_di" bpmnElement="F1_05">
+        <di:waypoint x="800" y="610" />
+        <di:waypoint x="800" y="735" />
+        <di:waypoint x="910" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_06_di" bpmnElement="F1_06">
+        <di:waypoint x="1040" y="285" />
+        <di:waypoint x="1150" y="285" />
+        <di:waypoint x="1150" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_07_di" bpmnElement="F1_07">
+        <di:waypoint x="1040" y="735" />
+        <di:waypoint x="1125" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_08_di" bpmnElement="F1_08">
+        <di:waypoint x="1175" y="735" />
+        <di:waypoint x="1325" y="735" />
+        <di:waypoint x="1325" y="860" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_09_di" bpmnElement="F1_09">
+        <di:waypoint x="1350" y="885" />
+        <di:waypoint x="1435" y="885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_10_di" bpmnElement="F1_10">
+        <di:waypoint x="1565" y="885" />
+        <di:waypoint x="1587.5" y="885" />
+        <di:waypoint x="1587.5" y="435" />
+        <di:waypoint x="1610" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_11_di" bpmnElement="F1_11">
+        <di:waypoint x="1740" y="435" />
+        <di:waypoint x="1825" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_12_di" bpmnElement="F1_12">
+        <di:waypoint x="1875" y="435" />
+        <di:waypoint x="2000" y="435" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1881" y="417" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_13_di" bpmnElement="F1_13">
+        <di:waypoint x="1850" y="410" />
+        <di:waypoint x="1850" y="285" />
+        <di:waypoint x="1960" y="285" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1856" y="388" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_14_di" bpmnElement="F1_14">
+        <di:waypoint x="2050" y="435" />
+        <di:waypoint x="2135" y="435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_15_di" bpmnElement="F1_15">
+        <di:waypoint x="2265" y="435" />
+        <di:waypoint x="2287.5" y="435" />
+        <di:waypoint x="2287.5" y="735" />
+        <di:waypoint x="2310" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_16_di" bpmnElement="F1_16">
+        <di:waypoint x="2375" y="780" />
+        <di:waypoint x="2375" y="944" />
+        <di:waypoint x="1325" y="944" />
+        <di:waypoint x="1325" y="910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_17_di" bpmnElement="F1_17">
+        <di:waypoint x="2090" y="285" />
+        <di:waypoint x="2112.5" y="285" />
+        <di:waypoint x="2112.5" y="135" />
+        <di:waypoint x="2135" y="135" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_18_di" bpmnElement="F1_18">
+        <di:waypoint x="2265" y="135" />
+        <di:waypoint x="2350" y="135" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_19_di" bpmnElement="F1_19">
+        <di:waypoint x="2400" y="135" />
+        <di:waypoint x="2532" y="135" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2406" y="117" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="F1_20_di" bpmnElement="F1_20">
+        <di:waypoint x="2375" y="160" />
+        <di:waypoint x="2375" y="374" />
+        <di:waypoint x="2025" y="374" />
+        <di:waypoint x="2025" y="410" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2381" y="166" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
