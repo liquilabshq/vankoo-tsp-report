@@ -5092,7 +5092,172 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 #### 5.2.4.1. Sprint Planning 4
 
+<!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
+
+El Sprint Planning 4 define el alcance de la cuarta iteración de Vankoo, del 06/10/2026 al 19/10/2026. Con la MYPE ya capaz de publicar su factura en subasta, este sprint reemplaza la evaluación de riesgo simulada con la que se calculó la oferta del Sprint 3 por un servicio de evaluación real, que decide si la factura puede financiarse y con qué calificación, y añade el distintivo verde para las empresas con certificación ambiental. Por ello, se priorizó la clasificación de riesgo de la operación junto con el contrato REST que la sostiene, y la identificación de inversión verde, que se apoya en la misma evaluación.
+
+| Sprint # | Sprint 4 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 6 de octubre de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
+| Sprint 3 Review Summary | Se presentó en la Web Application para MYPE el tramo que va desde la oferta de adelanto hasta el seguimiento del fondeo: la MYPE conoce cuánto recibirá y cuánto le cuesta el adelanto (US03), publica la factura en el marketplace (US06) y sigue el estado de la subasta y el avance de su fondeo (US07). El Investment Service expuso el contrato REST de subastas e inversiones (TS05), documentado con OpenAPI, y su suite registró 94 casos, 85 aprobados y 9 omitidos, sin fallos. En el despliegue, el API Gateway pasó a ser el único punto de entrada en Azure Container Apps y la infraestructura de IAM e Invoicing se redefinió como código con Terraform. |
+| Sprint 3 Retrospective Summary | Definir el despliegue como código permitió rehacer el de los Sprints 1 y 2 y repetirlo de la misma forma entre integrantes, y la MYPE completó por primera vez el recorrido desde la oferta hasta el seguimiento del fondeo. Como punto de mejora, la cotización se calculó sobre una evaluación de riesgo simulada que asigna la misma calificación a toda subasta, el rechazo de la publicación por requisitos pendientes (escenario 2 de US06) quedó sin implementar y la factura publicada no cambiaba de estado en el Invoicing Service. Por ello, el equipo acordó reemplazar la simulación por un servicio de evaluación de riesgo real y completar la comunicación por eventos entre Investment e Invoicing. |
+| **Sprint Goal & User Stories** | |
+| Sprint 4 Goal | Reemplazar la evaluación de riesgo simulada por el Risk Service: clasificar al pagador de cada factura con los padrones de SUNAT, las listas de sanciones, un buró de crédito simulado y la búsqueda de noticias negativas, rechazar las operaciones no elegibles explicándole el motivo a la MYPE e identificar como verdes las subastas de empresas con certificación ambiental validada. |
+| User Stories | TS04, US02 y US10 |
+| Sprint 4 Velocity | 19 story points planificados; quedan 37 story points del MVP para los Sprints 5 y 6. |
+| Sum of Story Points | 19 |
+
 #### 5.2.4.2. Sprint Backlog 4
+
+<!-- Objetivo del sprint, captura del board y tabla de user stories con sus work-items. -->
+
+El Sprint Backlog 4 descompone las historias `TS04`, `US02` y `US10`. El objetivo es que el Risk Service evalúe cada subasta nueva y entregue su calificación al Investment Service, que rechaza las operaciones no elegibles mientras la MYPE Web le explica a la MYPE el motivo; y que la certificación ambiental que la MYPE sube a su perfil, una vez validada, marque su subasta como verde ante el inversionista. Las tareas `GEN-04` y `GEN-05` preparan el entorno y la integración continua, y `US06-T04` completa una pieza pendiente del Sprint 3. La consulta de las historias del sprint en Jira se presenta a continuación.
+
+<!-- Captura pendiente: assets/cap5-product-implementation/sprint-4/sprint-backlog/sprint-backlog.png (consulta de Jira con TS04, US02 y US10). -->
+
+Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?jql=project%20%3D%20VANKOO%20AND%20key%20in%20(VANKOO-37%2C%20VANKOO-16%2C%20VANKOO-29)%20ORDER%20BY%20key%20ASC)
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th colspan="2">Sprint #</th>
+        <th colspan="4">Sprint 4</th>
+      </tr>
+      <tr>
+        <th colspan="2">User Story</th>
+        <th colspan="4">Work-Item / Task</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status (To-do / In-Process / To-Review / Done)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GEN-04</td>
+        <td>Integrar el Risk Service en la infraestructura local</td>
+        <td>Incorporar el Risk Service y su base de datos al <code>docker-compose</code> de infraestructura, con la configuración de los padrones de SUNAT, la clave de OpenAI para la búsqueda de noticias y la lectura de certificados ambientales.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>GEN-05</td>
+        <td>Integración continua de los microservicios</td>
+        <td>Configurar los workflows de compilación, pruebas y cobertura en GitHub Actions, junto con los code owners y la plantilla de pull request de cada repositorio.</td>
+        <td>4</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS04-T01</td>
+        <td>Contrato REST de evaluación de riesgo</td>
+        <td>Crear el Risk Service, que evalúa cada subasta nueva al consumir su evento de creación y entrega la calificación resultante al Investment Service.</td>
+        <td>8</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS04-T02</td>
+        <td>Contrato REST de evaluación de riesgo</td>
+        <td>Calificar al pagador con los padrones de SUNAT y declarar no elegibles las facturas cuyo pagador no cumple las condiciones mínimas.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS04-T03</td>
+        <td>Contrato REST de evaluación de riesgo</td>
+        <td>Incorporar a la calificación las listas de sanciones y un buró de crédito simulado.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>TS04-T04</td>
+        <td>Contrato REST de evaluación de riesgo</td>
+        <td>Buscar noticias negativas del pagador mediante la búsqueda web de OpenAI e incorporarlas a la evaluación.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US02-T01</td>
+        <td>Clasificación de riesgo de la operación</td>
+        <td>Rechazar en el Investment Service las subastas que el Risk Service declara no elegibles, con su estado y el motivo del rechazo, y retirar la evaluación de riesgo simulada.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US02-T02</td>
+        <td>Clasificación de riesgo de la operación</td>
+        <td>Mostrar en el detalle de la factura de la MYPE Web por qué no puede financiarse cuando la evaluación la rechaza, incluido el caso de un pagador sin actividad real.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US10-T01</td>
+        <td>Identificación de inversión verde</td>
+        <td>Decidir en el Risk Service si la MYPE es verde a partir de su certificado ambiental y publicar esa decisión.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US10-T02</td>
+        <td>Identificación de inversión verde</td>
+        <td>Permitir que la empresa registre su certificado ambiental en el Profile Service, guardar la decisión del Risk Service y exponer en el API Gateway las rutas de la propia empresa.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US10-T03</td>
+        <td>Identificación de inversión verde</td>
+        <td>Marcar la subasta como verde en el Investment Service solo cuando la empresa emisora tiene un certificado validado, con los criterios que lo sustentan.</td>
+        <td>4</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US10-T04</td>
+        <td>Identificación de inversión verde</td>
+        <td>Implementar en la MYPE Web la pantalla de perfil de la empresa, desde la que completa sus datos y sube su certificado ambiental.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US10-T05</td>
+        <td>Identificación de inversión verde</td>
+        <td>Mostrar en el detalle de la subasta de la aplicación móvil el distintivo verde y los criterios por los que se otorgó.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US06-T04</td>
+        <td>Solicitud de subasta</td>
+        <td>Consumir en el Invoicing Service el evento de subasta publicada y pasar la factura al estado publicada, de forma idempotente.</td>
+        <td>6</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 #### 5.2.4.3. Development Evidence for Sprint Review
 
