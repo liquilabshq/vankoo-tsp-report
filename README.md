@@ -186,6 +186,16 @@
       - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
       - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
       - [5.2.3.9. Actas de reunión](#5239-actas-de-reunión)
+    - [5.2.4. Sprint 4](#524-sprint-4)
+      - [5.2.4.1. Sprint Planning 4](#5241-sprint-planning-4)
+      - [5.2.4.2. Sprint Backlog 4](#5242-sprint-backlog-4)
+      - [5.2.4.3. Development Evidence for Sprint Review](#5243-development-evidence-for-sprint-review)
+      - [5.2.4.4. Testing Suite Evidence for Sprint Review](#5244-testing-suite-evidence-for-sprint-review)
+      - [5.2.4.5. Execution Evidence for Sprint Review](#5245-execution-evidence-for-sprint-review)
+      - [5.2.4.6. Services Documentation Evidence for Sprint Review](#5246-services-documentation-evidence-for-sprint-review)
+      - [5.2.4.7. Software Deployment Evidence for Sprint Review](#5247-software-deployment-evidence-for-sprint-review)
+      - [5.2.4.8. Team Collaboration Insights during Sprint](#5248-team-collaboration-insights-during-sprint)
+      - [5.2.4.9. Actas de reunión](#5249-actas-de-reunión)
 - [Capítulo VI: Team Software Process](#capítulo-vi-team-software-process)
   - [6.1. TSP Launch Overview](#61-tsp-launch-overview)
   - [6.2. TSP Roles \& Scrum Roles](#62-tsp-roles--scrum-roles)
@@ -5073,6 +5083,30 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Temas tratados | Avance del Investment Service y del contrato REST de subastas e inversiones, estado de la integración del Investment Service con el API Gateway, revisión de la cotización del adelanto, la publicación de la factura en subasta y el seguimiento del fondeo en la MYPE Web App, y repartición de las secciones del informe del Sprint 3 |
 | Acuerdos | Continuar con el desarrollo y la documentación de los servicios y las pantallas asignados a cada integrante, finalizar la integración del Investment Service con el API Gateway, distribuir las secciones del informe del Sprint 3 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-3/actas-reunion/acta-reunion-01.png) |
+
+<hr class="page-break">
+
+### 5.2.4. Sprint 4
+
+<!-- Introducción breve del Sprint 4: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
+
+#### 5.2.4.1. Sprint Planning 4
+
+#### 5.2.4.2. Sprint Backlog 4
+
+#### 5.2.4.3. Development Evidence for Sprint Review
+
+#### 5.2.4.4. Testing Suite Evidence for Sprint Review
+
+#### 5.2.4.5. Execution Evidence for Sprint Review
+
+#### 5.2.4.6. Services Documentation Evidence for Sprint Review
+
+#### 5.2.4.7. Software Deployment Evidence for Sprint Review
+
+#### 5.2.4.8. Team Collaboration Insights during Sprint
+
+#### 5.2.4.9. Actas de reunión
 
 <hr class="page-break">
 
