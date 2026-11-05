@@ -5118,7 +5118,7 @@ El Sprint Planning 4 define el alcance de la cuarta iteración de Vankoo, del 06
 
 El Sprint Backlog 4 descompone las historias `TS04`, `US02` y `US10`. El objetivo es que el Risk Service evalúe cada subasta nueva y entregue su calificación al Investment Service, que rechaza las operaciones no elegibles mientras la MYPE Web le explica a la MYPE el motivo; y que la certificación ambiental que la MYPE sube a su perfil, una vez validada, marque su subasta como verde ante el inversionista. Las tareas `GEN-04` y `GEN-05` preparan el entorno y la integración continua, y `US06-T04` completa una pieza pendiente del Sprint 3. La consulta de las historias del sprint en Jira se presenta a continuación.
 
-<!-- Captura pendiente: assets/cap5-product-implementation/sprint-4/sprint-backlog/sprint-backlog.png (consulta de Jira con TS04, US02 y US10). -->
+![Sprint Backlog 4](assets/cap5-product-implementation/sprint-4/sprint-backlog/sprint-backlog.png)
 
 Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?jql=project%20%3D%20VANKOO%20AND%20key%20in%20(VANKOO-37%2C%20VANKOO-16%2C%20VANKOO-29)%20ORDER%20BY%20key%20ASC)
 
