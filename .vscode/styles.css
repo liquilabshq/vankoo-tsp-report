@@ -17,6 +17,20 @@ h1, h2, h3, h4, h5, h6 {
     text-indent: 0;
 }
 
+/* Niveles de título APA 7. Los títulos de la portada llevan style en línea y quedan fuera. */
+h1:not([style]), h2:not([style]), h3:not([style]), h4:not([style]) {
+    font-size: 12pt;
+    line-height: 1.5;
+    border-bottom: none;
+    padding-bottom: 0;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+h1:not([style]) { text-align: center; }
+h3:not([style]) { font-style: italic; }
+h4:not([style]) { margin-left: 1.27cm; }
+
 .cover-label {
     font-weight: normal !important;
 }
@@ -45,6 +59,22 @@ th, td {
     -webkit-hyphens: auto;
 }
 
+/* Tablas APA 7: sin líneas verticales ni entre filas; solo arriba, bajo el encabezado y al final.
+   La portada y los perfiles del 1.1.2 son maquetación, no tablas de datos. */
+table:not(.cover-table):not(:has(img[src*="/profiles/"])) {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+table:not(.cover-table):not(:has(img[src*="/profiles/"])) :is(th, td) {
+    border: none !important;
+    vertical-align: top;
+}
+
+table:not(.cover-table):not(:has(img[src*="/profiles/"])) thead :is(th, td) {
+    border-bottom: 1px solid #000 !important;
+}
+
 td img, th img {
     max-width: 100%;
     height: auto;
@@ -66,7 +96,13 @@ hr.page-break {
     margin-bottom: 6pt;
 }
 
+/* Enlaces en negro como el texto (pedido del docente); siguen siendo clicables en el PDF.
+   El coloreado del código no depende de esta regla. */
+a, a:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
 @media print {
-    a, a:visited { color: #1155cc !important; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
