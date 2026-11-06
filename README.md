@@ -5269,6 +5269,83 @@ Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?j
 
 #### 5.2.4.7. Software Deployment Evidence for Sprint Review
 
+**Profile Service**
+
+En este sprint se desplegó Profile Service en Azure Container Apps, dentro del grupo de recursos `liquilabs-vankoo` y del mismo Container Apps Environment que el API Gateway, IAM e Invoicing. El despliegue siguió el procedimiento del Sprint 3: la infraestructura se describe con **Terraform** en el repositorio Vankoo Infra y se aplica con el script `azure-deploy.sh`. Además, Profile es el tercer microservicio con **entrega continua**: cada merge a la rama `develop` de su repositorio construye la imagen, la publica en el Container Registry y la despliega sin intervención manual.
+
+**1) Preparación del servicio para Azure**
+
+Profile se diseñó para el entorno local de `docker-compose`, donde siempre hay un broker de Kafka y un Discovery Server. Para que también funcione en Azure, se le agregaron tres variables de entorno que no cambian su comportamiento en local:
+
+| Variable | En Azure | Motivo |
+|---|---|---|
+| `PROFILE_DB_SSL` | `true` | Azure Database for PostgreSQL exige conexiones cifradas con TLS |
+| `KAFKA_ENABLED` | `false` | Profile no arranca sin un broker de Kafka, y el despliegue en Azure aún no lo incluye |
+| `EUREKA_ENABLED` | `false` | En Azure no hay Discovery Server: el gateway alcanza a Profile por el DNS interno del environment |
+
+Con `KAFKA_ENABLED=false`, Profile expone su API REST con normalidad, pero no consume eventos y los que publicaría solo se registran en el log. El cliente de Kafka ya admite SASL_SSL, de modo que conectarlo a Azure Event Hubs solo requerirá cambiar variables en Terraform, sin modificar el código.
+
+**2) Infraestructura como código**
+
+Siguiendo los pasos de «Añadir un servicio» de `terraform/README.md`, Profile se incorporó a dos de las cuatro capas:
+
+| Capa | Recursos añadidos |
+|---|---|
+| `data` | Azure Database for PostgreSQL `vankoo-profile-db-qxv9yb` (PostgreSQL 16, tamaño Burstable B1ms), su regla de firewall para servicios de Azure y la base de datos `vankoo_profile_db`. La contraseña la genera Terraform |
+| `apps` | Container App `vankoo-profile-service` con ingress interno en el puerto 3000 (0,25 vCPU y 0,5 GiB), y la variable `PROFILE_SERVICE_URI` en el API Gateway para enrutar `/profile/**` hacia ella |
+
+Como Profile no tiene un endpoint de salud propio, sus sondas de inicio, *liveness* y *readiness* consultan `GET /api/v1`, que responde en cuanto la aplicación acepta peticiones. Antes del despliegue se validó la configuración de las dos capas modificadas:
+
+![Validación de la capa data de Terraform](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-terraform-validate-data.png)
+
+![Validación de la capa apps de Terraform](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-terraform-validate-apps.png)
+
+**3) Almacenamiento de documentos**
+
+Profile guarda el RUC, el logo y el certificado ambiental de cada empresa en un bucket propio de Amazon S3, separado del de Invoicing y con credenciales distintas, que el script lee del archivo `.env` local (`PROFILE_AWS_*`). El navegador sube los archivos directamente al bucket con URLs prefirmadas que genera Profile, por lo que el bucket tiene una política de CORS que permite `PUT` y `GET` desde el origen de la aplicación web.
+
+![Política de CORS del bucket de Profile en Amazon S3](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-s3-cors.png)
+
+**4) Ejecución del despliegue**
+
+El despliegue se ejecutó con `scripts/azure/azure-deploy.sh --env-file .env`. Terraform muestra el plan de cada capa antes de aplicarlo: las capas `core` y `base` no tuvieron cambios, y la capa `data` solo creó los cuatro recursos de la base de datos de Profile, sin modificar ni eliminar nada de lo existente.
+
+![Plan de Terraform de la capa data](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-terraform-plan-data.png)
+
+En la capa `apps` se creó la Container App de Profile y se actualizó el API Gateway con la nueva ruta (`1 added, 1 changed, 0 destroyed`). Al terminar, el script muestra la URL pública del gateway, que no cambia entre despliegues.
+
+![Resultado del despliegue de la capa apps](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-azure-deploy-apply.png)
+
+**5) Entrega continua con GitHub Actions**
+
+El pipeline de Profile (`.github/workflows/ci.yml`) ejecuta las pruebas y el build en cada pull request, y en cada merge a `develop` llama al workflow reutilizable `deliver-container-app.yml` de Vankoo Infra, el mismo que usan IAM e Invoicing. Ese workflow construye la imagen, la publica en el Container Registry etiquetada con el commit y actualiza la Container App. El job falla si la nueva revisión no arranca o no supera sus sondas de salud, y en ese caso el tráfico sigue en la revisión anterior.
+
+El pipeline entra en Azure con **OIDC**, como la identidad administrada `vankoo-github-ci`, sin guardar contraseñas en GitHub. Para Profile, a esa identidad se le asignó el rol Colaborador solo sobre la Container App de Profile (mínimo privilegio):
+
+![Asignación del rol Colaborador a vankoo-github-ci sobre la Container App de Profile](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-github-ci-role-assignment.png)
+
+También se crearon dos credenciales federadas, para que Azure acepte los tokens del repositorio de Profile solo desde la rama `develop` (publicar la imagen) y desde el environment `development` de GitHub (desplegarla):
+
+![Credenciales federadas de vankoo-github-ci para el repositorio de Profile](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-github-ci-federated-credentials.png)
+
+En el repositorio solo se guardan los identificadores de la identidad, del tenant y de la suscripción, como secretos del repositorio:
+
+![Secretos de Azure en el repositorio de Profile](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-github-secrets.png)
+
+La primera ejecución del pipeline tras el merge a `develop` publicó la imagen `profile-service:3351934` y la desplegó en una nueva revisión, que quedó en ejecución y con el 100 % del tráfico. El job de *Lint* aparece en rojo porque la rama `develop` arrastra errores previos de ESLint; se configuró para no bloquear la entrega mientras se corrigen.
+
+![Ejecución del pipeline de Profile tras el merge a develop](./assets/cap5-product-implementation/sprint-4/deployment-evidence/profile-pipeline-run.png)
+
+<!-- OPCIONAL (portal de Azure): vankoo-profile-service → Revisiones y réplicas, con la revisión vankoo-profile-service--0000001 activa y la imagen profile-service:3351934. -->
+
+**6) Verificación del despliegue**
+
+La revisión de `vankoo-profile-service` está en ejecución y en estado saludable, y al iniciar TypeORM creó las tablas de Profile en su base de datos a través de la conexión cifrada. A través del API Gateway, la ruta `/profile/api/v1/companies/me` responde `401` sin token. Con un token emitido por IAM, la petición llega a Profile, que consulta su base de datos y responde `404`, ya que la empresa todavía no existe (ver la limitación descrita a continuación). Profile no es accesible directamente desde Internet: su ingress es interno y el único punto de entrada es el gateway.
+
+<!-- OPCIONAL (Postman): GET {gateway}/profile/api/v1/companies/me con el token de sign-in, respondiendo 404 desde Profile. -->
+
+Para este sprint, el despliegue de Profile en Azure aún no incluye Kafka. Por ello, Profile no recibe el evento de registro de IAM con el que crea la empresa o el inversionista de cada usuario nuevo, y `companies/me` responde `404` para las cuentas registradas en Azure. En el entorno local, con Kafka, el mismo flujo responde `200`. La conexión a Azure Event Hubs, la publicación de la documentación de Profile en el Scalar del gateway y la verificación automática del DNI quedan para el siguiente sprint.
+
 #### 5.2.4.8. Team Collaboration Insights during Sprint
 
 #### 5.2.4.9. Actas de reunión
