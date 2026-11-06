@@ -5555,6 +5555,75 @@ La revisión de `vankoo-profile-service` está en ejecución y en estado saludab
 
 Para este sprint, el despliegue de Profile en Azure aún no incluye Kafka. Por ello, Profile no recibe el evento de registro de IAM con el que crea la empresa o el inversionista de cada usuario nuevo, y `companies/me` responde `404` para las cuentas registradas en Azure. En el entorno local, con Kafka, el mismo flujo responde `200`. La conexión a Azure Event Hubs, la publicación de la documentación de Profile en el Scalar del gateway y la verificación automática del DNI quedan para el siguiente sprint.
 
+**Investment Service**
+
+En el Sprint 4 se desplegó una primera versión independiente de Investment Service en Azure Container Apps, dentro del grupo de recursos `liquilabs-vankoo` y reutilizando el environment `vankoo-env` y el Container Registry existentes. La base de datos Oracle se ejecuta en una máquina virtual propia. El alcance de esta entrega fue arrancar la API, crear y consultar una subasta con datos ficticios y comprobar que el registro se conserva después de reiniciar la aplicación, sin integrar todavía el API Gateway, la evaluación de riesgo ni la mensajería con Event Hubs.
+
+**1) Preparación del servicio para Azure**
+
+Se incorporó un perfil Spring Boot `azure` para recibir la conexión a Oracle mediante variables de entorno, validar el esquema con Hibernate y ejecutar las migraciones existentes con Flyway. Eureka y la mensajería permanecen desactivados en esta primera entrega. Los eventos se conservan en el outbox, pero no se publican al broker mientras la mensajería esté deshabilitada.
+
+| Configuración | Uso en el despliegue |
+|---|---|
+| `INVESTMENT_DB_URL` | Conexión JDBC a Oracle mediante TCPS en el puerto 2484 |
+| `INVESTMENT_DB_USER` / `INVESTMENT_DB_PASSWORD` | Usuario propio de Investment y contraseña referenciada como secreto de la Container App |
+| `INVESTMENT_DB_TLS_CERT_BASE64` | Certificado público que el entrypoint incorpora al truststore de Java para verificar el servidor |
+| `INVESTMENT_MESSAGING_ENABLED=false` | Permite validar la API y su persistencia sin depender del broker |
+| `INVESTMENT_PUBLIC_URL` | URL utilizada en la documentación del servicio; en esta etapa corresponde al endpoint interno |
+
+La Container App expone el puerto 8082 mediante ingress interno y ejecuta una réplica con 1 vCPU y 2 GiB de memoria. Las comprobaciones se realizaron desde el contenedor mediante Azure CLI, sin habilitar acceso público a la API.
+
+**2) Infraestructura como código y ajuste de capacidad**
+
+El despliegue se describe en la capa `terraform/investment` de Vankoo Infra, con un estado remoto independiente denominado `investment.tfstate`. Esta capa consulta los estados compartidos para reutilizar el environment y el registro de imágenes; no administra los recursos de IAM, Invoicing, Profile ni del gateway. Las operaciones se ejecutan con `scripts/azure/investment.sh`.
+
+El primer plan propuso 16 altas, sin modificar ni eliminar recursos existentes. Durante la aplicación, Azure rechazó los tamaños `Standard_B2s` y `Standard_B2als_v2` por restricciones de capacidad en Central US. Se conservaron los componentes de red ya creados y se ajustó únicamente el tamaño solicitado a `Standard_D2s_v4`, con 2 vCPU y 8 GiB de memoria. El nuevo plan incorporó los cuatro recursos pendientes, sin reemplazar la infraestructura existente.
+
+![Plan inicial de Terraform para Investment, con 16 altas y sin modificaciones ni eliminaciones](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-01-terraform-plan.png)
+
+![Configuración de la VM Oracle con el tamaño Standard_D2s_v4 en Central US](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-04-terraform-d2s-v4-plan.png)
+
+La VM Ubuntu Server 24.04 utiliza un disco de sistema Standard SSD de 64 GiB. Docker ejecuta Oracle Database Free con un volumen persistente sobre ese disco. La VM dispone de una red virtual, subred, interfaz de red, IP pública y un NSG. No se expone Oracle directamente por el puerto 1521: un servicio stunnel recibe conexiones TLS en 2484 y las reenvía a Oracle por loopback. El NSG permite ese puerto desde las IP de salida recogidas de la Container App y bloquea el resto de accesos a 22, 1521 y 2484. La conexión Java verifica el certificado y el nombre del servidor.
+
+![Recursos de Investment en Azure: VM, disco, Container App y componentes de red y seguridad](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-15-azure-resources.png)
+
+**3) Creación de Oracle y aplicación provisional**
+
+La operación `investment.sh bootstrap` creó la VM e instaló Docker, Oracle y el servicio TLS mediante una extensión de Azure. También creó una Container App provisional con una imagen quickstart, cuyo propósito fue obtener las IP de salida antes de permitir la conexión a la base de datos. Esta imagen provisional no corresponde a la API final de Investment.
+
+Se configuró el apagado automático de la VM a las 23:00, hora de Lima. Para completar ese recurso fue necesario registrar el proveedor `Microsoft.DevTestLab`; después se reaplicó el plan y se creó únicamente el horario pendiente. El encendido es manual y el disco y la IP pública pueden seguir generando cargos con la VM desasignada.
+
+![Aplicación de Terraform completada para el horario de apagado automático de la VM](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-05-terraform-bootstrap-complete.png)
+
+Con Azure Run Command se comprobó el estado del contenedor Oracle y del servicio TLS. Los resultados `healthy` y `active` confirmaron que ambos estaban operativos antes de publicar la API.
+
+![Oracle saludable y servicio TLS activo en la máquina virtual](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-07-oracle-health-tls.png)
+
+**4) Publicación de la imagen y despliegue de Investment**
+
+Después del bootstrap, `investment.sh collect-egress` guardó las IP de salida que se autorizarían en el NSG. Con Docker Desktop iniciado, `investment.sh build` construyó la imagen Linux AMD64 y la publicó en Azure Container Registry como `vankooacrqxv9yb.azurecr.io/investment-service:5a7f8b9-dirty-20261106012449`. La etiqueta `dirty` identifica una construcción con cambios locales sin commit; esta evidencia corresponde a una ejecución mediante scripts, no a una entrega automática de GitHub Actions.
+
+![Construcción y publicación de la imagen de Investment en Azure Container Registry](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-08-docker-image-published.png)
+
+El plan final mostró `1 to add, 1 to change, 0 to destroy`: añadió la regla de acceso a Oracle y actualizó la Container App con la imagen real, el puerto 8082 y sus sondas de salud. La aplicación se ejecutó con `investment.sh deploy`, cambiando `bootstrap_mode` de `true` a `false`. La revisión `vankoo-investment-service--0000001` quedó en ejecución y lista para recibir peticiones internas.
+
+**5) Verificación de la API y de la base de datos**
+
+Desde la Container App se ejecutó `GET /actuator/health/readiness`, que respondió `{"status":"UP"}`. En el perfil Azure, este grupo de salud incluye `readinessState` y `db`, por lo que la comprobación valida también la disponibilidad de la conexión a Oracle.
+
+![Readiness de Investment con estado UP desde la Container App](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-11-api-readiness-up.png)
+
+A continuación, se envió `POST /api/v1/auctions` con una factura ficticia de PEN 1000.00, el pagador «Empresa Demo Sprint 4» y vencimiento el 31 de diciembre de 2027. La API respondió `201 Created` y devolvió el identificador `19e7cd72-528b-44d9-a14f-2b5651aeb859`.
+
+![Creación de una subasta de prueba con respuesta HTTP 201](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-12-api-create-auction-201.png)
+
+La consulta `GET /api/v1/auctions/19e7cd72-528b-44d9-a14f-2b5651aeb859` respondió `200 OK` y devolvió el mismo identificador, importe, moneda y datos del pagador. La subasta quedó en `PENDING_VERIFICATION_RISK`, con `riskGrade=UNDER_EVALUATION`, coherente con el alcance sin integración de riesgo.
+
+![Consulta de la subasta persistida en Oracle con respuesta HTTP 200](./assets/cap5-product-implementation/sprint-4/deployment-evidence/investment-13-api-get-auction-200.png)
+
+Se reinició únicamente la revisión de Investment con `az containerapp revision restart`. La primera consulta encontró el puerto todavía cerrado durante el arranque; después de esperar, la misma petición respondió nuevamente `200 OK` desde una réplica nueva y conservó los datos, sin repetir el POST. Esto verifica la persistencia tras reiniciar la aplicación; no constituye una prueba de recuperación después de reiniciar Oracle o la VM.
+
+
 #### 5.2.4.8. Team Collaboration Insights during Sprint
 
 A continuación, se presenta los insights durante este cuarto sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo y despliegue de los microservicios de perfiles e inversiones.
