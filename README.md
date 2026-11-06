@@ -5261,7 +5261,119 @@ Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?j
 
 #### 5.2.4.3. Development Evidence for Sprint Review
 
+Los siguientes commits corresponden a los servicios cuya documentación se presenta en la sección [5.2.4.6](#5246-services-documentation-evidence-for-sprint-review): el **Profile Service**, que amplió el KYC de empresas e inversionistas y registra la certificación de sostenibilidad de la empresa, y el nuevo **Notification Service**. Se consideran los commits integrados entre el 06/10/2026 y el 05/11/2026.
+
+La columna **Branch** identifica la rama de origen de cada commit; los commits de integración (*merge*) pertenecen a `develop`. Los commits de despliegue en Azure Container Apps se presentan en la sección 5.2.4.7.
+
+---
+
+**Repositorio: Profile Service (KYC y certificado de sostenibilidad)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service)
+
+El servicio expone las rutas `me` de la empresa autenticada, recibe su certificado de sostenibilidad y registra la decisión verde que toma el Risk Service. En el KYC de la empresa, la deja en revisión hasta que se decide, envía su ficha RUC al Risk Service y aplica la decisión que recibe; los endpoints administrativos `kyc/verify` y `kyc/reject`, creados en el Sprint 1, se ajustaron a este nuevo estado de revisión. En el KYC del inversionista, verifica el DNI de forma automática mediante una función *serverless*. Los commits se integraron en `develop` mediante los PR #11 a #13.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-profile-service | develop | 118226c | fix(lint): type the IAM event and the address columns | - | 05/11/2026 |
+| liquilabshq/vankoo-profile-service | develop | 4a8b641 | Merge pull request #13 from liquilabshq/feature/investor-dni-verification | - | 03/11/2026 |
+| liquilabshq/vankoo-profile-service | feature/investor-dni-verification | 1f995e9 | feat(investors): verify the DNI automatically through the serverless function | - | 01/11/2026 |
+| liquilabshq/vankoo-profile-service | develop | 1031d39 | Merge pull request #12 from liquilabshq/feature/company-kyc | - | 29/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/company-kyc | 9f4e545 | docs: document the KYC events and the new me routes | - | 29/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/company-kyc | 1c20ed8 | feat(companies): send fichas RUC to the risk-service and apply its decision | - | 29/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/company-kyc | bde206b | feat(companies): put a company in review until its KYC is decided | - | 29/10/2026 |
+| liquilabshq/vankoo-profile-service | develop | 7d590c6 | Merge pull request #11 from liquilabshq/feature/sustainability-certificate | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 464095e | docs: document the certificate events and the me routes | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 58dc902 | feat(events): record the green decision of the risk service | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 3b59ad4 | feat(rest): add the routes of the caller's own company | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 86e2784 | feat(application): submit a certificate and record the risk decision | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 7c510d5 | feat(domain): keep the sustainability certificate of a company | - | 17/10/2026 |
+
+---
+
+**Repositorio: Notification Service (Notificaciones push y por correo)**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-notification-service](https://github.com/liquilabshq/vankoo-notification-service)
+
+El Notification Service, construido con TypeScript y Express, registra los dispositivos móviles en tópicos de Firebase Cloud Messaging por usuario, consume los eventos de IAM, Profile, Risk, Invoicing, Investment y Finance, y entrega notificaciones *push* y por correo, consultando a Profile mediante una capa anticorrupción. Este servicio adelanta TS07, que la sección [6.3.2](#632-línea-de-corte-del-mvp-y-plan-de-sprints) había dejado fuera del MVP. Los commits iniciales se registraron directamente en `main` y `develop`; la corrección de los servidores OpenAPI, que permite usar Scalar desde el gateway, permanece en su rama sin integrar.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-notification-service | fix/openapi-absolute-servers | 1b41698 | fix(docs): use absolute, configurable OpenAPI servers so Scalar works from the gateway and the service | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | develop | e8718e7 | feat: wire composition root and bootstrap HTTP, Kafka and Eureka | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 0703d12 | docs: document Notification Service setup, architecture and deployment | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | c5889d7 | build: add Dockerfile and CI workflow | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 01e4ef3 | feat(notifications): consume IAM, Profile, Risk, Invoicing, Investment and Finance events | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 2f710fa | feat(notifications): deliver push and email notifications with Profile ACL | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 2916737 | feat(devices): register mobile devices to per-user FCM topics | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | e707609 | feat(shared): add config, Kafka runner with DLQ, Eureka client and REST infrastructure | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | a86475a | chore: scaffold notification-service with TypeScript, Express and Jest | - | 03/11/2026 |
+
 #### 5.2.4.4. Testing Suite Evidence for Sprint Review
+
+Ambos servicios están construidos con TypeScript y usan **Jest** como framework de pruebas; sus workflows de GitHub Actions ejecutan la suite en cada *push*. La ejecución local de `pnpm test` sobre `develop` del **05/11/2026** registró **250 casos aprobados y ninguno fallido**.
+
+```text
+Profile Service       14 suites,  81 casos:  81 aprobados, 0 fallidos
+Notification Service  17 suites, 169 casos: 169 aprobados, 0 fallidos
+Total                 31 suites, 250 casos: 250 aprobados, 0 fallidos
+```
+
+**Repositorios de Testing**
+
+| Repository | Branch revisada | Testing Scope |
+|---|---|---|
+| `liquilabshq/vankoo-profile-service` | `develop` | Unit Tests de los agregados `Company` y `CompanyKyc`, de los servicios de KYC y de verificación del DNI, de los suscriptores de eventos y del controlador `me`. |
+| `liquilabshq/vankoo-notification-service` | `develop` | Unit Tests de los agregados de notificación y de dispositivo, los suscriptores de eventos, la capa anticorrupción, el consumidor Kafka con DLQ y los routers REST. |
+
+**URL y ubicación de las pruebas**
+
+| Repositorio | URL del repositorio | Ruta de pruebas |
+|---|---|---|
+| Profile Service | https://github.com/liquilabshq/vankoo-profile-service | `src/profiles/**/*.spec.ts` y `test` |
+| Notification Service | https://github.com/liquilabshq/vankoo-notification-service | `src/**/*.spec.ts` |
+
+**Unit Tests del Profile Service**
+
+| Test Suite | Related Class / Component | Casos | Validated Behavior |
+|---|---|---:|---|
+| `company.aggregate.spec.ts` y `company-kyc.spec.ts` | Agregados `Company` y `CompanyKyc` | 20 | Certificado de sostenibilidad, paso a revisión y decisión del KYC de la empresa. |
+| `company-command.service.impl.spec.ts` y `company-kyc.service.impl.spec.ts` | Servicios de comandos de la empresa | 12 | Envío del certificado y de la ficha RUC al Risk Service y registro de su decisión. |
+| `investor-dni-verification.service.impl.spec.ts` y `http-dni-verification.service.spec.ts` | Verificación del DNI del inversionista | 16 | Verificación automática del DNI mediante la función *serverless* y manejo de sus errores. |
+| `green-certification-issued.subscriber.spec.ts` y `company-verification-issued.subscriber.spec.ts` | Suscriptores de eventos del Risk Service | 11 | Aplicación de la decisión verde y de la decisión KYC sobre la empresa. |
+| `company-me.controller.spec.ts` | Rutas `me` de la empresa | 4 | Consulta y envío a verificación del perfil de la empresa autenticada, con `400` y el motivo cuando no puede enviarse. |
+| `user-registered.subscriber.spec.ts` | Suscriptor de eventos de IAM | 4 | Creación del perfil cuando se registra un usuario. |
+| `kafka.config.spec.ts`, `messaging.module.spec.ts`, `eureka-client.service.spec.ts` y `app.controller.spec.ts` | Infraestructura | 14 | Configuración de Kafka, registro en Eureka y arranque de la aplicación. |
+
+**Unit Tests del Notification Service**
+
+| Test Suite | Related Class / Component | Casos | Validated Behavior |
+|---|---|---:|---|
+| `subscribers.spec.ts` | Suscriptores de eventos | 38 | Notificación que corresponde a cada evento de IAM, Profile, Risk, Invoicing, Investment y Finance. |
+| `in-memory-notification-template.catalog.spec.ts` | Catálogo de plantillas | 19 | Plantilla de cada tipo de notificación que expone `GET /api/v1/notification-types`. |
+| `adapters.spec.ts` e `integration-event-envelope.normalizer.spec.ts` | Adaptadores de entrega y capa anticorrupción | 23 | Entrega *push* y por correo, y normalización de los sobres de eventos de los demás servicios. |
+| `notification.aggregate.spec.ts`, `value-objects.spec.ts`, `notification-command.service.impl.spec.ts` y `services.spec.ts` | Dominio y aplicación de notificaciones | 29 | Estados de la notificación, idempotencia y reglas de los objetos de valor. |
+| `device-registration.aggregate.spec.ts`, `device-command.service.impl.spec.ts`, `push-subscription.gateways.spec.ts` y `device-registrations.router.spec.ts` | Registro de dispositivos | 24 | Alta y baja del dispositivo en el tópico FCM del usuario mediante `POST` y `DELETE /api/v1/device-registrations`. |
+| `kafka-consumer.runner.spec.ts`, `env.config.spec.ts`, `infrastructure.spec.ts`, `notification-types.router.spec.ts` y `app.spec.ts` | Infraestructura compartida | 36 | Consumidor Kafka con DLQ, configuración, cliente de Eureka y arranque HTTP. |
+
+**Commits relacionados con Testing**
+
+Los siguientes commits incorporaron o actualizaron archivos `*.spec.ts` junto con el código que prueban.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| liquilabshq/vankoo-profile-service | feature/investor-dni-verification | 1f995e9 | feat(investors): verify the DNI automatically through the serverless function | - | 01/11/2026 |
+| liquilabshq/vankoo-profile-service | feature/company-kyc | 1c20ed8 | feat(companies): send fichas RUC to the risk-service and apply its decision | - | 29/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/company-kyc | bde206b | feat(companies): put a company in review until its KYC is decided | - | 29/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 58dc902 | feat(events): record the green decision of the risk service | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 3b59ad4 | feat(rest): add the routes of the caller's own company | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 86e2784 | feat(application): submit a certificate and record the risk decision | - | 17/10/2026 |
+| liquilabshq/vankoo-profile-service | feature/sustainability-certificate | 7c510d5 | feat(domain): keep the sustainability certificate of a company | - | 17/10/2026 |
+| liquilabshq/vankoo-notification-service | develop | e8718e7 | feat: wire composition root and bootstrap HTTP, Kafka and Eureka | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 01e4ef3 | feat(notifications): consume IAM, Profile, Risk, Invoicing, Investment and Finance events | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 2f710fa | feat(notifications): deliver push and email notifications with Profile ACL | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | 2916737 | feat(devices): register mobile devices to per-user FCM topics | - | 03/11/2026 |
+| liquilabshq/vankoo-notification-service | main | e707609 | feat(shared): add config, Kafka runner with DLQ, Eureka client and REST infrastructure | - | 03/11/2026 |
 
 #### 5.2.4.5. Execution Evidence for Sprint Review
 
