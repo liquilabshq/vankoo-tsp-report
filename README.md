@@ -5348,6 +5348,22 @@ Para este sprint, el despliegue de Profile en Azure aún no incluye Kafka. Por e
 
 #### 5.2.4.8. Team Collaboration Insights during Sprint
 
+A continuación, se presenta los insights durante este cuarto sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo y despliegue de los microservicios de perfiles e inversiones.
+
+| Integrante | Usuario GitHub | Actividad en el Sprint |
+|---|---|---|
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Investment Service |
+| Crispin Ramos, Daniel Franco | danielcr04  | Avances de Investment Service |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | Profile Service e Investment Service |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Avances de Investment Service |
+| Vilca Saboya, Diego Alejandro | diesoks  | Avances de Notification Service, Profile Service (despliegue en Azure y entrega continua) |
+
+**Profile Service**
+![Contributors Profile Service](./assets/cap5-product-implementation/sprint-4/collaboration-insights/profile-contributors-sprint-4.png)
+
+**Investment Service**
+![Contributors Investment Service](./assets/cap5-product-implementation/sprint-4/collaboration-insights/investment-contributors-sprint-4.png)
+
 #### 5.2.4.9. Actas de reunión
 
 <hr class="page-break">
