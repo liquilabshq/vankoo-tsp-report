@@ -64,6 +64,9 @@ th, td {
 table:not(.cover-table):not(:has(img[src*="/profiles/"])) {
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
+    /* Las tablas HTML de los Sprint Backlog llevan border="1", que dibuja los laterales. */
+    border-left: none;
+    border-right: none;
 }
 
 table:not(.cover-table):not(:has(img[src*="/profiles/"])) :is(th, td) {
@@ -71,7 +74,8 @@ table:not(.cover-table):not(:has(img[src*="/profiles/"])) :is(th, td) {
     vertical-align: top;
 }
 
-table:not(.cover-table):not(:has(img[src*="/profiles/"])) thead :is(th, td) {
+/* Solo bajo la última fila del encabezado: los Sprint Backlog tienen tres filas de encabezado. */
+table:not(.cover-table):not(:has(img[src*="/profiles/"])) thead tr:last-child :is(th, td) {
     border-bottom: 1px solid #000 !important;
 }
 
