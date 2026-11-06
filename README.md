@@ -5463,6 +5463,20 @@ A continuación, se presenta los insights durante este cuarto sprint, donde se r
 
 #### 5.2.4.9. Actas de reunión
 
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 4, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
+
+**Acta de reunión 1**
+
+| Campo | Detalle |
+| :---: | :--- |
+| Fecha | Jueves 05 de noviembre de 2026 |
+| Hora | 8:30 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Revisión del cierre del Sprint 4: avance del Risk Service y de su contrato REST de evaluación de riesgo, rechazo en el Investment Service de las subastas no elegibles y su explicación en la MYPE Web App, identificación de inversión verde a partir del certificado ambiental registrado en el Profile Service, despliegue del Profile Service en Azure con Terraform y su entrega continua con GitHub Actions, y repartición de las secciones del informe del Sprint 4 |
+| Acuerdos | Completar y documentar las tareas pendientes de cada integrante del Sprint 4, conectar el Profile Service al broker de eventos en Azure cuando el Event Hub esté disponible, distribuir las secciones del informe del Sprint 4 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
+| Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-4/actas-reunion/acta-reunion-01.png) |
+
 <hr class="page-break">
 
 # Capítulo VI: Team Software Process
