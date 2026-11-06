@@ -5265,7 +5265,104 @@ Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?j
 
 #### 5.2.4.5. Execution Evidence for Sprint Review
 
+Durante el Sprint 4 se amplió la **Web Application para MYPE** con una vista consolidada de facturas, el tratamiento de comprobantes que necesitan corrección y la gestión del perfil empresarial. El módulo de facturas permite localizar comprobantes por RUC o número, filtrar por estado y fecha, distinguir visualmente cada etapa del procesamiento y reconocer las operaciones declaradas no elegibles. Cuando la lectura automática no ofrece suficiente certeza, la MYPE puede comparar los datos extraídos con el PDF, corregirlos y confirmarlos antes de que la factura continúe hacia la validación y el cálculo de la oferta.
+
+El perfil de la empresa también presenta sus datos de contacto, el estado de verificación y el resultado de la certificación ambiental. En la ejecución de demostración, la empresa **Textiles Andes S.A.C.** aparece con el distintivo **Factoring Verde**, sustentado por un certificado ISO 14001, y puede actualizar sus datos de contacto sin modificar el RUC ni la razón social verificados.
+
+**Web Application para MYPE — Facturas, revisión y perfil empresarial**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-mype-web](https://github.com/liquilabshq/vankoo-mype-web)
+
+La vista de inicio confirma que la sesión pertenece al usuario `contacto@andes-demo.example` con el rol `ROLE_MYPE`. La navegación lateral habilita el acceso a Inicio, Facturas y Perfil dentro del contexto de la empresa **Textiles Andes S.A.C.**; la billetera permanece identificada como una función todavía no disponible en esta vista.
+
+![MYPE Web - Sesión autenticada de la empresa](./assets/cap5-product-implementation/sprint-4/execution-evidence/01-mype-session.png)
+
+El módulo **Facturas** reúne los comprobantes de la empresa en una tabla que muestra número, pagador, RUC, vencimiento, estado e importe. La cabecera incorpora búsqueda por RUC o número de factura y filtros por estado y rango de fecha. Los distintivos permiten diferenciar rápidamente comprobantes aprobados, publicados en subasta, pendientes de revisión, en validación con SUNAT, en lectura de datos o declarados **No elegible**.
+
+![MYPE Web - Listado y filtros de facturas](./assets/cap5-product-implementation/sprint-4/execution-evidence/02-invoices-list.png)
+
+Cuando la lectura de una factura detecta información que requiere intervención, la línea de tiempo se detiene en **Leyendo datos** y comunica que el proceso no avanzará hasta corregirla. La vista conserva los datos extraídos del emisor y del pagador, las fechas, la moneda, el número fiscal y el detalle económico, de manera que la MYPE pueda compararlos con el comprobante original.
+
+![MYPE Web - Detalle de una factura que requiere corrección](./assets/cap5-product-implementation/sprint-4/execution-evidence/03-invoice-review-details.png)
+
+En la parte superior del mismo flujo, el estado **Requiere revisión** explica la acción necesaria y ofrece acceso al PDF original. El formulario permite revisar y corregir la serie, el número, las fechas de emisión y vencimiento y los RUC involucrados. La confirmación de estos campos evita que información dudosa continúe automáticamente hacia la validación y la subasta.
+
+![MYPE Web - Formulario para confirmar los datos extraídos](./assets/cap5-product-implementation/sprint-4/execution-evidence/04-invoice-review-form.png)
+
+Después de completar la revisión y superar la validación, la factura alcanza el estado **Aprobada**. La línea de tiempo marca el cuarto paso y la interfaz informa que se está calculando la oferta. En el ejemplo, la factura `F001-00000125` tiene un importe de **S/ 23,600.00** y queda preparada para recibir las condiciones de adelanto antes de su eventual publicación en subasta.
+
+![MYPE Web - Factura aprobada y en cálculo de oferta](./assets/cap5-product-implementation/sprint-4/execution-evidence/05-invoice-approved.png)
+
+La sección **Mi perfil** presenta la identidad y los datos de contacto de la empresa, junto con su estado de verificación. El panel de certificación ambiental muestra el distintivo **Factoring Verde**, la norma validada, la entidad emisora y la fecha de vigencia. En esta ejecución de demostración se utiliza un certificado ISO 14001 emitido por una entidad de ejemplo, por lo que la interfaz identifica expresamente los datos como demostrativos.
+
+![MYPE Web - Perfil empresarial y certificación Factoring Verde](./assets/cap5-product-implementation/sprint-4/execution-evidence/06-company-profile-green-cert.png)
+
+Desde el perfil, la MYPE puede abrir el diálogo **Editar datos de contacto** y actualizar el sector, teléfono, dirección, ciudad, departamento, código postal y país. El RUC y la razón social no se editan desde este formulario porque corresponden a la identidad de la empresa verificada con SUNAT.
+
+![MYPE Web - Edición de datos de contacto](./assets/cap5-product-implementation/sprint-4/execution-evidence/07-company-profile-edit.png)
+
 #### 5.2.4.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 4 se incorporó el **Notification Service** y se ampliaron las operaciones de administración del KYC en el **Profile Service**. El Notification Service centraliza la entrega de notificaciones generadas por los eventos de la plataforma y expone operaciones para registrar los dispositivos que recibirán mensajes *push*, retirar su suscripción al cerrar sesión y consultar el catálogo de tipos de notificación. El Profile Service documenta las operaciones con las que se aprueba o rechaza el KYC de empresas e inversionistas, conservando el motivo cuando la evaluación es rechazada.
+
+Ambos servicios publican su contrato mediante **OpenAPI** y la interfaz de **Scalar**. Las llamadas de las capturas se realizan a través del API Gateway en el puerto `8080`, que valida el JWT e incorpora el encabezado `X-User-Id` para identificar al usuario autenticado. El Notification Service también expone su documentación directa en `http://localhost:3001/reference`, mientras que Profile Service la publica en `http://localhost:3000/reference`.
+
+**1) Notification Service — Dispositivos y catálogo de notificaciones**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-notification-service](https://github.com/liquilabshq/vankoo-notification-service)
+
+Documentación local (Scalar): `http://localhost:3001/reference`
+
+Acceso mediante API Gateway: `http://localhost:8080/notification`
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/device-registrations` | Registrar el dispositivo del usuario autenticado para recibir notificaciones *push*. La operación asocia el token de Firebase Cloud Messaging con el tópico del usuario y es idempotente cuando se repite el mismo token. | POST | `POST http://localhost:8080/notification/api/v1/device-registrations` | Headers: `Authorization: Bearer <token>` y `X-User-Id`, incorporado por el gateway. Body JSON: `deviceToken` (string de 20 a 4096 caracteres) y `platform` (`ANDROID` o `IOS`). | `201 Created` → `{"userId":"40000000-0000-4000-8000-000000000001","platform":"ANDROID","registeredAt":"2026-11-03T15:00:00.000Z"}`. Confirma que el dispositivo quedó registrado. `400` indica un body inválido o un token rechazado por Firebase, `401` la ausencia de identidad y `502` que Firebase no está disponible. | `http://localhost:3001/reference` |
+| `/api/v1/device-registrations/{deviceToken}` | Dar de baja un dispositivo al cerrar sesión para que deje de recibir notificaciones *push* del usuario. | DELETE | `DELETE http://localhost:8080/notification/api/v1/device-registrations/{deviceToken}` | Path: `deviceToken` (token FCM). Headers: `Authorization: Bearer <token>` y `X-User-Id`, incorporado por el gateway. | `204 No Content` confirma la eliminación de la suscripción y no devuelve body. `400` identifica un token con formato inválido o rechazado, `401` la ausencia de `X-User-Id` y `502` una indisponibilidad de Firebase. | `http://localhost:3001/reference` |
+| `/api/v1/notification-types` | Consultar el catálogo de notificaciones disponibles, su audiencia, sus canales y el evento de dominio que las origina. | GET | `GET http://localhost:8080/notification/api/v1/notification-types` | Headers: `Authorization: Bearer <token>` y `X-User-Id`, incorporado por el gateway. Sin body ni parámetros de consulta. | `200 OK` → `[{"type":"USER_WELCOME","name":"Recarga acreditada","description":"string","audience":"MYPE","channels":["PUSH"],"sourceEvent":"vankoo.finance.events.v1 · DepositSucceededEvent"}]`. La lista permite conocer qué mensajes puede producir el servicio y por qué canal se entregan. `401` indica que la llamada no pasó correctamente por el gateway. | `http://localhost:3001/reference` |
+
+La operación `POST /api/v1/device-registrations` recibe el token FCM del dispositivo y su plataforma. Scalar presenta las restricciones del token, las plataformas admitidas, el encabezado de identidad y el ejemplo de respuesta `201 Created`. La suscripción al tópico del usuario permite dirigir las notificaciones al dispositivo autenticado sin duplicar el registro cuando se repite la solicitud.
+
+![Notification Service - Registrar un dispositivo para recibir notificaciones push](./assets/cap5-product-implementation/sprint-4/services-documentation/01-notification-register-device.png)
+
+La operación `DELETE /api/v1/device-registrations/{deviceToken}` retira el token FCM del usuario cuando cierra sesión. La respuesta exitosa es `204 No Content`; la captura también muestra el esquema `400 Bad Request` utilizado cuando el token tiene un formato inválido o es rechazado por el proveedor de notificaciones.
+
+![Notification Service - Dar de baja un dispositivo](./assets/cap5-product-implementation/sprint-4/services-documentation/02-notification-unregister-device.png)
+
+La consulta `GET /api/v1/notification-types` devuelve el catálogo de mensajes soportados. Cada elemento identifica el tipo, nombre, descripción, audiencia, canales de entrega y evento de origen. En el ejemplo, el catálogo relaciona una notificación *push* con el evento `DepositSucceededEvent` publicado por Finance Service.
+
+![Notification Service - Consultar el catálogo de tipos de notificación](./assets/cap5-product-implementation/sprint-4/services-documentation/03-notification-types.png)
+
+**2) Profile Service — Administración del KYC**
+
+URL del repositorio: [https://github.com/liquilabshq/vankoo-profile-service](https://github.com/liquilabshq/vankoo-profile-service)
+
+Documentación local (Scalar): `http://localhost:3000/reference`
+
+Acceso mediante API Gateway: `http://localhost:8080/profile`
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/companies/{id}/kyc/verify` | Aprobar la evaluación KYC de una empresa y actualizar su estado a verificado. | PATCH | `PATCH http://localhost:8080/profile/api/v1/companies/{id}/kyc/verify` | Path: `id` (UUID de la empresa). Sin body. | `200 OK` → `{"message":"KYC verificado exitosamente","company":{"id":"...","businessName":"...","rucNumber":"...","kycStatus":"VERIFIED"}}`. Devuelve la empresa con su estado actualizado. `404` indica que no se encontró la empresa. | `http://localhost:3000/reference` |
+| `/api/v1/companies/{id}/kyc/reject` | Rechazar la evaluación KYC de una empresa y registrar el motivo de la decisión. | PATCH | `PATCH http://localhost:8080/profile/api/v1/companies/{id}/kyc/reject` | Path: `id` (UUID de la empresa). Body JSON: `reason` (string no vacío con el motivo del rechazo). | `200 OK` → `{"message":"KYC rechazado","company":{"id":"...","kycStatus":"REJECTED","kycRejectionReason":"La foto del DNI está ilegible"}}`. Conserva el motivo para informar la decisión y permitir su corrección. `404` indica que la empresa no existe. | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/kyc/verify` | Aprobar la evaluación KYC de un inversionista y actualizar su estado a verificado. | PATCH | `PATCH http://localhost:8080/profile/api/v1/investors/{id}/kyc/verify` | Path: `id` (UUID del inversionista). Sin body. | `200 OK` → `{"message":"KYC verificado exitosamente","investor":{"id":"...","dni":"...","fullName":"...","kycStatus":"VERIFIED"}}`. Devuelve el perfil del inversionista con su nuevo estado. `404` indica que el inversionista no fue encontrado. | `http://localhost:3000/reference` |
+| `/api/v1/investors/{id}/kyc/reject` | Rechazar la evaluación KYC de un inversionista y conservar el motivo del rechazo. | PATCH | `PATCH http://localhost:8080/profile/api/v1/investors/{id}/kyc/reject` | Path: `id` (UUID del inversionista). Body JSON: `reason` (string no vacío con el motivo del rechazo). | `200 OK` → `{"message":"KYC rechazado","investor":{"id":"...","kycStatus":"REJECTED","kycRejectionReason":"La foto del DNI está ilegible"}}`. La respuesta comunica el estado y la razón registrada. `404` indica que el inversionista no existe. | `http://localhost:3000/reference` |
+
+El endpoint `PATCH /api/v1/companies/{id}/kyc/verify` aprueba la evaluación de una empresa identificada mediante su UUID. No necesita body y devuelve la empresa actualizada junto con el mensaje de confirmación; Scalar diferencia la respuesta exitosa del caso `404` en el que la empresa no existe.
+
+![Profile Service - Verificar el KYC de una empresa](./assets/cap5-product-implementation/sprint-4/services-documentation/04-profile-company-kyc-verify.png)
+
+El endpoint `PATCH /api/v1/companies/{id}/kyc/reject` recibe en el body el campo obligatorio `reason`. Este valor queda asociado al perfil rechazado para explicar la decisión y orientar una nueva presentación de documentos.
+
+![Profile Service - Rechazar el KYC de una empresa](./assets/cap5-product-implementation/sprint-4/services-documentation/05-profile-company-kyc-reject.png)
+
+La operación `PATCH /api/v1/investors/{id}/kyc/verify` aplica el mismo flujo de aprobación a los inversionistas. El UUID se recibe por la ruta y la respuesta `200 OK` entrega el perfil con el estado KYC actualizado.
+
+![Profile Service - Verificar el KYC de un inversionista](./assets/cap5-product-implementation/sprint-4/services-documentation/06-profile-investor-kyc-verify.png)
+
+Finalmente, `PATCH /api/v1/investors/{id}/kyc/reject` registra el rechazo del inversionista y su motivo. Scalar muestra el body de ejemplo, la sintaxis `curl` a través del gateway y las respuestas contempladas para una operación exitosa o un perfil inexistente.
+
+![Profile Service - Rechazar el KYC de un inversionista](./assets/cap5-product-implementation/sprint-4/services-documentation/07-profile-investor-kyc-reject.png)
 
 #### 5.2.4.7. Software Deployment Evidence for Sprint Review
 
