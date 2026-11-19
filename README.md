@@ -5677,7 +5677,188 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 
 #### 5.2.5.1. Sprint Planning 5
 
+<!-- Aspectos principales del Sprint Planning Meeting, según el cuadro del enunciado. -->
+
+El Sprint Planning 5 define el alcance de la quinta iteración de Vankoo, del 06/11/2026 al 19/11/2026. Desde el Sprint 3 el inversionista ya recorre el mercado y compra una participación desde la aplicación móvil, como parte del contrato REST de subastas e inversiones (TS05), y desde el Sprint 4 la MYPE puede corregir y confirmar los datos de una factura en revisión. Este sprint completa los criterios de aceptación que esas historias aún tenían abiertos: los filtros del marketplace, incluido el de impacto positivo, las reglas de la compra de fracciones y la corrección manual de datos, ahora cubierta por pruebas de aceptación. En paralelo, y según lo acordado en la retrospectiva del Sprint 4, se lleva la comunicación por eventos a Azure Event Hubs y se incorporan controles de seguridad y de calidad a la integración continua. El portafolio, el historial de transacciones, la cuenta CCI y el retiro de fondos se reservan para el Sprint 6, con el que se completa el MVP.
+
+| Sprint # | Sprint 5 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 6 de noviembre de 2026 |
+| Time | 3:00 p. m. |
+| Location | Llamada grupal en la plataforma Discord |
+| Prepared By | Salim Ramirez |
+| Attendees (to planning meeting) | Paúl Sulca<br>Daniel Crispin<br>Diego Vilca<br>Anjali Amaro |
+| Sprint 4 Review Summary | Se presentó el Risk Service (TS04), que califica al pagador de cada factura con los padrones de SUNAT, las listas de sanciones, un buró de crédito simulado y la búsqueda de noticias negativas, y que reemplazó la evaluación simulada del Sprint 3. El Investment Service rechaza las subastas no elegibles y la MYPE Web le explica el motivo a la MYPE (US02), y las empresas con certificación ambiental validada muestran el distintivo verde en la MYPE Web y en la aplicación móvil (US10). La MYPE Web también permite comparar con el PDF, corregir y confirmar los datos de una factura en revisión. Además, se incorporó el Notification Service, el Profile Service pasó a desplegarse en Azure con Terraform y entrega continua, el Investment Service se desplegó con su base de datos Oracle y las suites de Profile y Notification registraron 250 casos aprobados, sin fallos. |
+| Sprint 4 Retrospective Summary | Repartir el desarrollo, el despliegue y la redacción entre los cinco integrantes permitió que cada uno documentara el servicio que trabajó, y la entrega continua de Profile repitió sin cambios el procedimiento definido en el Sprint 3. Como punto de mejora, el broker de eventos todavía no estaba disponible en Azure, por lo que Profile se desplegó sin Kafka y parte de la comunicación entre servicios solo podía demostrarse en el entorno local. Además, varios escenarios de aceptación seguían marcados como pendientes y la integración continua no revisaba secretos ni dependencias vulnerables. Por ello, el equipo acordó adoptar Azure Event Hubs como broker en la nube, automatizar los escenarios pendientes y añadir controles de seguridad y de cobertura a los pipelines. |
+| **Sprint Goal & User Stories** | |
+| Sprint 5 Goal | Completar los criterios de aceptación pendientes del recorrido del inversionista y de la MYPE: filtrar el marketplace por calificación de riesgo, plazo, moneda, rendimiento e impacto positivo, aplicar las reglas de la compra de fracciones y cubrir con pruebas de aceptación la corrección manual de datos; y llevar la comunicación por eventos a Azure Event Hubs, con controles de seguridad y de calidad en la integración continua. |
+| User Stories | US05, US08, US09 y US11 |
+| Sprint 5 Velocity | 19 story points planificados, en línea con los 19 de los Sprints 3 y 4; quedan 18 story points del MVP (US12, US13, US15 y US20) para el Sprint 6, último del proyecto. |
+| Sum of Story Points | 19 |
+
 #### 5.2.5.2. Sprint Backlog 5
+
+<!-- Objetivo del sprint, captura del board y tabla de user stories con sus work-items. -->
+
+El Sprint Backlog 5 descompone las historias `US05`, `US08`, `US09` y `US11`. El objetivo es que el inversionista filtre en la aplicación móvil las subastas que se ajustan a su perfil, incluidas las de impacto positivo, y que su compra se rechace con un motivo claro cuando no respeta el ticket mínimo o el saldo pendiente de la subasta, sin que el monto quede retenido en su billetera; y que la corrección manual de datos de la MYPE quede cubierta por pruebas de aceptación. Las tareas `GEN-06` a `GEN-11` conectan los servicios desplegados en Azure a Event Hubs y añaden controles de seguridad, una cobertura mínima de pruebas, la validación de la infraestructura como código, la entrega continua del API Gateway y los manifiestos de Kubernetes, y `US07-T04` completa una pieza pendiente del Sprint 3. La consulta de las historias del sprint en Jira se presenta a continuación.
+
+<!-- Captura del Sprint Backlog 5 en Jira: assets/cap5-product-implementation/sprint-5/sprint-backlog/sprint-backlog.png -->
+
+Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?jql=project%20%3D%20VANKOO%20AND%20key%20in%20(VANKOO-15%2C%20VANKOO-20%2C%20VANKOO-21%2C%20VANKOO-30)%20ORDER%20BY%20key%20ASC)
+
+<div style="font-size:80%; overflow-x:auto;">
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th colspan="2">Sprint #</th>
+        <th colspan="4">Sprint 5</th>
+      </tr>
+      <tr>
+        <th colspan="2">User Story</th>
+        <th colspan="4">Work-Item / Task</th>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status (To-do / In-Process / To-Review / Done)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GEN-06</td>
+        <td>Mensajería de eventos en Azure Event Hubs</td>
+        <td>Aprovisionar con Terraform el namespace de Azure Event Hubs y conectar IAM, Invoicing y Finance a través de su interfaz compatible con Kafka, con autenticación SASL y temas de mensajes fallidos (<em>dead-letter</em>).</td>
+        <td>8</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>GEN-07</td>
+        <td>Mensajería de eventos en Azure Event Hubs</td>
+        <td>Habilitar Kafka en el despliegue del Profile Service en Azure para que consuma el evento de registro de IAM y publique sus eventos en Event Hubs.</td>
+        <td>3</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>GEN-08</td>
+        <td>Controles de seguridad en la integración continua</td>
+        <td>Incorporar un workflow reutilizable de GitHub Actions con Gitleaks y Trivy para detectar secretos y dependencias vulnerables, y actualizar Spring Boot en los servicios Java para cerrar las vulnerabilidades críticas detectadas.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>GEN-09</td>
+        <td>Cobertura mínima de pruebas</td>
+        <td>Cubrir de punta a punta la API de autenticación del IAM Service y hacer que su compilación falle cuando la cobertura de líneas baje del 80 %.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>GEN-10</td>
+        <td>Validación de la infraestructura y entrega continua del API Gateway</td>
+        <td>Validar en cada pull request de Vankoo Infra el formato y la sintaxis de Terraform con <code>terraform validate</code> y <code>tflint</code>, y desplegar el API Gateway en Azure Container Apps desde su propio pipeline.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>GEN-11</td>
+        <td>Manifiestos de Kubernetes de los microservicios</td>
+        <td>Definir con Kustomize los manifiestos de Kubernetes de los microservicios y sus almacenes, con sondas de salud, límites de recursos y escalado horizontal.</td>
+        <td>6</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US05-T01</td>
+        <td>Corrección manual de datos extraídos</td>
+        <td>Automatizar con Reqnroll los escenarios de aceptación de la historia: la factura con un campo leído con baja confianza queda en revisión y, tras la confirmación de la MYPE, vuelve a validarse y queda lista para la subasta.</td>
+        <td>4</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US08-T01</td>
+        <td>Exploración del marketplace</td>
+        <td>Agregar a la consulta del marketplace del Investment Service los filtros por calificación de riesgo, plazo, moneda y rendimiento esperado, con orden y paginación.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US08-T02</td>
+        <td>Exploración del marketplace</td>
+        <td>Agregar al mercado de la aplicación móvil los filtros y el orden de las subastas, conservando la selección del inversionista al volver del detalle.</td>
+        <td>6</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US11-T01</td>
+        <td>Filtro de impacto positivo</td>
+        <td>Filtrar en la consulta del marketplace del Investment Service las subastas marcadas como verdes.</td>
+        <td>3</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US11-T02</td>
+        <td>Filtro de impacto positivo</td>
+        <td>Agregar al mercado de la aplicación móvil el filtro de impacto positivo, con el distintivo verde en cada subasta.</td>
+        <td>3</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US09-T01</td>
+        <td>Compra de fracciones</td>
+        <td>Validar en el Investment Service que cada participación respete el ticket mínimo y no supere el saldo pendiente de la subasta, y automatizar los escenarios de aceptación de la historia.</td>
+        <td>6</td>
+        <td>Daniel Crispin</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US09-T02</td>
+        <td>Compra de fracciones</td>
+        <td>Revertir en el Finance Service el débito de la billetera cuando el Investment Service rechaza la participación, para que el saldo del inversionista no quede retenido.</td>
+        <td>6</td>
+        <td>Paúl Sulca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US09-T03</td>
+        <td>Compra de fracciones</td>
+        <td>Mostrar en la aplicación móvil el motivo cuando una compra se rechaza, por monto menor al ticket mínimo, mayor al saldo pendiente o saldo insuficiente, y actualizar la billetera tras la confirmación.</td>
+        <td>4</td>
+        <td>Anjali Amaro</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US09-T04</td>
+        <td>Compra de fracciones</td>
+        <td>Notificar al inversionista desde el Notification Service la confirmación de su participación, por notificación <em>push</em> y correo.</td>
+        <td>4</td>
+        <td>Diego Vilca</td>
+        <td>To-do</td>
+      </tr>
+      <tr>
+        <td>US07-T04</td>
+        <td>Seguimiento del fondeo</td>
+        <td>Automatizar el escenario de aceptación que actualiza el avance del fondeo de la subasta al registrar una participación.</td>
+        <td>3</td>
+        <td>Salim Ramirez</td>
+        <td>To-do</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 #### 5.2.5.3. Development Evidence for Sprint Review
 
