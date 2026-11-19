@@ -197,6 +197,16 @@
       - [5.2.4.7. Software Deployment Evidence for Sprint Review](#5247-software-deployment-evidence-for-sprint-review)
       - [5.2.4.8. Team Collaboration Insights during Sprint](#5248-team-collaboration-insights-during-sprint)
       - [5.2.4.9. Actas de reunión](#5249-actas-de-reunión)
+    - [5.2.5. Sprint 5](#525-sprint-5)
+      - [5.2.5.1. Sprint Planning 5](#5251-sprint-planning-5)
+      - [5.2.5.2. Sprint Backlog 5](#5252-sprint-backlog-5)
+      - [5.2.5.3. Development Evidence for Sprint Review](#5253-development-evidence-for-sprint-review)
+      - [5.2.5.4. Testing Suite Evidence for Sprint Review](#5254-testing-suite-evidence-for-sprint-review)
+      - [5.2.5.5. Execution Evidence for Sprint Review](#5255-execution-evidence-for-sprint-review)
+      - [5.2.5.6. Services Documentation Evidence for Sprint Review](#5256-services-documentation-evidence-for-sprint-review)
+      - [5.2.5.7. Software Deployment Evidence for Sprint Review](#5257-software-deployment-evidence-for-sprint-review)
+      - [5.2.5.8. Team Collaboration Insights during Sprint](#5258-team-collaboration-insights-during-sprint)
+      - [5.2.5.9. Actas de reunión](#5259-actas-de-reunión)
 - [Capítulo VI: Team Software Process](#capítulo-vi-team-software-process)
   - [6.1. TSP Launch Overview](#61-tsp-launch-overview)
   - [6.2. TSP Roles \& Scrum Roles](#62-tsp-roles--scrum-roles)
@@ -5658,6 +5668,30 @@ A continuación, se presenta el registro de las reuniones sostenidas por el equi
 | Temas tratados | Revisión del cierre del Sprint 4: avance del Risk Service y de su contrato REST de evaluación de riesgo, rechazo en el Investment Service de las subastas no elegibles y su explicación en la MYPE Web App, identificación de inversión verde a partir del certificado ambiental registrado en el Profile Service, despliegue del Profile Service en Azure con Terraform y su entrega continua con GitHub Actions, y repartición de las secciones del informe del Sprint 4 |
 | Acuerdos | Completar y documentar las tareas pendientes de cada integrante del Sprint 4, conectar el Profile Service al broker de eventos en Azure cuando el Event Hub esté disponible, distribuir las secciones del informe del Sprint 4 entre los miembros del equipo para su redacción; coordinar la fecha de entrega del informe y agendar la próxima reunión de seguimiento |
 | Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-4/actas-reunion/acta-reunion-01.png) |
+
+<hr class="page-break">
+
+### 5.2.5. Sprint 5
+
+<!-- Introducción breve del Sprint 5: qué avance en producto y trabajo colaborativo se registra en esta iteración. -->
+
+#### 5.2.5.1. Sprint Planning 5
+
+#### 5.2.5.2. Sprint Backlog 5
+
+#### 5.2.5.3. Development Evidence for Sprint Review
+
+#### 5.2.5.4. Testing Suite Evidence for Sprint Review
+
+#### 5.2.5.5. Execution Evidence for Sprint Review
+
+#### 5.2.5.6. Services Documentation Evidence for Sprint Review
+
+#### 5.2.5.7. Software Deployment Evidence for Sprint Review
+
+#### 5.2.5.8. Team Collaboration Insights during Sprint
+
+#### 5.2.5.9. Actas de reunión
 
 <hr class="page-break">
 
