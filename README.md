@@ -5872,8 +5872,6 @@ URL del repositorio: [vankoo-risk-service](https://github.com/liquilabshq/vankoo
 - **Certificación ambiental.** El servicio recibe los certificados enviados por Profile, extrae sus datos y aplica `green-v1` para comprobar el estándar ISO, la vigencia, el titular y las infracciones ambientales. Publica `GreenCertificationIssued` mediante un outbox transaccional y adjunta el certificado vigente a la evaluación de la subasta elegible. [Reglas de certificación](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/docs/GREEN_RULES.md)
 - **Verificación de la MYPE.** Aplica `kyc-v1` a las solicitudes de Profile. Comprueba localmente la firma digital de SUNAT de la ficha RUC, contrasta sus datos con los padrones y publica `CompanyVerificationIssued` mediante el outbox. [Reglas de verificación](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/docs/KYC_RULES.md)
 
-Los PR #1 a #9 del Risk Service se integraron en `develop` entre el 14/10/2026 y el 03/11/2026, durante el Sprint 4.
-
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
 | liquilabshq/vankoo-risk-service | `develop` | 3b9a3a8 | Merge pull request #9 from liquilabshq/feature/mype-risk-assessment | Integra la consulta de evaluación para la MYPE propietaria. | 03/11/2026 |
