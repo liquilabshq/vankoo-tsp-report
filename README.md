@@ -5864,11 +5864,747 @@ Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?j
 
 #### 5.2.5.3. Development Evidence for Sprint Review
 
+El Risk Service evalúa si una factura puede financiarse y asigna una calificación de riesgo (`A`, `B` o `C`) a las subastas elegibles. Investment recibe la calificación y el certificado ambiental cuando corresponde. Esos datos sirven para los filtros de riesgo (`US08`) e impacto positivo (`US11`) del marketplace.
+
+**Repositorio: Risk Service**
+
+URL del repositorio: [vankoo-risk-service](https://github.com/liquilabshq/vankoo-risk-service)
+
+- **Evaluación de subastas.** El servicio consume `AuctionCreated` desde Kafka y aplica la política `points-v3` al pagador con datos de SUNAT, sanciones de OECE y OEFA, un buró de crédito simulado y noticias negativas. Registra el puntaje y sus factores en PostgreSQL y comunica a Investment la calificación o el rechazo con su motivo. La MYPE puede consultar el resultado de su propia subasta mediante `GET /api/v1/mype/risk-assessments/{auctionId}`. [Reglas de calificación](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/docs/SCORING_RULES.md), [rutas de evaluación](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/assessments/interfaces/routes.py)
+- **Certificación ambiental.** El servicio recibe los certificados enviados por Profile, extrae sus datos y aplica `green-v1` para comprobar el estándar ISO, la vigencia, el titular y las infracciones ambientales. Publica `GreenCertificationIssued` mediante un outbox transaccional y adjunta el certificado vigente a la evaluación de la subasta elegible. [Reglas de certificación](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/docs/GREEN_RULES.md)
+- **Verificación de la MYPE.** Aplica `kyc-v1` a las solicitudes de Profile. Comprueba localmente la firma digital de SUNAT de la ficha RUC, contrasta sus datos con los padrones y publica `CompanyVerificationIssued` mediante el outbox. [Reglas de verificación](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/docs/KYC_RULES.md)
+
+<div style="font-size:80%;">
+  <table border="1" cellspacing="0" cellpadding="5" style="display:table; width:100%; max-width:100%; table-layout:fixed; border-collapse:collapse; overflow-wrap:anywhere; white-space:normal; line-height:1.25;">
+    <colgroup>
+      <col style="width:13%">
+      <col style="width:17%">
+      <col style="width:9%">
+      <col style="width:24%">
+      <col style="width:26%">
+      <col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Repository</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Commit Id</th>
+        <th scope="col">Commit Message</th>
+        <th scope="col">Commit Message Body</th>
+        <th scope="col">Committed on (Date)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>3b9a3a8</td>
+        <td>Merge pull request #9 from liquilabshq/feature/mype-risk-assessment</td>
+        <td>Integra la consulta de evaluación para la MYPE propietaria.</td>
+        <td>03/11/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>mype-risk-assessment</code></td>
+        <td>f623285</td>
+        <td>feat(assessments): let a MYPE read the risk assessment of its own auction</td>
+        <td>Expone la nota, el puntaje, los factores y el motivo de rechazo en la ruta de la MYPE.</td>
+        <td>03/11/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>d6cc2bc</td>
+        <td>Merge pull request #8 from liquilabshq/fix/ignore-risk-outcome-events</td>
+        <td>Integra el ajuste del consumidor de eventos de Investment.</td>
+        <td>02/11/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">fix/<wbr>ignore-risk-outcome-events</code></td>
+        <td>39f936e</td>
+        <td>fix(assessments): ignore AuctionEvaluated and AuctionRejected</td>
+        <td>Reconoce los dos eventos de resultado del ciclo de la subasta y los omite sin enviarlos a la cola de mensajes fallidos.</td>
+        <td>02/11/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>2f366da</td>
+        <td>Merge pull request #7 from liquilabshq/chore/dockerignore-demo-kyc</td>
+        <td>Integra la exclusión de la CA de demostración de la imagen.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>c7adc57</td>
+        <td>Merge pull request #6 from liquilabshq/feature/company-verification</td>
+        <td>Integra la verificación KYC a partir de la ficha RUC firmada por SUNAT.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>b4061c9</td>
+        <td>feat: consume Profile's verification requests</td>
+        <td>Consume <code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationRequested</code> en un grupo Kafka propio y activa el envío del resultado.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>bb44339</td>
+        <td>feat(verification): decide on each verification request and tell Profile</td>
+        <td>Guarda la decisión, el evento procesado y <code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationIssued</code> en una misma transacción.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>a8736c1</td>
+        <td>feat(verification): verify the ficha RUC's SUNAT signature offline</td>
+        <td>Valida la firma del PDF y extrae los datos de la ficha para aplicar las reglas KYC.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>d1901c8</td>
+        <td>feat(verification): check a MYPE's KYC under the kyc-v1 rules</td>
+        <td>Agrega <code style="white-space:normal; overflow-wrap:anywhere;">kyc-v1</code> para decidir la verificación o solicitar una corrección de los datos de la MYPE.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>6c3545f</td>
+        <td>Merge pull request #5 from liquilabshq/feature/green-certification</td>
+        <td>Integra la evaluación de certificados ambientales y su uso en las subastas.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>4359a31</td>
+        <td>feat(assessments): send the MYPE's green certificate with the grade</td>
+        <td>Adjunta <code style="white-space:normal; overflow-wrap:anywhere;">greenCertification</code> a la evaluación elegible cuando la MYPE tiene un certificado vigente y cumple las reglas.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>0c6f7a1</td>
+        <td>feat(sustainability): consume Profile's certificate submissions</td>
+        <td>Consume <code style="white-space:normal; overflow-wrap:anywhere;">SustainabilityCertificateSubmitted</code> y envía los mensajes inválidos al registro de mensajes fallidos.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>7586375</td>
+        <td>feat(sustainability): read certificates with OpenAI and store the decisions</td>
+        <td>Descarga y lee certificados ambientales con OpenAI y persiste la decisión por envío.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>784105f</td>
+        <td>feat(sustainability): decide on each certificate a MYPE uploads</td>
+        <td>Evalúa el certificado con los datos de SUNAT y OEFA y encola <code style="white-space:normal; overflow-wrap:anywhere;">GreenCertificationIssued</code> para Profile.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>c93a0df</td>
+        <td>feat(sustainability): model the green decision on a MYPE's certificate</td>
+        <td>Modela las comprobaciones de <code style="white-space:normal; overflow-wrap:anywhere;">green-v1</code> para certificados ISO 14001 e ISO 50001.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>e4c67c6</td>
+        <td>feat(shared): add a transactional outbox and its Kafka relay</td>
+        <td>Persiste los eventos salientes con el cambio que anuncian y delega su publicación en Kafka a un relay con reintentos.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>4ac34c6</td>
+        <td>Merge pull request #4 from liquilabshq/feature/negative-news-screening</td>
+        <td>Integra la búsqueda de noticias negativas con OpenAI.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>negative-news-screening</code></td>
+        <td>109b2bc</td>
+        <td>fix(assessments): decide news severity from the category and skip registry pages</td>
+        <td>Deriva la gravedad de la categoría y excluye fuentes ya consideradas por los padrones.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>negative-news-screening</code></td>
+        <td>b13b332</td>
+        <td>feat(assessments): search negative news with OpenAI web search</td>
+        <td>Implementa la búsqueda web estructurada y conserva hallazgos de las páginas consultadas.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>negative-news-screening</code></td>
+        <td>b71c401</td>
+        <td>feat(assessments): add negative news to the grading policy</td>
+        <td>Agrega noticias negativas a <code style="white-space:normal; overflow-wrap:anywhere;">points-v3</code> y reutiliza la búsqueda por pagador durante siete días.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>8b132d5</td>
+        <td>Merge pull request #3 from liquilabshq/feature/sanctions-and-credit-bureau</td>
+        <td>Integra las listas de sanciones y el buró de crédito simulado.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>sanctions-and-credit-bureau</code></td>
+        <td>927910f</td>
+        <td>feat(assessments): grade with sanctions and a simulated credit bureau</td>
+        <td>Agrega los factores de sanciones y del buró simulado a <code style="white-space:normal; overflow-wrap:anywhere;">points-v2</code>.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>sanctions-and-credit-bureau</code></td>
+        <td>95d64e1</td>
+        <td>feat(registries): load SUNAT, OECE and OEFA sanction lists</td>
+        <td>Carga las listas de SUNAT, OECE y OEFA y conserva sus versiones.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>5efac38</td>
+        <td>Merge pull request #2 from liquilabshq/feature/sunat-registry-scoring</td>
+        <td>Integra la evaluación con padrones de SUNAT y el rechazo de facturas no elegibles.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>sunat-registry-scoring</code></td>
+        <td>7d01437</td>
+        <td>feat(assessments): grade payers with points from SUNAT and reject ineligible invoices</td>
+        <td>Reemplaza la calificación provisional por una política de puntos que conserva los factores y motivos de rechazo.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>sunat-registry-scoring</code></td>
+        <td>1041c82</td>
+        <td>feat(registries): keep a local copy of SUNAT's registries</td>
+        <td>Mantiene en PostgreSQL una copia de los padrones de contribuyentes y de agentes de retención y percepción.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code></td>
+        <td>91ef86a</td>
+        <td>Merge pull request #1 from liquilabshq/feature/risk-assessment-skeleton</td>
+        <td>Integra el flujo inicial de evaluación y entrega de la nota a Investment.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>risk-assessment-skeleton</code></td>
+        <td>f89d511</td>
+        <td>ci: lint, type check and test on every push and pull request</td>
+        <td>Configura Ruff, mypy, pytest y la generación de SQL de las migraciones en GitHub Actions.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>risk-assessment-skeleton</code></td>
+        <td>826349c</td>
+        <td>feat(assessments): consume AuctionCreated and deliver evaluations to investment</td>
+        <td>Consume <code style="white-space:normal; overflow-wrap:anywhere;">AuctionCreated</code> y envía la evaluación a Investment.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>risk-assessment-skeleton</code></td>
+        <td>437e9b2</td>
+        <td>feat(assessments): persist assessments, processed events and dead letters</td>
+        <td>Persiste evaluaciones, eventos procesados y mensajes fallidos.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>risk-assessment-skeleton</code></td>
+        <td>b1d547d</td>
+        <td>feat(assessments): add risk assessment domain model</td>
+        <td>Define el agregado de evaluación y las reglas de su entrega.</td>
+        <td>14/10/2026</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 #### 5.2.5.4. Testing Suite Evidence for Sprint Review
+
+Las pruebas del Risk Service usan **pytest** y **pytest-asyncio**. Las reglas de dominio y los servicios se prueban con dobles en memoria. Las pruebas de los adaptadores HTTP simulan las respuestas y las de las rutas envían peticiones a FastAPI en el mismo proceso. Los archivos JSON de `tests/contracts/` se usan para comprobar el formato de los eventos.
+
+El 19/11/2026 se ejecutó la suite de `develop` en el commit `3b9a3a8`, con Python 3.12 y las dependencias de `uv.lock`. Se aprobaron **330 casos en 31 archivos de prueba**, sin fallos ni omisiones.
+
+```text
+330 passed in 10.45s
+```
+
+El workflow de GitHub Actions está configurado para ejecutar `uv run pytest` en los *pushes* y *pull requests* dirigidos a `main` y `develop`, junto con Ruff, mypy y la generación de SQL de las migraciones de Alembic. [Workflow de CI](https://github.com/liquilabshq/vankoo-risk-service/blob/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/.github/workflows/ci.yml)
+
+**Repositorio y ubicación de las pruebas**
+
+<div style="font-size:80%;">
+  <table border="1" cellspacing="0" cellpadding="5" style="display:table; width:100%; max-width:100%; table-layout:fixed; border-collapse:collapse; overflow-wrap:anywhere; white-space:normal; line-height:1.25;">
+    <colgroup>
+      <col style="width:27%">
+      <col style="width:20%">
+      <col style="width:53%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Repository</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Testing Scope</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">liquilabshq/<wbr>vankoo-risk-service</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">develop</code> (<code style="white-space:normal; overflow-wrap:anywhere;">3b9a3a8</code>)</td>
+        <td><a href="https://github.com/liquilabshq/vankoo-risk-service/tree/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/tests/unit">Suite de pruebas</a> en <code style="white-space:normal; overflow-wrap:anywhere;">tests/<wbr>unit/</code> y <a href="https://github.com/liquilabshq/vankoo-risk-service/tree/3b9a3a8f15671ce8ba32bb3f7dbe46b58be2b57d/tests/contracts">ejemplos JSON</a> en <code style="white-space:normal; overflow-wrap:anywhere;">tests/<wbr>contracts/</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+**Unit Tests del Risk Service**
+
+Las rutas de la tabla son relativas a `tests/unit/`. El recuento incluye los casos parametrizados.
+
+<div style="font-size:80%;">
+  <table border="1" cellspacing="0" cellpadding="5" style="display:table; width:100%; max-width:100%; table-layout:fixed; border-collapse:collapse; overflow-wrap:anywhere; white-space:normal; line-height:1.25;">
+    <colgroup>
+      <col style="width:27%">
+      <col style="width:19%">
+      <col style="width:9%">
+      <col style="width:45%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Test Suite</th>
+        <th scope="col">Related Class / Component</th>
+        <th scope="col">Casos</th>
+        <th scope="col">Validated Behavior</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">assessments/<wbr>domain/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_grading_policy.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_risk_assessment.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_value_objects.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">PointsGradingPolicy</code>, <code style="white-space:normal; overflow-wrap:anywhere;">RiskAssessment</code> y objetos de valor</td>
+        <td style="text-align:right;">72</td>
+        <td>Filtros de elegibilidad, bandas A/B/C, factores de puntaje, validación de datos y reintentos de entrega (<code style="white-space:normal; overflow-wrap:anywhere;">TS04</code>, <code style="white-space:normal; overflow-wrap:anywhere;">US02</code>).</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">assessments/<wbr>application/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_services.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_green.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">RiskAssessmentApplicationService</code></td>
+        <td style="text-align:right;">23</td>
+        <td>Evaluación idempotente, persistencia y entrega del resultado o rechazo a Investment, caché de noticias y adjunto del certificado verde (<code style="white-space:normal; overflow-wrap:anywhere;">TS04</code>, <code style="white-space:normal; overflow-wrap:anywhere;">US02</code>, <code style="white-space:normal; overflow-wrap:anywhere;">US10</code>).</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">assessments/<wbr>infrastructure/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_clients.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_credit_bureau.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_news.py</code></td>
+        <td>Cliente REST de Investment, <code style="white-space:normal; overflow-wrap:anywhere;">SimulatedCreditBureau</code> y <code style="white-space:normal; overflow-wrap:anywhere;">OpenAINewsScreener</code></td>
+        <td style="text-align:right;">22</td>
+        <td>Formato de evaluación y rechazo, manejo de errores HTTP, estabilidad del buró simulado y filtrado de hallazgos con respuestas simuladas.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">assessments/<wbr>interfaces/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_consumers.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_messages.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_routes.py</code></td>
+        <td>Consumidor de subastas, parser de eventos y rutas FastAPI</td>
+        <td style="text-align:right;">29</td>
+        <td>Procesamiento de <code style="white-space:normal; overflow-wrap:anywhere;">AuctionCreated</code>, omisión de eventos de resultado, mensajes inválidos, consulta de la evaluación propia, respuesta <code style="white-space:normal; overflow-wrap:anywhere;">401</code> sin <code style="white-space:normal; overflow-wrap:anywhere;">X-User-Id</code> y <code style="white-space:normal; overflow-wrap:anywhere;">404</code> para una subasta ajena.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">registries/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_parsers.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_refresh.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_sanction_parsers.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">RegistryRefreshService</code> y lectores de padrones y sanciones</td>
+        <td style="text-align:right;">31</td>
+        <td>Lectura de registros de SUNAT, OECE y OEFA, control de versiones y actualización programada.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">sustainability/<wbr>domain/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_green_certification.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_policy.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">GreenCertification</code> y <code style="white-space:normal; overflow-wrap:anywhere;">GreenCertificationPolicy</code></td>
+        <td style="text-align:right;">36</td>
+        <td>Estándar ISO aceptado, titular, vigencia, condición ambiental y registro de cada comprobación (<code style="white-space:normal; overflow-wrap:anywhere;">US10</code>).</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">sustainability/<wbr>application/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_services.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">GreenCertificationApplicationService</code> y <code style="white-space:normal; overflow-wrap:anywhere;">GreenCertificationQueryService</code></td>
+        <td style="text-align:right;">15</td>
+        <td>Decisión única por envío, cambios en la vigencia de la condición verde y registro del evento saliente (<code style="white-space:normal; overflow-wrap:anywhere;">US10</code>).</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">sustainability/<wbr>infrastructure/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_documents.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_publisher.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_reader.py</code></td>
+        <td>Adaptadores de archivos, lector y publicador verde</td>
+        <td style="text-align:right;">15</td>
+        <td>Descarga, validación de archivos, respuestas simuladas de OpenAI y formato de <code style="white-space:normal; overflow-wrap:anywhere;">GreenCertificationIssued</code>.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">sustainability/<wbr>interfaces/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_consumers.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_messages.py</code></td>
+        <td>Consumidor y parser de certificados</td>
+        <td style="text-align:right;">14</td>
+        <td>Lectura del contrato <code style="white-space:normal; overflow-wrap:anywhere;">SustainabilityCertificateSubmitted</code>, manejo de mensajes inválidos y reintentos.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">verification/<wbr>domain/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_company_verification.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_policy.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerification</code> y <code style="white-space:normal; overflow-wrap:anywhere;">KycPolicy</code></td>
+        <td style="text-align:right;">29</td>
+        <td>Reglas <code style="white-space:normal; overflow-wrap:anywhere;">kyc-v1</code> para verificar, rechazar o solicitar corrección y registro de las comprobaciones de la ficha RUC.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">verification/<wbr>application/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_services.py</code></td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationApplicationService</code></td>
+        <td style="text-align:right;">12</td>
+        <td>Idempotencia por solicitud, decisión con padrones disponibles, reintento ante fallas de descarga y registro de <code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationIssued</code>.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">verification/<wbr>infrastructure/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_documents.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_inspector.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_publisher.py</code></td>
+        <td>Descarga, <code style="white-space:normal; overflow-wrap:anywhere;">PdfRucDocumentInspector</code> y publicador KYC</td>
+        <td style="text-align:right;">17</td>
+        <td>Lectura de fichas, verificación de firmas con certificados de prueba, detección de modificaciones al PDF y formato del evento de decisión.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">verification/<wbr>interfaces/</code> <code style="white-space:normal; overflow-wrap:anywhere;">test_consumers.py</code>, <code style="white-space:normal; overflow-wrap:anywhere;">test_messages.py</code></td>
+        <td>Consumidor y parser de solicitudes KYC</td>
+        <td style="text-align:right;">12</td>
+        <td>Lectura del contrato <code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationRequested</code>, omisión de otros eventos, manejo de mensajes inválidos y reintentos.</td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">test_outbox_relay.py</code></td>
+        <td>Relay del outbox</td>
+        <td style="text-align:right;">3</td>
+        <td>Publicación en orden, marcado de mensajes enviados y espera creciente tras un fallo.</td>
+      </tr>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td></td>
+        <td style="text-align:right;"><strong>330</strong></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+**Commits relacionados con Testing**
+
+<div style="font-size:80%;">
+  <table border="1" cellspacing="0" cellpadding="5" style="display:table; width:100%; max-width:100%; table-layout:fixed; border-collapse:collapse; overflow-wrap:anywhere; white-space:normal; line-height:1.25;">
+    <colgroup>
+      <col style="width:13%">
+      <col style="width:17%">
+      <col style="width:9%">
+      <col style="width:24%">
+      <col style="width:26%">
+      <col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Repository</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Commit Id</th>
+        <th scope="col">Commit Message</th>
+        <th scope="col">Commit Message Body</th>
+        <th scope="col">Committed on (Date)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>mype-risk-assessment</code></td>
+        <td>f623285</td>
+        <td>feat(assessments): let a MYPE read the risk assessment of its own auction</td>
+        <td>Expone la nota, el puntaje, los factores y el motivo de rechazo en la ruta de la MYPE.</td>
+        <td>03/11/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">fix/<wbr>ignore-risk-outcome-events</code></td>
+        <td>39f936e</td>
+        <td>fix(assessments): ignore AuctionEvaluated and AuctionRejected</td>
+        <td>Reconoce los dos eventos de resultado del ciclo de la subasta y los omite sin enviarlos a la cola de mensajes fallidos.</td>
+        <td>02/11/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>b4061c9</td>
+        <td>feat: consume Profile's verification requests</td>
+        <td>Consume <code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationRequested</code> en un grupo Kafka propio y activa el envío del resultado.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>bb44339</td>
+        <td>feat(verification): decide on each verification request and tell Profile</td>
+        <td>Guarda la decisión, el evento procesado y <code style="white-space:normal; overflow-wrap:anywhere;">CompanyVerificationIssued</code> en una misma transacción.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>a8736c1</td>
+        <td>feat(verification): verify the ficha RUC's SUNAT signature offline</td>
+        <td>Valida la firma del PDF y extrae los datos de la ficha para aplicar las reglas KYC.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>d1901c8</td>
+        <td>feat(verification): check a MYPE's KYC under the kyc-v1 rules</td>
+        <td>Agrega <code style="white-space:normal; overflow-wrap:anywhere;">kyc-v1</code> para decidir la verificación o solicitar una corrección de los datos de la MYPE.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>company-verification</code></td>
+        <td>76f8ac7</td>
+        <td>refactor(shared): share name normalization and bucket downloads</td>
+        <td>Reutiliza la normalización de nombres y la descarga de documentos de Profile.</td>
+        <td>29/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>0ad0b60</td>
+        <td>feat: start the profile consumer and the outbox relay</td>
+        <td>Arranca el consumidor de Profile y el relay del outbox, con comprobaciones de disponibilidad.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>4359a31</td>
+        <td>feat(assessments): send the MYPE's green certificate with the grade</td>
+        <td>Adjunta <code style="white-space:normal; overflow-wrap:anywhere;">greenCertification</code> a la evaluación elegible cuando la MYPE tiene un certificado vigente y cumple las reglas.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>0c6f7a1</td>
+        <td>feat(sustainability): consume Profile's certificate submissions</td>
+        <td>Consume <code style="white-space:normal; overflow-wrap:anywhere;">SustainabilityCertificateSubmitted</code> y envía los mensajes inválidos al registro de mensajes fallidos.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>7586375</td>
+        <td>feat(sustainability): read certificates with OpenAI and store the decisions</td>
+        <td>Descarga y lee certificados ambientales con OpenAI y persiste la decisión por envío.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>784105f</td>
+        <td>feat(sustainability): decide on each certificate a MYPE uploads</td>
+        <td>Evalúa el certificado con los datos de SUNAT y OEFA y encola <code style="white-space:normal; overflow-wrap:anywhere;">GreenCertificationIssued</code> para Profile.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>c93a0df</td>
+        <td>feat(sustainability): model the green decision on a MYPE's certificate</td>
+        <td>Modela las comprobaciones de <code style="white-space:normal; overflow-wrap:anywhere;">green-v1</code> para certificados ISO 14001 e ISO 50001.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>green-certification</code></td>
+        <td>e4c67c6</td>
+        <td>feat(shared): add a transactional outbox and its Kafka relay</td>
+        <td>Persiste los eventos salientes con el cambio que anuncian y delega su publicación en Kafka a un relay con reintentos.</td>
+        <td>17/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>negative-news-screening</code></td>
+        <td>109b2bc</td>
+        <td>fix(assessments): decide news severity from the category and skip registry pages</td>
+        <td>Deriva la gravedad de la categoría y excluye fuentes ya consideradas por los padrones.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>negative-news-screening</code></td>
+        <td>7f4a51b</td>
+        <td>test: cover news screening, its cache and points-v3</td>
+        <td>Prueba los factores de noticias, la caché, las respuestas inválidas y el adaptador de búsqueda con respuestas simuladas.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>sanctions-and-credit-bureau</code></td>
+        <td>abbcf5d</td>
+        <td>test: cover the sanction lists, points-v2 and the simulated bureau</td>
+        <td>Prueba la lectura de listas de sanciones, los factores de <code style="white-space:normal; overflow-wrap:anywhere;">points-v2</code> y la estabilidad del buró simulado.</td>
+        <td>15/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>sunat-registry-scoring</code></td>
+        <td>055629a</td>
+        <td>test: cover the points policy, the rejection path and the registries</td>
+        <td>Prueba los filtros de elegibilidad, las bandas de puntaje, la entrega del rechazo y la actualización de padrones.</td>
+        <td>14/10/2026</td>
+      </tr>
+      <tr>
+        <td>liquilabshq/<wbr>vankoo-risk-service</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">feature/<wbr>risk-assessment-skeleton</code></td>
+        <td>506441a</td>
+        <td>test(assessments): cover the domain, use cases, contract parser, client and consumer</td>
+        <td>Agrega la suite inicial del dominio, los casos de uso, el formato de mensajes, el cliente REST y el consumidor.</td>
+        <td>14/10/2026</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 #### 5.2.5.5. Execution Evidence for Sprint Review
 
+La evidencia de ejecución presenta la consulta de la evaluación de riesgo desde la **Web Application para MYPE**. El recorrido parte del listado de facturas y termina en el detalle del comprobante, donde la MYPE puede consultar la calificación del pagador, el puntaje y los factores que influyeron en el resultado. La demostración se ejecutó en el entorno local con datos simulados del frontend.
+
+En el módulo **Facturas**, la MYPE identifica el comprobante `F001-00000125` del pagador **Comercial del Pacífico S.A.C.**. El listado muestra su estado **Aprobada**, la fecha de vencimiento y el importe de **S/ 23,600.00**. Al seleccionar la factura se abre su detalle.
+
+![MYPE Web en tema claro con el listado de facturas y el comprobante aprobado F001-00000125](./assets/cap5-product-implementation/sprint-5/execution-evidence/mype-listado-facturas-tema-claro.png)
+
+El detalle muestra el estado de la factura, la oferta de adelanto y el panel **Evaluación de riesgo**. En el caso de demostración, la calificación **A** se obtiene con **90 puntos**. El desglose muestra una base de 70 puntos y dos factores simulados de 10 puntos cada uno, asociados a la condición del pagador y a su historial de pagos. El panel identifica la evaluación como provisional.
+
+![Detalle de la factura en tema claro con la calificación A, el puntaje y los factores de riesgo](./assets/cap5-product-implementation/sprint-5/execution-evidence/mype-evaluacion-riesgo-demo.png)
+
 #### 5.2.5.6. Services Documentation Evidence for Sprint Review
+
+El **Risk Service** publica su contrato REST mediante **OpenAPI 3.1** y lo presenta en **Swagger UI**. Para la revisión del Sprint 5 se verificaron en el entorno local las dos consultas de evaluación de riesgo y las dos operaciones de salud. La consulta para la MYPE devuelve la decisión y sus factores. La consulta interna incorpora además los datos de certificación ambiental y el estado de entrega de la decisión al Investment Service. Las evaluaciones se generan al consumir el evento `AuctionCreated` de Kafka.
+
+**Risk Service — Evaluación de riesgo y salud del servicio**
+
+URL del repositorio · [https://github.com/liquilabshq/vankoo-risk-service](https://github.com/liquilabshq/vankoo-risk-service)
+
+Documentación local (Swagger UI) · `http://localhost:8000/docs`
+
+Especificación OpenAPI · `http://localhost:8000/openapi.json`
+
+El commit `f623285` registra la operación de consulta para la MYPE y su esquema de respuesta. La versión utilizada en la demostración corresponde a `3b9a3a8` en `develop`.
+
+<div style="font-size:80%;">
+  <table border="1" cellspacing="0" cellpadding="5" style="display:table; width:100%; max-width:100%; table-layout:fixed; border-collapse:collapse; overflow-wrap:anywhere; white-space:normal; line-height:1.25;">
+    <colgroup>
+      <col style="width:14%">
+      <col style="width:15%">
+      <col style="width:7%">
+      <col style="width:15%">
+      <col style="width:14%">
+      <col style="width:24%">
+      <col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Endpoint</th>
+        <th scope="col">Acción implementada</th>
+        <th scope="col">Verbo HTTP</th>
+        <th scope="col">Sintaxis de llamada</th>
+        <th scope="col">Parámetros</th>
+        <th scope="col">Ejemplo y explicación del response</th>
+        <th scope="col">Enlace a la documentación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">/api/<wbr>v1/<wbr>mype/<wbr>risk-assessments/<wbr>{auction_id}</code></td>
+        <td>Consultar la evaluación de una subasta de la MYPE autenticada.</td>
+        <td>GET</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">GET http://<wbr>localhost:<wbr>8000/<wbr>api/<wbr>v1/<wbr>mype/<wbr>risk-assessments/<wbr>{auction_id}</code> con el encabezado <code style="white-space:normal; overflow-wrap:anywhere;">X-User-Id</code>.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">auction_id</code> en la ruta y <code style="white-space:normal; overflow-wrap:anywhere;">X-User-Id</code> en el encabezado. A través del API Gateway se envía el JWT y el gateway incorpora el identificador de la MYPE. Sin cuerpo.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">200 OK</code> incluye <code style="white-space:normal; overflow-wrap:anywhere;">eligible: true</code>, <code style="white-space:normal; overflow-wrap:anywhere;">risk_grade: "C"</code>, <code style="white-space:normal; overflow-wrap:anywhere;">score: null</code> y el factor <code style="white-space:normal; overflow-wrap:anywhere;">REGISTRY_UNAVAILABLE</code> en el caso de prueba. <code style="white-space:normal; overflow-wrap:anywhere;">400</code> indica un identificador inválido, <code style="white-space:normal; overflow-wrap:anywhere;">401</code> ausencia de identidad y <code style="white-space:normal; overflow-wrap:anywhere;">404</code> una evaluación inexistente o perteneciente a otra MYPE.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">http://<wbr>localhost:<wbr>8000/<wbr>docs</code></td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">/api/<wbr>v1/<wbr>risk-assessments/<wbr>{auction_id}</code></td>
+        <td>Consultar internamente la evaluación completa de la subasta y el estado de entrega al Investment Service.</td>
+        <td>GET</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">GET http://<wbr>localhost:<wbr>8000/<wbr>api/<wbr>v1/<wbr>risk-assessments/<wbr>{auction_id}</code>.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">auction_id</code> en la ruta. Sin cuerpo.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">200 OK</code> incluye la decisión, sus factores, <code style="white-space:normal; overflow-wrap:anywhere;">green_status: "NO_CERTIFICATE"</code> y <code style="white-space:normal; overflow-wrap:anywhere;">delivery_status: "PENDING"</code> en el caso de prueba. <code style="white-space:normal; overflow-wrap:anywhere;">400</code> indica un identificador inválido y <code style="white-space:normal; overflow-wrap:anywhere;">404</code> una evaluación inexistente.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">http://<wbr>localhost:<wbr>8000/<wbr>docs</code></td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">/health</code></td>
+        <td>Comprobar que el proceso del servicio está activo.</td>
+        <td>GET</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">GET http://<wbr>localhost:<wbr>8000/<wbr>health</code>.</td>
+        <td>Sin parámetros ni cuerpo.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">200 OK</code> devuelve <code style="white-space:normal; overflow-wrap:anywhere;">{"status":"UP","checks":{}}</code> y confirma que el proceso responde.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">http://<wbr>localhost:<wbr>8000/<wbr>docs</code></td>
+      </tr>
+      <tr>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">/health/<wbr>ready</code></td>
+        <td>Comprobar que el servicio está listo para operar con su base de datos y las tareas de segundo plano registradas.</td>
+        <td>GET</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">GET http://<wbr>localhost:<wbr>8000/<wbr>health/<wbr>ready</code>.</td>
+        <td>Sin parámetros ni cuerpo.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">200 OK</code> devuelve <code style="white-space:normal; overflow-wrap:anywhere;">status: "UP"</code> y el resultado de cada comprobación en <code style="white-space:normal; overflow-wrap:anywhere;">checks</code>. <code style="white-space:normal; overflow-wrap:anywhere;">503 Service Unavailable</code> indica que al menos una comprobación falló.</td>
+        <td><code style="white-space:normal; overflow-wrap:anywhere;">http://<wbr>localhost:<wbr>8000/<wbr>docs</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+**Consulta de evaluación para la MYPE**
+
+En Swagger UI se ingresaron el identificador de la subasta de prueba y el de la MYPE propietaria. El servicio procesó un evento `AuctionCreated` con datos ficticios y guardó la evaluación que se recuperó con `200 OK`. En esta ejecución local, el padrón de SUNAT estaba sin cargar, por lo que la política aplicó la calificación conservadora **C** y registró `REGISTRY_UNAVAILABLE` como factor explicativo.
+
+![Swagger UI con el identificador de la subasta y el encabezado de la MYPE propietaria](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-risk-assessment-parametros.png)
+
+![Respuesta 200 del Risk Service para la MYPE propietaria con la calificación C y su factor explicativo](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-risk-assessment-200.png)
+
+El esquema `MypeRiskAssessmentResponse` documenta los tipos y la nulabilidad de los campos que consume la aplicación. Al repetir la consulta de la misma subasta con el identificador de otra MYPE de prueba, el servicio devolvió `404 Not Found`. La respuesta aplica el mismo tratamiento a una subasta ajena y a una evaluación inexistente.
+
+![Esquema OpenAPI de MypeRiskAssessmentResponse en Swagger UI](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-esquema-evaluacion-mype.png)
+
+![Respuesta 404 al consultar la evaluación con el identificador de otra MYPE](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-mype-evaluacion-404.png)
+
+**Consulta interna de evaluación**
+
+La consulta interna se ejecutó con el mismo identificador de subasta. El resultado incluye la política de calificación, la situación de la certificación ambiental y los datos de seguimiento de entrega. El estado `PENDING` refleja que Investment Service no se encontraba activo en el entorno de demostración.
+
+![Swagger UI con el parámetro de subasta y la solicitud ejecutada para la consulta interna](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-consulta-interna-parametros.png)
+
+![Respuesta 200 de la consulta interna con la decisión y el estado de entrega a Investment](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-consulta-interna-200.png)
+
+**Salud y disponibilidad del servicio**
+
+La operación `/health` devolvió `UP` y confirmó que el proceso estaba activo. `/health/ready` también devolvió `200 OK` y registró como operativos la conexión a PostgreSQL, los consumidores de eventos, el relay del outbox y la tarea de entrega de evaluaciones.
+
+![Respuesta 200 de la comprobación de actividad del Risk Service](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-health-200.png)
+
+![Respuesta 200 de la comprobación de disponibilidad con el detalle de los componentes locales](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-readiness-200.png)
 
 #### 5.2.5.7. Software Deployment Evidence for Sprint Review
 
