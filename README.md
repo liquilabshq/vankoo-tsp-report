@@ -5703,7 +5703,7 @@ El Sprint Planning 5 define el alcance de la quinta iteración de Vankoo, del 06
 
 El Sprint Backlog 5 descompone las historias `US05`, `US08`, `US09` y `US11`. El objetivo es que el inversionista filtre en la aplicación móvil las subastas que se ajustan a su perfil, incluidas las de impacto positivo, y que su compra se rechace con un motivo claro cuando no respeta el ticket mínimo o el saldo pendiente de la subasta, sin que el monto quede retenido en su billetera; y que la corrección manual de datos de la MYPE quede cubierta por pruebas de aceptación. Las tareas `GEN-06` a `GEN-11` conectan los servicios desplegados en Azure a Event Hubs y añaden controles de seguridad, una cobertura mínima de pruebas, la validación de la infraestructura como código, la entrega continua del API Gateway y los manifiestos de Kubernetes, y `US07-T04` completa una pieza pendiente del Sprint 3. La consulta de las historias del sprint en Jira se presenta a continuación.
 
-<!-- Captura del Sprint Backlog 5 en Jira: assets/cap5-product-implementation/sprint-5/sprint-backlog/sprint-backlog.png -->
+![Sprint Backlog 5](assets/cap5-product-implementation/sprint-5/sprint-backlog/sprint-backlog.png)
 
 Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?jql=project%20%3D%20VANKOO%20AND%20key%20in%20(VANKOO-15%2C%20VANKOO-20%2C%20VANKOO-21%2C%20VANKOO-30)%20ORDER%20BY%20key%20ASC)
 
