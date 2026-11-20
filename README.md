@@ -5985,6 +5985,55 @@ El detalle muestra el estado de la factura, la oferta de adelanto y el panel **E
 
 #### 5.2.5.6. Services Documentation Evidence for Sprint Review
 
+El **Risk Service** publica su contrato REST mediante **OpenAPI 3.1** y lo presenta en **Swagger UI**. Para la revisión del Sprint 5 se verificaron en el entorno local las dos consultas de evaluación de riesgo y las dos operaciones de salud. La consulta para la MYPE devuelve la decisión y sus factores. La consulta interna incorpora además los datos de certificación ambiental y el estado de entrega de la decisión al Investment Service. Las evaluaciones se generan al consumir el evento `AuctionCreated` de Kafka.
+
+**Risk Service — Evaluación de riesgo y salud del servicio**
+
+URL del repositorio · [https://github.com/liquilabshq/vankoo-risk-service](https://github.com/liquilabshq/vankoo-risk-service)
+
+Documentación local (Swagger UI) · `http://localhost:8000/docs`
+
+Especificación OpenAPI · `http://localhost:8000/openapi.json`
+
+El commit `f623285` registra la operación de consulta para la MYPE y su esquema de respuesta. La versión utilizada en la demostración corresponde a `3b9a3a8` en `develop`.
+
+| Endpoint | Acción implementada | Verbo HTTP | Sintaxis de llamada | Parámetros | Ejemplo y explicación del response | Enlace a la documentación |
+|---|---|---|---|---|---|---|
+| `/api/v1/mype/risk-assessments/{auction_id}` | Consultar la evaluación de una subasta de la MYPE autenticada. | GET | `GET http://localhost:8000/api/v1/mype/risk-assessments/{auction_id}` con el encabezado `X-User-Id`. | `auction_id` en la ruta y `X-User-Id` en el encabezado. A través del API Gateway se envía el JWT y el gateway incorpora el identificador de la MYPE. Sin cuerpo. | `200 OK` incluye `eligible: true`, `risk_grade: "C"`, `score: null` y el factor `REGISTRY_UNAVAILABLE` en el caso de prueba. `400` indica un identificador inválido, `401` ausencia de identidad y `404` una evaluación inexistente o perteneciente a otra MYPE. | `http://localhost:8000/docs` |
+| `/api/v1/risk-assessments/{auction_id}` | Consultar internamente la evaluación completa de la subasta y el estado de entrega al Investment Service. | GET | `GET http://localhost:8000/api/v1/risk-assessments/{auction_id}`. | `auction_id` en la ruta. Sin cuerpo. | `200 OK` incluye la decisión, sus factores, `green_status: "NO_CERTIFICATE"` y `delivery_status: "PENDING"` en el caso de prueba. `400` indica un identificador inválido y `404` una evaluación inexistente. | `http://localhost:8000/docs` |
+| `/health` | Comprobar que el proceso del servicio está activo. | GET | `GET http://localhost:8000/health`. | Sin parámetros ni cuerpo. | `200 OK` devuelve `{"status":"UP","checks":{}}` y confirma que el proceso responde. | `http://localhost:8000/docs` |
+| `/health/ready` | Comprobar que el servicio está listo para operar con su base de datos y las tareas de segundo plano registradas. | GET | `GET http://localhost:8000/health/ready`. | Sin parámetros ni cuerpo. | `200 OK` devuelve `status: "UP"` y el resultado de cada comprobación en `checks`. `503 Service Unavailable` indica que al menos una comprobación falló. | `http://localhost:8000/docs` |
+
+**Consulta de evaluación para la MYPE**
+
+En Swagger UI se ingresaron el identificador de la subasta de prueba y el de la MYPE propietaria. El servicio procesó un evento `AuctionCreated` con datos ficticios y guardó la evaluación que se recuperó con `200 OK`. En esta ejecución local, el padrón de SUNAT estaba sin cargar, por lo que la política aplicó la calificación conservadora **C** y registró `REGISTRY_UNAVAILABLE` como factor explicativo.
+
+![Swagger UI con el identificador de la subasta y el encabezado de la MYPE propietaria](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-risk-assessment-parametros.png)
+
+![Respuesta 200 del Risk Service para la MYPE propietaria con la calificación C y su factor explicativo](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-risk-assessment-200.png)
+
+El esquema `MypeRiskAssessmentResponse` documenta los tipos y la nulabilidad de los campos que consume la aplicación. Al repetir la consulta de la misma subasta con el identificador de otra MYPE de prueba, el servicio devolvió `404 Not Found`. La respuesta aplica el mismo tratamiento a una subasta ajena y a una evaluación inexistente.
+
+![Esquema OpenAPI de MypeRiskAssessmentResponse en Swagger UI](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-esquema-evaluacion-mype.png)
+
+![Respuesta 404 al consultar la evaluación con el identificador de otra MYPE](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-mype-evaluacion-404.png)
+
+**Consulta interna de evaluación**
+
+La consulta interna se ejecutó con el mismo identificador de subasta. El resultado incluye la política de calificación, la situación de la certificación ambiental y los datos de seguimiento de entrega. El estado `PENDING` refleja que Investment Service no se encontraba activo en el entorno de demostración.
+
+![Swagger UI con el parámetro de subasta y la solicitud ejecutada para la consulta interna](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-consulta-interna-parametros.png)
+
+![Respuesta 200 de la consulta interna con la decisión y el estado de entrega a Investment](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-consulta-interna-200.png)
+
+**Salud y disponibilidad del servicio**
+
+La operación `/health` devolvió `UP` y confirmó que el proceso estaba activo. `/health/ready` también devolvió `200 OK` y registró como operativos la conexión a PostgreSQL, los consumidores de eventos, el relay del outbox y la tarea de entrega de evaluaciones.
+
+![Respuesta 200 de la comprobación de actividad del Risk Service](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-health-200.png)
+
+![Respuesta 200 de la comprobación de disponibilidad con el detalle de los componentes locales](./assets/cap5-product-implementation/sprint-5/services-documentation/swagger-readiness-200.png)
+
 #### 5.2.5.7. Software Deployment Evidence for Sprint Review
 
 #### 5.2.5.8. Team Collaboration Insights during Sprint
