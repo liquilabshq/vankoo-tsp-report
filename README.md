@@ -5872,6 +5872,22 @@ Enlace de la consulta: [*Ver en Jira*](https://liquilabs.atlassian.net/issues/?j
 
 #### 5.2.5.8. Team Collaboration Insights during Sprint
 
+A continuación, se presenta los insights durante este quinto sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo de la aplicación web y del microservicio de evaluación de riesgo.
+
+| Integrante | Usuario GitHub | Actividad en el Sprint |
+|---|---|---|
+| Amaro Villar, Anjali | njlmrvllr  | Avances de Risk Service |
+| Crispin Ramos, Daniel Franco | danielcr04  | Avances de Web Application |
+| Ramirez Mestanza, Salim Ignacio | salimramirez  | Web Application y Risk Service |
+| Sulca Gonzales, Paúl Fernando | Kyrubi  | Avances de Risk Service |
+| Vilca Saboya, Diego Alejandro | diesoks  | Avances de Web Application |
+
+**Web Application**
+![Contributors Web Application](./assets/cap5-product-implementation/sprint-5/collaboration-insights/web-contributors-sprint-5.png)
+
+**Risk Service**
+![Contributors Risk Service](./assets/cap5-product-implementation/sprint-5/collaboration-insights/risk-contributors-sprint-5.png)
+
 #### 5.2.5.9. Actas de reunión
 
 <hr class="page-break">
