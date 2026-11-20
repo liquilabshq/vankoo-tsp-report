@@ -5890,6 +5890,20 @@ A continuación, se presenta los insights durante este quinto sprint, donde se r
 
 #### 5.2.5.9. Actas de reunión
 
+A continuación, se presenta el registro de las reuniones sostenidas por el equipo durante el Sprint 5, detallando fecha, hora, lugar, asistentes, temas tratados y acuerdos alcanzados.
+
+**Acta de reunión 1**
+
+| Campo | Detalle |
+| :---: | :--- |
+| Fecha | Jueves 19 de noviembre de 2026 |
+| Hora | 6:33 p. m. |
+| Lugar | Discord |
+| Asistentes | Amaro Villar, Anjali; Ramirez Mestanza, Salim Ignacio; Crispin Ramos, Daniel Franco; Sulca Gonzales, Paúl Fernando; Vilca Saboya, Diego Alejandro |
+| Temas tratados | Revisión del cierre del Sprint 5: filtros del marketplace por calificación de riesgo, plazo, moneda, rendimiento e impacto positivo en el Investment Service y en la aplicación móvil, reglas de la compra de fracciones (ticket mínimo, saldo pendiente de la subasta y reversión del débito de la billetera en el Finance Service) y confirmación de la participación desde el Notification Service, pruebas de aceptación de la corrección manual de datos, conexión de los servicios desplegados en Azure a Event Hubs, controles de seguridad y de cobertura en la integración continua, y repartición de las secciones del informe del Sprint 5 |
+| Acuerdos | Preparar el Sprint Planning 6 con las historias restantes del MVP (US12, US13, US15 y US20) y agendar la próxima reunión de seguimiento |
+| Evidencia | ![Acta de reunión 1](./assets/cap5-product-implementation/sprint-5/actas-reunion/acta-reunion-01.png) |
+
 <hr class="page-break">
 
 # Capítulo VI: Team Software Process
