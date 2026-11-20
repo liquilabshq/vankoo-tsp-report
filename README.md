@@ -5911,8 +5911,6 @@ URL del repositorio: [vankoo-risk-service](https://github.com/liquilabshq/vankoo
 
 Las pruebas del Risk Service usan **pytest** y **pytest-asyncio**. Las reglas de dominio y los servicios se prueban con dobles en memoria. Las pruebas de los adaptadores HTTP simulan las respuestas y las de las rutas envían peticiones a FastAPI en el mismo proceso. Los archivos JSON de `tests/contracts/` se usan para comprobar el formato de los eventos.
 
-**Ejecución local**
-
 El 19/11/2026 se ejecutó la suite de `develop` en el commit `3b9a3a8`, con Python 3.12 y las dependencias de `uv.lock`. Se aprobaron **330 casos en 31 archivos de prueba**, sin fallos ni omisiones.
 
 ```text
@@ -5944,14 +5942,12 @@ Las rutas de la tabla son relativas a `tests/unit/`. El recuento incluye los cas
 | `sustainability/interfaces/` `test_consumers.py`, `test_messages.py` | Consumidor y parser de certificados | 14 | Lectura del contrato `SustainabilityCertificateSubmitted`, manejo de mensajes inválidos y reintentos. |
 | `verification/domain/` `test_company_verification.py`, `test_policy.py` | `CompanyVerification` y `KycPolicy` | 29 | Reglas `kyc-v1` para verificar, rechazar o solicitar corrección y registro de las comprobaciones de la ficha RUC. |
 | `verification/application/` `test_services.py` | `CompanyVerificationApplicationService` | 12 | Idempotencia por solicitud, decisión con padrones disponibles, reintento ante fallas de descarga y registro de `CompanyVerificationIssued`. |
-| `verification/infrastructure/` `test_documents.py`, `test_inspector.py`, `test_publisher.py` | Descarga, `PdfRucDocumentInspector` y publicador KYC | 17 | Lectura de fichas, validación local de firmas con certificados de prueba, detección de modificaciones al PDF y formato del evento de decisión. |
+| `verification/infrastructure/` `test_documents.py`, `test_inspector.py`, `test_publisher.py` | Descarga, `PdfRucDocumentInspector` y publicador KYC | 17 | Lectura de fichas, verificación de firmas con certificados de prueba, detección de modificaciones al PDF y formato del evento de decisión. |
 | `verification/interfaces/` `test_consumers.py`, `test_messages.py` | Consumidor y parser de solicitudes KYC | 12 | Lectura del contrato `CompanyVerificationRequested`, omisión de otros eventos, manejo de mensajes inválidos y reintentos. |
 | `test_outbox_relay.py` | Relay del outbox | 3 | Publicación en orden, marcado de mensajes enviados y espera creciente tras un fallo. |
 | **Total** | | **330** | |
 
 **Commits relacionados con Testing**
-
-Los commits corresponden a cambios en los archivos de prueba del Risk Service durante el Sprint 4.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |---|---|---|---|---|---|
