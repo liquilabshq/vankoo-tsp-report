@@ -6608,6 +6608,63 @@ La operación `/health` devolvió `UP` y confirmó que el proceso estaba activo.
 
 #### 5.2.5.7. Software Deployment Evidence for Sprint Review
 
+En el Sprint 5 el despliegue se centró en dos acuerdos de la retrospectiva del Sprint 4: llevar a Azure la comunicación por eventos que hasta entonces solo funcionaba en el entorno local, y reforzar los pipelines con controles de calidad antes de cada entrega. Todo el trabajo se mantiene en el grupo de recursos `liquilabs-vankoo`, sobre el mismo Container Apps Environment, Container Registry e identidad de despliegue de los sprints anteriores.
+
+![Grupo de recursos liquilabs-vankoo con los servicios desplegados](./assets/cap5-product-implementation/sprint-5/deployment-evidence/01-azure-resource-group.png)
+
+**1) Mensajería en Azure con Event Hubs**
+
+En el entorno local los servicios se comunican por el Kafka del `docker-compose`. En Azure ese papel lo cumple la nueva capa `messaging` de Vankoo Infra, que crea con Terraform un namespace de **Azure Event Hubs**. Event Hubs habla el protocolo de Kafka, por lo que los servicios usan el mismo cliente y solo cambian la dirección del broker y la autenticación.
+
+| Kafka (docker-compose) | Event Hubs (Azure) |
+|---|---|
+| Broker `kafka-broker:9094` | Namespace `vankoo-events-<sufijo>.servicebus.windows.net:9093` |
+| Topic | Event hub con el mismo nombre |
+| Sin autenticación (PLAINTEXT) | TLS + SASL PLAIN con la cadena de conexión de cada servicio |
+| Los topics se crean al publicar | Los crea Terraform; los clientes no pueden crearlos |
+
+La capa usa el nivel Standard con una unidad de rendimiento, el más económico que ofrece el endpoint de Kafka, y define diez event hubs: siete de eventos de negocio y tres colas de mensajes fallidos (*dead-letter*) para Invoicing e Investment. Cada servicio recibe una regla de acceso propia, con permiso para enviar y escuchar pero no para administrar, y su cadena de conexión llega a la Container App como el secreto `kafka-connection-string`. La capa ya incluye la conexión de Profile, que recibe su cadena de conexión con `KAFKA_ENABLED=true` y TLS + SASL, y en las integraciones siguientes se sumaron IAM e Invoicing. Con ello queda resuelto en Terraform el pendiente del Sprint 4 de que Profile reciba el evento de registro de IAM también en la nube.
+
+![Capa messaging de Terraform: topics, reglas de acceso, namespace de Event Hubs y event hubs](./assets/cap5-product-implementation/sprint-5/deployment-evidence/06-terraform-messaging.png)
+
+Como Event Hubs cobra por hora aunque no tenga tráfico y no puede pausarse, los scripts de operación lo tratan como un recurso de demostración: `azure-deploy.sh` comprueba el proveedor `Microsoft.EventHub` y aplica la capa antes de las aplicaciones, y `azure-stop.sh` la elimina al detener el entorno, conservando los datos de los servicios. Por eso la capa se aplica al levantar el entorno completo y no permanece en el grupo de recursos, como se indica en el propio pull request.
+
+![Pull request de la capa de mensajería con Azure Event Hubs](./assets/cap5-product-implementation/sprint-5/deployment-evidence/02-event-hubs-pull-request.png)
+
+**2) Entrega continua de IAM e Invoicing con la conexión a Event Hubs**
+
+Los cambios de IAM e Invoicing para conectarse a Event Hubs llegaron a Azure sin despliegues manuales. Al integrar los cambios en la rama `develop`, el pipeline de cada servicio ejecutó las pruebas, construyó la imagen, la publicó en el Container Registry y actualizó la Container App mediante el workflow reutilizable `deliver-container-app.yml` de Vankoo Infra, autenticándose con OIDC como la identidad `vankoo-github-ci`.
+
+| Servicio | Jobs del pipeline | Resultado |
+|---|---|---|
+| IAM Service | Build, test and coverage → Build and publish image → Deploy to development | [Exitoso](https://github.com/liquilabshq/vankoo-iam-service/actions/runs/42135403177) |
+| Invoicing Service | Build, test and coverage → Lint (dotnet format) → SonarCloud analysis → Build and publish image → Deploy to development | [Exitoso](https://github.com/liquilabshq/vankoo-invoicing-service/actions/runs/42135234012) |
+
+![Pipeline de IAM desplegando la conexión a Event Hubs](./assets/cap5-product-implementation/sprint-5/deployment-evidence/03-iam-pipeline-run.png)
+
+![Pipeline de Invoicing desplegando la conexión a Event Hubs](./assets/cap5-product-implementation/sprint-5/deployment-evidence/04-invoicing-pipeline-run.png)
+
+En ambos casos el job de despliegue solo termina en verde si la nueva revisión arranca y supera sus sondas de salud; si no, el tráfico se mantiene en la revisión anterior.
+
+**3) Validación de la infraestructura como código**
+
+Para que un error en Terraform no llegue al momento del despliegue, se agregó a Vankoo Infra el workflow `terraform-validate.yml`, que se ejecuta en cada pull request que modifica la carpeta `terraform/`:
+
+1. `terraform fmt -check -recursive` comprueba el formato de todo el código.
+2. Por cada capa (`core`, `base`, `data`, `apps`, `functions` y `messaging`) ejecuta `terraform init -backend=false` y `terraform validate`.
+3. `tflint` revisa cada capa y bloquea solo ante errores; las advertencias quedan en el registro de la ejecución.
+
+La primera ejecución validó las seis capas sin errores ([ver ejecución](https://github.com/liquilabshq/vankoo-infra/actions/runs/43830329514)).
+
+![Validación de Terraform en el pipeline de Vankoo Infra](./assets/cap5-product-implementation/sprint-5/deployment-evidence/05-terraform-validate-run.png)
+
+**4) Preparación para la entrega final**
+
+Quedaron en revisión, como pull requests, dos piezas que extienden el despliegue para el cierre del proyecto:
+
+- **Entrega continua del API Gateway** ([vankoo-api-gateway#15](https://github.com/liquilabshq/vankoo-api-gateway/pull/15)): el gateway pasa a desplegarse desde su propio pipeline con el mismo esquema de IAM, Invoicing y Profile. La identidad `vankoo-github-ci` ya cuenta con sus credenciales federadas y con el rol Colaborador solo sobre la Container App del gateway, y Terraform deja de administrar su imagen para no revertir lo que publique el pipeline ([vankoo-infra#34](https://github.com/liquilabshq/vankoo-infra/pull/34)).
+- **Manifiestos de Kubernetes** ([vankoo-infra#36](https://github.com/liquilabshq/vankoo-infra/pull/36)): manifiestos de Kustomize para los nueve microservicios y sus almacenes, con despliegues sin interrupción (`RollingUpdate`), sondas de salud, límites de recursos, escalado horizontal de una a tres réplicas al 70 % de CPU y políticas de red en las que solo el gateway recibe tráfico externo. En un clúster local con kind se verificó el registro, el inicio de sesión y la creación de la empresa en Profile a partir del evento de IAM.
+
 #### 5.2.5.8. Team Collaboration Insights during Sprint
 
 A continuación, se presenta los insights durante este quinto sprint, donde se refleja la colaboración de todo el equipo en cuanto al desarrollo de la aplicación web y del microservicio de evaluación de riesgo.
