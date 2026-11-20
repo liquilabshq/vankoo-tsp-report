@@ -83,6 +83,8 @@
 | 1.9.0   | 2026-10-13 | Todos los integrantes            | Sprint 3 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue, collaboration insights y actas de reunión) y actualización del Student Outcome con las acciones y conclusiones de la TP1. |
 | 1.10.0  | 2026-10-14 | Ramirez Mestanza, Salim Ignacio | Capítulo VI: procesos del equipo modelados en BPMN (ciclo TSP sobre los sprints, plan de pruebas del sprint e integración y pase a producción), normas aplicables (ISO/IEC/IEEE 12207:2026 con conformidad adaptada y controles del Anexo A de la NTP-ISO/IEC 27001:2022) y métricas de calidad del equipo, con su estado de adopción. Enlaces del Sprint 3 en el TSP Launch Overview. |
 | 1.11.0  | 2026-11-05 | Todos los integrantes            | Sprint 4 (planning, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue de Profile e Investment en Azure, collaboration insights y actas de reunión), estilo APA 7 en tablas y encabezados, y actualización del Student Outcome con las acciones y conclusiones de la TB3. |
+| 1.12.0  | 2026-11-19 | Todos los integrantes            | Sprint 5 (planning, backlog con la consulta de Jira, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue, collaboration insights y actas de reunión), con las historias del MVP reservadas para el Sprint 6. |
+| 1.13.0  | 2026-11-19 | Todos los integrantes            | Actualización del Student Outcome con las acciones y conclusiones de la TB4, y corrección de las etiquetas de las entregas anteriores (TP1 y TB3) en el Student Outcome y en el Registro de Versiones. |
 
 <hr class="page-break">
 
