@@ -5973,6 +5973,16 @@ Las rutas de la tabla son relativas a `tests/unit/`. El recuento incluye los cas
 
 #### 5.2.5.5. Execution Evidence for Sprint Review
 
+La evidencia de ejecución presenta la consulta de la evaluación de riesgo desde la **Web Application para MYPE**. El recorrido parte del listado de facturas y termina en el detalle del comprobante, donde la MYPE puede consultar la calificación del pagador, el puntaje y los factores que influyeron en el resultado. La demostración se ejecutó en el entorno local con datos simulados del frontend.
+
+En el módulo **Facturas**, la MYPE identifica el comprobante `F001-00000125` del pagador **Comercial del Pacífico S.A.C.**. El listado muestra su estado **Aprobada**, la fecha de vencimiento y el importe de **S/ 23,600.00**. Al seleccionar la factura se abre su detalle.
+
+![MYPE Web en tema claro con el listado de facturas y el comprobante aprobado F001-00000125](./assets/cap5-product-implementation/sprint-5/execution-evidence/mype-listado-facturas-tema-claro.png)
+
+El detalle muestra el estado de la factura, la oferta de adelanto y el panel **Evaluación de riesgo**. En el caso de demostración, la calificación **A** se obtiene con **90 puntos**. El desglose muestra una base de 70 puntos y dos factores simulados de 10 puntos cada uno, asociados a la condición del pagador y a su historial de pagos. El panel identifica la evaluación como provisional.
+
+![Detalle de la factura en tema claro con la calificación A, el puntaje y los factores de riesgo](./assets/cap5-product-implementation/sprint-5/execution-evidence/mype-evaluacion-riesgo-demo.png)
+
 #### 5.2.5.6. Services Documentation Evidence for Sprint Review
 
 #### 5.2.5.7. Software Deployment Evidence for Sprint Review
